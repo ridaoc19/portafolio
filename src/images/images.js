@@ -13,7 +13,7 @@ import construction from './icons/obrero.png'
 import html from './html.png';
 import css from './css.png';
 import sass from './sass.png';
-import javascript from './javascript.png';
+// import javascript from './javascript.png';
 import reactjs from './reactjs.png';
 import reactrouter from './reactrouter.png';
 import redux from './redux.png';
@@ -73,7 +73,7 @@ frontend: [
   {name:"html", image: html},
   {name:"css", image: css},
   {name:"sass", image: sass},
-  {name:"javascript", image: javascript},
+  // {name:"javascript", image: javascript},
   {name:"reactjs", image: reactjs},
   {name:"reactrouter", image: reactrouter},
   {name:"redux", image: redux},
