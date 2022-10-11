@@ -46,7 +46,7 @@ export default function LandingPage(props) {
             {images.frontend.map(e => <div key={e.name}> <img src={e.image} alt="im" /></div>)}
           </div>
           <div className={style.tecnologies_backend}>
-            {images.backend.map(e => <div key={e.name}> <img src={e.image} alt="im" /></div>)}
+            {images.backend.map(e => <div key={e.name}> <img src={e.image} alt="back" /></div>)}
           </div>
         </div>
 
