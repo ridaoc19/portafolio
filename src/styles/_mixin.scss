@@ -1,0 +1,14 @@
+
+  @mixin grid ($area, $columns, $rows) {
+    display: grid;
+
+    grid-template: {
+      columns: $columns;
+      rows: $rows;
+      areas: $area;
+    }
+
+  }
+
+
+  
