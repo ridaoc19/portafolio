@@ -9,7 +9,7 @@ export default function LandingPage(props) {
       <div className={style.landing_container} >
         <div className={style.header} >
           <div>
-          <img src={images.logo.image} alt="perfil" />
+            <img src={images.logo.image} alt="perfil" />
           </div>
           <h1> Bienvenido al Portafolio de Ricardo</h1>
         </div>
@@ -18,7 +18,7 @@ export default function LandingPage(props) {
           <h2>Un breve resumen sobre mi</h2>
           <p>
             Después de haber Trabajado durante 12 años en la {" "}
-            <a href="https://www.policia.gov.co/" target="_blanck">Policía Nacional de Colombia</a>,
+            <a href="https://www.policia.gov.co/" target="_blanck">Policía Nacional de Colombia</a>, en la <a href="https://www.policia.gov.co/oficinas-asesoras/telematica" target="_blanck">Oficina de telemática</a>, especialidad encargada de todo el componente Tecnologico de la Institucion,
             logre encontrar algo que me apasiona hacer día a día, gracias eso, usted esta
             el día de hoy observando mi portafolio
           </p>
@@ -36,9 +36,18 @@ export default function LandingPage(props) {
 
         <div className={style.income} >
           <p>
-            en el momento me encuentro actualizando el portafolio podrá ingresar al  <a href="https://portfolio-nine-beta-87.vercel.app/" target="_blanck"> portafolio anterior </a>
+            En el momento me encuentro actualizando el portafolio podrá ingresar al  <a href="https://portfolio-nine-beta-87.vercel.app/" target="_blanck"> portafolio anterior </a> ó si desea ingresar a los avances del que está  <Link to={"/about"}> en construcción</Link>
           </p>
-          <p> ó si desea ingresar a los avances del que está  <Link to={"/about"}> en construcción</Link></p>
+        </div>
+
+        <div className={style.tecnologies}>
+          <div className={style.tecnologies_frontend}>
+         
+            {images.frontend.map(e => <div key={e.name}> <img src={e.image} alt="im" /></div>)}
+          </div>
+          <div className={style.tecnologies_backend}>
+            {images.backend.map(e => <div key={e.name}> <img src={e.image} alt="im" /></div>)}
+          </div>
         </div>
 
       </div>

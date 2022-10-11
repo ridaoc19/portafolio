@@ -5,14 +5,15 @@
   @media (min-width: map.get($respons, "xs")) {
     grid-template: {
       columns: 5% 1fr 1fr 5%;
-      rows: 3% 1fr 1fr 1fr 1fr 3%;
+      rows: 3% 1fr 1fr 1fr 1fr 1fr 10%;
       areas:
         ".   .        .    ."
         ". header  header  ."
         ". main    main ."
         ". content    content ."
         ". income  income  ."
-        ".   .        .    .";
+        ".  tecnologies    tecnologies    ."
+        ".  . .   .";
     }
     
     gap: 5px;
@@ -39,20 +40,52 @@
 
     }
 
+    .tecnologies {
+      grid-area: tecnologies;
+      display: grid;
+      width: 100%;
+      grid-template-areas: "tecnologies_frontend" "tecnologies_backend";
+    }
+
+    .tecnologies_frontend{
+      grid-area: tecnologies_frontend;
+      display: flex;
+      align-self: center;
+      justify-self: center;
+      gap: 8px;
+
+      img{
+        width: 35px;
+      }
+    }
+
+    .tecnologies_backend{
+      grid-area: tecnologies_backend;
+      display: flex;
+      align-self: center;
+      justify-self: center;
+      gap: 8px;
+
+      img{
+        width: 35px;
+      }
+    }
+
 
   }
 
-  @media (min-width: map.get($respons, "sm")) {}
+  // @media (min-width: map.get($respons, "sm")) {}
 
   @media (min-width: map.get($respons, "md")) {
     grid-template: {
-      columns: 10% 50% 30% 10%;
-      rows: 10% auto auto auto 10%;
+      columns: 10% 40% 30% 20%;
+      rows: 10% auto auto auto auto 10%;
       areas:
         ".   .        .    ."
         ". header  header  ."
         ". main    content ."
         ". income  income  ."
+        ".   tecnologies tecnologies    ."
         ".   .        .    .";
     }
 
@@ -77,7 +110,37 @@
         grid-area: h1;
         text-align: center;
       }
+    }
 
+    .tecnologies {
+      grid-area: tecnologies;
+      display: grid;
+      width: 100%;
+      grid-template-areas: "tecnologies_frontend tecnologies_backend";
+    }
+
+    .tecnologies_frontend{
+      grid-area: tecnologies_frontend;
+      display: flex;
+      align-self: center;
+      justify-self: center;
+      gap: 8px;
+
+      img{
+        width: 35px;
+      }
+    }
+
+    .tecnologies_backend{
+      grid-area: tecnologies_backend;
+      display: flex;
+      align-self: center;
+      justify-self: center;
+      gap: 8px;
+
+      img{
+        width: 35px;
+      }
     }
 
   }
