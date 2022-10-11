@@ -10,9 +10,10 @@
 
   .main {
     grid-area: main;
+    display: grid;
+    grid-template-rows: 20% 60%;
 
     h2 {
-
       text-align: center;
     }
 
@@ -23,12 +24,26 @@
 
   .content {
     grid-area: content;
+    display: grid;
+    grid-template-rows: 20% 60%;
+
+    p{
+      text-align: center; 
+    }
+    ul{
+     display: grid;
+     align-content: space-evenly;
+    }
   }
 
   .income {
     grid-area: income;
   }
 
+  a {
+    color: map.get($color, "verde_claro"); 
+    text-decoration: none;
+  }
 
 
 }

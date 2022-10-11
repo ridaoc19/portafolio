@@ -1,6 +1,6 @@
 @use "sass:map";
 
-@mixin landing{
+@mixin landing {
 
   @media (min-width: map.get($respons, "xs")) {
     grid-template: {
@@ -14,43 +14,35 @@
         ". income  income  ."
         ".   .        .    .";
     }
-    .header {
-      grid-area: header;
-      display: flex;
-      flex-direction: column;
-      img{
-        width: 40px;
-        background: map.get($color, "verde_oscuro");
-        border-radius: 50px;
-      }
-    }
-
     
-  }
+    gap: 5px;
 
-  @media (min-width: map.get($respons, "sm")) {
-    grid-template: {
-      columns: 10% 50% 30% 10%;
-      rows: 10% 1fr 1fr 1fr 10%;
-      areas:
-        ".   .        .    ."
-        ". header  header  ."
-        ". main    content ."
-        ". income  income  ."
-        ".   .        .    .";
-    }
     .header {
       grid-area: header;
-      display: flex;
-      flex-direction: column;
-      img{
+      display: grid;
+      grid-template-areas: "img" "h1";
+      align-content: center;
+      justify-items: center;
+      gap: 3px;
+
+      img {
+        grid-area: img;
         width: 40px;
         background: map.get($color, "verde_oscuro");
         border-radius: 50px;
       }
+
+      h1 {
+        grid-area: h1;
+        text-align: center;
+      }
+
     }
 
+
   }
+
+  @media (min-width: map.get($respons, "sm")) {}
 
   @media (min-width: map.get($respons, "md")) {
     grid-template: {
@@ -62,19 +54,31 @@
         ". main    content ."
         ". income  income  ."
         ".   .        .    .";
-      }
-      gap: 20px;
+    }
 
-      .header {
-        grid-area: header;
-        display: flex;
-        flex-direction: row;
-        img{
-          width: 40px;
-          background: map.get($color, "verde_oscuro");
-          border-radius: 50px;
-        }
+    gap: 20px;
+
+    .header {
+      grid-area: header;
+      display: grid;
+      grid-template-areas: "img h1";
+      align-content: center;
+      justify-items: center;
+      gap: 5px;
+
+      img {
+        grid-area: img;
+        width: 40px;
+        background: map.get($color, "verde_oscuro");
+        border-radius: 50px;
       }
+
+      h1 {
+        grid-area: h1;
+        text-align: center;
+      }
+
+    }
 
   }
 }
