@@ -6,7 +6,8 @@
   @include landing();
   display: grid;
   height: 100vh;
-  // justify-items: center;
+  // max-height: 100vh;
+  justify-items: center;
 
   .main {
     grid-area: main;
@@ -26,6 +27,7 @@
     grid-area: content;
     display: grid;
     grid-template-rows: 20% 60%;
+    gap: 5px;
 
     h4{
       text-align: center; 
