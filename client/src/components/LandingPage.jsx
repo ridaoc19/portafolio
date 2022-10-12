@@ -15,7 +15,7 @@ export default function LandingPage(props) {
         </div>
 
         <div className={style.main} >
-          <h2>Un breve resumen sobre mi</h2>
+          <h3>Un breve resumen sobre mi</h3>
           <p>
             Después de haber Trabajado durante 12 años en la {" "}
             <a href="https://www.policia.gov.co/" target="_blanck">Policía Nacional de Colombia</a>, en la <a href="https://www.policia.gov.co/oficinas-asesoras/telematica" target="_blanck">Oficina de telemática</a>, especialidad encargada de todo el componente Tecnologico de la Institucion,
@@ -26,11 +26,11 @@ export default function LandingPage(props) {
         </div>
 
         <div className={style.content} >
-          <p>
+          <h4>
             Lo invito a ingresar, podrá encontrar lo siguiente:
-          </p>
+          </h4>
           <ul>
-            {images.title.map(e => <h4 className={clase} key={e.name}><img src={e.image} alt="icono" width={"15px"} />{e.name}</h4>)}
+            {images.title.map(e => <p className={clase} key={e.name}><img src={e.image} alt="icono" width={"15px"} />{e.name}</p>)}
           </ul>
         </div>
 
