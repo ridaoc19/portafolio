@@ -2,21 +2,15 @@ import style from '../styles/styles.module.scss';
 import images from '../images/images.js';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
-import { getIpClient } from '../redux/actions';
-import axios from 'axios'
+import { getClient } from '../redux/actions';
+import axios from "axios";
 
 export default function LandingPage(props) {
 
   useEffect(() => {
-    // getIpClient()
-    async function ip(){
-    const { data } = await axios.get('https://ipgeolocation.abstractapi.com/v1/?api_key=578130a355254e108446d95e45a74c84')
-      console.log(data)
-    }
-    ip()
-    
+    getClient()
   }, [])
-   return (
+  return (
     <div>
       <div className={style.landing_container} >
         <div className={style.header} >
@@ -54,7 +48,7 @@ export default function LandingPage(props) {
 
         <div className={style.tecnologies}>
           <div className={style.tecnologies_frontend}>
-         
+
             {images.frontend.map(e => <div key={e.name}> <img src={e.image} alt="im" /></div>)}
           </div>
           <div className={style.tecnologies_backend}>
