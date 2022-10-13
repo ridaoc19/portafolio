@@ -34,6 +34,7 @@ const countSchema = mongoose.Schema({
   connection_type: { type: String },
   isp_name: { type: String },
   organization_name: { type: String },
+  date: {type: Date, default: Date.now }
 });
 
 module.exports = mongoose.model("Counts", countSchema);
