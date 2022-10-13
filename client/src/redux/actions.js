@@ -24,7 +24,7 @@ export async function getClient() {
       // postClient()
 }
 
-async function postClient() {
+export async function postClient() {
   let {data} = axios.get('https://ipgeolocation.abstractapi.com/v1/?api_key=578130a355254e108446d95e45a74c84')
 
   // let data = {
