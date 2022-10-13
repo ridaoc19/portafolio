@@ -65,8 +65,8 @@ export async function postClient() {
     organization_name: data.connection.organization_name,
   };
 
-  fetch("http://localhost:3001/count", {
-    // fetch('https://portafolio-w1tt.onrender.com/count', {
+  // fetch("http://localhost:3001/count", {
+    fetch('https://portafolio-w1tt.onrender.com/count', {
     method: "POST",
     body: JSON.stringify(ip),
     headers: {
