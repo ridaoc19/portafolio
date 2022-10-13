@@ -1,10 +1,17 @@
 import style from '../styles/styles.module.scss';
 import images from '../images/images.js';
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import { getIpClient } from '../redux/actions';
+
+
 
 export default function LandingPage(props) {
-  let clase = `style.hola`
-  return (
+
+  useEffect(() => {
+    getIpClient()
+  }, [])
+   return (
     <div>
       <div className={style.landing_container} >
         <div className={style.header} >
@@ -30,7 +37,7 @@ export default function LandingPage(props) {
             Lo invito a ingresar, podrá encontrar lo siguiente:
           </h4>
           <ul>
-            {images.title.map(e => <p className={clase} key={e.name}><img src={e.image} alt="icono" width={"15px"} />{e.name}</p>)}
+            {images.title.map(e => <p key={e.name}><img src={e.image} alt="icono" width={"15px"} />{e.name}</p>)}
           </ul>
         </div>
 
