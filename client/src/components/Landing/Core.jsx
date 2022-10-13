@@ -8,7 +8,7 @@ export default function Core() {
  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    // postClient()
+    postClient()
     setTimeout(() => {
       setLoading(false)
     }, 4000);
