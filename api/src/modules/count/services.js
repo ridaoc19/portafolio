@@ -1,12 +1,19 @@
 const axios = require("axios");
 const Counts = require("./model.js");
+require("dotenv").config();
+
+const accountSid = process.env.TWILIO_ACCOUNT_SID;
+const authToken = process.env.TWILIO_AUTH_TOKEN;
+const client = require('twilio')(accountSid, authToken);
 
 module.exports = {
   async getCounter(req, res) {
     try {
-      const verificationDB = await Counts.findOne({
-        ip_address: req.params.ip,
-      });
+      // const verificationDB = await Counts.findOne({
+      //   ip_address: req.params.ip,
+      // });
+
+      const verificationDB = await Counts.find();
 
       res.json(verificationDB);
     } catch (error) {
@@ -14,9 +21,34 @@ module.exports = {
     }
   },
 
+
+
   async postCounter(req, res) {
     try {
-      Counts.create(req.body)
+
+      let data = req.body
+
+      let body = 
+      `ip: ${data.ip_address},
+       ciudad: ${data.city},
+       region: ${data.region},
+       pais: ${data.country},
+       continente: ${data.continent},
+       moneda: ${data.currency_name},
+       organizacion: ${data.organization_name},
+       `
+
+      client.messages
+      .create({
+         from: 'whatsapp:+14155238886',
+         body: body,
+         to: `whatsapp:${process.env.WTSP}`
+       })
+      .then(message => console.log(message.sid))
+      .catch(err => console.log(err))
+
+
+      Counts.create(data)
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }));
     } catch (error) {

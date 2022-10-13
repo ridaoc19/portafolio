@@ -1,15 +1,10 @@
-import style from '../styles/styles.module.scss';
-import images from '../images/images.js';
+import style from '../../styles/styles.module.scss';
+import images from '../../images/images.js';
 import { Link } from 'react-router-dom';
-import { useEffect } from 'react';
-import { getClient, postClient } from '../redux/actions';
-import axios from "axios";
+
+
 
 export default function LandingPage(props) {
-
-  useEffect(() => {
-    postClient()
-  }, [])
   return (
     <div>
       <div className={style.landing_container} >

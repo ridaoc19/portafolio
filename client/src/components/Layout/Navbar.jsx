@@ -15,7 +15,7 @@ function Navbar(props) {
         </div>
         <div className={style.navbar_right}>
 
-          <Link to={"/"}>inicio</Link>
+          <Link to={"/landing"}>inicio</Link>
           <Link to={"/about"}>mas sobre mí</Link>
           <Link>contacto</Link>
 

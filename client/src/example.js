@@ -1,4 +1,4 @@
-module.exports = {
+export default {
   "ip_address": "83.43.130.56",
   "city": "Tarragona",
   "city_geoname_id": 3108288,

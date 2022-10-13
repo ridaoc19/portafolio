@@ -1,4 +1,5 @@
 import axios from "axios";
+// import data from '../example.js'
 
 export async function getClient() {
 
@@ -6,7 +7,7 @@ export async function getClient() {
     .then(res => {
       // console.log(res.data)
       // axios.get(`http://localhost:3001/count/${res.data.ip}`)
-      axios.get(`https://portafolio-w1tt.onrender.com/count/${res.data.ip}`)
+      axios.get(`${process.env.REACT_APP_URL}/${res.data.ip}`)
       .then(data => {
 
         if(data.data?.postal_code === "43007") return console.log("estas verficando en casa")
@@ -65,8 +66,7 @@ export async function postClient() {
     organization_name: data.connection.organization_name,
   };
 
-  // fetch("http://localhost:3001/count", {
-    fetch('https://portafolio-w1tt.onrender.com/count', {
+  fetch(process.env.REACT_APP_URL, {
     method: "POST",
     body: JSON.stringify(ip),
     headers: {
@@ -74,7 +74,7 @@ export async function postClient() {
     },
   })
     .then((res) => res.json())
-    .then((res) => console.log(res))
+    .then((res) => {return res})
     .catch((error) => console.log(error));
 }
 

@@ -15,6 +15,7 @@
         ".  tecnologies    tecnologies    ."
         ".  . .   .";
     }
+
     gap: 2%;
 
     .header {
@@ -46,26 +47,26 @@
       grid-template-areas: "tecnologies_frontend" "tecnologies_backend";
     }
 
-    .tecnologies_frontend{
+    .tecnologies_frontend {
       grid-area: tecnologies_frontend;
       display: flex;
       align-self: center;
       justify-self: center;
       gap: 8px;
 
-      img{
+      img {
         width: 35px;
       }
     }
 
-    .tecnologies_backend{
+    .tecnologies_backend {
       grid-area: tecnologies_backend;
       display: flex;
       align-self: center;
       justify-self: center;
       gap: 8px;
 
-      img{
+      img {
         width: 35px;
       }
     }
@@ -119,29 +120,59 @@
       grid-template-areas: "tecnologies_frontend tecnologies_backend";
     }
 
-    .tecnologies_frontend{
+    .tecnologies_frontend {
       grid-area: tecnologies_frontend;
       display: flex;
       align-self: center;
       justify-self: center;
       gap: 8px;
 
-      img{
+      img {
         width: 35px;
       }
     }
 
-    .tecnologies_backend{
+    .tecnologies_backend {
       grid-area: tecnologies_backend;
       display: flex;
       align-self: center;
       justify-self: center;
       gap: 8px;
 
-      img{
+      img {
         width: 35px;
       }
     }
 
   }
+}
+
+
+
+
+@mixin core {
+
+  @media (min-width: map.get($respons, "xs")) {
+    grid-template: {
+      columns: 10% 1fr 10%;
+      rows: 10% 1fr 10%;
+      areas:
+        ".   .             ."
+        ". core_loading    ."
+        ". .               .";
+    }
+
+    @media (min-width: map.get($respons, "md")) {
+      grid-template: {
+        columns: 10%  1fr 10%;
+        rows: 10% 1fr 10%;
+        areas:
+        ".   .             ."
+        ". core_loading    ."
+        ". .               .";
+      }
+
+    }
+  }
+
 }

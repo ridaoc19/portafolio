@@ -50,5 +50,21 @@
     text-decoration: none;
   }
 
+}
+
+//  CORE
+.core_container{
+  background-color: map.get($color, "azul_oscuro");
+  color: map.get($color, "gris_medio");
+  height: 100vh;
+  display: grid;
+  @include core();
+  
+
+  .core_loading {
+    grid-area: core_loading;
+    justify-self: center;
+    align-self: center;
+  }
 
 }

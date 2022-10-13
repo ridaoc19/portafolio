@@ -29,6 +29,7 @@ import postgres from './postgres.png';
 
 
 
+// eslint-disable-next-line
 export default {
   contact: [
     {
