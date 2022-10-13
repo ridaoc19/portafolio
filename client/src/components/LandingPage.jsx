@@ -8,7 +8,7 @@ import axios from "axios";
 export default function LandingPage(props) {
 
   useEffect(() => {
-    getClient()
+    postClient()
   }, [])
   return (
     <div>
