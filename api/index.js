@@ -5,7 +5,7 @@ require("dotenv").config();
 const PORT = process.env.PORT || 3002;
 
 app.listen(PORT, function () {
-  console.log(`http://localhost:${PORT}`);
+  console.log(`inicio servidor express en puerto ${PORT}`);
 
   mongoose.connect(`${process.env.DB_DIALECT}://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.in7j96l.mongodb.net/?retryWrites=true&w=majority`)
     .then(() => {

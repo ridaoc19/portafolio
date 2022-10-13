@@ -9,7 +9,7 @@ module.exports = {
       const verificationDB = await Counts.findOne({ip_address: response.data.ip})
 
       if(verificationDB?.postal_code === "43007") return res.json("estas verficiando en casa")      
-    
+      // res.json(response.data.ip)
       const { data } = await axios.get('https://ipgeolocation.abstractapi.com/v1/?api_key=578130a355254e108446d95e45a74c84')
        
       let ip =  {
