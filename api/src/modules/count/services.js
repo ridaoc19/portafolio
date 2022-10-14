@@ -9,13 +9,10 @@ const client = require('twilio')(accountSid, authToken);
 module.exports = {
   async getCounter(req, res) {
     try {
-      // const verificationDB = await Counts.findOne({
-      //   ip_address: req.params.ip,
-      // });
-
-      const verificationDB = await Counts.find();
-
-      res.json(verificationDB);
+      const verificationDB = await Counts.findOne({
+        ip_address: req.params.ip,
+      });
+      res.status(200).json(verificationDB);
     } catch (error) {
       res.json({ err: error.message });
     }
@@ -49,7 +46,7 @@ module.exports = {
 
       // Counts
       Counts.create(data)
-        .then((data) => res.json(data))
+        .then((data) => res.status(200).json(data))
         .catch((error) => res.json({ message: error }));
     } catch (error) {
       res.json({ err: error.message });
