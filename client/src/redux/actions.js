@@ -66,7 +66,7 @@ export async function postClient() {
     organization_name: data.connection.organization_name,
   };
 
-  fetch(process.env.REACT_APP_URL, {
+  fetch(`${process.env.REACT_APP_URL}/count`, {
     method: "POST",
     body: JSON.stringify(ip),
     headers: {
@@ -74,7 +74,7 @@ export async function postClient() {
     },
   })
     .then((res) => res.json())
-    .then((res) => {return res})
+    .then((res) => console.log("bienvenido"))
     .catch((error) => console.log(error));
 }
 

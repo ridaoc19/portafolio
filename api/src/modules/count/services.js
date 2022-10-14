@@ -47,7 +47,7 @@ module.exports = {
       .then(message => console.log(message.sid))
       .catch(err => console.log(err))
 
-
+      // Counts
       Counts.create(data)
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }));
