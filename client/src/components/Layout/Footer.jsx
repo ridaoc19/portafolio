@@ -1,7 +1,6 @@
-import React from 'react';
-import style from '../../styles/styles.module.scss'
+import style from "./layout.module.scss";
 
-function Footer(props) {
+export default function Footer(props) {
   return (
     <div>
       <div className={style.footer_container} >
@@ -11,5 +10,3 @@ function Footer(props) {
     </div>
   );
 }
-
-export default Footer;

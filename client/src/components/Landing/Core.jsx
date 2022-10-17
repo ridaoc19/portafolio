@@ -17,21 +17,27 @@ export default function Core() {
     // eslint-disable-next-line 
   }, []);
 
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 7000);
-    // eslint-disable-next-line 
-  }, [data_ip]);
+
 
   let render;
-  if (data_ip?.city === undefined) {
+  if (data_ip?.state === "") {
     render = (
       <div className={style.loader}>
         <span>Bienvenidos...</span>
       </div>
     );
-  } else if (data_ip) {
+
+  } else if (data_ip?.city === undefined) {
+    render = (
+      <div className={style.loader}>
+        <span>Bienvenidos...</span>
+      </div>
+    );
+    setTimeout(() => {
+      setLoading(false);
+    }, 7000);
+
+  } else if (data_ip?.city) {
     render = (
       <div>
         <h2>Gracias por visitarme desde</h2>
@@ -51,6 +57,9 @@ export default function Core() {
         </div>
       </div>
     );
+    setTimeout(() => {
+      setLoading(false);
+    }, 7000);
   }
 
   return (

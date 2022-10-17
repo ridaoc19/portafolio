@@ -1,15 +1,33 @@
+@use "sass:map";
+
 *{
   margin: 0;
   padding: 0;
-  font-family: 'Poppins', sans-serif;
+}
+
+html {
+  box-sizing: border-box;
+  width: 100%;
+  scroll-behavior: smooth;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+::selection {
+  background-color: var(--lightest-navy);
+  color: var(--lightest-slate);
 }
 
 @import './mixin';
 @import './var';
 
-@import '../components/Layout/var_layout';
-@import '../components/Layout/layout';
-
+:root{
+  background-color: map.get($color, "azul_oscuro");
+  color: map.get($color, "gris_medio");
+  font-family: 'Poppins', sans-serif;
+}
 
 
 @import '../components/Landing/landingPage_var';

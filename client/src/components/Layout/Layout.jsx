@@ -1,26 +1,25 @@
-import React from 'react';
-import Footer from './Footer';
-import Navbar from './Navbar';
-import SidebarRigth from './SidebarRigth';
-import style from '../../styles/styles.module.scss'
+import React from "react";
+import Navbar from "./Navbar";
+import Sidebar from "./Sidebar";
+import style from "./layout.module.scss";
 
 function Layout({ children }) {
   return (
-    <div className={style.principal}>
-    <div className={style.layout_container}>
-      <div className={style.layout_navbar}>
-        <Navbar />
+    <div>
+      <div className={style.layout_principal}>
+        <div className={style.layout_container}>
+          <div className={style.layout_navbar}>
+            <Navbar />
+          </div>
+          <div className={style.layout_children}>
+            {children}
+            </div>
+          <div className={style.layout_sidebar}>
+            <Sidebar />
+          </div>
+        </div>
       </div>
-      <div className={style.layout_children}>
-        {children}
-      </div>
-      <div className={style.layout_sidebarrigth}>
-        <SidebarRigth />
-      </div>
-      <div className={style.layout_footer}>
-        <Footer />
-      </div>
-    </div></div>
+    </div>
   );
 }
 
