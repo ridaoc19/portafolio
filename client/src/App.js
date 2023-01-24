@@ -1,18 +1,18 @@
-import { Route, Routes } from "react-router-dom";
-import Home from "./components/Home/Home";
-import Core from "./components/Landing/Core";
-import LandingPage from "./components/Landing/LandingPage";
-import Layout from "./components/Layout/Layout";
-
+import "./App.scss";
+import { AnimatePresence } from "framer-motion";
+import { Route, Routes, useLocation } from "react-router-dom";
+import Responsive from "./pages/start/Responsive/Responsive";
+// import Home from "./pages/Home/Home";
 
 function App() {
+  const location = useLocation();
   return (
-    <div>
-      <Routes>
-        <Route path="/" element={<Core/>}/>
-        <Route path="/landing" element={<LandingPage/>}/>
-        <Route path="/about" element={<Layout><Home/></Layout>}/>
-      </Routes>
+    <div className="App">
+      <AnimatePresence mode="wait">
+        <Routes location={location} key={location.pathname}>
+          <Route path="/" element={<Responsive />} />
+        </Routes>
+      </AnimatePresence>
     </div>
   );
 }
