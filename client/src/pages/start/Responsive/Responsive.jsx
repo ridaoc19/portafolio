@@ -11,8 +11,8 @@ const Responsive = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(postClient());
-    // dispatch(getClient());
+    // dispatch(postClient());
+    dispatch(getClient());
     // eslint-disable-next-line
   }, []);
 
