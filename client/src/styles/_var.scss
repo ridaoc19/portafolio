@@ -1,13 +1,22 @@
-$color: (
-  "azul_oscuro":rgb(26, 33, 56),
-  "azul_claro": rgb(34, 43, 69),
-  "verde_oscuro": #00773b,
-  "verde_claro": rgb(0, 171, 85),
-  "gris_oscuro": #797b7d,
-  "gris_medio": #aeb0b4,
-  "gris_claro": #bebfc3,
-  "naranja_oscuro": rgb(245, 124, 0),
-  "naranja_claro": #f79633,
+ $color: (
+  // "blue_dark":#1e3f57,
+  "blue_dark":rgb(26, 33, 56),
+  "blue_medium": #3c617d,
+  "blue_light": #6bb2cd,
+  // "blue_light": rgb(34, 43, 69),
+  "green_dark": #024f29,
+  "green_medium": #036a36,
+  "green_light": #048444,
+  "gray_dark": #797b7d,
+  "gray_medium": #aeb0b4,
+  "gray_light": #bebfc3,
+  "orange_dark": #f56300,
+  "orange_medium": #f57c00,
+  "orange_light": #f79633,
+  "yellow_dark": #fca304,
+  "yellow_medium": #fcbc04,
+  "yellow_light": #fcd504,
+  
   );
 
 
@@ -15,6 +24,12 @@ $color: (
   "xs": 0px,
   "sm": 576px,
   "md": 768px,
-  // "xl": 1200px,
-  // "xxl": 1400px
+  "xl": 1200px,
+  "xxl": 1400px
 );
+
+// xs, extra-small: 0px
+// sm, small: 600px
+// md, medium: 900px
+// lg, large: 1200px
+// xl, extra-large: 1536px
