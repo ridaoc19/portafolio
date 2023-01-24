@@ -2,13 +2,18 @@ import React from "react";
 import home from "../../components/json/home";
 import { Link } from "react-router-dom";
 import tecnologies from "../../components/json/tecnologies";
-// import Header from '../../components/Layout/Header/Header';
-// import images from '../../assets/images/images';
-// import Footer from '../../components/Layout/Footer/Footer';
-// import Header from '../../components/Layout/Header/Header';
+import { pageTransition, pageVariants } from "../start/style/loadingCss";
+import { motion } from "framer-motion";
 
 const Home = () => {
   return (
+    <motion.div
+          initial="initial"
+          animate="in"
+          exit="out"
+          variants={pageVariants}
+          transition={pageTransition}
+        >
     <div className="home_container">
       <div className="home_title-welcome">
         <h1>Bienvenidos a mi Portafolio</h1>
@@ -92,6 +97,7 @@ const Home = () => {
         </ul>
       </div>
     </div>
+    </motion.div>
   );
 };
 

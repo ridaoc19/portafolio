@@ -8,17 +8,12 @@ import { useSelector } from "react-redux";
 // const data = ["Medellín", "Antioquia", "Colombia", "South America"];
 
 const Welcome = () => {
-  const loading = useLoading(10000);
+  const loading = useLoading(12000);
   const data_ip = useSelector((state) => state.data_ip);
 
-  
-  const data = [
-    data_ip.continent,
-    data_ip.country,
-    data_ip.region,
-    data_ip.city,
-  ];
-  console.log(data)
+  const data = data_ip === null
+      ? ["Bienvenido", "a", "mi", "portafolio"]
+      : [data_ip.continent, data_ip.country, data_ip.region, data_ip.city];
 
   return (
     <>
@@ -39,8 +34,7 @@ const Welcome = () => {
                     <ul className="content__container__list">
                       {data?.map((e, i) => (
                         <li key={i} className="content__container__list__item">
-                          {console.log()}
-                          <img src={data_ip.svg} alt="bandera" />
+                          <img src={data_ip?.svg} alt="" />
                           {e}
                         </li>
                       ))}
@@ -51,7 +45,7 @@ const Welcome = () => {
             </div>
           </div>
         </motion.div>
-      ) : (
+      ) : (  
         <Home />
       )}
     </>
