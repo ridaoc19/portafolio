@@ -11,12 +11,14 @@ const Welcome = () => {
   const loading = useLoading(10000);
   const data_ip = useSelector((state) => state.data_ip);
 
+  
   const data = [
     data_ip.continent,
     data_ip.country,
     data_ip.region,
     data_ip.city,
   ];
+  console.log(data)
 
   return (
     <>
@@ -37,6 +39,7 @@ const Welcome = () => {
                     <ul className="content__container__list">
                       {data?.map((e, i) => (
                         <li key={i} className="content__container__list__item">
+                          {console.log()}
                           <img src={data_ip.svg} alt="bandera" />
                           {e}
                         </li>
