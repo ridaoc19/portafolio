@@ -7,7 +7,7 @@ export function getClient() {
       .then(async res => {
         await axios.get(`${process.env.REACT_APP_URL}/count/${res.data.ip}`)
           .then(data => {
-            console.log(data)
+            // console.log(data)
             dispatch({ type: DATA_IP, payload: data.data })
           }).catch(err => console.log(err))
       }).catch(err => console.log(err))
