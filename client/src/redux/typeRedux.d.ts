@@ -20,7 +20,11 @@ interface InitialState {
 
 interface StateRedux {
     type: string,
-    payload: string?
+    payload: string | null
 }
 
 type DispatchType = (args: StateRedux) => StateRedux;
+
+interface ProcessEnv {
+    [key: string]: string | undefined
+}

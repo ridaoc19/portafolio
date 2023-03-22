@@ -1,34 +1,43 @@
 @use "sass:map";
 
-.location__ubication {
+.location__container {
   display: grid;
-  width  : 40%;
+  width  : 45%;
 
-  img {
-    width        : 2.5rem;
-    border-radius: 3px;
-    margin-right : 1rem;
-  }
+  .location__ubication {
+    display        : flex;
+    gap            : 1rem;
+    justify-content: center;
 
-  &--container {
-    overflow: hidden;
-    height  : 40px;
+    div:first-child {
+      align-self: center;
 
-    ul {
-      margin-top: 0;
-      list-style: none;
-      padding   : 0;
+      img {
+        width        : 3rem;
+        border-radius: 3px;
+      }
+    }
 
-      -webkit-animation-name           : change;
-      -webkit-animation-duration       : 20s;
-      -webkit-animation-iteration-count: infinite;
-      animation-name                   : change;
-      animation-duration               : 20s;
-      animation-iteration-count        : infinite;
+    &--title {
+      overflow: hidden;
+      height  : 40px;
 
-      li {
-        line-height: 40px;
-        margin     : 0;
+      ul {
+        margin-top: 0;
+        list-style: none;
+        padding   : 0;
+
+        -webkit-animation-name           : change;
+        -webkit-animation-duration       : 20s;
+        -webkit-animation-iteration-count: infinite;
+        animation-name                   : change;
+        animation-duration               : 20s;
+        animation-iteration-count        : infinite;
+
+        li {
+          line-height: 40px;
+          margin     : 0;
+        }
       }
     }
   }

@@ -1,19 +1,19 @@
 import React from "react";
 
-const data = ["Medellín", "Antioquia", "Colombia", "South America"];
+const data = ["Medellín", "Antioquia", "Colombia", "South America mas grande"];
 const svg = "https://static.abstractapi.com/country-flags/AR_flag.png";
 function Location() {
   return (
-    <div >
+    <div className="location__container">
       <h2>Gracias por visitarme desde</h2>
-            <img src={svg} alt="" width="20" />
       <div className="location__ubication">
-        <div className="location__ubication--container">
+        <div>
+          <img src={svg} alt="flag" />
+        </div>
+        <div className="location__ubication--title">
           <ul>
             {data?.map((e, i) => (
-              <li key={i}>
-                {e}
-              </li>
+              <li key={i}>{e}</li>
             ))}
           </ul>
         </div>

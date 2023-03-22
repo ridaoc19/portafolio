@@ -1,3 +1,4 @@
+import React from 'react';
 import './App.scss';
 import Start from './views/Start/Start';
 

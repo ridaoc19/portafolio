@@ -1,7 +1,6 @@
 import { RESPONSE_POST_UBICATION } from "./types";
 import axios from 'axios';
 
-
 export const responsePostUbication = (): void => {
   async (dispatch: DispatchType) => {
     let { data } = await axios.get(`${process.env.REACT_APP_ABSTRACT}`)
