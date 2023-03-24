@@ -1,14 +1,18 @@
-import { RESPONSE_POST_UBICATION } from "./types";
+import { RESPONSE_LOCATION, LOADING } from "./types";
 
 const initialState: InitialState = {
-  ubication: ""
+  location: {},
+  loading: false
 };
 
 const reducer = (state: InitialState = initialState, actions: StateRedux): InitialState => {
 
   switch (actions.type) {
-    case RESPONSE_POST_UBICATION:
-      return { ...state, ubication: actions.payload }
+    case RESPONSE_LOCATION:
+      return { ...state, loading: false }
+
+    case LOADING:
+      return { ...state, loading: true }
 
     default:
       return state;

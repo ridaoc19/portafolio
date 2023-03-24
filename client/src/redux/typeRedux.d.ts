@@ -15,12 +15,13 @@
 
 
 interface InitialState {
-    ubication: string | null;
+    location: {} | null | undefined;
+    loading: boolean
 }
 
 interface StateRedux {
     type: string,
-    payload: string | null
+    payload?: string | null
 }
 
 type DispatchType = (args: StateRedux) => StateRedux;

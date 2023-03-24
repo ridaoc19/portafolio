@@ -1,7 +1,7 @@
 import { Schema, Types, model, Model } from "mongoose";
-import { UbicationType } from "./interfaces";
+import { LocationType } from "./interfaces";
 
-const UbicationSchema = new Schema<UbicationType>(
+const LocationSchema = new Schema<LocationType>(
   {
     ip_address: { type: String },
     city: { type: String },
@@ -36,7 +36,6 @@ const UbicationSchema = new Schema<UbicationType>(
     connection_type: { type: String },
     isp_name: { type: String },
     organization_name: { type: String },
-    date: { type: Date, default: Date.now },
   },
   {
     timestamps: true,
@@ -44,4 +43,4 @@ const UbicationSchema = new Schema<UbicationType>(
   }
 );
 
-export default model("ubications", UbicationSchema);
+export default model("locations", LocationSchema);

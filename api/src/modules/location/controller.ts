@@ -1,10 +1,10 @@
 import { Router } from "express";
 import services from "./services";
-const { postUbication, getUbication } = services;
+const { postLocation, getLocation  } = services;
 
 const router = Router();
 
-router.post("/", postUbication);
-router.get("/", getUbication);
+router.post("/", postLocation);
+router.get("/", getLocation);
 
 export { router };

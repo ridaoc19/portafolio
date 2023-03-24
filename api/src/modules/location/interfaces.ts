@@ -1,4 +1,4 @@
-export interface UbicationType {
+export interface LocationType {
   ip_address: String;
   city: String;
   city_geoname_id: Number;

@@ -2,18 +2,19 @@
 
 .location__container {
   display: grid;
-  width  : 45%;
+  max-width  : 20rem;
+  padding: 1rem;
+  background-color: bisque;
 
   .location__ubication {
     display        : flex;
     gap            : 1rem;
-    justify-content: center;
 
     div:first-child {
       align-self: center;
 
       img {
-        width        : 3rem;
+        width        : 2rem;
         border-radius: 3px;
       }
     }
