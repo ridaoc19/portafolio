@@ -1,0 +1,66 @@
+@import "./mixinHeader";
+
+.experiences__header--content {
+  // background-color: rgb(3, 43, 79);
+  display         : grid;
+  gap             : 0.5rem;
+
+  @include experiences__header--content-respons();
+
+  .experiences__header--select {
+    grid-area   : experiences__header--select;
+    place-self: center;
+  }
+
+  .experiences__header--search {
+    grid-area   : experiences__header--search;
+    place-self: center;
+
+    input {
+      padding      : 0.4rem;
+      border-radius: 0.3rem;
+      border       : 1.5px solid lightgrey;
+      outline      : none;
+      transition   : all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+      box-shadow   : 0px 0px 20px -18px;
+    }
+
+    &:hover {
+      box-shadow: 0px 0px 20px -17px;
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+
+    &:focus {
+      border: 2px solid grey;
+    }
+  }
+
+  .experiences__header--organize {
+    grid-area   : experiences__header--organize;
+    justify-self: end;
+    display: flex;
+    gap: 1rem;
+
+    button {
+      background-color: transparent;
+      // border          : 2px solid var(--container-color);
+      border          : 2px solid var(--body-color);
+      border-radius   : 0.5rem;
+      padding         : 0.3rem;
+      transition      : all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+
+      img {
+        width: 1.5rem;
+        color: var(--main-color);
+      }
+
+      &:active {
+        border   : 2px solid var(--main-color);
+        transform: scale(0.95);
+      }
+    }
+  }
+}
