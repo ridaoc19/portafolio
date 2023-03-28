@@ -1,0 +1,2 @@
+export const RESPONSE_LOCATION = "RESPONSE_LOCATION";
+export const LOADING = "LOADING";
