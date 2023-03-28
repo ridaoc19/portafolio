@@ -1,0 +1,9 @@
+@mixin home__container-padding {
+    @media (min-width: map.get($respons, "sm")) {
+        padding: 0 10%;
+    }
+
+    @media (min-width: map.get($respons, "xxl")) {
+        padding: 0 20%;
+    }
+}

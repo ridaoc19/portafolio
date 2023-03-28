@@ -1,0 +1,11 @@
+@mixin experiences__header--content-respons {
+    @media (min-width: map.get($respons, "xs")) {
+        grid-template-areas:
+            "experiences__header--select  experiences__header--organize"
+            "experiences__header--search experiences__header--search";
+    }
+
+    @media (min-width: map.get($respons, "sm")) {
+        grid-template-areas: "experiences__header--select experiences__header--search experiences__header--organize";
+    }
+}

@@ -1,14 +1,14 @@
 @use "sass:map";
 
 .location__container {
-  display: grid;
-  max-width  : 20rem;
-  padding: 1rem;
-  background-color: bisque;
+  display            : grid;
+  max-width          : 20rem;
+  padding            : 1rem;
+  // background-color: bisque;
 
   .location__ubication {
-    display        : flex;
-    gap            : 1rem;
+    display: flex;
+    gap    : 1rem;
 
     div:first-child {
       align-self: center;
@@ -43,17 +43,16 @@
     }
   }
 
-  .location__especification{
-
-     p{
-      display: flex;
-      gap: 0.5rem;
-     } 
-
+  .location__especification {
+    p {
+      display              : grid;
+      grid-template-columns: repeat(2, 1.3rem) repeat(3, 1fr);
+      gap                  : 0.5rem;
+      align-items          : center;
+      justify-items        : start;
+    }
   }
 }
-
-
 
 @-webkit-keyframes opacity {
 

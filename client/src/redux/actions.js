@@ -3,8 +3,7 @@ import { LOADING, RESPONSE_LOCATION } from "./types";
 
 export const postLocation = () => {
   return (dispatch) => {
-    dispatch({ type: LOADING });
-
+    
     fetch(`${process.env.REACT_APP_ABSTRACT}`)
       .then((res) => res.json())
       .then((data) => {
@@ -68,7 +67,6 @@ export const postLocation = () => {
 export function getLocation(id) {
   return async function (dispatch) {
     try {
-      dispatch({ type: LOADING });
       let { data } = await axios.get(
         `${process.env.REACT_APP_URL}/location/${id}`
       );
