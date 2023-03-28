@@ -1,17 +1,22 @@
-import { DATA_IP } from "./actions";
+import { RESPONSE_LOCATION, LOADING } from "./types";
 
 const initialState = {
-  data_ip: { state: "" },
-  loading: false,
+  location: [],
+  loading: true
 };
 
-export default function reducer(state = initialState, actions) {
-  switch (actions.type) {
+const reducer = (state = initialState, actions) => {
 
-    case DATA_IP:
-      return { ...state, data_ip: actions.payload, loading: false };
+  switch (actions.type) {
+    case RESPONSE_LOCATION:
+      return { ...state, loading: false, location: actions.payload }
+
+    case LOADING:
+      return { ...state, loading: true }
 
     default:
       return state;
   }
 }
+
+export default reducer;
