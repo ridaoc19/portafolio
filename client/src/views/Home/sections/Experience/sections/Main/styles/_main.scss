@@ -21,13 +21,13 @@
                 }
             }
 
-            .experiences__card--image {
-                grid-area      : experiences__card--image;
-                display        : grid;
-                justify-content: center;
-                height         : min-content;
+            // .experiences__card--image {
+            //     grid-area      : experiences__card--image;
+            //     display        : grid;
+            //     justify-content: center;
+            //     height         : min-content;
 
-            }
+            // }
 
             .experiences__card--name {
                 grid-area: experiences__card--name;
@@ -36,7 +36,7 @@
 
             .experiences__card--tasks {
                 grid-area : experiences__card--tasks;
-                overflow-y: scroll;
+                overflow-y: auto;
 
                 ul{
                     margin: 0;
@@ -45,7 +45,7 @@
 
             .experiences__card--tecnologies {
                 grid-area : experiences__card--tecnologies;
-                overflow-y: scroll;
+                overflow-y: auto;
 
                 .experiences__tecnologies--container {
                     display              : grid;

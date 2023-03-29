@@ -6,9 +6,9 @@ import Introduction from "./sections/Introduction/Introduction";
 import About from "./sections/About/About";
 import Skills from "./sections/Skills/Skills";
 import CreateContext from "../../components/hooks/context/CreateContext";
-// import Experiences from "./sections/Experience/Experiences";
-// import Work from "./sections/Work/Work";
-// import Contact from "./sections/Contact/Contact";
+import Experiences from "./sections/Experience/Experiences";
+import Work from "./sections/Work/Work";
+import Contact from "./sections/Contact/Contact";
 
 
 const Home = () => {
@@ -32,13 +32,13 @@ const Home = () => {
           <Skills />
         </section>
         <section className="home__container--experience">
-          {/* <Experiences/> */}
+          <Experiences/>
         </section>
         <section className="home__container--work">
-          {/* <Work/> */}
+          <Work/>
         </section>
         <section className="home__container--contact">
-          {/* <Contact/> */}
+          <Contact/>
         </section>
       </div>
     </div>

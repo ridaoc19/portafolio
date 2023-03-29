@@ -18,7 +18,7 @@
     display        : grid;
     padding        : 2%;
     height         : 40rem;
-    overflow-y     : scroll;
+    overflow-y     : auto;
     scroll-behavior: smooth;
 
     &.grid {
@@ -29,11 +29,11 @@
         min-height: 27rem;
         grid-template-areas:
           "experiences__card--date"
-          "experiences__card--image"
+          // "experiences__card--image"
           "experiences__card--name"
           "experiences__card--tasks"
           "experiences__card--tecnologies";
-        grid-template-rows: 5% 42% 10%;
+        // grid-template-rows: 5% 42% 10%;
 
         img {
           width        : 15rem;

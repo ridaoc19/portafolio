@@ -9,7 +9,7 @@ module.exports = {
           id: data.id,
           city: data.city,
           region: data.region,
-          county: data.country,
+          country: data.country,
           continent: data.continent,
           svg: data.svg,
         };
@@ -27,8 +27,6 @@ module.exports = {
                 svg,
               };
             });
-
-
 
             const responseSet = [...new Set(all?.map(({ city_geoname_id }) => city_geoname_id))];
 

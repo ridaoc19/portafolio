@@ -1,7 +1,8 @@
 import { GET_WORK } from "./types";
 
 export const initialState = {
-  works: {},
+  experience: [],
+  works: []
 };
 
 
@@ -10,7 +11,7 @@ export default (state, action) => {
 
   switch (type) {
     case GET_WORK:
-      return { ...state, works: payload };
+      return { ...state, experience: payload.experience, works: payload.works };
     // case UPDATE_EXPERIENCE:
     //   return {
     //     ...state,

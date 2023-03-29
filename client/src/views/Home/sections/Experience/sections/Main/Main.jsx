@@ -1,13 +1,17 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import CreateContext from "../../../../../../components/hooks/context/CreateContext";
 
 
 function Main() {
-  const { experience: {renderExperience} } = useContext(CreateContext);
-  
+  const {works: {getWork, experience}} = useContext(CreateContext);
+
+  useEffect(() => {
+    getWork()
+  },[])
+
   return (
     <>
-      {renderExperience?.map((e, i) => (
+      {experience?.map((e, i) => (
         <div key={i} className="experiences__card--container">
           <div className="experiences__card--father">
             <div className="experiences__card--son">
@@ -17,9 +21,9 @@ function Main() {
                 </h6>
               </div>
 
-              <div className="experiences__card--image">
-                <img src={e.image} alt="img" />
-              </div>
+              {/* <div className="experiences__card--image"> */}
+                {/* <img src={e.image} alt="img" /> */}
+              {/* </div> */}
 
               <div className="experiences__card--name">
                 <h4>{e.name}</h4>
