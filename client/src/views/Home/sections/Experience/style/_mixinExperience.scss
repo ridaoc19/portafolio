@@ -16,14 +16,14 @@
     @media (min-width: map.get($respons, "xs")) {
         grid-template-areas:
             "experiences__card--date  experiences__card--tasks"
-            "experiences__card--image experiences__card--tasks"
-            "experiences__card--name  experiences__card--tecnologies ";
+            "experiences__card--name experiences__card--tasks"
+            ".  experiences__card--tecnologies ";
     }
 
     @media (min-width: map.get($respons, "md")) {
         grid-template-areas:
             "experiences__card--date  experiences__card--tasks experiences__card--tecnologies"
-            "experiences__card--image experiences__card--tasks experiences__card--tecnologies"
-            "experiences__card--name  experiences__card--tasks experiences__card--tecnologies";
+            "experiences__card--name experiences__card--tasks experiences__card--tecnologies"
+            ".  experiences__card--tasks experiences__card--tecnologies";
     }
 }

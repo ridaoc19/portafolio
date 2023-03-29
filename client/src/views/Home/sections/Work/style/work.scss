@@ -38,6 +38,12 @@
         .work__content--two {
             display: grid;
             gap    : 0.5rem;
+
+            li p {
+                font-size    : xx-small;
+                margin-bottom: 0.5rem;
+                font-style   : italic;
+            }
         }
     }
 }

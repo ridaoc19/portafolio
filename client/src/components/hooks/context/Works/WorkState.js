@@ -25,6 +25,7 @@ function WorkState(props) {
   };
 
   return {
+    experience: state.experience,
     works: state.works,
     getWork
   }

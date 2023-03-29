@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
-import gridIcon from "../../../../../../assets/images/icons/grid.svg";
-import listIcon from "../../../../../../assets/images/icons/list.svg";
+// import gridIcon from "../../../../../../assets/images/icons/grid.svg";
+// import listIcon from "../../../../../../assets/images/icons/list.svg";
 import CreateContext from "../../../../../../components/hooks/context/CreateContext";
 
 const initialState = {
@@ -51,10 +51,10 @@ function Header() {
         <button
           onClick={(e) => setState({ ...state, type: e.target.alt })}
         >
-          <img src={gridIcon} alt="grid" width={10} />
+          <img src={"gridIcon"} alt="grid" width={10} />
         </button>
         <button onClick={(e) => setState({ ...state, type: e.target.alt })}>
-          <img src={listIcon} alt="list" width={10} />
+          <img src={"listIcon"} alt="list" width={10} />
         </button>
       </div>
     </div>
