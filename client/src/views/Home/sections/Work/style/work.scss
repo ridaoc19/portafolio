@@ -1,0 +1,49 @@
+.home__work--container {
+    display: grid;
+    gap    : 2rem;
+
+    .home__work--content {
+        display: grid;
+        gap    : 0.5rem;
+
+        h3,
+        h6,
+        h4,
+        p,
+        ul {
+            margin: 0;
+        }
+
+        .work__content--one {
+            display: flex;
+            gap    : 2%;
+
+            .work__content--image {
+                img {
+                    width: 3rem;
+                }
+            }
+
+            .work__content--title {
+                display      : grid;
+                align-content: space-between;
+
+                a {
+                    text-decoration: none;
+                    color          : var(--main-color);
+                }
+            }
+        }
+
+        .work__content--two {
+            display: grid;
+            gap    : 0.5rem;
+
+            li p {
+                font-size    : xx-small;
+                margin-bottom: 0.5rem;
+                font-style   : italic;
+            }
+        }
+    }
+}

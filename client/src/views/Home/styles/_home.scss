@@ -1,0 +1,9 @@
+@use "sass:map";
+@import './mixinHome';
+@import './sections';
+
+.home__container {
+    display: grid;
+    @include home__container-padding();
+    gap: 5rem
+}

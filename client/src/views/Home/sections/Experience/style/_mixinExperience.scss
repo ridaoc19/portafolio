@@ -1,0 +1,29 @@
+@mixin experiences__main--container_grid-template-columns {
+    @media (min-width: map.get($respons, "xs")) {
+        grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    }
+
+    @media (min-width: map.get($respons, "sm")) {
+        grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    }
+
+    @media (min-width: map.get($respons, "xxl")) {
+        grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+    }
+}
+
+@mixin list_experiences__card--son {
+    @media (min-width: map.get($respons, "xs")) {
+        grid-template-areas:
+            "experiences__card--date  experiences__card--tasks"
+            "experiences__card--name experiences__card--tasks"
+            ".  experiences__card--tecnologies ";
+    }
+
+    @media (min-width: map.get($respons, "md")) {
+        grid-template-areas:
+            "experiences__card--date  experiences__card--tasks experiences__card--tecnologies"
+            "experiences__card--name experiences__card--tasks experiences__card--tecnologies"
+            ".  experiences__card--tasks experiences__card--tecnologies";
+    }
+}
