@@ -4,6 +4,7 @@ import "./App.scss";
 import Start from "./views/Start/Start";
 import Home from "./views/Home/Home";
 import StoreContext from "./components/hooks/context/StoreContext";
+import Navbar from "./components/Layout/Navbar/Navbar";
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
       <StoreContext>
         <Routes>
           <Route path="/" element={<Start />} />
-          <Route path="/home" element={<Home />} />
+          <Route path="/home" element={<><Navbar /><Home /></>} />
         </Routes>
       </StoreContext>
     </div>
