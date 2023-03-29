@@ -26,11 +26,15 @@
 
             .work__content--title {
                 display      : grid;
-                align-content: space-between;
+                grid-template-rows: 1.5rem;
 
                 a {
                     text-decoration: none;
                     color          : var(--main-color);
+                }
+
+                h6{
+                    font-style: italic;
                 }
             }
         }

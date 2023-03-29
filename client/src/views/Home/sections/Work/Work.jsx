@@ -5,11 +5,8 @@ import CreateContext from '../../../../components/hooks/context/CreateContext';
 import { formatDate, totalYear } from '../../../../components/utils/function/date';
 // import { formatDate, totalYear } from "./functionWork";
 
-
-
-
 const Work = () => {
-  const { experience: { works: { work } }, works: { works } } = useContext(CreateContext);
+  const { works: { works } } = useContext(CreateContext);
 
   return (
     <div className="home__work--container">
@@ -23,15 +20,15 @@ const Work = () => {
                 <img src={e.image} alt="logo" />
               </div>
               <div className="work__content--title">
-                <h6>
-                  {formatDate(e.start_date).date} - {formatDate(e.end_date).state
-                    ? formatDate(e.end_date).state
-                    : formatDate(e.end_date).date}
-                  <span> {totalYear(e.start_date, e.end_date === "Presente" ? Date.now() : e.end_date)}</span>
-                </h6>
                 <h3>
                   <a href={e.link} target="_blank" rel="noreferrer">@{e.company}</a>
                 </h3>
+                <h6>
+                  <span>{totalYear(e.start_date, e.end_date === "Presente" ? Date.now() : e.end_date)} </span>
+                  {`(${formatDate(e.start_date).date} - ${formatDate(e.end_date).state
+                    ? formatDate(e.end_date).state
+                    : formatDate(e.end_date).date})`}
+                </h6>
               </div>
             </div>
             <div className="work__content--two">
@@ -54,7 +51,6 @@ const Work = () => {
               </ul>
             </div>
           </div>
-
         );
       })}
     </div>
