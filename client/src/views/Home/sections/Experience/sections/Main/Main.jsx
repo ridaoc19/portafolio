@@ -7,6 +7,7 @@ function Main() {
 
   useEffect(() => {
     getWork()
+     // eslint-disable-next-line
   },[])
 
   return (

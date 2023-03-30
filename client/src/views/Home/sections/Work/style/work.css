@@ -1,0 +1,42 @@
+.home__work--container {
+  display: grid;
+  gap: 2rem;
+}
+.home__work--container .home__work--content {
+  display: grid;
+  gap: 0.5rem;
+}
+.home__work--container .home__work--content h3,
+.home__work--container .home__work--content h6,
+.home__work--container .home__work--content h4,
+.home__work--container .home__work--content p,
+.home__work--container .home__work--content ul {
+  margin: 0;
+}
+.home__work--container .home__work--content .work__content--one {
+  display: flex;
+  gap: 2%;
+}
+.home__work--container .home__work--content .work__content--one .work__content--image img {
+  width: 3rem;
+}
+.home__work--container .home__work--content .work__content--one .work__content--title {
+  display: grid;
+  grid-template-rows: 1.5rem;
+}
+.home__work--container .home__work--content .work__content--one .work__content--title a {
+  text-decoration: none;
+  color: var(--main-color);
+}
+.home__work--container .home__work--content .work__content--one .work__content--title h6 {
+  font-style: italic;
+}
+.home__work--container .home__work--content .work__content--two {
+  display: grid;
+  gap: 0.5rem;
+}
+.home__work--container .home__work--content .work__content--two li p {
+  font-size: xx-small;
+  margin-bottom: 0.5rem;
+  font-style: italic;
+}/*# sourceMappingURL=work.css.map */

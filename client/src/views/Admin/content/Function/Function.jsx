@@ -1,50 +1,47 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import CreateContext from '../../../../components/hooks/context/CreateContext';
-import Block from './Block';
-import BlockTwo from './BlockTwo';
-import { DragAndDrop } from './DragAndDrop';
+import Tasks from './sections/tasks/Tasks';
+import Technologies from './sections/technologies/Technologies';
 
-function Function(props) {
-
-  const [change, setChange] = useState([])
-
-  const { admin: { postAdmin, state }, experience } = useContext(CreateContext)
-  const { position } = experience.works.work[1]
-
-  let tecnologies = Array.from(new Set(position.map(e => e.function.map(e => e.tecnologies)).flat(Infinity)))
-
-
-  const handleOnChange = (e) => {
-    postAdmin({ name: e.target.name, value: e.target.value })
-  }
+function Function({handleOnChange, state}) {
 
   return (
-    <div>
-      <h2>Funciones o proyectos</h2>
-      <input type="text" onChange={handleOnChange} placeholder="cargo" name="function" value={state.function} />
-      <input type="url" onChange={handleOnChange} placeholder="link pagina" name="link_function" value={state.link_function} />
-      <label htmlFor="start_date_function">fecha inicio</label>
-      <input type="date" onChange={handleOnChange} id="start_date_function" name="start_date_function" value={state.start_date_function} />
-      <label htmlFor="end_date_function">Fecha Termino</label>
-      <input type="date" onChange={handleOnChange} id="end_date_function" name="end_date_function" value={state.end_date_function} />
-      <input type="url" onChange={handleOnChange} placeholder="respositorio github" name="repository" value={state.repository} />
-      <hr />
-      {/* <button onClick={handleOnClick} name="button_tecnologies">+</button> */}
-      <input type="text" onChange={handleOnChange} placeholder="tecnologias" name="tecnologies" value={state.tecnologies} />
-      {/* <button onClick={handleOnClick} name="button_tasks">+</button> */}
-      <input type="text" onChange={handleOnChange} placeholder="tareas" name="tasks" value={state.tasks} />
-      <div className='function_esayo'>
+    <>
+      <div className='admin__function-title'>
+        <h2>Funciones o proyectos</h2>
       </div>
-
-      <hr />
-
-      <div className="container-main flex">
-        {/* <DragAndDrop /> */}
-        {/* <Block /> */}
-        <BlockTwo/>
+      <div className='admin__function'>
+        <div className='-function'>
+          <input type="text" onChange={handleOnChange} placeholder="cargo" name="function" value={state.function} />
+        </div>
+        <div className='-deploy'>
+          <input type="url" onChange={handleOnChange} placeholder="link pagina desplegada" name="link_function" value={state.link_function} />
+        </div>
+        <div className='-start-date'>
+          <label htmlFor="start_date_function">fecha inicio</label>
+          <input type="date" onChange={handleOnChange} id="start_date_function" name="start_date_function" value={state.start_date_function} />
+        </div>
+        <div className='-end-date'>
+          <label htmlFor="end_date_function">Fecha Termino</label>
+          <input type="date" onChange={handleOnChange} id="end_date_function" name="end_date_function" value={state.end_date_function} />
+        </div>
+        <div className='-respository'>
+          <input type="url" onChange={handleOnChange} placeholder="respositorio github" name="repository" value={state.repository} />
+        </div>
+        <div className=''>
+        </div>
       </div>
-
-    </div>
+      <hr />
+      <div className='-tasks-technologies'>
+        <div className='-tasks'>
+          <Tasks />
+          <hr />
+        </div>
+        <div className='technologies'>
+          <Technologies />
+        </div>
+      </div>
+    </>
   );
 }
 

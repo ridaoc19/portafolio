@@ -1,0 +1,22 @@
+.admin__technologies-container {
+   display              : grid;
+   min-height           : 10rem;
+   grid-template-columns: repeat(2, 1fr);
+   gap                  : 1rem;
+
+   .technologies__content,
+   .technologies__selection {
+      display           : grid;
+      gap               : 0.5rem;
+      grid-template-rows: 2.5rem repeat(auto-fill, minmax(1.3rem, 1fr));
+
+      background-color   : var(--container-color);
+      border-radius      : 0.5rem;
+      // background-color: rgb(66, 66, 121);
+
+      h2 {
+         margin    : 0;
+         text-align: center;
+      }
+   }
+}

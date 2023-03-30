@@ -1,17 +1,10 @@
-import React, { useContext } from 'react';
-import CreateContext from '../../../../components/hooks/context/CreateContext';
+import React from 'react';
 
-function Button(props) {
-  const { admin: {cleanAdmin} } = useContext(CreateContext)
-
-
-    const handleOnClick = (e) => {
-      e.preventDefault();
-        cleanAdmin()
-    }
+function Button({handleOnClick}) {
+    
     return (
         <div>
-            <button name="clean" onClick={handleOnClick}>limpiar</button>
+            <button id='admin-button-clean' name="clean" onClick={handleOnClick}>limpiar</button>
         </div>
     );
 }
