@@ -1,42 +1,186 @@
-{
-    "ip_address": "83.42.214.104",
-    "city": "Tarragona",
-    "city_geoname_id": 3108288,
-    "region": "Catalonia",
-    "region_iso_code": "CT",
-    "region_geoname_id": 3336901,
-    "postal_code": "43007",
-    "country": "Spain",
-    "country_code": "ES",
-    "country_geoname_id": 2510769,
-    "country_is_eu": true,
-    "continent": "Europe",
-    "continent_code": 6255148,
-    "continent_geoname_id": 6255148,
-    "longitude": 1.254,
-    "latitude": 41.1185,
-    "is_vpn": false,
-    "name": "Europe/Madrid",
-    "abbreviation": "CET",
-    "gmt_offset": 1,
-    "current_time": "09:58:06",
-    "is_dst": false,
-    "emoji": "🇪🇸",
-    "unicode": "U+1F1EA U+1F1F8",
-    "png": "https://static.abstractapi.com/country-flags/ES_flag.png",
-    "svg": "https://static.abstractapi.com/country-flags/ES_flag.svg",
-    "currency_name": "Euros",
-    "currency_code": "EUR",
-    "autonomous_system_number": 3352,
-    "autonomous_system_organization": "Telefonica De Espana S.a.u.",
-    "connection_type": "Corporate",
-    "isp_name": "Telefonica de Espana SAU",
-    "organization_name": "RIMA (Red IP Multi Acceso)"
-}
+// {
+//     "ip_address": "83.42.214.104",
+//     "city": "Tarragona",
+//     "city_geoname_id": 3108288,
+//     "region": "Catalonia",
+//     "region_iso_code": "CT",
+//     "region_geoname_id": 3336901,
+//     "postal_code": "43007",
+//     "country": "Spain",
+//     "country_code": "ES",
+//     "country_geoname_id": 2510769,
+//     "country_is_eu": true,
+//     "continent": "Europe",
+//     "continent_code": 6255148,
+//     "continent_geoname_id": 6255148,
+//     "longitude": 1.254,
+//     "latitude": 41.1185,
+//     "is_vpn": false,
+//     "name": "Europe/Madrid",
+//     "abbreviation": "CET",
+//     "gmt_offset": 1,
+//     "current_time": "09:58:06",
+//     "is_dst": false,
+//     "emoji": "🇪🇸",
+//     "unicode": "U+1F1EA U+1F1F8",
+//     "png": "https://static.abstractapi.com/country-flags/ES_flag.png",
+//     "svg": "https://static.abstractapi.com/country-flags/ES_flag.svg",
+//     "currency_name": "Euros",
+//     "currency_code": "EUR",
+//     "autonomous_system_number": 3352,
+//     "autonomous_system_organization": "Telefonica De Espana S.a.u.",
+//     "connection_type": "Corporate",
+//     "isp_name": "Telefonica de Espana SAU",
+//     "organization_name": "RIMA (Red IP Multi Acceso)"
+// }
 
 
+// {
+//     "name":"react",
+//     "image":"htt",
+//     "tecnologies": "Frontend",
+// }
+
 {
-    "name":"react",
-    "image":"htt",
-    "tecnologies": "Frontend",
-}
+    "works": [
+      {
+        "company": "Policía Nacional de Colombia",
+        "image": "https://www.policia.gov.co/sites/default/files/escudo-policia.png",
+        "description":
+          "La Policía Nacional de Colombia ​ es un cuerpo armado de naturaleza civil, a cargo de la seguridad pública de la República de Colombia.",
+        "link": "https://www.policia.gov.co",
+        "start_date": "2009-01-15",
+        "end_date": "2021-08-04",
+        "position": [
+          {
+            "name": "Estudiante",
+            "start_date": "2009-01-15",
+            "end_date": "2009-10-14",
+            "function": [
+              {
+                "name": "Secretario",
+                "link": "",
+                "start_date": "2009-01-15",
+                "end_date": "2009-10-14",
+                "tecnologies": [],
+                "repository":"",
+                "tasks": ["Labores administrativas"]
+              }
+            ]
+          },
+          {
+            "name": "Patrullero",
+            "start_date": "2009-10-15",
+            "end_date": "2021-08-05",
+            "function": [
+              {
+                "name": "Investigador judicial",
+                "link": "",
+                "start_date": "2009-10-15",
+                "end_date": "27-08-2010",
+                "tecnologies": [],
+                "repository":"",
+                "tasks": [
+                  "Desarrollar, en coordinación con la rama jurisdiccional, las labores investigativas y técnicas, con sujeción a las facultades que le otorguen las leyes y los reglamentos"
+                ]
+              },
+              {
+                "name": "Integrante patrulla de vigilancia",
+                "link": "",
+                "start_date": "28-08-2010",
+                "end_date": "30-05-2011",
+                "tecnologies": [],
+                "repository":"",
+                "tasks": [
+                  "Encargado de garantizar el ejercicio de los derechos y libertades públicas, y que los habitantes de Colombia convivan en paz."
+                ]
+              },
+              {
+                "name": "Secretario",
+                "link": "",
+                "start_date": "31-05-2011",
+                "end_date": "10-11-2014",
+                "tecnologies": [],
+                "repository":"",
+                "tasks": [
+                  "Encargado de todas las actividades administrativas de una unidad Plicial"
+                ]
+              },
+              {
+                "name": "Técnico en telemática",
+                "link": "",
+                "start_date": "11-11-2014",
+                "end_date": "04-08-2021",
+                "tecnologies": [],
+                "repository":"",
+                "tasks": [
+                  "Creación de aplicación de escritorio para el control de 5.000 elementos tecnológicos el cual se logró tener el control total de estos elementos con documentación de soporte",
+                  "Creación aplicación de escritorio para el control de ingreso, proceso y salida de computadores de laboratorio",
+                  "Mantenimiento preventivo y correctivo de computadores",
+                  "Jefe laboratorio de computadores"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "company": "ITGlobers",
+        "image": "https://itglobers.com/assets/img/icons/apple-icon-114x114.png",
+        "description":
+          "Empresa de desarrollo de software especializada en comercio electrónico que impulsa los canales digitales ",
+        "link": "https://itglobers.com",
+        "start_date": "2022-11-08",
+        "end_date": "Presente",
+        "position": [
+          {
+            "name": "Front end developer Trainee",
+            "start_date": "2022-11-08",
+            "end_date": "2023-01-12",
+            "function": [
+              {
+                "name": "clon e-comerce",
+                "link": "",
+                "start_date": "2022-11-08",
+                "end_date": "2023-01-12",
+                "tecnologies": ["VTEX", "React js", "TypeScript", "CSS", "HTML"],
+                "repository":"",
+                "tasks": [
+                  "realizo la maquetación del proyecto",
+                  "desarrolle e implemente las tecnologías exigidas",
+                  "por parte del corrector aprobó el trabajo, cumpliendo con todo lo exigido"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "Front end developer Junior",
+            "start_date": "13-01-2023",
+            "end_date": "Presente",
+            "function": [
+              {
+                "name": "supermecado Chedraui",
+                "link": "https://www.chedraui.com.mx/",
+                "start_date": "2023-01-13",
+                "end_date": "Presente",
+                "tecnologies": [
+                  "VTEX",
+                  "React js",
+                  "TypeScript",
+                  "JavaScript",
+                  "CSS",
+                  "HTML"
+                ],
+                "repository":"",
+                "tasks": [
+                  "Trabajó en con el equipo siguiendo la metodología scrum para desarrollar, documentar y administrar el sitio web de comercio electrónico",
+                  "Diseño y mantenimiento de las funciones principales de la aplicación web orientada al cliente",
+                  "Propuesta e implementación de soluciones escalables a problemas identificados con servicios"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
