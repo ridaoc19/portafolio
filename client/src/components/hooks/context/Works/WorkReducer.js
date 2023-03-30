@@ -2,16 +2,17 @@ import { GET_WORK } from "./types";
 
 export const initialState = {
   experience: [],
-  works: []
+  works: [],
+  id: ""
 };
 
-
+// eslint-disable-next-line
 export default (state, action) => {
   const { payload, type } = action;
 
   switch (type) {
     case GET_WORK:
-      return { ...state, experience: payload.experience, works: payload.works };
+      return { ...state, experience: payload.experience, works: payload.works, id: payload.id };
     // case UPDATE_EXPERIENCE:
     //   return {
     //     ...state,

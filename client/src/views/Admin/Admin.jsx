@@ -1,21 +1,25 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import CreateContext from "../../components/hooks/context/CreateContext";
 import Button from "./content/Button/Button";
 import Company from "./content/Company/Company";
 import Function from "./content/Function/Function";
 import Position from "./content/Position/Position";
 
-function Admin(props) {
+function Admin() {
 
-  const { admin: { postAdmin, state, cleanAdmin } } = useContext(CreateContext)
+  const {works: { id }, admin: { postAdmin, state, cleanAdmin, updateAdmin } } = useContext(CreateContext)
 
   const handleOnChange = (e) => {
     postAdmin({ name: e.target.name, value: e.target.value })
   }
 
-  const handleOnClick = (e) => {
+  const handleOnClick =(e) => {
     e.preventDefault();
-    cleanAdmin()
+    if(e.target.name === "clear"){
+      cleanAdmin()
+    }else if (e.target.name === "update"){
+      updateAdmin(id)
+    }
   }
 
   return (

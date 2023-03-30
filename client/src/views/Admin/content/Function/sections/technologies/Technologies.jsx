@@ -4,13 +4,14 @@ import CreateContext from '../../../../../../components/hooks/context/CreateCont
 
 function Technologies() {
 
-  const { tecnologies: { getTecnologies, tecnologies }, admin: { postAdmin } } = useContext(CreateContext)
+  const {works: { getWork }, tecnologies: { getTecnologies, tecnologies }, admin: { postAdmin } } = useContext(CreateContext)
 
   const [tech, setTech] = useState([])
   const [status, setStatus] = useState(false)
 
   useEffect(() => {
     getTecnologies()
+    getWork()
     // eslint-disable-next-line
   }, [])
 
