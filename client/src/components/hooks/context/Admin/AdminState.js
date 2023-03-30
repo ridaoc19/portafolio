@@ -1,6 +1,7 @@
 import { useReducer } from "react";
 import AdminReducer, { initialState } from "./AdminReducer";
 import { CLEAN_ADMIN, POST_ADMIN } from "./adminTypes";
+import axios from 'axios';
 
 function AdminState(props) {
   const [state, dispatch] = useReducer(AdminReducer, initialState);
@@ -18,10 +19,15 @@ function AdminState(props) {
     });
   };
 
+  const updateAdmin = async (id) => {
+    axios.put(`${process.env.REACT_APP_URL}/works/${id}`, { state })
+  }
+
   return {
     state,
     postAdmin,
     cleanAdmin,
+    updateAdmin
   }
 }
 

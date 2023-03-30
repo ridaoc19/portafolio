@@ -1,8 +1,7 @@
-import { useReducer } from "react";
-import WorksReducer, { initialState } from "./WorkReducer";
 import axios from 'axios';
-import { GET_WORK, } from "./types";
-import { filter } from "./function/function";
+import { useReducer } from "react";
+import { GET_WORK } from "./types";
+import WorksReducer, { initialState } from "./WorkReducer";
 
 function WorkState(props) {
 
@@ -16,17 +15,18 @@ function WorkState(props) {
     });
   };
 
-  const updateExperience = async (value) => {
+  // const updateExperience = async (value) => {
     // const result = filter(state.experience, state.renderExperience, value);
     // dispatch({
     //   type: UPDATE_EXPERIENCE,
     //   payload: result,
     // });
-  };
+  // };
 
   return {
     experience: state.experience,
     works: state.works,
+    id: state.id,
     getWork
   }
 }
