@@ -10,16 +10,16 @@ function Admin() {
   const {works: { id }, admin: { postAdmin, state, cleanAdmin, updateAdmin } } = useContext(CreateContext)
 
   const handleOnChange = (e) => {
-    postAdmin({ name: e.target.name, value: e.target.value })
+    // postAdmin({ name: e.target.name, value: e.target.value })
   }
 
   const handleOnClick =(e) => {
-    e.preventDefault();
-    if(e.target.name === "clear"){
-      cleanAdmin()
-    }else if (e.target.name === "update"){
-      updateAdmin(id)
-    }
+    // e.preventDefault();
+    // if(e.target.name === "clear"){
+    //   cleanAdmin()
+    // }else if (e.target.name === "update"){
+    //   updateAdmin(id)
+    // }
   }
 
   return (
