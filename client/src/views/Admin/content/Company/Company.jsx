@@ -2,6 +2,8 @@ import React from 'react';
 
 function Company({handleOnChange, state}) {
 
+  // const
+
   return (
     <>
       <div className='admin__company-title'>
