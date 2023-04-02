@@ -57,10 +57,10 @@ export const postLocation = () => {
               dispatch({ type: RESPONSE_LOCATION, payload: res || [] });
               sessionStorage.location = res[0].id;
             })
-            .catch((error) => console.log(error));
+            .catch((error) => console.log({errPost: error.message}));
         }
       })
-      .catch((error) => "");
+      .catch((error) => console.log({err: error.message}));
   };
 };
 

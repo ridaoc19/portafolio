@@ -20,6 +20,9 @@ function Position({handleOnChange, state}) {
           <input type="date" onChange={handleOnChange} id="end_date_position" name="end_date_position" value={state.end_date_position} />
         </div>
       </div>
+      <div className='admin__position-slate'>
+        
+      </div>
     </>
   );
 }

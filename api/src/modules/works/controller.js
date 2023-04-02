@@ -6,6 +6,6 @@ const router = Router();
 
 router.post("/", postWorks);
 router.get("/", getWorks);
-router.put("/", putWorks);
+router.put("/:id", putWorks);
 
 module.exports = router;
