@@ -7,16 +7,24 @@ export const initialState = {
   link_company: "",
   start_date_company: "",
   end_date_company: "",
-  position: "",
-  start_date_position: "",
-  end_date_position: "",
-  function: "",
-  link_function: "",
-  start_date_function: "",
-  end_date_function: "",
-  tecnologies: [],
-  repository: "",
-  tasks: [],
+  position: [
+    {
+      name_position: "",
+      start_date_position: "",
+      end_date_position: "",
+      function: [
+        {
+          name_function: "",
+          link_function: "",
+          start_date_function: "",
+          end_date_function: "",
+          tecnologies: [],
+          repository: "",
+          tasks: [],
+        },
+      ],
+    },
+  ],
 };
 
 export default (state, action) => {

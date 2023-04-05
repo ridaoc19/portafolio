@@ -10,21 +10,17 @@ const initialState = {
 };
 
 function Position() {
-  // const { admin: { postAdmin, state } } = useContext(CreateContext);
+  const { admin: { postAdmin, state } } = useContext(CreateContext);
 
-  const [local, setLocal] = useState(initialState);
+  const [change, setChange] = useState(initialState);
 
   const handleOnChange = (e) => {
-    let modify = [...change]
-    const { name, value } = e.target
-    modify[idPosition][name] = value
-    setChange(modify)
-    setLocal({ ...local, [name]: value })
+    setChange({ ...change, [e.target.name]: e.target.value });
   };
 
   useEffect(() => {
-    // postAdmin({ name: "position", value: [change] });
-  }, [local]);
+    postAdmin({ name: "position", value: [change] });
+  }, [change]);
 
   return (
     <>
@@ -38,7 +34,7 @@ function Position() {
             onChange={handleOnChange}
             placeholder="cargo"
             name="name_position"
-            value={local.name_position}
+            value={change.name_position}
           />
         </div>
         <div className="-start-date">
@@ -48,7 +44,7 @@ function Position() {
             onChange={handleOnChange}
             id="start_date_position"
             name="start_date_position"
-            value={local.start_date_position}
+            value={change.start_date_position}
           />
         </div>
         <div className="-end-date">
@@ -58,13 +54,13 @@ function Position() {
             onChange={handleOnChange}
             id="end_date_position"
             name="end_date_position"
-            value={local.end_date_position}
+            value={change.end_date_position}
           />
         </div>
       </div>
       <hr />
       <div className="admin_container-function">
-        <Function changes={local} handleOnChanges={handleOnChange} />
+        <Function changes={change} handleOnChanges={handleOnChange} />
       </div>
     </>
   );
