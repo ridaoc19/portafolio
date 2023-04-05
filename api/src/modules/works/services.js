@@ -9,22 +9,23 @@ module.exports = {
   },
 
   getWorks(req, res) {
-    Works.find()
+    Works.find().sort({ "start_date": 1 })
       .then((data) => {
         const responseTecnologies = () => {
-          let result = data[0].works
+          let result = data
             ?.map((e) => [e.position?.map((r) => r.function)])
             .flat(Infinity)
             .filter((e) => e.tecnologies.length > 0);
           return result;
         };
 
+        console.log()
+
         res
           .status(200)
           .json({
             experience: responseTecnologies(),
-            works: data[0].works,
-            id: data[0].id,
+            works: data,
           });
       })
       .catch((error) => res.json({ message: error.message }));
@@ -37,7 +38,7 @@ module.exports = {
     //   { works: req.body.works },
     //   { new: true }
     // )
-      // .then((data) => res.status(200).json(data))
-      // .catch((error) => res.json({ message: error }));
+    // .then((data) => res.status(200).json(data))
+    // .catch((error) => res.json({ message: error }));
   },
 };

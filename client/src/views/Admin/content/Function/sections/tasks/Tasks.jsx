@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import CreateContext from '../../../../../../components/hooks/context/CreateContext';
-import id from '../../../../../../components/utils/function/id';
+import {id} from '../../../../../../components/utils/function/id';
 
 function Tasks() {
   const { admin: { postAdmin } } = useContext(CreateContext)
