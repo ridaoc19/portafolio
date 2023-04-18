@@ -1,6 +1,6 @@
 import axios from 'axios';
-import { useReducer } from "react";
-import { GET_WORK } from "./types";
+import { useReducer, useState } from "react";
+import { GET_WORK, LOADING_WORK } from "./types";
 import WorksReducer, { initialState } from "./WorkReducer";
 
 function WorkState(props) {
@@ -15,6 +15,12 @@ function WorkState(props) {
     });
   };
 
+  const getLoadingWork = async () => {
+    dispatch({
+      type: LOADING_WORK,
+    });
+  }
+
   // const updateExperience = async (value) => {
     // const result = filter(state.experience, state.renderExperience, value);
     // dispatch({
@@ -27,7 +33,9 @@ function WorkState(props) {
     experience: state.experience,
     works: state.works,
     id: state.id,
-    getWork
+    loadingWork: state.loadingWork,
+    getWork,
+    getLoadingWork
   }
 }
 

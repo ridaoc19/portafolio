@@ -1,44 +1,57 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
+import {
+  COMPANY,
+  GET,
+  LOADING_API_COMPANY,
+} from "../../components/hooks/context/Admin/adminTypes";
 import CreateContext from "../../components/hooks/context/CreateContext";
-import Button from "./content/Button/Button";
-import Company from "./content/Company/Company";
-import Function from "./content/Function/Function";
-import Position from "./content/Position/Position";
+import Company from "./sections/Company/Company";
+import Function from "./sections/Function/Function";
+import Position from "./sections/Position/Position";
 
 function Admin() {
+  const {
+    admin: { status, callApi, setStatus },
+  } = useContext(CreateContext);
 
-  const {works: { id }, admin: { postAdmin, state, cleanAdmin, updateAdmin } } = useContext(CreateContext)
-
-  const handleOnChange = (e) => {
-    // postAdmin({ name: e.target.name, value: e.target.value })
-  }
-
-  const handleOnClick =(e) => {
-    // e.preventDefault();
-    // if(e.target.name === "clear"){
-    //   cleanAdmin()
-    // }else if (e.target.name === "update"){
-    //   updateAdmin(id)
-    // }
-  }
+  useEffect(() => {
+    callApi({method: GET, route: COMPANY, loading: LOADING_API_COMPANY});
+  }, []);
 
   return (
     <>
       <div className="admin_container">
-        <div className="admin_container-company">
-          <Company state={state} handleOnChange={handleOnChange} />
+        <div className="admin_company">
+          <div className="company__title">
+            <h2>Empresa</h2>
+          </div>
+          <Company />
           <hr />
         </div>
         <div className="admin_container-position">
-          <Position state={state} handleOnChange={handleOnChange} />
+          <div className="position__title">
+            <h2>Cargo o grado en la empresa</h2>
+          </div>
+          {status.company_add_position && <Position />}
           <hr />
         </div>
         <div className="admin_container-function">
-          <Function state={state} handleOnChange={handleOnChange} />
+          <div className="function__title">
+            <h2>Funciones o proyectos</h2>
+          </div>
+          {status.position_add_function && <Function />}
           <hr />
         </div>
-        <div className="admin_container-button">
-          <Button handleOnClick={handleOnClick} />
+        <div className="admin_button">
+          <button
+            id="admin_button"
+            onClick={(e) => {
+              e.preventDefault();
+              setStatus({ type: "CLEAN" });
+            }}
+          >
+            Restaurar
+          </button>
         </div>
       </div>
     </>
