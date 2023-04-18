@@ -1,5 +1,5 @@
 import axios from "axios";
-import { LOADING, RESPONSE_LOCATION } from "./types";
+import { RESPONSE_LOCATION } from "./types";
 
 export const postLocation = () => {
   return (dispatch) => {
