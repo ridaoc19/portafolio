@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { totalYear } from "../../../../../components/utils/function/date";
 import { PARAMS } from "../../../../../components/utils/function/variables";
 
-function Fields({ change, handleOnChange, handleOnLoad, err }) {
+function Fields({ change, handleOnChange, handleOnLoad, err, handleOnClick }) {
   useEffect(() => {
     document.getElementById("company_save")?.setAttribute("disabled", "");
   }, []);
@@ -108,6 +108,14 @@ function Fields({ change, handleOnChange, handleOnLoad, err }) {
           value={change.description}
         />
         <span>{err.description}</span>
+      </div>
+      <div className="company__button">
+      <button id="company_clean" name="company_clean" onClick={handleOnClick}>
+        Limpiar
+      </button>
+      <button id="company_save" name="company_save" onClick={handleOnClick}>
+        Guardar Empresa
+      </button>
       </div>
     </form>
   );

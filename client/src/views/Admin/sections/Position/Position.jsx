@@ -14,7 +14,7 @@ const initialState = {
 }
 
 function Position() {
-  const { admin: { state, status, setStatus, positionPost, functionGet, callApi } } = useContext(CreateContext);
+  const { login: { state: { user } }, admin: { state, status, setStatus, callApi } } = useContext(CreateContext);
 
   const [change, setChange] = useState(initialState)
   const [err, setErr] = useState(initialState)
@@ -23,10 +23,12 @@ function Position() {
     Object.values(err).filter((e) => e).length === 0 && Object.values(change).filter((e) => e).length > 2
       ? document.getElementById("position_save")?.removeAttribute("disabled") :
       document.getElementById("position_save")?.setAttribute("disabled", "")
+    // eslint-disable-next-line
   }, [err])
 
   useEffect(() => {
     return () => setStatus({ position_fields: false, position_function_id: "" })
+    // eslint-disable-next-line
   }, [])
 
 
@@ -37,75 +39,37 @@ function Position() {
     switch (nameInput) {
       case "add":
         setStatus({ position_fields: true, position_add: false, position_render: false })
-        // setStatus({ company_fields: true, company_add: false, company_position_id: "", company_render: false })
+
         break
       case "edit":
         setChange(state.company.find(d => d._id === status.company_position_id).position.find(d => d._id === value))
         setStatus({ position_fields: true, position_add: false, position_add_function: false, position_function_id: value })
-        // setChange(state.company.find(d => d._id === value))
-        // setStatus({ company_fields: true, position_add_function: false, company_add_position: false, company_add: false, company_position_id: value })
         return
+
       case "clean":
-        // setChange(initialState)
         setStatus({ position_fields: false, position_add: true, position_render: true, position_function_id: "" })
-        // setStatus({ company_fields: false, company_add: true, company_position_id: "", company_render: true })
         break
       case "save":
-        // if (Object.values(err).filter(e => e).length > 0) return
 
-        callApi({ method: POST, route: POSITIONS, loading: LOADING_API_POSITION, post: Object.assign({ company: status.company_position_id }, change) })
+        callApi({ method: POST, route: POSITIONS, loading: LOADING_API_POSITION, post: Object.assign({ company: status.company_position_id, user_id: user._id }, change) })
         setStatus({ position_fields: false, position_add: true, position_render: true })
         break
       case "delete":
-        // callApi(POST, POSITIONS, LOADING_API_POSITION, Object.assign({ company: status.company_position_id }, change))
 
-        // setStatus({ type: 'CLEAN' })
         setStatus({ position_fields: false, position_add: true, position_render: true, position_add_function: false, position_function_id: "" })
         callApi({ method: DELETE, route: `${POSITIONS}/${value}`, loading: LOADING_API_POSITION })
         break
       case "add_position":
-        // functionGet(value)
-        callApi({ method: GET, route: `${FUNCTIONS}/${value}`, loading: LOADING_API_FUNCTIONS })
+
+        callApi({ method: GET, route: `${FUNCTIONS}/${value}/${user._id}`, loading: LOADING_API_FUNCTIONS })
         setStatus({ position_add_function: true, position_add: false, position_fields: false, position_function_id: value })
-        // setStatus({ company_add_position: true, company_add: false, company_position_id: value })
+
         break
+      default: return
     }
     setErr(initialState)
     setChange(initialState)
   }
-
-
-  // const handleOnClick = (e) => {
-  //   const { name, value } = e.target;
-  //   const nameInput = name.split("_").length > 2 ? name.split("_").slice(1).toString().replace(',', '_') : name.split("_")[1]
-
-  //   if (nameInput === "edit") {
-  //     // console.log(state.company.find(d => d._id === status.company_position_id).position.find(d => d._id === value));
-  //     setChange(state.company.find(d => d._id === status.company_position_id).position.find(d => d._id === value))
-  //     setStatus({ position_fields: true })
-
-  //   } else if (nameInput === "delete") {
-
-  //   } else if (nameInput === "add") {
-  //     setChange(initialState)
-  //     setStatus({ position_fields: true, [name]: false })
-  //   } else if (nameInput === "clean") {
-  //     setChange(initialState)
-  //     setStatus({ position_fields: false, position_add: true })
-  //   } else if (nameInput === "save") {
-
-  //     callApi(POST, FUNCTIONS, LOADING_API_POSITION, Object.assign({ company: status.company_position_id }, change))
-
-
-  //     // positionPost(Object.assign({ company: status.company_position_id }, change))
-  //     setStatus({ position_fields: false, position_add: true })
-  //     setChange(initialState)
-  //   } else if (nameInput === "add_function") {
-  //     functionGet(value)
-  //     setStatus({ position_add_function: true, position_function_id: value })
-
-  //   }
-  // }
 
   const handleOnChange = (e) => {
     const { name, value } = e.target;
@@ -113,7 +77,6 @@ function Position() {
 
     const { type, stop, empty } = Validation(nameInput, value, change);
 
-    // setChange({ ...change, [nameInput]: value })
     !stop && setChange({ ...change, [nameInput]: empty ? "" : value });
     setErr({ ...err, [nameInput]: type });
   }

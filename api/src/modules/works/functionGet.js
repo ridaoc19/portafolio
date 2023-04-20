@@ -1,19 +1,22 @@
+const { Login } = require("../login/model");
 const { Company, Technologies, Position, Functions } = require("./model");
 
 
-const companyGet = (req, res) => {
-    Company.find()
-        .populate({ path: "position" })
-        .sort({ start_date: 1 })
-        .then(async (company) => {
-            let technologies = await Technologies.find();
-            res.status(200).json({ company, technologies });
-        })
-        .catch((error) => res.json({ message: error.message }));
+const companyGet = async (req, res, id) => {
+    try {
+        const login = await Login.findById({ _id: id})
+        const company = await Company.find({ _id: login.company_id}).populate({ path: "position" }).sort({ start_date: 1 })
+        const technologies = await Technologies.find();
+        res.status(200).json({ company, technologies });
+    } catch (error) {
+        res.json({ message: error.message })
+    }
 }
 
-const functionGet = (req, res) => {
-    let company = Promise.resolve(Company.find().populate({ path: "position" }).sort({ start_date: 1 }))
+const functionGet = async (req, res, id) => {
+    const login = await Login.findById({ _id: id})
+    // const company = await Company.find({ _id: login.company_id}).populate({ path: "position" }).sort({ start_date: 1 })
+    let company = Promise.resolve(Company.find({ _id: login.company_id}).populate({ path: "position" }).sort({ start_date: 1 }))
     let functions = Promise.resolve(Position.findById(req.params.id).sort({ "start_date": 1 }).populate({ path: "functions" }))
     let technologies = Promise.resolve(Technologies.find())
 

@@ -1,4 +1,4 @@
-import { DATA_UPDATE, GET_COMPANY, GET_FUNCTIONS, LOADING_API, POST_FUNCTIONS } from "./adminTypes";
+import { DATA_UPDATE, LOADING_API } from "./adminTypes";
 
 export const initialState = {
   loading_api_company: true,
@@ -9,9 +9,9 @@ export const initialState = {
   technologies: []
 };
 
-export default (state, action) => {
+const AdminReducer = (state, action) => {
   const { payload, type } = action;
-  
+
   switch (type) {
     case DATA_UPDATE:
       Object.entries(action.payload).map(([key, value]) => state[key] = value)
@@ -26,3 +26,5 @@ export default (state, action) => {
       return state;
   }
 };
+
+export default AdminReducer;

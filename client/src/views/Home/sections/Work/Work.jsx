@@ -1,17 +1,15 @@
-import moment from 'moment';
-import 'moment-precise-range-plugin';
 import React, { useContext } from "react";
 import CreateContext from '../../../../components/hooks/context/CreateContext';
 import { formatDate, totalYear } from '../../../../components/utils/function/date';
 // import { formatDate, totalYear } from "./functionWork";
 
 const Work = () => {
-  const { works: { works } } = useContext(CreateContext);
+  const { works: { company } } = useContext(CreateContext);
 
   return (
     <div className="home__work--container">
       <h2>Donde he trabajado</h2>
-      {works?.map((e, i) => {
+      {company?.map((e, i) => {
 
         return (
           <div key={i} className="home__work--content">
@@ -21,7 +19,7 @@ const Work = () => {
               </div>
               <div className="work__content--title">
                 <h3>
-                  <a href={e.link} target="_blank" rel="noreferrer">@{e.company}</a>
+                  <a href={e.link} target="_blank" rel="noreferrer">@{e.name}</a>
                 </h3>
                 <h6>
                   <span>{totalYear(e.start_date, e.end_date === "Presente" ? Date.now() : e.end_date)} </span>
