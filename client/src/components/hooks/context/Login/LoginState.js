@@ -1,6 +1,6 @@
 import { useReducer } from "react";
 import LoginReducer, { initialState } from "./LoginReducer";
-import { LOADING_API, UPDATE_LOGIN } from "./loginTypes";
+import { LOADING_API, LOGOUT, UPDATE_LOGIN } from "./loginTypes";
 
 function LoginState() {
 
@@ -23,7 +23,12 @@ function LoginState() {
       .catch((error) => console.log({ errPost: error.message }));
   }
 
-  return { state, callApiLogin }
+  const logout = () => {
+    sessionStorage.removeItem('login')
+    dispatch({type: LOGOUT})
+  }
+
+  return { state, callApiLogin, logout }
 }
 
 export default LoginState;

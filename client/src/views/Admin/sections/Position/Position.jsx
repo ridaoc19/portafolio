@@ -14,7 +14,7 @@ const initialState = {
 }
 
 function Position() {
-  const { admin: { state, status, setStatus, callApi } } = useContext(CreateContext);
+  const { login: { state: { user } }, admin: { state, status, setStatus, callApi } } = useContext(CreateContext);
 
   const [change, setChange] = useState(initialState)
   const [err, setErr] = useState(initialState)
@@ -23,7 +23,7 @@ function Position() {
     Object.values(err).filter((e) => e).length === 0 && Object.values(change).filter((e) => e).length > 2
       ? document.getElementById("position_save")?.removeAttribute("disabled") :
       document.getElementById("position_save")?.setAttribute("disabled", "")
-      // eslint-disable-next-line
+    // eslint-disable-next-line
   }, [err])
 
   useEffect(() => {
@@ -51,7 +51,7 @@ function Position() {
         break
       case "save":
 
-        callApi({ method: POST, route: POSITIONS, loading: LOADING_API_POSITION, post: Object.assign({ company: status.company_position_id }, change) })
+        callApi({ method: POST, route: POSITIONS, loading: LOADING_API_POSITION, post: Object.assign({ company: status.company_position_id, user_id: user._id }, change) })
         setStatus({ position_fields: false, position_add: true, position_render: true })
         break
       case "delete":
@@ -61,7 +61,7 @@ function Position() {
         break
       case "add_position":
 
-        callApi({ method: GET, route: `${FUNCTIONS}/${value}`, loading: LOADING_API_FUNCTIONS })
+        callApi({ method: GET, route: `${FUNCTIONS}/${value}/${user._id}`, loading: LOADING_API_FUNCTIONS })
         setStatus({ position_add_function: true, position_add: false, position_fields: false, position_function_id: value })
 
         break

@@ -10,14 +10,12 @@ import Function from "./sections/Function/Function";
 import Position from "./sections/Position/Position";
 
 function Admin() {
-  const {
-    admin: { status, callApi, setStatus },
-  } = useContext(CreateContext);
+  const { login: { state: { user, loading_login } },   admin: { status, callApi, setStatus },  } = useContext(CreateContext);
 
   useEffect(() => {
-    callApi({method: GET, route: COMPANY, loading: LOADING_API_COMPANY});
+    user?._id && !loading_login && callApi({method: GET, route: `${COMPANY}/${user._id}`, loading: LOADING_API_COMPANY});
     // eslint-disable-next-line
-  }, []);
+  }, [user]);
 
   return (
     <>

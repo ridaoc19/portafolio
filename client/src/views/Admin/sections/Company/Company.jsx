@@ -16,8 +16,7 @@ const initialState = {
 }
 
 function Company() {
-  const { admin: { state, status, setStatus, callApi } } = useContext(CreateContext);
-
+  const { login: { state: { user } }, admin: { state, status, setStatus, callApi } } = useContext(CreateContext);
   const [change, setChange] = useState(initialState)
   const [err, setErr] = useState(initialState)
 
@@ -25,10 +24,11 @@ function Company() {
     Object.values(err).filter((e) => e).length === 0 && Object.values(change).filter((e) => e).length > 5
       ? document.getElementById("company_save")?.removeAttribute("disabled") :
       document.getElementById("company_save")?.setAttribute("disabled", "")
-      // eslint-disable-next-line
+    // eslint-disable-next-line
   }, [err])
 
   const handleOnClick = (e) => {
+    e.preventDefault();
     const { name, value } = e.target;
     const nameInput = name.split("_").length > 2 ? name.split("_").slice(1).toString().replace(',', '_') : name.split("_")[1]
     switch (nameInput) {
@@ -43,9 +43,9 @@ function Company() {
         setStatus({ company_fields: false, company_add: true, company_position_id: "", company_render: true })
         break
       case "save":
-        if (Object.values(err).filter(e => e).length > 0) return
+        if (!user?._id) return alert("Debe Iniciar Sesión para registrar Información")
         setStatus({ type: 'CLEAN' })
-        callApi({ method: POST, route: COMPANY, loading: LOADING_API_COMPANY, post: change })
+        callApi({ method: POST, route: COMPANY, loading: LOADING_API_COMPANY, post: Object.assign({ user_id: user._id }, change) })
         break
       case "delete":
         setStatus({ type: 'CLEAN' })
@@ -74,18 +74,21 @@ function Company() {
 
   return (
     <div className="company__container">
-
-      {state.loading_api_company ? <h1>Cargando...</h1> : <div>
-        <div className="company__render">
-          {status.company_render && <Render handleOnClick={handleOnClick} company={state.company} status={status} />}
-        </div>
-        <div className="admin__company">
-          {status.company_fields && <Fields handleOnChange={handleOnChange} handleOnLoad={handleOnLoad} change={change} err={err} />}
-        </div>
-        <div className="company__button">
+      {!user?._id
+        ? <Fields handleOnChange={handleOnChange} handleOnLoad={handleOnLoad} handleOnClick={handleOnClick} change={change} err={err} />
+        : state.loading_api_company
+          ? <h1>Cargando...</h1> 
+          : <div>
+            <div className="company__render">
+              {status.company_render && <Render handleOnClick={handleOnClick} company={state.company} status={status} />}
+            </div>
+            <div className="admin__company">
+              {status.company_fields && <Fields handleOnChange={handleOnChange} handleOnLoad={handleOnLoad} handleOnClick={handleOnClick} change={change} err={err} />}
+            </div>
+            {/* <div className="company__button">
           {status.company_fields && <Button handleOnClick={handleOnClick} status={status} />}
-        </div>
-      </div>}
+        </div> */}
+          </div>}
     </div>
   );
 }
