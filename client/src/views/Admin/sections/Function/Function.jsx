@@ -17,7 +17,7 @@ const initialState = {
 }
 
 function Function() {
-  const { admin: { state, status, setStatus, callApi } } = useContext(CreateContext);
+  const {login: { state: { user } }, admin: { state, status, setStatus, callApi } } = useContext(CreateContext);
 
   const [change, setChange] = useState(initialState)
   const [err, setErr] = useState(initialState)
@@ -56,12 +56,12 @@ function Function() {
       case "save":
         if (Object.values(err).filter(e => e).length > 2 || change.tasks.length === 0 || change.tecnologies.length === 0) return
         setStatus({ function_fields: false, function_add: true })
-        callApi({ method: POST, route: `${FUNCTIONS}/${status.position_function_id}`, loading: LOADING_API_FUNCTIONS, post: Object.assign({ company: status.company_position_id, position: status.position_function_id }, change) })
+        callApi({ method: POST, route: `${FUNCTIONS}/${status.position_function_id}/${user._id}`, loading: LOADING_API_FUNCTIONS, post: Object.assign({ company: status.company_position_id, position: status.position_function_id }, change) })
         break
 
       case "delete":
         setStatus({ function_fields: false, function_add: true, function_render: true, function_add_function: false, function_function_id: "" })
-        callApi({ method: DELETE, route: `${FUNCTIONS}/${value}`, loading: LOADING_API_FUNCTIONS })
+        callApi({ method: DELETE, route: `${FUNCTIONS}/${value}/${user._id}`, loading: LOADING_API_FUNCTIONS })
         break
 
       case "add_position":

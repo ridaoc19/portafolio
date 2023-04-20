@@ -1,4 +1,4 @@
-import { LOADING_API, UPDATE_LOGIN } from "./loginTypes";
+import { LOADING_API, LOGOUT, UPDATE_LOGIN } from "./loginTypes";
 
 export const initialState = {
   user: {},
@@ -13,6 +13,8 @@ const LoginReducer = (state, action) => {
       return { ...state, user: payload, loading_login: false };
     case LOADING_API:
       return { ...state, loading_login: true };
+      case LOGOUT:
+        return {...state, user: {}};
     default:
       return state;
   }

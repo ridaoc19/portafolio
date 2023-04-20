@@ -11,7 +11,7 @@ export const initialState = {
 
 const AdminReducer = (state, action) => {
   const { payload, type } = action;
-  
+
   switch (type) {
     case DATA_UPDATE:
       Object.entries(action.payload).map(([key, value]) => state[key] = value)

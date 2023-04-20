@@ -2,6 +2,7 @@ const { Schema, Types, model, Model } = require("mongoose");
 
 const companySchema = new Schema(
   {
+    user_id: { type: Schema.Types.ObjectId, ref: "Company" },
     name: { type: String },
     image: { type: String },
     description: { type: String },
