@@ -29,7 +29,7 @@ export const initialStateStatus = {
 
 };
 
-export default (state, action) => {
+const StatusReducer = (state, action) => {
   const { payload, type } = action;
 
   switch (type) {
@@ -43,3 +43,5 @@ export default (state, action) => {
       return state;
   }
 };
+
+export default StatusReducer

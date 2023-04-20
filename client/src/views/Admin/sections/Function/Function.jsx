@@ -66,6 +66,7 @@ function Function() {
 
       case "add_position":
         break
+      default: return
     }
     setErr(initialState)
     setChange(initialState)
@@ -74,7 +75,7 @@ function Function() {
 
 
   const handleOnChange = (e) => {
-    const { id, name, value } = e.target;
+    const { name, value } = e.target;
     const nameInput = name.split("_").length > 2 ? name.split("_").slice(1).toString().replace(',', '_') : name.split("_")[1]
     const { type, stop, empty } = Validation(nameInput, value, change);
     !stop && setChange({ ...change, [nameInput]: empty ? "" : value });

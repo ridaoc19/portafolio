@@ -16,6 +16,7 @@ function Admin() {
 
   useEffect(() => {
     callApi({method: GET, route: COMPANY, loading: LOADING_API_COMPANY});
+    // eslint-disable-next-line
   }, []);
 
   return (

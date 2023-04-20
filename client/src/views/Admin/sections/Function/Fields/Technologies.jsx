@@ -8,6 +8,7 @@ function Technologies({ handleTech, change, idTasksTech }) {
 
   useEffect(() => {
     handleTech(tech.filter(d => d.status === 'selection').map(e => e._id), "tech")
+    // eslint-disable-next-line
   }, [tech]);
 
   useEffect(() => {
@@ -23,27 +24,8 @@ function Technologies({ handleTech, change, idTasksTech }) {
     // eslint-disable-next-line
   }, [idTasksTech]);
 
-  // useEffect(() => {
-  //   setTech(state?.technologies?.map((e) => Object.assign(e, { status: "technologies" })));
-  //   // eslint-disable-next-line
-  // }, [state.technologies]);
-
-  // document.getElementById("function_edit").addEventListener('click', (e)=> {
-  //   e.preventDefault()
-  //   setTech(state?.technologies?.map(e => {
-
-  //     if(change.tecnologies.includes(e._id)){
-  //     return  Object.assign(e, { status: "selection" })
-  //     }else{
-  //     return  Object.assign(e, { status: "technologies" })
-  //     }
-      
-  //     }));
-  // })
-
-
   const handleOnDblClick = (e) => {
-    const { id, name, value } = e.target;
+    const { id, name } = e.target;
     e.preventDefault();
 
     if (name === 'add') {

@@ -1,6 +1,6 @@
 const { Schema, Types, model, Model } = require("mongoose");
 
-const LocationSchema = new Schema(
+const locationSchema = new Schema(
   {
     ip_address: { type: String },
     city: { type: String },
@@ -42,4 +42,4 @@ const LocationSchema = new Schema(
   }
 );
 
-module.exports = model("locations", LocationSchema);
+module.exports = model("Locations", locationSchema);

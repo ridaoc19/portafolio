@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useReducer, useState } from "react";
+import { useReducer } from "react";
 import { GET_WORK, LOADING_WORK } from "./types";
 import WorksReducer, { initialState } from "./WorkReducer";
 
