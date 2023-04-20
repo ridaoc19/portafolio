@@ -12,35 +12,35 @@ import Contact from "./sections/Contact/Contact";
 
 
 const Home = () => {
-  const { works: { getWork } } = useContext(CreateContext)
-
+  const { login: { state: {user} }, works: { getWork } } = useContext(CreateContext)
+  
   useEffect(() => {
-    // getWork()
+    getWork({ route:  user?.user_id ?  user?.user_id : "112730665053674408326" })
     // eslint-disable-next-line
   }, [])
-  
+
   return (
 
-      <div className="home__container">
-        {/* <section className="home__container--introduction">
-          <Introduction />
-        </section>
-        <section className="home__container--about">
-          <About />
-        </section>
-        <section className="home__container--skill">
-          <Skills />
-        </section>
-        <section className="home__container--experience">
-          <Experiences/>
-        </section>
-        <section className="home__container--work">
-          <Work/>
-        </section>
-        <section className="home__container--contact">
-          <Contact/>
-        </section> */}
-      </div>
+    <div className="home__container">
+      <section className="home__container--introduction">
+        <Introduction />
+      </section>
+      <section className="home__container--about">
+        <About />
+      </section>
+      <section className="home__container--skill">
+        <Skills />
+      </section>
+      <section className="home__container--experience">
+        <Experiences/>
+      </section>
+      <section className="home__container--work">
+        <Work/>
+      </section>
+      <section className="home__container--contact">
+        <Contact />
+      </section>
+    </div>
 
   );
 };

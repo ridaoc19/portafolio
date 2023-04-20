@@ -2,10 +2,10 @@ import React, { useContext, useEffect } from "react";
 import CreateContext from "../../../../components/hooks/context/CreateContext";
 
 function Skills() {
-  const { tecnologies: { getTecnologies, tecnologies } } = useContext(CreateContext)
+  const { works: { technologies } } = useContext(CreateContext)
 
   useEffect(() => {
-    getTecnologies()
+    // getTecnologies()
     // eslint-disable-next-line
   }, [])
   return (
@@ -14,7 +14,7 @@ function Skills() {
       <h4>Frondtend</h4>
 
       <ul className="home__skill--container">
-        {tecnologies?.map((e) => (
+        {technologies?.map((e) => (
           e.tecnologies === "Front end" &&
           <div key={e.name} className="home__skill--card">
             <div className="skill__card--father container">
@@ -30,8 +30,8 @@ function Skills() {
       <h4>Backend</h4>
 
       <ul className="home__skill--container">
-        {tecnologies?.map((e) => (
-          e.tecnologies === "back end" &&
+        {technologies?.map((e) => (
+          e.tecnologies === "Back end" &&
           <div key={e.name} className="home__skill--card">
             <div className="skill__card--father container">
               <div className="skill__card--son">

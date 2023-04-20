@@ -3,16 +3,16 @@ import CreateContext from "../../../../../../components/hooks/context/CreateCont
 
 
 function Main() {
-  const {works: {getWork, experience}} = useContext(CreateContext);
+  const { works: { functions } } = useContext(CreateContext);
 
   useEffect(() => {
-    getWork()
-     // eslint-disable-next-line
-  },[])
+    // getWork()
+    // eslint-disable-next-line
+  }, [])
 
   return (
     <>
-      {experience?.map((e, i) => (
+      {functions?.map((e, i) => (
         <div key={i} className="experiences__card--container">
           <div className="experiences__card--father">
             <div className="experiences__card--son">
@@ -23,7 +23,7 @@ function Main() {
               </div>
 
               {/* <div className="experiences__card--image"> */}
-                {/* <img src={e.image} alt="img" /> */}
+              {/* <img src={e.image} alt="img" /> */}
               {/* </div> */}
 
               <div className="experiences__card--name">
@@ -43,7 +43,7 @@ function Main() {
                 <div className="experiences__tecnologies--container">
                   {e.tecnologies?.map((e, i) => (
                     <div key={i} className="experiences__tecnologies--indi">
-                      <li>{e}</li>
+                      <li>{e.name}</li>
                     </div>
                   ))}
                 </div>

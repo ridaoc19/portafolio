@@ -7,8 +7,8 @@ function WorkState(props) {
 
   const [state, dispatch] = useReducer(WorksReducer, initialState);
 
-  const getWork = async () => {
-    let { data } = await axios.get(`${process.env.REACT_APP_URL}/works`);
+  const getWork = async ({ route }) => {
+    let { data } = await axios.get(`${process.env.REACT_APP_URL}/works/${route}`);
     dispatch({
       type: GET_WORK,
       payload: data,
@@ -22,19 +22,25 @@ function WorkState(props) {
   }
 
   // const updateExperience = async (value) => {
-    // const result = filter(state.experience, state.renderExperience, value);
-    // dispatch({
-    //   type: UPDATE_EXPERIENCE,
-    //   payload: result,
-    // });
+  // const result = filter(state.experience, state.renderExperience, value);
+  // dispatch({
+  //   type: UPDATE_EXPERIENCE,
+  //   payload: result,
+  // });
   // };
 
   return {
+    company: state.company,
+    position: state.position,
+    functions: state.functions,
+    technologies: state.technologies,
+
+    getWork,
+
     experience: state.experience,
     works: state.works,
     id: state.id,
     loadingWork: state.loadingWork,
-    getWork,
     getLoadingWork
   }
 }

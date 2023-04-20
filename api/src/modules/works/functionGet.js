@@ -11,16 +11,6 @@ const companyGet = async (req, res, id) => {
     } catch (error) {
         res.json({ message: error.message })
     }
-    // const company = 
-
-    // Company.find()
-    //     .populate({ path: "position" })
-    //     .sort({ start_date: 1 })
-    //     .then(async (company) => {
-    //         let technologies = await Technologies.find();
-    //         res.status(200).json({ company, technologies });
-    //     })
-    //     .catch((error) => res.json({ message: error.message }));
 }
 
 const functionGet = async (req, res, id) => {
