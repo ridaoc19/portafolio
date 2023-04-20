@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 // import home from "../../components/json/home";
 // import { Link } from "react-router-dom";
-// import tecnologies from "../../components/json/tecnologies";
+// import technologies from "../../components/json/technologies";
 import Introduction from "./sections/Introduction/Introduction";
 import About from "./sections/About/About";
 import Skills from "./sections/Skills/Skills";

@@ -9,8 +9,8 @@ module.exports = {
       const login = await Login.findOne({ user_id: req.params.id})
       const company = await Company.find({ _id: login.company_id}).populate('position').sort({ start_date: 1 })
       const position = await Position.find({ _id: company?.map(c => c.position).flat(Infinity)}).sort({ start_date: 1 })
-      const functions = await Functions.find({ _id: position?.map(p => p.functions).flat(Infinity)}).populate('tecnologies').sort({ start_date: 1 })
-      const technologies = await Technologies.find({ _id: functions?.map(f => f.tecnologies).flat(Infinity)}).sort({ start_date: 1 })
+      const functions = await Functions.find({ _id: position?.map(p => p.functions).flat(Infinity)}).populate('technologies').sort({ start_date: 1 })
+      const technologies = await Technologies.find({ _id: functions?.map(f => f.technologies).flat(Infinity)}).sort({ start_date: 1 })
 
       res.status(200).json({company, position, functions, technologies});
   } catch (error) {
@@ -21,7 +21,7 @@ module.exports = {
 
 };
 
- // .populate("tecnologies", {
+ // .populate("technologies", {
     //   createdAt: 0,
     //   updatedAt: 0,
     // })

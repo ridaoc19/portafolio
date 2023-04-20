@@ -14,8 +14,8 @@ module.exports = {
         await Position.findByIdAndUpdate(req.body.position, { $push: { functions: createFunction.id } })
         functionGet(req, res, req.params.user_id)
       } else {
-        const { _id, name, link, start_date, end_date, repository, tasks, tecnologies } = req.body;
-        await Functions.findOneAndUpdate({ _id }, { name, link, start_date, end_date, repository, tasks, tecnologies });
+        const { _id, name, link, start_date, end_date, repository, tasks, technologies } = req.body;
+        await Functions.findOneAndUpdate({ _id }, { name, link, start_date, end_date, repository, tasks, technologies });
         functionGet(req, res, req.params.user_id)
       }
     } catch (error) {

@@ -39,7 +39,7 @@ const functionsSchema = Schema(
     link: { type: String },
     start_date: { type: String },
     end_date: { type: String },
-    tecnologies: [{ type: Schema.Types.ObjectId, ref: "Technologies" }],
+    technologies: [{ type: Schema.Types.ObjectId, ref: "Technologies" }],
     repository: { type: String },
     tasks: [{ type: String }],
   },
@@ -54,7 +54,7 @@ const technologiesSchema = new Schema(
     position: { type: Schema.Types.ObjectId, ref: "Position" },
     name: { type: String },
     image: { type: String },
-    tecnologies: { type: String },
+    technologies: { type: String },
   },
   {
     timestamps: false,
