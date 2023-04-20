@@ -25,6 +25,7 @@ function Company() {
     Object.values(err).filter((e) => e).length === 0 && Object.values(change).filter((e) => e).length > 5
       ? document.getElementById("company_save")?.removeAttribute("disabled") :
       document.getElementById("company_save")?.setAttribute("disabled", "")
+      // eslint-disable-next-line
   }, [err])
 
   const handleOnClick = (e) => {
@@ -53,6 +54,7 @@ function Company() {
       case "add_position":
         setStatus({ company_add_position: true, company_add: false, company_fields: false, company_position_id: value })
         break
+      default: return
     }
     setErr(initialState)
     setChange(initialState)

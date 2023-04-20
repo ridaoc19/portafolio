@@ -10,6 +10,7 @@ function Tasks({ handleTasks, changeGlobal, idTasksTech }) {
 
   useEffect(() => {
     handleTasks(tasks.map(e => e.tasks), "tasks")
+    // eslint-disable-next-line
   }, [tasks])
 
   useEffect(() => {
@@ -41,7 +42,7 @@ function Tasks({ handleTasks, changeGlobal, idTasksTech }) {
       case 'delete':
         setTasks(tasks.filter((e) => parseInt(e.id) !== parseInt(value)));
         break;
-
+      default: return
     }
 
     setChange("");

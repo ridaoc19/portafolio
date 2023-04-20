@@ -4,8 +4,9 @@ export const initialState = {
   tecnologies: [],
 };
 
-
-export default (state, action) => {
+// import/no-anonymous-default-export
+const TecnologieReducer = (state, action) => {
+  // eslint-disable-next-line
   const { payload, type } = action;
 
   switch (type) {
@@ -21,3 +22,5 @@ export default (state, action) => {
       return state;
   }
 };
+
+export default TecnologieReducer

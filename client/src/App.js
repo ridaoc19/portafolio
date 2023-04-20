@@ -6,6 +6,7 @@ import Home from "./views/Home/Home";
 import StoreContext from "./components/hooks/context/StoreContext";
 import Navbar from "./components/Layout/Navbar/Navbar";
 import Admin from "./views/Admin/Admin";
+import Login from "./components/Layout/Login/Login";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <StoreContext>
         <Routes>
           <Route path="/" element={<Start />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/home" element={<><Navbar /><Home /></>} />
           <Route path="/admin" element={<><Navbar /><Admin /></>} />
         </Routes>

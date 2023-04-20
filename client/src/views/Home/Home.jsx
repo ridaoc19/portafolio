@@ -15,14 +15,14 @@ const Home = () => {
   const { works: { getWork } } = useContext(CreateContext)
 
   useEffect(() => {
-    getWork()
+    // getWork()
     // eslint-disable-next-line
   }, [])
   
   return (
 
       <div className="home__container">
-        <section className="home__container--introduction">
+        {/* <section className="home__container--introduction">
           <Introduction />
         </section>
         <section className="home__container--about">
@@ -39,7 +39,7 @@ const Home = () => {
         </section>
         <section className="home__container--contact">
           <Contact/>
-        </section>
+        </section> */}
       </div>
 
   );

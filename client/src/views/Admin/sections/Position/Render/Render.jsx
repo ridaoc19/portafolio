@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 function Render({ handleOnClick, state, status }) {
   let render = status.position_function_id

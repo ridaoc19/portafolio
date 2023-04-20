@@ -15,13 +15,13 @@ function TecnologieState(props) {
     });
   };
 
-  const updateExperience = async (value) => {
+  // const updateExperience = async (value) => {
     // const result = filter(state.experience, state.renderExperience, value);
     // dispatch({
     //   type: UPDATE_EXPERIENCE,
     //   payload: result,
     // });
-  };
+  // };
 
   return {
     tecnologies: state.tecnologies,

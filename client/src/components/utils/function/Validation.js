@@ -8,7 +8,7 @@ export default function Validation(name, value, change) {
 
   if (name === "name") {
     if (value !== "") {
-      if (value.trim() == "") return error = { type: "Debe ingresar texto", stop: true }
+      if (value.trim() === "") return error = { type: "Debe ingresar texto", stop: true }
       if (value.length < 5) {
         return error = { type: "Debe tener mas de 5 caracteres", stop: false }
       } else if (value.length >= 45) {
@@ -19,28 +19,28 @@ export default function Validation(name, value, change) {
 
   if (name === "image") {
     if (value !== "") {
-      if (value.trim() == "") return error = { type: "Debe ingresar texto", stop: true }
+      if (value.trim() === "") return error = { type: "Debe ingresar texto", stop: true }
       return error = { type: "Ingrese una URL valida HTTPS", stop: false }
     } else return error = { type: "Este campo es obligatorio", stop: false }
   }
 
   if (name === "link") {
     if (value !== "") {
-      if (value.trim() == "") return error = { type: "Debe ingresar texto", stop: true }
+      if (value.trim() === "") return error = { type: "Debe ingresar texto", stop: true }
       if (!/^https?:\/\/?.*$/.test(value) || value.toString().length < 14) return error = { type: "Ingrese una URL valida HTTPS", stop: false }
     } else return error = { type: "Este campo es obligatorio", stop: false }
   }
 
   if (name === "repository") {
     if (value !== "") {
-      if (value.trim() == "") return error = { type: "Debe ingresar texto", stop: true }
+      if (value.trim() === "") return error = { type: "Debe ingresar texto", stop: true }
       if (!/^https?:\/\/?.*$/.test(value) || value.toString().length < 14) return error = { type: "Ingrese una URL valida HTTPS", stop: false }
     } else return error = { type: "Este campo es obligatorio", stop: false }
   }
 
   if (name === "start_date" || name === "end_date") {
     if (value !== "") {
-      if (value.trim() == "") return error = { type: "Debe ingresar texto", stop: true }
+      if (value.trim() === "") return error = { type: "Debe ingresar texto", stop: true }
       let year = new Date(value).getFullYear()
       if (year < 2000 || year > 2035) return error = { type: "Ingrese un año valido", stop: false }
       if (name === "end_date") {
@@ -56,7 +56,7 @@ export default function Validation(name, value, change) {
 
   if (name === "description") {
     if (value !== "") {
-      if (value.trim() == "") return error = { type: "Debe ingresar texto", stop: true }
+      if (value.trim() === "") return error = { type: "Debe ingresar texto", stop: true }
       if (value.length < 5) {
         return error = { type: "Debe tener mas de 5 caracteres", stop: false }
       } else if (value.length >= 300) {
@@ -67,7 +67,7 @@ export default function Validation(name, value, change) {
 
   if (name === "tasks") {
     if (value !== "") {
-      if (value.trim() == "") return error = { type: "Debe ingresar texto", stop: true }
+      if (value.trim() === "") return error = { type: "Debe ingresar texto", stop: true }
       if (value.length < 5) {
         return error = { type: "Debe tener mas de 5 caracteres", stop: false }
       } else if (value.length >= 100) {

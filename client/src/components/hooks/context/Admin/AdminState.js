@@ -1,8 +1,7 @@
-import axios from 'axios';
 import { useReducer } from "react";
 import AdminReducer, { initialState } from "./AdminReducer";
 import StatusReducer, { initialStateStatus } from './StatusReducer';
-import { DATA_UPDATE, GET_COMPANY, GET_FUNCTIONS, LOADING_API, POST_FUNCTIONS, STATUS } from './adminTypes';
+import { DATA_UPDATE, LOADING_API, STATUS } from './adminTypes';
 
 function AdminState() {
 
