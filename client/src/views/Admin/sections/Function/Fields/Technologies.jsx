@@ -14,7 +14,7 @@ function Technologies({ handleTech, change, idTasksTech }) {
   useEffect(() => {
     setTech(state?.technologies?.map(e => {
 
-      if(change.tecnologies.includes(e._id)){
+      if(change.technologies.includes(e._id)){
       return  Object.assign(e, { status: "selection" })
       }else{
       return  Object.assign(e, { status: "technologies" })
@@ -36,7 +36,7 @@ function Technologies({ handleTech, change, idTasksTech }) {
               _id: e._id,
               name: e.name,
               image: e.image,
-              tecnologies: e.tecnologies,
+              technologies: e.technologies,
               status: "selection",
             };
           }
@@ -51,7 +51,7 @@ function Technologies({ handleTech, change, idTasksTech }) {
               _id: e._id,
               name: e.name,
               image: e.image,
-              tecnologies: e.tecnologies,
+              technologies: e.technologies,
               status: "technologies",
             };
           }

@@ -5,7 +5,7 @@ function Skills() {
   const { works: { technologies } } = useContext(CreateContext)
 
   useEffect(() => {
-    // getTecnologies()
+    // getTechnologies()
     // eslint-disable-next-line
   }, [])
   return (
@@ -15,7 +15,7 @@ function Skills() {
 
       <ul className="home__skill--container">
         {technologies?.map((e) => (
-          e.tecnologies === "Front end" &&
+          e.technologies === "Front end" &&
           <div key={e.name} className="home__skill--card">
             <div className="skill__card--father container">
               <div className="skill__card--son">
@@ -31,7 +31,7 @@ function Skills() {
 
       <ul className="home__skill--container">
         {technologies?.map((e) => (
-          e.tecnologies === "Back end" &&
+          e.technologies === "Back end" &&
           <div key={e.name} className="home__skill--card">
             <div className="skill__card--father container">
               <div className="skill__card--son">
