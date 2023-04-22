@@ -17,7 +17,7 @@ const initialState = {
 }
 
 function Function() {
-  const {login: { state: { user } }, admin: { state, status, setStatus, callApi } } = useContext(CreateContext);
+  const { login: { state: { user } }, admin: { state, status, setStatus, callApi } } = useContext(CreateContext);
 
   const [change, setChange] = useState(initialState)
   const [err, setErr] = useState(initialState)
@@ -79,6 +79,7 @@ function Function() {
     const nameInput = name.split("_").length > 2 ? name.split("_").slice(1).toString().replace(',', '_') : name.split("_")[1]
     const { type, stop, empty } = Validation(nameInput, value, change);
     !stop && setChange({ ...change, [nameInput]: empty ? "" : value });
+    setIdTasksTech(name)
     setErr({ ...err, [nameInput]: type });
   }
 
@@ -100,7 +101,7 @@ function Function() {
           {status.function_fields && <Fields handleOnChange={handleOnChange} handleTasksTech={handleTasksTech} err={err} change={change} idTasksTech={idTasksTech} />}
         </div>
         <div className="function__button">
-          {status.function_fields && <Button handleOnClick={handleOnClick} status={status} />}
+          {status.function_fields && !status.function_add_technologies && <Button handleOnClick={handleOnClick} status={status} />}
         </div>
       </div>}
     </div>

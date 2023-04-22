@@ -1,10 +1,24 @@
-import React, { useContext } from 'react';
-import CreateContext from '../../../../components/hooks/context/CreateContext';
+import React from 'react';
 
-function Contact(props) {
+function Contact() {
 
-  const { experience: {contact} } = useContext(CreateContext)
-
+const contact = [
+  {
+      "name": "linkedin",
+      "url": "https://www.linkedin.com/in/ridaoc19/",
+      "image": "https://www.svgrepo.com/show/465461/linkedin.svg"
+  },
+  {
+      "name": "github",
+      "url": "https://www.github.com/ridaoc19",
+      "image": "https://www.svgrepo.com/show/439171/github.svg"
+  },
+  {
+      "name": "email",
+      "url": "ridaoc19@gmail.com",
+      "image": "https://www.svgrepo.com/show/164679/email-button.svg"
+  }
+]
 
   return (
     <div className='home__contact--container' >

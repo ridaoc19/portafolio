@@ -13,7 +13,8 @@ function Login() {
     <div>
       <button onClick={() => navigate('/')}>Inicio </button>
       <button onClick={() => navigate(-1)}> Volver donde estaba</button>
-      {!state.loading_login && state.user?.user_id? navigate(-1): <Google />}
+      <Google />
+      {/* {!state.loading_login && state.user?.user_id? navigate(-1): <Google />} */}
       
     </div>
   );

@@ -4,6 +4,7 @@ export const initialState = {
   loading_api_company: true,
   loading_api_position: false,
   loading_api_function: true,
+  loading_api_technologies: false,
   company: [],
   functions: [],
   technologies: []

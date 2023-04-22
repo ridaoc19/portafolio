@@ -63,9 +63,7 @@ function Company() {
   const handleOnChange = (e) => {
     const { name, value } = e.target;
     const nameInput = name.split("_").length > 2 ? name.split("_").slice(1).toString().replace(",", "_") : name.split("_")[1];
-
     const { type, stop, empty } = Validation(nameInput, value, change);
-
     !stop && setChange({ ...change, [nameInput]: empty ? "" : value });
     setErr({ ...err, [nameInput]: type });
   };

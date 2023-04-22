@@ -2,7 +2,7 @@ const { Schema, Types, model, Model } = require("mongoose");
 
 const companySchema = new Schema(
   {
-    user_id: { type: Schema.Types.ObjectId, ref: "Company" },
+    user_id: { type: Schema.Types.ObjectId, ref: "Login" },
     name: { type: String },
     image: { type: String },
     description: { type: String },
@@ -51,6 +51,7 @@ const functionsSchema = Schema(
 
 const technologiesSchema = new Schema(
   {
+    user_id: { type: Schema.Types.ObjectId, ref: "Login" },
     position: { type: Schema.Types.ObjectId, ref: "Position" },
     name: { type: String },
     image: { type: String },
