@@ -7,7 +7,6 @@ const { Company, Position, Functions } = require("./model");
 module.exports = {
 
   async postCompany(req, res) {
-    console.log(req.body);
     if (!req.body?._id) {
       let company = await Company.create(req.body)
       await Login.findByIdAndUpdate(req.body.user_id, { $push: { company_id: company._id }, });

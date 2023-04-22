@@ -1,11 +1,17 @@
 import React, { useContext, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { POST } from '../../hooks/context/Admin/adminTypes';
 import CreateContext from '../../hooks/context/CreateContext';
 
 function Google() {
-  const location = useLocation()
+  const navigate = useNavigate()
   const { login: { callApiLogin, state } } = useContext(CreateContext)
+
+  useEffect(() => {
+    if (state.user?.user_id) {
+      navigate(-1)
+    }
+  }, [state.user?.user_id])
 
   useEffect(() => {
     /* global google */

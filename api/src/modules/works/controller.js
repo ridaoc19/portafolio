@@ -1,6 +1,6 @@
 const { Router } = require("express");
 const { postCompany, getCompany, deletCompany } = require("./services-company");
-const { postTechnologies, getTechnologies } = require('./services-technologies');
+const { postTechnologies, deleteTechnologies,  } = require('./services-technologies');
 const { getWorks } = require('./services-works');
 const { postPosition, deletePosition } = require("./services-positions");
 const { postFunctions, getFunctions, deleteFunctions } = require("./services-functions");
@@ -20,8 +20,8 @@ router.get("/functions/:id/:user_id", getFunctions);
 router.delete("/functions/:id/:user_id", deleteFunctions)
 
 
-router.post("/technologies", postTechnologies);
-router.get("/technologies", getTechnologies);
+router.post("/technologies/:id/:user_id", postTechnologies);
+router.delete("/technologies/:id/:user_id", deleteTechnologies);
 
 router.get("/:id", getWorks);
 

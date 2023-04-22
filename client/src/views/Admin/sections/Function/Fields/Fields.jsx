@@ -3,6 +3,7 @@ import Tasks from "./Tasks";
 import Technologies from "./Technologies";
 import { totalYear } from "../../../../../components/utils/function/date";
 import { PARAMS } from "../../../../../components/utils/function/variables";
+import moment from "moment";
 
 function Fields({ change, handleOnChange, handleTasksTech, err, idTasksTech }) {
   return (
@@ -71,30 +72,43 @@ function Fields({ change, handleOnChange, handleTasksTech, err, idTasksTech }) {
           max="2040-04-20"
           value={change.start_date}
         />
-      </div>
       <span>{err.start_date}</span>
+      </div>
+
       <div className="-end-date">
         <label htmlFor="end_date">Fecha Termino </label>
         <input
           type="date"
           onChange={handleOnChange}
           id="end_date"
-          name="function_end_date"
+          name="company_end_date"
           min="1999-04-01"
-          max="2040-04-20"
-          value={change.end_date}
+          max={moment().subtract(1, 'days').format('YYYY-MM-DD')}
+          value={change.end_date === "Presente" ? moment().format('YYYY-MM-DD') : change.end_date}
+          disabled={change.end_date === "Presente" ? true : false}
         />
+
+        <input
+          type="checkbox"
+          name="company_end_date"
+          onChange={handleOnChange}
+          value={change.end_date === "Presente" ? "" : "Presente"}
+          checked={err.end_date ? false : change.end_date !== "Presente" ? false : true}
+        />
+        <label htmlFor="company_end_date"> Presente</label>
+
         <span>{err.end_date}</span>
+
+        {change.start_date && change.end_date && (
+          <div>
+            Tiempo en la empresa:{" "}
+            {totalYear(
+              change.start_date,
+              change.end_date === "Presente" ? Date.now() : change.end_date
+            )}
+          </div>
+        )}
       </div>
-      {change.start_date && change.end_date && (
-        <div>
-          Tiempo en el Proyecto:{" "}
-          {totalYear(
-            change.start_date,
-            change.end_date === "Presente" ? Date.now() : change.end_date
-          )}
-        </div>
-      )}
 
       <div className="-tasks">
         <Tasks handleTasks={handleTasksTech} changeGlobal={change} idTasksTech={idTasksTech}/>

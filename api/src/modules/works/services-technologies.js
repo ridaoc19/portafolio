@@ -1,16 +1,43 @@
-const { Technologies } = require("./model");
+const { functionGet } = require("./functionGet");
+const { Technologies, Functions } = require("./model");
 
 module.exports = {
-  postTechnologies(req, res) {
-    Technologies.create(req.body)
-      .then((data) => res.status(200).json(data))
-      .catch((error) => res.json({ message: error.message }));
+  async postTechnologies(req, res) {
+
+    try {
+      if (!req.body?._id) {
+        await Technologies.create(req.body)
+        functionGet(req, res, req.params.user_id)
+      } else {
+        const { _id, name, image, technologies } = req.body;
+        await Technologies.findOneAndUpdate({ _id }, { name, image, technologies });
+        functionGet(req, res, req.params.user_id)
+      }
+    } catch (error) {
+      res.status(400).json({ message: error.message });
+    }
+
+
+
+
+
   },
 
-  getTechnologies(req, res) {
-    Technologies.find()
-      .then((all) => res.status(200).json(all))
-      .catch((error) => res.json({ message: error }));
+  async deleteTechnologies(req, res) {
+    try {
+      // await Technologies.findByIdAndDelete(req.body._id)
+      const getfunctions = await Functions.find()
+      // getfunctions.forEach(async t=> await Functions.findByIdAndUpdate(t._id, { $pull: { technologies: req.body._id } }))
+      // const functions = getfunctions.map(t=> t)
+
+      // if(functions)
+
+      // await Position.findByIdAndUpdate(functions.position, { $pull: { functions: req.params.id } })
+      // functionGet(req, res, req.params.user_id)
+      res.status(200).json(getfunctions)
+    } catch (error) {
+      res.status(400).json({ message: error.message });
+    }
   },
 
   putTechnologies(req, res) {

@@ -21,10 +21,11 @@ export const initialStateStatus = {
   function_fields: false,
   function_add: true,
   function_render: true,
+  function_add_technologies: false,
+
 
   
   function_save: true,
-  function_add_technologies: false,
   function_function_id: "",
 
 };

@@ -8,7 +8,6 @@ module.exports = {
 
   async postFunctions(req, res) {
     try {
-      console.log(req.params);
       if (!req.body?._id) {
         let createFunction = await Functions.create(req.body)
         await Position.findByIdAndUpdate(req.body.position, { $push: { functions: createFunction.id } })
