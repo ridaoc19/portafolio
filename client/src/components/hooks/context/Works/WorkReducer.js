@@ -15,7 +15,7 @@ export const initialState = {
 // eslint-disable-next-line
 export default (state, action) => {
   const { payload, type } = action;
-console.log(payload);
+  
   switch (type) {
     case GET_WORK:
       return {

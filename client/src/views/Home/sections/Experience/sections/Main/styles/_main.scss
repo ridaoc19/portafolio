@@ -43,16 +43,16 @@
                 }
             }
 
-            .experiences__card--tecnologies {
-                grid-area : experiences__card--tecnologies;
+            .experiences__card--technologies {
+                grid-area : experiences__card--technologies;
                 overflow-y: auto;
 
-                .experiences__tecnologies--container {
+                .experiences__technologies--container {
                     display              : grid;
                     grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
                     gap                  : 0.5rem;
 
-                    .experiences__tecnologies--indi {
+                    .experiences__technologies--indi {
                         //                         // white-space: nowrap;
                         list-style   : none;
                         border-radius: 0.1rem;

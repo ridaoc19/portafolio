@@ -37,7 +37,7 @@ export default {
               link: "",
               start_date: "2009-01-15",
               end_date: "2009-10-14",
-              tecnologies: [],
+              technologies: [],
               repository:"",
               tasks: ["Labores administrativas"],
             },
@@ -53,7 +53,7 @@ export default {
               link: "",
               start_date: "2009-10-15",
               end_date: "27-08-2010",
-              tecnologies: [],
+              technologies: [],
               repository:"",
               tasks: [
                 "Desarrollar, en coordinación con la rama jurisdiccional, las labores investigativas y técnicas, con sujeción a las facultades que le otorguen las leyes y los reglamentos",
@@ -64,7 +64,7 @@ export default {
               link: "",
               start_date: "28-08-2010",
               end_date: "30-05-2011",
-              tecnologies: [],
+              technologies: [],
               repository:"",
               tasks: [
                 "Encargado de garantizar el ejercicio de los derechos y libertades públicas, y que los habitantes de Colombia convivan en paz.",
@@ -75,7 +75,7 @@ export default {
               link: "",
               start_date: "31-05-2011",
               end_date: "10-11-2014",
-              tecnologies: [],
+              technologies: [],
               repository:"",
               tasks: [
                 "Encargado de todas las actividades administrativas de una unidad Plicial",
@@ -86,7 +86,7 @@ export default {
               link: "",
               start_date: "11-11-2014",
               end_date: "04-08-2021",
-              tecnologies: [],
+              technologies: [],
               repository:"",
               tasks: [
                 "Creación de aplicación de escritorio para el control de 5.000 elementos tecnológicos el cual se logró tener el control total de estos elementos con documentación de soporte",
@@ -118,7 +118,7 @@ export default {
               link: "",
               start_date: "2022-11-08",
               end_date: "2023-01-12",
-              tecnologies: ["VTEX", "React js", "TypeScript", "CSS", "HTML"],
+              technologies: ["VTEX", "React js", "TypeScript", "CSS", "HTML"],
               repository:"",
               tasks: [
                 "realizo la maquetación del proyecto",
@@ -138,7 +138,7 @@ export default {
               link: "https://www.chedraui.com.mx/",
               start_date: "2023-01-13",
               end_date: "Presente",
-              tecnologies: [
+              technologies: [
                 "VTEX",
                 "React js",
                 "TypeScript",
@@ -172,7 +172,7 @@ export default {
       description: "supermecado Chedraui ubicado en mexico",
       start_date: "enero 2023",
       end_date: "Presente",
-      tecnologies: ["react", "javaScriptfffffffff", "VTEX"],
+      technologies: ["react", "javaScriptfffffffff", "VTEX"],
     },
     {
       image:
@@ -187,7 +187,7 @@ export default {
       description: "proyecto consistia en clonar una pagina web de e-commerce",
       start_date: "noviembre 2022",
       end_date: "enero 2023",
-      tecnologies: ["react", "javaScript", "nodeJS", "vtex"],
+      technologies: ["react", "javaScript", "nodeJS", "vtex"],
     },
     {
       image:
@@ -202,7 +202,7 @@ export default {
         "creacion de aplicacion web, fin de cumplir con tecnologicas y maquetacion exigida",
       start_date: "octubre 2022",
       end_date: "octubre 2022",
-      tecnologies: ["react", "redux", "css", "node", "express"],
+      technologies: ["react", "redux", "css", "node", "express"],
     },
     {
       image:
@@ -217,7 +217,7 @@ export default {
         "este proyecto tiene una gran parte de mis habilidades como desarrollador, en el trato de implementar todo lo aprendido durante este tiempo",
       start_date: 2018,
       end_date: 2021,
-      tecnologies: [
+      technologies: [
         "HTML",
         "CSS",
         "Sass",
@@ -252,7 +252,7 @@ export default {
         "se realiza llamado a una api para extraer todos los pasies del mundo y se crea un formulariopara ingrear actividades turisticas, cuenta con filtros y buscador",
       start_date: 2018,
       end_date: 2021,
-      tecnologies: [
+      technologies: [
         "react",
         "javaScript",
         "nodeJS",
@@ -277,7 +277,7 @@ export default {
         "control de ingresos, egresos, compromisos y prestamos de un hogar, guarda un historial y facturas",
       start_date: 2018,
       end_date: 2021,
-      tecnologies: ["Visual Basic (VB)"],
+      technologies: ["Visual Basic (VB)"],
     },
     {
       image:
@@ -292,7 +292,7 @@ export default {
       description: "controlar las ventas y creditos de productos cosmeticos",
       start_date: 2018,
       end_date: 2021,
-      tecnologies: ["Visual Basic (VB)"],
+      technologies: ["Visual Basic (VB)"],
     },
     {
       image:
@@ -310,7 +310,7 @@ export default {
         "Se realizo para el control de inventario y mantenimiento preventivos, correctivos de elementos tecnologicos pertenecientes a la Policia Nacional de Colombia",
       start_date: 2018,
       end_date: 2021,
-      tecnologies: ["Visual Basic (VB)", "access", "word", "outlook"],
+      technologies: ["Visual Basic (VB)", "access", "word", "outlook"],
     },
   ],
 };

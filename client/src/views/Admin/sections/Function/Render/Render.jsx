@@ -14,9 +14,6 @@ function Render({ handleOnClick, functions, status }) {
               <button id="function_delete" name="function_delete" onClick={handleOnClick} value={e._id}>
                 eliminar
               </button>
-              <button id="function_add_position" name="function_add_position" onClick={handleOnClick} value={e._id}>
-                Agregar Tecnologia
-              </button>
             </li>
           );
         })}

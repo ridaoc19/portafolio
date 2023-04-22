@@ -17,6 +17,10 @@ export default function Validation(name, value, change) {
     } else return error = { type: "Este campo es obligatorio", stop: false }
   }
 
+  if (name === "technologies") {
+    if (value === "") return error = { type: "Este campo es obligatorio", stop: false }
+  }
+
   if (name === "image") {
     if (value !== "") {
       if (value.trim() === "") return error = { type: "Debe ingresar texto", stop: true }
@@ -39,17 +43,23 @@ export default function Validation(name, value, change) {
   }
 
   if (name === "start_date" || name === "end_date") {
+
+    if (value === "Presente") value = moment().format('YYYY-MM-DD')
+
     if (value !== "") {
-      if (value.trim() === "") return error = { type: "Debe ingresar texto", stop: true }
+
       let year = new Date(value).getFullYear()
       if (year < 2000 || year > 2035) return error = { type: "Ingrese un año valido", stop: false }
+
       if (name === "end_date") {
         if (change.start_date) {
           if (moment(change.start_date).diff(moment(value)) > 0) return error = { type: `${formatDate(value).date} fecha menor a  ${formatDate(change.start_date).date}`, stop: false, empty: true }
         } else return error = { type: "Fecha inicio es obligatoria", stop: false, empty: true }
       }
+
       if (name === "start_date" && change.end_date) {
-        if (moment(value).diff(moment(change.end_date)) > 0) return error = { type: `${formatDate(value).date} fecha superior a fecha final ${formatDate(change.end_date).date}`, stop: false, empty: true }
+        if (moment(value).diff(moment(change.end_date === "Presente" ? Date.now() : change.end_date)) > 0)
+          return error = { type: `${formatDate(value).date} fecha superior a fecha final ${formatDate(change.end_date === "Presente" ? moment().format('YYYY-MM-DD') : change.end_date).date}`, stop: false, empty: true }
       }
     }
   }

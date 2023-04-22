@@ -13,11 +13,11 @@ const initialState = {
   end_date: "",
   repository: "",
   tasks: [],
-  tecnologies: [],
+  technologies: [],
 }
 
 function Function() {
-  const {login: { state: { user } }, admin: { state, status, setStatus, callApi } } = useContext(CreateContext);
+  const { login: { state: { user } }, admin: { state, status, setStatus, callApi } } = useContext(CreateContext);
 
   const [change, setChange] = useState(initialState)
   const [err, setErr] = useState(initialState)
@@ -27,7 +27,7 @@ function Function() {
     Object.values({ name: err.name, link: err.link, start_date: err.start_date, end_date: err.end_date, repository: err.repository }).filter(e => e).length === 0 &&
       Object.values({ name: change.name, link: change.link, start_date: change.start_date, end_date: change.end_date, repository: change.repository }).filter(e => e).length >= 5
       && change.tasks.length > 0
-      && change.tecnologies.length > 0
+      && change.technologies.length > 0
       ? document.getElementById("function_save")?.removeAttribute("disabled") :
       document.getElementById("function_save")?.setAttribute("disabled", "")
   }, [err, change])
@@ -54,7 +54,7 @@ function Function() {
         break
 
       case "save":
-        if (Object.values(err).filter(e => e).length > 2 || change.tasks.length === 0 || change.tecnologies.length === 0) return
+        if (Object.values(err).filter(e => e).length > 2 || change.tasks.length === 0 || change.technologies.length === 0) return
         setStatus({ function_fields: false, function_add: true })
         callApi({ method: POST, route: `${FUNCTIONS}/${status.position_function_id}/${user._id}`, loading: LOADING_API_FUNCTIONS, post: Object.assign({ company: status.company_position_id, position: status.position_function_id }, change) })
         break
@@ -79,6 +79,7 @@ function Function() {
     const nameInput = name.split("_").length > 2 ? name.split("_").slice(1).toString().replace(',', '_') : name.split("_")[1]
     const { type, stop, empty } = Validation(nameInput, value, change);
     !stop && setChange({ ...change, [nameInput]: empty ? "" : value });
+    setIdTasksTech(name)
     setErr({ ...err, [nameInput]: type });
   }
 
@@ -86,7 +87,7 @@ function Function() {
     if (component === "tasks") {
       setChange({ ...change, tasks: data })
     } else if (component === "tech") {
-      setChange({ ...change, tecnologies: data })
+      setChange({ ...change, technologies: data })
     }
   }
 
@@ -100,7 +101,7 @@ function Function() {
           {status.function_fields && <Fields handleOnChange={handleOnChange} handleTasksTech={handleTasksTech} err={err} change={change} idTasksTech={idTasksTech} />}
         </div>
         <div className="function__button">
-          {status.function_fields && <Button handleOnClick={handleOnClick} status={status} />}
+          {status.function_fields && !status.function_add_technologies && <Button handleOnClick={handleOnClick} status={status} />}
         </div>
       </div>}
     </div>

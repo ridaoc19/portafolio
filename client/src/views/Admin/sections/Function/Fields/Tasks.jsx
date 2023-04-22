@@ -7,7 +7,6 @@ function Tasks({ handleTasks, changeGlobal, idTasksTech }) {
   const [err, setErr] = useState("");
   const [tasks, setTasks] = useState([]);
 
-
   useEffect(() => {
     handleTasks(tasks.map(e => e.tasks), "tasks")
     // eslint-disable-next-line
@@ -26,7 +25,6 @@ function Tasks({ handleTasks, changeGlobal, idTasksTech }) {
     // eslint-disable-next-line
   }, [idTasksTech]);
 
-
   const handleOnClickLocal = (e) => {
     e.preventDefault();
     const { name, value } = e.target;
@@ -44,24 +42,8 @@ function Tasks({ handleTasks, changeGlobal, idTasksTech }) {
         break;
       default: return
     }
-
     setChange("");
     setErr("");
-
-
-
-    // if (name === 'add') {
-    //   setTasks([...tasks, { tasks: change, id: id(tasks) }]);
-    //   setChange("");
-    //   setErr("");
-    // } else if (name === 'delete') {
-    //   setTasks(tasks.filter((e) => parseInt(e.id) !== parseInt(value)));
-    //   setErr("");
-
-    // } else if (name === 'edit') {
-    //   setChange(tasks.filter((e) => parseInt(e.id) === parseInt(value))[0].tasks);
-    //   setTasks(tasks.filter((e) => parseInt(e.id) !== parseInt(value)));
-    // }
   };
 
   const handleOnChange = (e) => {
@@ -70,8 +52,6 @@ function Tasks({ handleTasks, changeGlobal, idTasksTech }) {
     !stop && setChange(empty ? "" : value);
     setErr(type);
   };
-
-
 
   return (
     <>
@@ -105,8 +85,6 @@ function Tasks({ handleTasks, changeGlobal, idTasksTech }) {
           </ul>
         </div>
         <div className="-options">
-          {/* <img id='delete' src="" alt="borrar" onDrop={e => drop(e)} onDragOver={e => allowDrop(e)} />
-          <img id='edit' src="" alt="editar" onDrop={e => drop(e)} onDragOver={e => allowDrop(e)} /> */}
         </div>
       </div>
     </>

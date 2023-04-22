@@ -1,14 +1,11 @@
 import React, { useContext, useEffect } from "react";
-// import home from "../../components/json/home";
-// import { Link } from "react-router-dom";
-// import tecnologies from "../../components/json/tecnologies";
-import Introduction from "./sections/Introduction/Introduction";
-import About from "./sections/About/About";
-import Skills from "./sections/Skills/Skills";
 import CreateContext from "../../components/hooks/context/CreateContext";
-import Experiences from "./sections/Experience/Experiences";
-import Work from "./sections/Work/Work";
+import About from "./sections/About/About";
 import Contact from "./sections/Contact/Contact";
+import Experiences from "./sections/Experience/Experiences";
+import Introduction from "./sections/Introduction/Introduction";
+import Skills from "./sections/Skills/Skills";
+import Work from "./sections/Work/Work";
 
 
 const Home = () => {
@@ -17,7 +14,7 @@ const Home = () => {
   useEffect(() => {
     getWork({ route:  user?.user_id ?  user?.user_id : "112730665053674408326" })
     // eslint-disable-next-line
-  }, [])
+  }, [user])
 
   return (
 

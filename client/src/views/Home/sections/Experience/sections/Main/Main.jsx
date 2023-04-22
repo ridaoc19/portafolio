@@ -38,11 +38,11 @@ function Main() {
                 </ul>
               </div>
 
-              <div className="experiences__card--tecnologies">
+              <div className="experiences__card--technologies">
                 {/* <h3>Tecnologias utilizadas</h3> */}
-                <div className="experiences__tecnologies--container">
-                  {e.tecnologies?.map((e, i) => (
-                    <div key={i} className="experiences__tecnologies--indi">
+                <div className="experiences__technologies--container">
+                  {e.technologies?.map((e, i) => (
+                    <div key={i} className="experiences__technologies--indi">
                       <li>{e.name}</li>
                     </div>
                   ))}

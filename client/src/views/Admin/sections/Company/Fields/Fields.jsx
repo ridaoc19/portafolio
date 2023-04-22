@@ -1,13 +1,13 @@
+import moment from "moment";
 import React, { useEffect } from "react";
 import { totalYear } from "../../../../../components/utils/function/date";
 import { PARAMS } from "../../../../../components/utils/function/variables";
 
 function Fields({ change, handleOnChange, handleOnLoad, err, handleOnClick }) {
+
   useEffect(() => {
     document.getElementById("company_save")?.setAttribute("disabled", "");
   }, []);
-
-  
 
   return (
     <form>
@@ -72,11 +72,13 @@ function Fields({ change, handleOnChange, handleOnLoad, err, handleOnClick }) {
           id="start_date"
           name="company_start_date"
           min="1999-04-01"
-          max="2040-04-20"
+          max={moment().subtract(1, 'days').format('YYYY-MM-DD')}
           value={change.start_date}
         />
         <span>{err.start_date}</span>
       </div>
+
+
       <div className="-end-date">
         <label htmlFor="end_date">Fecha Termino </label>
         <input
@@ -85,20 +87,33 @@ function Fields({ change, handleOnChange, handleOnLoad, err, handleOnClick }) {
           id="end_date"
           name="company_end_date"
           min="1999-04-01"
-          max="2040-04-20"
-          value={change.end_date}
+          max={moment().subtract(1, 'days').format('YYYY-MM-DD')}
+          value={change.end_date === "Presente" ? moment().format('YYYY-MM-DD') : change.end_date}
+          disabled={change.end_date === "Presente" ? true : false}
         />
+
+        <input
+          type="checkbox"
+          name="company_end_date"
+          onChange={handleOnChange}
+          value={change.end_date === "Presente" ? "" : "Presente"}
+          checked={err.end_date ? false : change.end_date !== "Presente" ? false : true}
+        />
+        <label htmlFor="company_end_date"> Presente</label>
+
         <span>{err.end_date}</span>
+
+        {change.start_date && change.end_date && (
+          <div>
+            Tiempo en la empresa:{" "}
+            {totalYear(
+              change.start_date,
+              change.end_date === "Presente" ? Date.now() : change.end_date
+            )}
+          </div>
+        )}
       </div>
-      {change.start_date && change.end_date && (
-        <div>
-          Tiempo en la empresa:{" "}
-          {totalYear(
-            change.start_date,
-            change.end_date === "Presente" ? Date.now() : change.end_date
-          )}
-        </div>
-      )}
+
       <div className="-description">
         <textarea
           type="text"
@@ -110,12 +125,12 @@ function Fields({ change, handleOnChange, handleOnLoad, err, handleOnClick }) {
         <span>{err.description}</span>
       </div>
       <div className="company__button">
-      <button id="company_clean" name="company_clean" onClick={handleOnClick}>
-        Limpiar
-      </button>
-      <button id="company_save" name="company_save" onClick={handleOnClick}>
-        Guardar Empresa
-      </button>
+        <button id="company_clean" name="company_clean" onClick={handleOnClick}>
+          Limpiar
+        </button>
+        <button id="company_save" name="company_save" onClick={handleOnClick}>
+          Guardar Empresa
+        </button>
       </div>
     </form>
   );

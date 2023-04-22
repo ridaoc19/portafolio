@@ -14,6 +14,11 @@ function Admin() {
 
   useEffect(() => {
     user?._id && !loading_login && callApi({method: GET, route: `${COMPANY}/${user._id}`, loading: LOADING_API_COMPANY});
+    
+    return ()=>{
+      setStatus({ type: 'CLEAN' })
+    }
+    
     // eslint-disable-next-line
   }, [user]);
 
