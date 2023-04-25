@@ -3,9 +3,7 @@ import { RESPONSE_LOCATION } from "./types";
 
 export const postLocation = () => {
   return (dispatch) => {
-
-    console.log(`${process.env.REACT_APP_URL}`, `${process.env.REACT_APP_ABSTRACT}`, "tiene algo");
-    
+        
     fetch(`${process.env.REACT_APP_ABSTRACT}`)
       .then((res) => res.json())
       .then((data) => {
