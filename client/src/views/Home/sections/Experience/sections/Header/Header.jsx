@@ -9,35 +9,37 @@ const initialState = {
 };
 
 function Header() {
- const { experience: {renderExperience, updateExperience} } = useContext(CreateContext);
+//  const { experience: {renderExperience, updateExperience} } = useContext(CreateContext);
+ const { works: { functions } } = useContext(CreateContext);
   const [state, setState] = useState(initialState);
+  const [experience, setExperience] = useState(functions)
  
   useEffect(() => {
     const div = document.getElementById("experiences__main--container");
-
     if (state.type === "grid") {
       div.classList.replace("list", "grid");
     } else {
       div.classList.replace("grid", "list");
     }
-
   }, [state.type]);
 
-  useEffect(() => {
+  // useEffect(() => {
     
-  },[state.search])
+  // },[state.search])
 
 
-  useEffect(() => {
-      updateExperience(state.search)
-    // eslint-disable-next-line
-  },[state.search])
+  // const result = total?.filter((e) =>
+  //   e.technologies.toString().toLowerCase().includes(value.toLowerCase()));
+
+  // useEffect(() => {
+  //     updateExperience(state.search)
+  //   // eslint-disable-next-line
+  // },[state.search])
 
   return (
     <div className="experiences__header--content">
       <div className="experiences__header--select">
-        {/* <select name="" id=""></select> */}
-        <h3>{renderExperience?.length}</h3>
+        <h3>{functions?.length}</h3>
       </div>
       <div className="experiences__header--search">
         <input

@@ -3,6 +3,8 @@ import { RESPONSE_LOCATION } from "./types";
 
 export const postLocation = () => {
   return (dispatch) => {
+
+    console.log(`${process.env.REACT_APP_URL}`, "tiene algo");
     
     fetch(`${process.env.REACT_APP_ABSTRACT}`)
       .then((res) => res.json())
@@ -67,6 +69,8 @@ export const postLocation = () => {
 export function getLocation(id) {
   return async function (dispatch) {
     try {
+    console.log(`${process.env.REACT_APP_URL}`, "tiene algo get");
+
       let { data } = await axios.get(
         `${process.env.REACT_APP_URL}/location/${id}`
       );
