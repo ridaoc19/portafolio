@@ -25,9 +25,6 @@ function Start() {
     // eslint-disable-next-line
   }, []);
 
-
-
-
   return (
     <div className="start__container">
       <Theme />
