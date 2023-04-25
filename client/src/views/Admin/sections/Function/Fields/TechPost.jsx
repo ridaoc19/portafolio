@@ -113,8 +113,13 @@ function TechPost(props) {
           <div>
             <select name="technologies" onChange={handleOnChange}>
               <option value="">Seleccionar</option>
-              <option value="Front end">Front end</option>
-              <option value="Back end">Back end</option>
+              <optgroup label="Desarrollo">
+                <option value="Front end">Front end</option>
+                <option value="Back end">Back end</option>
+              </optgroup>
+              <optgroup label="Otras profesiones">
+                <option value="Otros">Otros</option>
+              </optgroup>
             </select>
             <span>{err.technologies}</span>
           </div>

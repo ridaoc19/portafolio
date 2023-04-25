@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 import CreateContext from "../../../../../../components/hooks/context/CreateContext";
 
 
-function Main() {
+function Main({experience}) {
   const { works: { functions } } = useContext(CreateContext);
 
   useEffect(() => {
@@ -12,7 +12,7 @@ function Main() {
 
   return (
     <>
-      {functions?.map((e, i) => (
+      {experience?.map((e, i) => (
         <div key={i} className="experiences__card--container">
           <div className="experiences__card--father">
             <div className="experiences__card--son">

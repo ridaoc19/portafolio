@@ -39,11 +39,6 @@ function Google() {
   return (
     <>
       <div id="signInDiv"></div>
-      {/* {<div>
-        {state.loading_login ? <h3>Cargando...</h3>
-          : state.user?.user_id
-            ? <div><img src={state.user?.picture} alt="" /></div>
-            : <div id="signInDiv"></div>}</div>} */}
     </>
   );
 }
