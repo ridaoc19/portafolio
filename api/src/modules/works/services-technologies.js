@@ -16,25 +16,14 @@ module.exports = {
     } catch (error) {
       res.status(400).json({ message: error.message });
     }
-
-
-
-
-
   },
 
   async deleteTechnologies(req, res) {
     try {
-      // await Technologies.findByIdAndDelete(req.body._id)
+      await Technologies.findByIdAndDelete(req.body._id)
       const getfunctions = await Functions.find()
-      // getfunctions.forEach(async t=> await Functions.findByIdAndUpdate(t._id, { $pull: { technologies: req.body._id } }))
-      // const functions = getfunctions.map(t=> t)
-
-      // if(functions)
-
-      // await Position.findByIdAndUpdate(functions.position, { $pull: { functions: req.params.id } })
-      // functionGet(req, res, req.params.user_id)
-      res.status(200).json(getfunctions)
+      getfunctions.forEach(async t => await Functions.findByIdAndUpdate(t._id, { $pull: { technologies: req.body._id } }))
+      functionGet(req, res, req.params.user_id)
     } catch (error) {
       res.status(400).json({ message: error.message });
     }

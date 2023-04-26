@@ -8,6 +8,7 @@ import Render from './Render/Render';
 
 const initialState = {
   name: "",
+  image: "",
   link: "",
   start_date: "",
   end_date: "",
@@ -24,13 +25,13 @@ function Function() {
   const [idTasksTech, setIdTasksTech] = useState("")
 
   useEffect(() => {
-    Object.values({ name: err.name, link: err.link, start_date: err.start_date, end_date: err.end_date, repository: err.repository }).filter(e => e).length === 0 &&
-      Object.values({ name: change.name, link: change.link, start_date: change.start_date, end_date: change.end_date, repository: change.repository }).filter(e => e).length >= 5
+    Object.values({ name: err.name, image: err.image, link: err.link, start_date: err.start_date, end_date: err.end_date, repository: err.repository }).filter(e => e).length === 0 &&
+      Object.values({ name: change.name, image: err.image, link: change.link, start_date: change.start_date, end_date: change.end_date, repository: change.repository }).filter(e => e).length >= 5
       && change.tasks.length > 0
       && change.technologies.length > 0
       ? document.getElementById("function_save")?.removeAttribute("disabled") :
       document.getElementById("function_save")?.setAttribute("disabled", "")
-  }, [err, change])
+  }, [err, change, idTasksTech])
 
   const handleOnClick = (e) => {
     const { name, value } = e.target;
@@ -56,7 +57,7 @@ function Function() {
         callApi({ method: POST, route: `${FUNCTIONS}/${status.position_function_id}/${user._id}`, loading: LOADING_API_FUNCTIONS, post: Object.assign({ company: status.company_position_id, position: status.position_function_id }, change) })
         break
       case "delete":
-        setStatus({ function_fields: false, function_add: true, function_render: true})
+        setStatus({ function_fields: false, function_add: true, function_render: true })
         callApi({ method: DELETE, route: `${FUNCTIONS}/${value}/${user._id}`, loading: LOADING_API_FUNCTIONS })
         break
       case "add_position":
@@ -85,6 +86,8 @@ function Function() {
     }
   }
 
+  const handleOnLoad = (_e, s) => setErr({ ...err, image: "" })
+
   return (
     <div className="function__container">
       {state.loading_api_function ? <h1>Cargando...</h1> : <div>
@@ -92,7 +95,7 @@ function Function() {
           <Render handleOnClick={handleOnClick} functions={state.functions} status={status} />
         </div>
         <div className="admin__function">
-          {status.function_fields && <Fields handleOnChange={handleOnChange} handleTasksTech={handleTasksTech} err={err} change={change} idTasksTech={idTasksTech} />}
+          {status.function_fields && <Fields handleOnChange={handleOnChange} handleTasksTech={handleTasksTech} err={err} change={change} idTasksTech={idTasksTech} handleOnLoad={handleOnLoad} />}
         </div>
         <div className="function__button">
           {status.function_fields && !status.function_add_technologies && <Button handleOnClick={handleOnClick} status={status} />}

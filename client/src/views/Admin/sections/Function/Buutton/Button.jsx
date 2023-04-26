@@ -1,17 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 
-function Button({ handleOnClick, status }) {
+function Button({ handleOnClick }) {
+
+  useEffect(()=>{
+    document.getElementById("function_save")?.removeAttribute("disabled")
+  },[])
+
   return (
     <>
-      <button id="function_clean" name="function_clean" onClick={handleOnClick}>
-        Limpiar
-      </button>
-
-      {status.function_save && (
-        <button id="function_save" name="function_save" onClick={handleOnClick}>
-          Guardar Empresa
-        </button>
-      )}
+      <button id="function_clean" name="function_clean" onClick={handleOnClick}>Limpiar</button>
+      <button id="function_save" name="function_save" onClick={handleOnClick}>Guardar Empresa</button>
     </>
   );
 }

@@ -36,6 +36,7 @@ const functionsSchema = Schema(
     company: { type: Schema.Types.ObjectId, ref: "Company" },
     position: { type: Schema.Types.ObjectId, ref: "Position" },
     name: { type: String },
+    image: { type: String },
     link: { type: String },
     start_date: { type: String },
     end_date: { type: String },
