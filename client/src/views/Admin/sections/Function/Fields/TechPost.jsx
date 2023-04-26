@@ -103,7 +103,7 @@ function TechPost() {
           </div>
 
           <div>
-            <select name="technologies" onChange={handleOnChange}>
+            <select name="technologies" value={change.technologies} onChange={handleOnChange}>
               <option value="">Seleccionar</option>
               <optgroup label="Desarrollo">
                 <option value="Front end">Front end</option>
