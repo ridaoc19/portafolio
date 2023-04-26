@@ -1,11 +1,14 @@
 import React from "react";
+import { svg } from "../../../../../../components/assets/svg";
 
-function Header({state, handleOnChange, handleOnClick, experience}) {
+function Header({ state, handleOnChange, handleOnClick, experience }) {
   return (
     <div className="experiences__header--content">
+
       <div className="experiences__header--select">
         <h3>{experience?.length}</h3>
       </div>
+
       <div className="experiences__header--search">
         <input
           type="text"
@@ -14,6 +17,9 @@ function Header({state, handleOnChange, handleOnClick, experience}) {
           name="search"
           onChange={handleOnChange}
         />
+      </div>
+
+      <div className="experiences__header--tech">
         <select name="select" onChange={handleOnChange}>
           <option value="">Seleccionar</option>
           <option value="Front end">Front end</option>
@@ -21,14 +27,13 @@ function Header({state, handleOnChange, handleOnClick, experience}) {
           <option value="Otros">Otros</option>
         </select>
       </div>
+      
       <div className="experiences__header--organize">
-        <button
-          onClick={handleOnClick}
-        >
-          <img src={"gridIcon"} alt="grid" width={10} />
+        <button className="style__svg" onClick={handleOnClick} value={"grid"}>
+          {svg({ type: "grid" })}
         </button>
-        <button onClick={handleOnClick}>
-          <img src={"listIcon"} alt="list" width={10} />
+        <button className="style__svg" onClick={handleOnClick} value={"list"}>
+          {svg({ type: "list" })}
         </button>
       </div>
     </div>
