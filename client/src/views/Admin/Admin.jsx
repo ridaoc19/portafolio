@@ -1,24 +1,18 @@
 import React, { useContext, useEffect } from "react";
-import {
-  COMPANY,
-  GET,
-  LOADING_API_COMPANY,
-} from "../../components/hooks/context/Admin/adminTypes";
+import { COMPANY, GET, LOADING_API_COMPANY } from "../../components/hooks/context/Admin/adminTypes";
 import CreateContext from "../../components/hooks/context/CreateContext";
 import Company from "./sections/Company/Company";
 import Function from "./sections/Function/Function";
 import Position from "./sections/Position/Position";
 
 function Admin() {
-  const { login: { state: { user, loading_login } },   admin: { status, callApi, setStatus },  } = useContext(CreateContext);
+  const { login: { state: { user, loading_login } }, admin: { status, callApi, setStatus }, } = useContext(CreateContext);
 
   useEffect(() => {
-    user?._id && !loading_login && callApi({method: GET, route: `${COMPANY}/${user._id}`, loading: LOADING_API_COMPANY});
-    
-    return ()=>{
-      setStatus({ type: 'CLEAN' })
-    }
-    
+    user?._id && !loading_login && callApi({ method: GET, route: `${COMPANY}/${user._id}`, loading: LOADING_API_COMPANY });
+
+    return () => { setStatus({ type: 'CLEAN' }) }
+
     // eslint-disable-next-line
   }, [user]);
 
@@ -47,15 +41,11 @@ function Admin() {
           <hr />
         </div>
         <div className="admin_button">
-          <button
-            id="admin_button"
+          <button id="admin_button"
             onClick={(e) => {
               e.preventDefault();
               setStatus({ type: "CLEAN" });
-            }}
-          >
-            Restaurar
-          </button>
+            }}>Restaurar</button>
         </div>
       </div>
     </>

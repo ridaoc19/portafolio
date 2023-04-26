@@ -17,10 +17,6 @@ const AdminReducer = (state, action) => {
     case DATA_UPDATE:
       Object.entries(action.payload).map(([key, value]) => state[key] = value)
       return state
-    // case GET_FUNCTIONS:
-    //   return { ...state, functions: payload.functions };
-    // case POST_FUNCTIONS:
-    //   return { ...state, company: payload.company, functions: payload.functions }
     case LOADING_API:
       return Object.assign({ ...state }, payload)
     default:

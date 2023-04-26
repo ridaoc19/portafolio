@@ -1,61 +1,33 @@
-import React, { useContext, useEffect, useState } from "react";
-// import gridIcon from "../../../../../../assets/images/icons/grid.svg";
-// import listIcon from "../../../../../../assets/images/icons/list.svg";
-import CreateContext from "../../../../../../components/hooks/context/CreateContext";
+import React from "react";
 
-const initialState = {
-  search: "",
-  type: "grid",
-};
-
-function Header() {
-//  const { experience: {renderExperience, updateExperience} } = useContext(CreateContext);
- const { works: { functions } } = useContext(CreateContext);
-  const [state, setState] = useState(initialState);
-  const [experience, setExperience] = useState(functions)
- 
-  useEffect(() => {
-    const div = document.getElementById("experiences__main--container");
-    if (state.type === "grid") {
-      div.classList.replace("list", "grid");
-    } else {
-      div.classList.replace("grid", "list");
-    }
-  }, [state.type]);
-
-  // useEffect(() => {
-    
-  // },[state.search])
-
-
-  // const result = total?.filter((e) =>
-  //   e.technologies.toString().toLowerCase().includes(value.toLowerCase()));
-
-  // useEffect(() => {
-  //     updateExperience(state.search)
-  //   // eslint-disable-next-line
-  // },[state.search])
-
+function Header({state, handleOnChange, handleOnClick, experience}) {
   return (
     <div className="experiences__header--content">
       <div className="experiences__header--select">
-        <h3>{functions?.length}</h3>
+        <h3>{experience?.length}</h3>
       </div>
       <div className="experiences__header--search">
         <input
           type="text"
           placeholder="busca tecnologia"
           value={state.search}
-          onChange={(e) => setState({ ...state, search: e.target.value })}
+          name="search"
+          onChange={handleOnChange}
         />
+        <select name="select" onChange={handleOnChange}>
+          <option value="">Seleccionar</option>
+          <option value="Front end">Front end</option>
+          <option value="Back end">Back end</option>
+          <option value="Otros">Otros</option>
+        </select>
       </div>
       <div className="experiences__header--organize">
         <button
-          onClick={(e) => setState({ ...state, type: e.target.alt })}
+          onClick={handleOnClick}
         >
           <img src={"gridIcon"} alt="grid" width={10} />
         </button>
-        <button onClick={(e) => setState({ ...state, type: e.target.alt })}>
+        <button onClick={handleOnClick}>
           <img src={"listIcon"} alt="list" width={10} />
         </button>
       </div>

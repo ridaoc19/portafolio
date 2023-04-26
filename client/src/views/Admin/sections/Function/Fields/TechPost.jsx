@@ -14,8 +14,8 @@ const initialStatus = {
   add: true
 }
 
-function TechPost(props) {
-  const { login: { state: { user } }, admin: { state, status, setStatus, callApi } } = useContext(CreateContext);
+function TechPost() {
+  const { login: { state: { user } }, admin: { state, status, callApi } } = useContext(CreateContext);
 
   const [change, setChange] = useState(initialState)
   const [err, setErr] = useState(initialState)
@@ -46,7 +46,6 @@ function TechPost(props) {
         setStatusLocal({ ...statusLocal, add: true, render: false })
         break;
       case "edit":
-        // console.log(state.technologies.find(t => t._id === value));
         setChange(state.technologies.find(t => t._id === value))
         setStatusLocal({ ...statusLocal, add: false, render: true })
         return;
@@ -64,10 +63,7 @@ function TechPost(props) {
 
   }
 
-  const handleOnLoad = (e) => {
-
-    setErr({ ...err, image: e.target.value })
-  }
+  const handleOnLoad = (e) => setErr({ ...err, image: e.target.value })
 
   return (
     <>
@@ -78,12 +74,8 @@ function TechPost(props) {
               return (
                 <li key={e._id}>
                   {e.name}
-                  <button id="edit" name="edit" onClick={handleOnClick} value={e._id}>
-                    editar
-                  </button>
-                  <button id="delete" name="delete" onClick={handleOnClick} value={e._id}>
-                    eliminar
-                  </button>
+                  <button id="edit" name="edit" onClick={handleOnClick} value={e._id}> editar </button>
+                  <button id="delete" name="delete" onClick={handleOnClick} value={e._id}> eliminar </button>
                 </li>
               );
             })}

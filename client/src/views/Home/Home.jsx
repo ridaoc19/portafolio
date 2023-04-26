@@ -12,7 +12,7 @@ const Home = () => {
   const { login: { state: {user} }, works: { getWork } } = useContext(CreateContext)
   
   useEffect(() => {
-    getWork({ route:  user?.user_id ?  user?.user_id : "112730665053674408326" })
+    getWork({ route:  user?.user_id ?  user?.user_id : `${process.env.REACT_APP_DEFAULT_USER_LOGIN}` })
     // eslint-disable-next-line
   }, [user])
 

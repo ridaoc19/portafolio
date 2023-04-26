@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import CreateContext from '../../../../components/hooks/context/CreateContext';
 import { formatDate, totalYear } from '../../../../components/utils/function/date';
-// import { formatDate, totalYear } from "./functionWork";
 
 const Work = () => {
   const { works: { company } } = useContext(CreateContext);

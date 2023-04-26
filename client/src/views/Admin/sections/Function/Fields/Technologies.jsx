@@ -32,30 +32,14 @@ function Technologies({ handleTech, change, idTasksTech }) {
     if (name === 'add') {
       setTech(
         tech.map((e) => {
-          if (e._id === id) {
-            return {
-              _id: e._id,
-              name: e.name,
-              image: e.image,
-              technologies: e.technologies,
-              status: "selection",
-            };
-          }
+          if (e._id === id) return { _id: e._id, name: e.name, image: e.image, technologies: e.technologies, status: "selection", };
           return e;
         })
       );
     } else if (name === 'delete') {
       setTech(
         tech.map((e) => {
-          if (e._id === id) {
-            return {
-              _id: e._id,
-              name: e.name,
-              image: e.image,
-              technologies: e.technologies,
-              status: "technologies",
-            };
-          }
+          if (e._id === id) return { _id: e._id, name: e.name, image: e.image, technologies: e.technologies, status: "technologies", };
           return e;
         })
       );
@@ -66,47 +50,28 @@ function Technologies({ handleTech, change, idTasksTech }) {
     <>
       <div className="admin__technologies-title">
         <h2>Tecnologias utilizadas</h2>
-        <input
-          type="checkbox"
-          name="technologies"
-          onClick={() => setStatus({ function_add_technologies: status.function_add_technologies ? false : true })}
-          // checked={status.function_add_technologies}
-        />
+        <input type="checkbox" name="technologies" onClick={() => setStatus({ function_add_technologies: status.function_add_technologies ? false : true })} />
         <label htmlFor="technologies"> Agregar Tecnología</label>
         {status.function_add_technologies && <TechPost />}
       </div>
+
       {!status.function_add_technologies && <div className="admin__technologies-container">
         <div id="technologies" className="technologies__content">
           <h3>tecnologias </h3>
-          {tech?.map(
-            (e) =>
+          {tech?.map((e) =>
               e.status === "technologies" && (
                 <div key={e._id}>
-                  <button
-                    key={e._id}
-                    onClick={handleOnClick}
-                    name="add"
-                    id={e._id}
-                  >
-                    {e.name}
-                  </button>
+                  <button key={e._id} onClick={handleOnClick} name="add" id={e._id}> {e.name} </button>
                 </div>
               )
           )}
         </div>
         <div id="selection" className="technologies__selection">
           <h3>Seleccionadas</h3>
-          {tech.map(
-            (e) =>
+          {tech.map((e) =>
               e.status === "selection" && (
                 <div key={e._id}>
-                  <button
-                    id={e._id}
-                    name="delete"
-                    onClick={handleOnClick}
-                  >
-                    {e.name}
-                  </button>
+                  <button id={e._id} name="delete" onClick={handleOnClick}> {e.name} </button>
                 </div>
               )
           )}

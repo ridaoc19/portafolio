@@ -39,31 +39,26 @@ function Function() {
     switch (nameInput) {
       case "add":
         setIdTasksTech("")
-        setStatus({ function_fields: true, function__add: false, function_render: false })
+        setStatus({ function_fields: true, function_add: false, function_render: false })
         break
-
       case "edit":
         setChange(state.functions.find(d => d._id === value))
         setIdTasksTech(value)
         setStatus({ function_fields: true })
         return
-
       case "clean":
         setIdTasksTech("")
         setStatus({ function_render: false })
         break
-
       case "save":
         if (Object.values(err).filter(e => e).length > 2 || change.tasks.length === 0 || change.technologies.length === 0) return
         setStatus({ function_fields: false, function_add: true })
         callApi({ method: POST, route: `${FUNCTIONS}/${status.position_function_id}/${user._id}`, loading: LOADING_API_FUNCTIONS, post: Object.assign({ company: status.company_position_id, position: status.position_function_id }, change) })
         break
-
       case "delete":
-        setStatus({ function_fields: false, function_add: true, function_render: true, function_add_function: false, function_function_id: "" })
+        setStatus({ function_fields: false, function_add: true, function_render: true})
         callApi({ method: DELETE, route: `${FUNCTIONS}/${value}/${user._id}`, loading: LOADING_API_FUNCTIONS })
         break
-
       case "add_position":
         break
       default: return
@@ -71,8 +66,6 @@ function Function() {
     setErr(initialState)
     setChange(initialState)
   }
-
-
 
   const handleOnChange = (e) => {
     const { name, value } = e.target;
@@ -84,6 +77,7 @@ function Function() {
   }
 
   const handleTasksTech = (data, component) => {
+    setIdTasksTech("tasksTech")
     if (component === "tasks") {
       setChange({ ...change, tasks: data })
     } else if (component === "tech") {
