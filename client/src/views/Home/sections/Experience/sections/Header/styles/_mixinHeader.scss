@@ -2,10 +2,10 @@
     @media (min-width: map.get($respons, "xs")) {
         grid-template-areas:
             "experiences__header--select  experiences__header--organize"
-            "experiences__header--search experiences__header--search";
+            "experiences__header--search  experiences__header--tech";
     }
 
     @media (min-width: map.get($respons, "sm")) {
-        grid-template-areas: "experiences__header--select experiences__header--search experiences__header--organize";
+        grid-template-areas: "experiences__header--select experiences__header--search experiences__header--tech experiences__header--organize";
     }
 }
