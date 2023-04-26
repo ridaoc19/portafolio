@@ -11,7 +11,6 @@ module.exports = {
       const position = await Position.find({ _id: company?.map(c => c.position).flat(Infinity)}).sort({ start_date: 1 })
       const functions = await Functions.find({ _id: position?.map(p => p.functions).flat(Infinity)}).populate('technologies').sort({ start_date: 1 })
       const technologies = await Technologies.find({ _id: functions?.map(f => f.technologies).flat(Infinity)}).sort({ start_date: 1 })
-
       res.status(200).json({company, position, functions, technologies});
   } catch (error) {
       res.json({ message: error.message })
