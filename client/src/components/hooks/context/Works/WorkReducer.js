@@ -1,15 +1,11 @@
-import { GET_WORK, LOADING_WORK } from "./types";
+import { GET_WORK } from "./types";
 
 export const initialState = {
   company: [],
   position: [],
   functions: [],
   technologies: [],
-
-  experience: [],
-  works: [],
-  id: "",
-  loadingWork: true
+  loadingWork: true,
 };
 
 // eslint-disable-next-line
@@ -21,11 +17,6 @@ export default (state, action) => {
       return {
         ...state, company: payload.company, position: payload.position, functions: payload.functions,
         technologies: payload.technologies, loadingWork: false
-      };
-    case LOADING_WORK:
-      return {
-        ...state,
-        loadingWork: true,
       };
 
     default:

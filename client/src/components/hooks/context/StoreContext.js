@@ -1,13 +1,10 @@
 import React from "react";
 import AdminState from "./Admin/AdminState";
 import CreateContext from "./CreateContext";
-import ExperienceState from "./Experience/ExperienceState";
-import WorkState from "./Works/WorkState";
 import LoginState from "./Login/LoginState";
-
+import WorkState from "./Works/WorkState";
 
 function StoreContext(props) {
-  const experience = ExperienceState();
   const admin = AdminState();
   const works = WorkState();
   const login = LoginState()
@@ -15,7 +12,6 @@ function StoreContext(props) {
   return (
     <CreateContext.Provider
       value={{
-        experience,
         admin,
         works,
         login

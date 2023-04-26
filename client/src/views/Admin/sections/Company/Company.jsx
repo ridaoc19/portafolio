@@ -1,10 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { COMPANY, DELETE, LOADING_API_COMPANY, POST } from '../../../../components/hooks/context/Admin/adminTypes';
 import CreateContext from '../../../../components/hooks/context/CreateContext';
-import Button from './Buutton/Button';
+import Validation from '../../../../components/utils/function/Validation';
 import Fields from './Fields/Fields';
 import Render from './Render/Render';
-import Validation from '../../../../components/utils/function/Validation';
 
 const initialState = {
   name: "",
@@ -75,7 +74,7 @@ function Company() {
       {!user?._id
         ? <Fields handleOnChange={handleOnChange} handleOnLoad={handleOnLoad} handleOnClick={handleOnClick} change={change} err={err} />
         : state.loading_api_company
-          ? <h1>Cargando...</h1> 
+          ? <h1>Cargando...</h1>
           : <div>
             <div className="company__render">
               {status.company_render && <Render handleOnClick={handleOnClick} company={state.company} status={status} />}
@@ -83,9 +82,6 @@ function Company() {
             <div className="admin__company">
               {status.company_fields && <Fields handleOnChange={handleOnChange} handleOnLoad={handleOnLoad} handleOnClick={handleOnClick} change={change} err={err} />}
             </div>
-            {/* <div className="company__button">
-          {status.company_fields && <Button handleOnClick={handleOnClick} status={status} />}
-        </div> */}
           </div>}
     </div>
   );

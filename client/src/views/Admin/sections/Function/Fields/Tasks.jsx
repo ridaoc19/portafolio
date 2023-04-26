@@ -60,14 +60,7 @@ function Tasks({ handleTasks, changeGlobal, idTasksTech }) {
       </div>
       <div className="function__tasks">
         <div className="-write">
-          <textarea
-            onChange={handleOnChange}
-            placeholder="Ingrese tareas"
-            value={change}
-            name="tasks"
-            id="tasks"
-            className="function__tasks-textarea"
-          ></textarea>
+          <textarea onChange={handleOnChange} placeholder="Ingrese tareas" value={change} name="tasks" id="tasks" className="function__tasks-textarea"          ></textarea>
           <span>{err}</span>
         </div>
         <div className="-button">

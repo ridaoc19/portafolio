@@ -1,15 +1,8 @@
-import React, { useContext, useEffect } from "react";
-import CreateContext from "../../../../../../components/hooks/context/CreateContext";
+import React from "react";
+import { totalYear } from "../../../../../../components/utils/function/date";
+import { PARAMS } from "../../../../../../components/utils/function/variables";
 
-
-function Main({experience}) {
-  const { works: { functions } } = useContext(CreateContext);
-
-  useEffect(() => {
-    // getWork()
-    // eslint-disable-next-line
-  }, [])
-
+function Main({ experience }) {
   return (
     <>
       {experience?.map((e, i) => (
@@ -17,9 +10,8 @@ function Main({experience}) {
           <div className="experiences__card--father">
             <div className="experiences__card--son">
               <div className="experiences__card--date">
-                <h6>
-                  {e.start_date} - {e.end_date}
-                </h6>
+                <h6>{e.start_date} - {e.end_date}</h6>
+                <h6>{totalYear(e.start_date, e.end_date === "Presente" ? Date.now() : e.end_date)}</h6>
               </div>
 
               {/* <div className="experiences__card--image"> */}
@@ -27,7 +19,21 @@ function Main({experience}) {
               {/* </div> */}
 
               <div className="experiences__card--name">
-                <h4>{e.name}</h4>
+              {/* <button onClick={(e) => {
+                  e.preventDefault()
+                  window.open(e.link, "test", PARAMS)
+                }}>{e.name}
+                </button> */}
+                <a href={e.link} target="_blank" rel="noreferrer">@{e.name}</a>
+              </div>
+
+              <div className="experiences__card--web">
+                {/* <button onClick={(e) => {
+                  e.preventDefault()
+                  window.open(e.repository, "test", PARAMS)
+                }}> { }
+                </button> */}
+                <a href={e.repository} target="_blank" rel="noreferrer">Repositorio de {e.name}</a>
               </div>
 
               <div className="experiences__card--tasks">
