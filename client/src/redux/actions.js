@@ -67,7 +67,6 @@ export const postLocation = () => {
 export function getLocation(id) {
   return async function (dispatch) {
     try {
-    console.log(`${process.env.REACT_APP_URL}`, "tiene algo get");
 
       let { data } = await axios.get(
         `${process.env.REACT_APP_URL}/location/${id}`
