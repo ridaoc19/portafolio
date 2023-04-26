@@ -7,6 +7,7 @@ import StoreContext from "./components/hooks/context/StoreContext";
 import Navbar from "./components/Layout/Navbar/Navbar";
 import Admin from "./views/Admin/Admin";
 import Login from "./components/Layout/Login/Login";
+import Layout from "./components/Layout/Layout";
 
 function App() {
   return (
@@ -15,8 +16,8 @@ function App() {
         <Routes>
           <Route path="/" element={<Start />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/home" element={<><Navbar /><Home /></>} />
-          <Route path="/admin" element={<><Navbar /><Admin /></>} />
+          <Route path="/home" element={<Layout ><Home /></Layout>} />
+          <Route path="/admin" element={<Layout ><Admin /></Layout>} />
         </Routes>
       </StoreContext>
     </div>

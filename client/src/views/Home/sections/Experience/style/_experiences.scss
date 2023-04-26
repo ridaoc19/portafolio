@@ -29,14 +29,14 @@
         min-height: 27rem;
         grid-template-areas:
           "experiences__card--date"
-          // "experiences__card--image"
+          "experiences__card--image"
           "experiences__card--name"
           "experiences__card--tasks"
           "experiences__card--technologies";
         // grid-template-rows: 5% 42% 10%;
 
         img {
-          width        : 15rem;
+          height        : 4rem;
           border-radius: 0.5rem;
         }
       }

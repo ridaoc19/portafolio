@@ -1,8 +1,14 @@
-import React from 'react';
-import './styles/Layout.scss';
+import React from "react";
+import "./styles/Layout.scss";
+import Navbar from "./Navbar/Navbar";
 
-const Layout = () => {
-	return <div className='layout'>Layout</div >;
+const Layout = ({ children }) => {
+  return (
+    <div className="layout">
+      <Navbar />
+      {children}
+    </div>
+  );
 };
 
 export default Layout;
