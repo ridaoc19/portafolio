@@ -14,9 +14,9 @@ function Main({ experience }) {
                 <h6>{totalYear(e.start_date, e.end_date === "Presente" ? Date.now() : e.end_date)}</h6>
               </div>
 
-              {/* <div className="experiences__card--image"> */}
-              {/* <img src={e.image} alt="img" /> */}
-              {/* </div> */}
+              <div className="experiences__card--image">
+              <img src={e.image} alt="img" />
+              </div>
 
               <div className="experiences__card--name">
               {/* <button onClick={(e) => {
