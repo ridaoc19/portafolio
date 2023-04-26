@@ -32,7 +32,6 @@ module.exports = {
           await Functions.findByIdAndDelete(d);
         });
       }
-
       companyGet(req, res, company.user_id);
     } catch (error) {
       res.status(400).json({ message: error.message });

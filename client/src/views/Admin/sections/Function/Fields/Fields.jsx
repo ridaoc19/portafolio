@@ -5,12 +5,18 @@ import { PARAMS } from "../../../../../components/utils/function/variables";
 import Tasks from "./Tasks";
 import Technologies from "./Technologies";
 
-function Fields({ change, handleOnChange, handleTasksTech, err, idTasksTech }) {
+function Fields({ change, handleOnChange, handleTasksTech, err, idTasksTech, handleOnLoad }) {
   return (
     <>
       <div className="-name">
-        <input type="text" onChange={handleOnChange} placeholder="funciones" name="function_name" value={change.name} />
+        <input type="text" onChange={handleOnChange} placeholder="funcion o proyecto" name="function_name" value={change.name} />
         <span>{err.name}</span>
+      </div>
+
+      <div className="-image">
+        <input type="url" onChange={handleOnChange} placeholder="logo" name="function_image" value={change.image} />
+        <span>{err.image}</span>
+        <img id="img_temp" name="function_img" onLoad={(e) => { handleOnLoad(e, "Load") }} src={change.image} alt="" width="50" />
       </div>
 
       <div className="-link">
