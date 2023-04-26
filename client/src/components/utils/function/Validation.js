@@ -9,8 +9,8 @@ export default function Validation(name, value, change) {
   if (name === "name") {
     if (value !== "") {
       if (value.trim() === "") return error = { type: "Debe ingresar texto", stop: true }
-      if (value.length < 4) {
-        return error = { type: "Debe tener mas de 4 caracteres", stop: false }
+      if (value.length < 3) {
+        return error = { type: "Debe tener mas de 3 caracteres", stop: false }
       } else if (value.length >= 45) {
         return error = { type: "Solo debe tener hasta 45 caracteres", stop: true }
       }
