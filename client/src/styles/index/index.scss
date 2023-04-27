@@ -1,1 +1,22 @@
 @import './svg.scss';
+@import './scroll.scss';
+
+
+
+@media (min-width: map.get($respons, "xs")) {
+    body {
+        font-size: 12px;
+    }
+}
+
+@media (min-width: map.get($respons, "sm")) {
+    body {
+        font-size: 14px;
+    }
+}
+
+@media (min-width: map.get($respons, "xxl")) {
+    body {
+        font-size: 18px;
+    }
+}

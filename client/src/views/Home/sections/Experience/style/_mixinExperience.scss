@@ -8,22 +8,28 @@
     }
 
     @media (min-width: map.get($respons, "xxl")) {
-        grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+        
     }
 }
 
 @mixin list_experiences__card--son {
     @media (min-width: map.get($respons, "xs")) {
         grid-template-areas:
+            // "experiences__card--date  experiences__card--tasks"
+            // "experiences__card--name experiences__card--tasks"
+            // ".  experiences__card--technologies ";
             "experiences__card--date  experiences__card--tasks"
-            "experiences__card--name experiences__card--tasks"
-            ".  experiences__card--technologies ";
+            "experiences__card--image experiences__card--tasks"
+            "experiences__card--name experiences__card--technologies"
     }
-
+    // "experiences__card--image"
     @media (min-width: map.get($respons, "md")) {
         grid-template-areas:
-            "experiences__card--date  experiences__card--tasks experiences__card--technologies"
-            "experiences__card--name experiences__card--tasks experiences__card--technologies"
-            ".  experiences__card--tasks experiences__card--technologies";
+        "experiences__card--date  experiences__card--tasks"
+        "experiences__card--image experiences__card--tasks"
+        "experiences__card--name experiences__card--technologies"
+            // "experiences__card--date  experiences__card--tasks experiences__card--technologies"
+            // "experiences__card--name experiences__card--tasks experiences__card--technologies"
+            // ".  experiences__card--tasks experiences__card--technologies";
     }
 }
