@@ -1,0 +1,105 @@
+@media (min-width: map.get($respons, "xxl")) {
+
+    .grid {
+        grid-template-columns: repeat(auto-fit, minmax(22rem, 1fr));
+
+        .experiences__card--son {
+            max-height: 27rem;
+            min-height: 27rem;
+            grid-template-areas:
+                "experiences__card--date"
+                "experiences__card--image"
+                "experiences__card--name"
+                "experiences__card--tasks"
+                "experiences__card--technologies";
+            grid-template-rows: 2.5rem 5rem 1.5rem auto 2rem;
+        }
+    }
+
+    .list {
+        grid-template-columns: 1fr;
+
+        .experiences__card--son {
+            max-height: 14rem;
+            min-height: 14rem;
+            grid-template-areas:
+                // "experiences__card--name  experiences__card--date"
+                "experiences__card--date experiences__card--name"
+                "experiences__card--image experiences__card--tasks"
+                "experiences__card--image experiences__card--tasks"
+                "experiences__card--technologies experiences__card--technologies";
+            grid-template-rows: 2.5rem auto auto 2rem;
+
+        }
+    }
+
+    .experiences__card--container {
+        padding: 1%;
+
+        .experiences__card--father {
+            padding         : 6%;
+            background-color: var(--container-color);
+            border-radius   : 0.5rem;
+
+            .experiences__card--son {
+                display: grid;
+                gap    : 1%;
+
+                .experiences__card--date {
+                    grid-area            : experiences__card--date;
+                    display              : grid;
+                    grid-template-columns: repeat(2, 1fr);
+
+                    h6 {
+                        margin    : 0;
+                        text-align: end;
+                    }
+                }
+
+                .experiences__card--image {
+                    grid-area : experiences__card--image;
+                    place-self: center;
+
+                    img {
+                        height       : 4rem;
+                        border-radius: 0.5rem;
+                    }
+                }
+
+                .experiences__card--name {
+                    grid-area   : experiences__card--name;
+                    justify-self: center;
+                    white-space : nowrap;
+
+                }
+
+                .experiences__card--tasks {
+                    grid-area : experiences__card--tasks;
+                    overflow-y: auto;
+
+                    ul {
+                        margin: 0;
+                    }
+                }
+
+                .experiences__card--technologies {
+                    grid-area : experiences__card--technologies;
+                    overflow-y: auto;
+
+                    .experiences__technologies--container {
+                        display              : grid;
+                        grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
+                        gap                  : 0.5rem;
+
+                        .experiences__technologies--indi {
+                            //                         // white-space: nowrap;
+                            list-style   : none;
+                            border-radius: 0.1rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+}

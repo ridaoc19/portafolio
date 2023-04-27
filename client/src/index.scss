@@ -1,2 +1,5 @@
+@use "sass:map";
+@import './styles/var';
+
 @import './views/Start/Theme/theme';
 @import './styles/index/index.scss';

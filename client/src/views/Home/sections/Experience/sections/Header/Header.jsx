@@ -30,10 +30,10 @@ function Header({ state, handleOnChange, handleOnClick, experience }) {
       
       <div className="experiences__header--organize">
         <button className="style__svg" onClick={handleOnClick} value={"grid"}>
-          {svg({ type: "grid" })}
+          {svg({ type: "grid",  width: 20, height: 20 })}
         </button>
         <button className="style__svg" onClick={handleOnClick} value={"list"}>
-          {svg({ type: "list" })}
+          {svg({ type: "list", width: 20, height: 20  })}
         </button>
       </div>
     </div>
