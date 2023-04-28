@@ -7,7 +7,7 @@
   --text-color      : #212E36;
   --container-color : #4f6b7b;
   --body-color      : #eaf1f5;
-  --container-shadow: 0 1px 4px rgba(146, 161, 176, .15);
+  --container-shadow: 0 0px 10px rgba(22, 69, 116, 0.15);
 }
 
 body.dark-theme {
@@ -16,7 +16,7 @@ body.dark-theme {
   --text-color      : #C8CDD0;
   --container-color : #212E36;
   --body-color      : #192229;
-  --container-shadow: none;
+  --container-shadow: 0 0 10px rgba(146, 161, 176, 0.048);
 }
 
 body {
