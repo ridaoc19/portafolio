@@ -1,19 +1,68 @@
 .navbar__container {
+    position        : inherit;
     height          : 3rem;
     display         : flex;
     align-items     : center;
     justify-content : flex-end;
     background-color: var(--container-color);
-    justify-content: space-between;
-    padding: 0.5rem;
+    justify-content : space-between;
+    padding         : 0.5rem;
 
-    div {
-        margin-right: 1rem;
+    img {
+        width         : 2.5rem;
+        border-radius : 50%;
+        pointer-events: none;
+
     }
 
-    img{
-        width: 2.5rem;
-        border-radius: 50%;
-    }
+    .button_login_modal {
+        border    : none;
+        box-shadow: none;
 
+        &:hover {
+            background-color: transparent;
+        }
+    }
+}
+
+.navbar__login--google {
+    position  : fixed;
+    top       : 0;
+    left      : 0;
+    right     : 0;
+    bottom    : 0;
+    background: rgba(0, 0, 0, 0.8);
+    background: transparent;
+    cursor    : pointer;
+    visibility: hidden;
+    opacity   : 0;
+    transition: all 0.15s ease-in;
+    z-index   : 1;
+
+    .login__google--content {
+        position        : absolute;
+        top             : 3.5rem;
+        right           : 0.5rem;
+        border-radius   : 5px;
+        overflow        : auto;
+        cursor          : default;
+        height          : 6rem;
+        width           : 13rem;
+        background-color: var(--container-color);
+        border          : 1px solid var(--body-color);
+        box-shadow      : var(--container-shadow);
+        border-radius   : 1rem;
+        padding         : 1.5rem;
+        display         : grid;
+
+
+        &>div {
+            place-self: center;
+        }
+    }
+}
+
+.navbar__modal--open {
+    visibility: visible;
+    opacity   : 1;
 }
