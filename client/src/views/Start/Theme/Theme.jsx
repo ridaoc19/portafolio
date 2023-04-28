@@ -36,7 +36,7 @@ function Theme() {
   return (
     <div>
       <button 
-      className="change-theme-button" 
+      className="change-theme-button style__svg" 
       onClick={handleOnClick}></button>
     </div>
   );
