@@ -6,13 +6,14 @@ import Experiences from "./sections/Experience/Experiences";
 import Introduction from "./sections/Introduction/Introduction";
 import Skills from "./sections/Skills/Skills";
 import Work from "./sections/Work/Work";
+import Modal from "../../components/Layout/Modal/Modal";
 
 
 const Home = () => {
-  const { login: { state: {user} }, works: { getWork } } = useContext(CreateContext)
-  
+  const { login: { state: { user } }, works: { getWork } } = useContext(CreateContext)
+
   useEffect(() => {
-    getWork({ route:  user?.user_id ?  user?.user_id : `${process.env.REACT_APP_DEFAULT_USER_LOGIN}` })
+    getWork({ route: user?.user_id ? user?.user_id : `${process.env.REACT_APP_DEFAULT_USER_LOGIN}` })
     // eslint-disable-next-line
   }, [user])
 
@@ -29,10 +30,10 @@ const Home = () => {
         <Skills />
       </section>
       <section className="home__container--experience">
-        <Experiences/>
+        <Experiences />
       </section>
       <section className="home__container--work">
-        <Work/>
+        <Work />
       </section>
       <section className="home__container--contact">
         <Contact />
