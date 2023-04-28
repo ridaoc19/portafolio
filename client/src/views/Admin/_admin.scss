@@ -1,6 +1,12 @@
+@import './sections/Company/company.scss';
 @import './sections/Function/function.scss';
 
 .admin_container{
     display: grid;
     margin: 5%;
+
+    button{
+        border: none;
+        padding: 0.2rem;
+    }
 }
