@@ -35,7 +35,6 @@ function Experiences() {
   }
 
   const handleOnClick = (e) => {
-    console.log(e);
     e.preventDefault();
     setState({ ...state, type: e.target.value })
   }
