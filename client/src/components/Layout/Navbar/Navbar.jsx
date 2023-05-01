@@ -30,7 +30,6 @@ function Navbar() {
   }
 
   document.addEventListener("click", e => {
-    console.log(e);
     if (e.target == document.querySelector(".navbar__login--google")) {
       document.querySelector(".navbar__login--google").classList.remove("navbar__modal--open");
     }

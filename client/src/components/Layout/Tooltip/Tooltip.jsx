@@ -12,16 +12,18 @@ function Tooltip({ children, text, color, position }) {
     case "top":
       position = { border: `1px solid ${color}`, width: "120px", bottom: "100%", left: "50%", marginLeft: "-60px" }
       break;
+    case "bottom":
+      position = { border: `1px solid ${color}`, width: "120px", top: "100%", left: "50%", marginLeft: "-60px", }
+      break;
     default:
-      position = { border: `1px solid ${color}`, width: "120px", top: "100 %", left: "50 %", marginLeft: "-60px;", }
       break;
   }
 
   return (
     <>
-      <div class="tooltip" >
+      <div className="tooltip" >
         {children}
-        <span class="tooltiptext" style={position}>{text}</span>
+        <span className="tooltiptext" style={position}>{text}</span>
       </div>
     </>
   );

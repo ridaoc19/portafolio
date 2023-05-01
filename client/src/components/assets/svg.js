@@ -22,24 +22,32 @@ export function svg({ type, width = 18, height = 18, color }) {
       </svg>
       case "delete":
         return <svg width={width} height={height} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M10 12V17" stroke={color} stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M14 12V17" stroke={color} stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M4 7H20" stroke={color} stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M6 10V18C6 19.6569 7.34315 21 9 21H15C16.6569 21 18 19.6569 18 18V10" stroke={color} stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5V7H9V5Z" stroke={color} stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M10 12V17" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M14 12V17" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M4 7H20" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M6 10V18C6 19.6569 7.34315 21 9 21H15C16.6569 21 18 19.6569 18 18V10" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5V7H9V5Z" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
       case "edit":
         return <svg  width={width} height={height} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 3.99997H6C4.89543 3.99997 4 4.8954 4 5.99997V18C4 19.1045 4.89543 20 6 20H18C19.1046 20 20 19.1045 20 18V12M18.4142 8.41417L19.5 7.32842C20.281 6.54737 20.281 5.28104 19.5 4.5C18.7189 3.71895 17.4526 3.71895 16.6715 4.50001L15.5858 5.58575M18.4142 8.41417L12.3779 14.4505C12.0987 14.7297 11.7431 14.9201 11.356 14.9975L8.41422 15.5858L9.00257 12.6441C9.08001 12.2569 9.27032 11.9013 9.54951 11.6221L15.5858 5.58575M18.4142 8.41417L15.5858 5.58575" stroke={color} stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M12 3.99997H6C4.89543 3.99997 4 4.8954 4 5.99997V18C4 19.1045 4.89543 20 6 20H18C19.1046 20 20 19.1045 20 18V12M18.4142 8.41417L19.5 7.32842C20.281 6.54737 20.281 5.28104 19.5 4.5C18.7189 3.71895 17.4526 3.71895 16.6715 4.50001L15.5858 5.58575M18.4142 8.41417L12.3779 14.4505C12.0987 14.7297 11.7431 14.9201 11.356 14.9975L8.41422 15.5858L9.00257 12.6441C9.08001 12.2569 9.27032 11.9013 9.54951 11.6221L15.5858 5.58575M18.4142 8.41417L15.5858 5.58575" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
       case "add":
         return <svg  width={width} height={height} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M3 6C3 4.34315 4.34315 3 6 3H14C15.6569 3 17 4.34315 17 6V14C17 15.6569 15.6569 17 14 17H6C4.34315 17 3 15.6569 3 14V6Z" stroke={color} stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M21 7V18C21 19.6569 19.6569 21 18 21H7" stroke={color} stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M10 10V7M10 10V13M10 10H13M10 10H7" stroke={color} stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M3 6C3 4.34315 4.34315 3 6 3H14C15.6569 3 17 4.34315 17 6V14C17 15.6569 15.6569 17 14 17H6C4.34315 17 3 15.6569 3 14V6Z" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M21 7V18C21 19.6569 19.6569 21 18 21H7" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+        <path d="M10 10V7M10 10V13M10 10H13M10 10H7" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
       case "add_position":
-        return
+        return <svg fill={color} width={width} height={height} viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+        <title>badge</title>
+        <path d="M25.307 12.195c-0.248 0-0.477-0.064-0.688-0.164l-2.271 3.935 2.286 3.961c0.188-0.076 0.391-0.122 0.605-0.122 0.9 0 1.63 0.729 1.63 1.63s-0.729 1.631-1.63 1.631c-0.901 0-1.631-0.668-1.631-1.568 0-0.015 0.009-0.041 0.009-0.041h-4.404l-2.373 4.050c0.465 0.287 0.791 0.777 0.791 1.363 0 0.9-0.73 1.631-1.631 1.631s-1.63-0.73-1.63-1.631c0-0.629 0.367-1.157 0.888-1.43l-2.335-3.983h-4.608c0 0.015 0.008 0.026 0.008 0.041 0 0.9-0.73 1.568-1.63 1.568s-1.63-0.73-1.63-1.631 0.73-1.63 1.63-1.63c0.278 0 0.528 0.088 0.758 0.211l2.338-4.050-2.31-4c-0.236 0.133-0.495 0.229-0.786 0.229-0.9 0-1.63-0.729-1.63-1.63s0.73-1.631 1.63-1.631c0.891 0 1.609 0.716 1.625 1.604h4.604l2.307-3.997c-0.504-0.276-0.86-0.794-0.86-1.41 0.001-0.902 0.731-1.631 1.631-1.631s1.631 0.729 1.631 1.631c0 0.573-0.314 1.054-0.764 1.345l2.346 4.062h4.469c0.016-0.888 0.734-1.604 1.625-1.604 0.9 0 1.631 0.73 1.631 1.631s-0.731 1.63-1.631 1.63zM16 11.584c-2.401 0-4.348 1.946-4.348 4.348s1.947 4.348 4.348 4.348c2.4 0 4.348-1.947 4.348-4.349s-1.948-4.347-4.348-4.347zM16 19.396c-1.914 0-3.465-1.551-3.465-3.465 0-1.913 1.551-3.464 3.465-3.464 1.913 0 3.465 1.551 3.465 3.464 0 1.915-1.552 3.465-3.465 3.465z"></path>
+        </svg>
+        case "information":
+          return <svg width={width} height={height} viewBox="0 0 76 76" xmlns="http://www.w3.org/2000/svg" version="1.1" baseProfile="full" enableBackground="new 0 0 76.00 76.00">
+          <path fill="yellow" fillOpacity="1" strokeWidth="0.2" strokeLinejoin="round" d="M 31.6666,30.0834L 42.7499,30.0834L 42.7499,33.2501L 42.7499,52.2501L 45.9165,52.2501L 45.9165,57.0001L 31.6666,57.0001L 31.6666,52.2501L 34.8332,52.2501L 34.8332,34.8335L 31.6666,34.8335L 31.6666,30.0834 Z M 38.7917,19C 40.9778,19 42.75,20.7722 42.75,22.9583C 42.75,25.1445 40.9778,26.9167 38.7917,26.9167C 36.6055,26.9167 34.8333,25.1445 34.8333,22.9583C 34.8333,20.7722 36.6055,19 38.7917,19 Z "/>
+        </svg>
+        
     default:
       break;
   }
