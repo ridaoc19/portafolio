@@ -1,12 +1,14 @@
 @import './sections/Company/company.scss';
 @import './sections/Function/function.scss';
+@import './mixinAdmin';
 
 .admin_container{
     display: grid;
     margin: 5%;
-
-    button{
-        border: none;
-        padding: 0.2rem;
-    }
+    @include admin__container-padding();
 }
+
+.err{
+    color: red;
+}
+

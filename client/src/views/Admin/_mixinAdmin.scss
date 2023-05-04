@@ -1,0 +1,14 @@
+
+@mixin admin__container-padding {
+    @media (min-width: map.get($respons, "xs")) {
+        padding: 0 2%;
+    }
+        
+    @media (min-width: map.get($respons, "admin")) {
+        padding: 0 10%;
+    }
+    
+    @media (min-width: map.get($respons, "xxl")) {
+        padding: 0 20%;
+    }
+}
