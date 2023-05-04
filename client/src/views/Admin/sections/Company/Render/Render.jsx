@@ -1,50 +1,49 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { svg } from "../../../../../components/assets/svg";
 import Tooltip from "../../../../../components/Layout/Tooltip/Tooltip";
 
 function Render({ handleOnClick, company, status }) {
-  const [tooltip, setTooltip] = useState(true)
+  const [tooltip, setTooltip] = useState(false)
 
   let render = status.company_position_id
     ? [company?.find((s) => s._id === status.company_position_id)]
     : company;
 
   const information = [
-  {type: "edit",data :"Eleminaría la empresa y toda la información relacionada con ella"},
-  {type: "delete",data : "Agrega nuevos cargos o grados a la Empresa"},
-  {type: "add",data : "si le da clic al nombre de la empresa, le da la opción de editar sus campos"}]
+    { type: "edit", data: "Puede Editar los campos de la Empresa" },
+    { type: "delete", data: "Eleminaría la empresa y toda la información relacionada con ella" },
+    { type: "add", data: "si le da clic al nombre de la empresa, abre la opción para agregar nuevos cargos o grados a la Empresa" }]
 
-  const handleOnMouseDown = (e) => {
-    e.preventDefault();
-
-  }
-
-  const handleOnMouseUp = (e) => {
-    e.preventDefault();
-
-  }
+  useEffect(() => {
+    window.matchMedia("(min-width: 1200px)").matches ? setTooltip(false) : setTooltip(true)
+  }, [])
 
   return (
     <>
       <ul>
-        {tooltip && <li>{information?.map( i => 
-        <i key={i.type} value={i.data} onMouseDown={handleOnMouseDown} onMouseUp={handleOnMouseUp}>
-         <Tooltip text={i.data} color={"blue"} position="right">
-          {svg({ type: "information" })}
-          </Tooltip> 
+        {tooltip && <li>{information?.map(i =>
+          <i key={i.type} value={i.data} >
+            <Tooltip text={i.data} color={"blue"} position="right">
+              {svg({ type: "information" })}
+            </Tooltip>
           </i>)}</li>}
         {render?.map((e) => (
           <li key={e._id}>
-            <Tooltip text={`Editar ${e.name}`} color={"blue"} position="right">
-              <button id="company_edit" name="company_edit" onClick={handleOnClick} value={e._id}>{svg({ type: "edit" })}</button>
-            </Tooltip>
-            <Tooltip text={`Eliminar ${e.name}`} color={"red"} position="top">
-              <button id="company_delete" name="company_delete" onClick={handleOnClick} value={e._id}>{svg({ type: "delete", color: "red" })}</button>
-            </Tooltip>
-            <Tooltip text={`Agregar Cargo o grado desmpeñado en ${e.name}`} color={"green"} position="bottom">
-              <button id="company_add_position" name="company_add_position" onClick={handleOnClick} value={e._id}>{svg({ type: "add_position", color: "green" })}</button>
-            </Tooltip>
-            {e.name}
+            {!tooltip && <>
+              <Tooltip text={`Editar ${e.name}`} color={"blue"} position="right">
+                <i id="company_edit" name="company_edit" onClick={handleOnClick} value={e._id}>{svg({ type: "edit" })}</i>
+              </Tooltip><Tooltip text={`Eliminar ${e.name}`} color={"red"} position="top">
+                <i id="company_delete" name="company_delete" onClick={handleOnClick} value={e._id}>{svg({ type: "delete", color: "red" })}</i>
+              </Tooltip><Tooltip text={`Agregar Cargo o grado desmpeñado en ${e.name}`} color={"green"} position="bottom">
+                <i id="company_add_position" name="company_add_position" onClick={handleOnClick} value={e._id}>{e.name}</i>
+              </Tooltip>
+            </>}
+
+            {tooltip && <>
+              <i id="company_edit" name="company_edit" onClick={handleOnClick} value={e._id}>{svg({ type: "edit" })}</i>
+              <i id="company_delete" name="company_delete" onClick={handleOnClick} value={e._id}>{svg({ type: "delete", color: "red" })}</i>
+              <i id="company_add_position" name="company_add_position" onClick={handleOnClick} value={e._id}>{e.name}</i>
+            </>}
           </li>
         ))}
 

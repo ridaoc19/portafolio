@@ -10,21 +10,26 @@ function Fields({ change, handleOnChange, handleOnLoad, err, handleOnClick }) {
   }, []);
 
   return (
-    <form>
+    <>
       <div className="-name">
-        <input type="text" onChange={handleOnChange} placeholder="empresa" name="company_name" value={change.name} />
-        <span>{err.name}</span>
+        <label htmlFor="company_name">Empresa</label>
+        <input type="text" onChange={handleOnChange} placeholder="Amazon" name="company_name" value={change.name} />
+        {err.name && <span className="err">{err.name}</span>}
       </div>
 
       <div className="-image">
-        <input type="url" onChange={handleOnChange} placeholder="logo" name="company_image" value={change.image} />
-        <span>{err.image}</span>
-        <img id="img_temp" name="company_img" onLoad={(e) => { handleOnLoad(e, "Load") }} src={change.image} alt="" width="50" />
+        <label htmlFor="">Logo de la Empresa</label>
+        <input type="url" onChange={handleOnChange} placeholder="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/320px-Amazon_logo.svg.png" name="company_image" value={change.image} />
+         <span className="err">{err.image}</span>
+        {<div>
+          <img id="company_img" name="company_img" onLoad={(e) => { handleOnLoad(e, "Load") }} src={change.image} alt="" />
+        </div>}
       </div>
-
+      {/* !err.image && change.image &&  */}
       <div className="-web">
-        <input type="url" onChange={handleOnChange} placeholder="sitio web" name="company_link" value={change.link} />
-        <span>{err.link}</span>
+        <label htmlFor="">Sitio web</label>
+        <input type="url" onChange={handleOnChange} placeholder="https://www.amazon.es" name="company_link" value={change.link} />
+        {err.link && <span className="err">{err.link}</span>}
         {!err.link && change.link &&
           (<button onClick={(e) => {
             e.preventDefault();
@@ -35,20 +40,22 @@ function Fields({ change, handleOnChange, handleOnLoad, err, handleOnClick }) {
 
       <div className="-start-date">
         <label htmlFor="start_date">fecha inicio </label>
-        <input type="date" onChange={handleOnChange} id="start_date" name="company_start_date" min="1999-04-01" max={moment().subtract(1, 'days').format('YYYY-MM-DD')} value={change.start_date} />
-        <span>{err.start_date}</span>
+        <div><input type="date" onChange={handleOnChange} id="start_date" name="company_start_date" min="1999-04-01" max={moment().subtract(1, 'days').format('YYYY-MM-DD')} value={change.start_date} /></div>
+        {err.start_date && <span className="err">{err.start_date}</span>}
       </div>
 
 
       <div className="-end-date">
         <label htmlFor="end_date">Fecha Termino </label>
-        <input type="date" onChange={handleOnChange} id="end_date" name="company_end_date" min="1999-04-01" max={moment().subtract(1, 'days').format('YYYY-MM-DD')} value={change.end_date === "Presente" ? moment().format('YYYY-MM-DD') : change.end_date} disabled={change.end_date === "Presente" ? true : false} />
-        <input type="checkbox" name="company_end_date" onChange={handleOnChange} value={change.end_date === "Presente" ? "" : "Presente"} checked={err.end_date ? false : change.end_date !== "Presente" ? false : true} />
-        <label htmlFor="company_end_date"> Presente</label>
-        <span>{err.end_date}</span>
+        <div>
+          <input type="date" onChange={handleOnChange} id="end_date" name="company_end_date" min="1999-04-01" max={moment().subtract(1, 'days').format('YYYY-MM-DD')} value={change.end_date === "Presente" ? moment().format('YYYY-MM-DD') : change.end_date} disabled={change.end_date === "Presente" ? true : false} />
+          <input type="checkbox" name="company_end_date" onChange={handleOnChange} value={change.end_date === "Presente" ? "" : "Presente"} checked={err.end_date ? false : change.end_date !== "Presente" ? false : true} />
+          {/* <label htmlFor="company_end_date"> Presente</label> */}
+        </div>
+        {err.end_date && <span className="err">{err.end_date}</span>}
         {change.start_date && change.end_date &&
           (<div>
-            Tiempo en la empresa:{" "}
+            Total:{" "}
             {totalYear(
               change.start_date,
               change.end_date === "Presente" ? Date.now() : change.end_date
@@ -58,21 +65,24 @@ function Fields({ change, handleOnChange, handleOnLoad, err, handleOnClick }) {
       </div>
 
       <div className="-description">
-        <textarea type="text" onChange={handleOnChange} placeholder="descripcion empresa" name="company_description" value={change.description} />
-        <span>{err.description}</span>
+        <label htmlFor="">Descriptión de la Empresa</label>
+        <textarea type="text" onChange={handleOnChange} placeholder="Es una corporación estadounidense de comercio electrónico y servicios de computación en la nube a todos los niveles con sede en la ciudad de Seattle, Washington." name="company_description" value={change.description} />
+        {err.description && <span className="err">{err.description}</span>}
       </div>
 
-      <div className="company__button">
-        <button id="company_clean" name="company_clean" onClick={handleOnClick}>
-          Limpiar
-        </button>
+      <div className="-button">
+        <div>
+          <button id="company_clean" name="company_clean" onClick={handleOnClick}>
+            Limpiar
+          </button>
 
-        <button id="company_save" name="company_save" onClick={handleOnClick}>
-          Guardar Empresa
-        </button>
+          <button id="company_save" name="company_save" onClick={handleOnClick}>
+            Guardar Empresa
+          </button>
+        </div>
 
       </div>
-    </form>
+    </>
   );
 }
 

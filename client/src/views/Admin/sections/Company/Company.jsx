@@ -20,6 +20,9 @@ function Company() {
   const [err, setErr] = useState(initialState)
 
   useEffect(() => {
+
+    if (err.image) document.getElementById("company_img").parentNode.classList.remove("borde_image")
+
     Object.values(err).filter((e) => e).length === 0 && Object.values(change).filter((e) => e).length > 5
       ? document.getElementById("company_save")?.removeAttribute("disabled") :
       document.getElementById("company_save")?.setAttribute("disabled", "")
@@ -28,7 +31,9 @@ function Company() {
 
   const handleOnClick = (e) => {
     e.preventDefault();
-    const { name, value } = e.target;
+    const name = e.target.attributes.getNamedItem("name").value
+    const value = e.target.attributes?.getNamedItem("value")?.value
+
     const nameInput = name.split("_").length > 2 ? name.split("_").slice(1).toString().replace(',', '_') : name.split("_")[1]
     switch (nameInput) {
       case "add":
@@ -67,7 +72,10 @@ function Company() {
     setErr({ ...err, [nameInput]: type });
   };
 
-  const handleOnLoad = (_e, s) => setErr({ ...err, image: "" })
+  const handleOnLoad = (_e, s) => {
+    setErr({ ...err, image: "" })
+    document.getElementById("company_img").parentNode.classList.add("borde_image")
+  }
 
   return (
     <div className="company__container">
@@ -79,9 +87,9 @@ function Company() {
             <div className="company__render">
               {status.company_render && <Render handleOnClick={handleOnClick} company={state.company} status={status} />}
             </div>
-            <div className="admin__company">
-              {status.company_fields && <Fields handleOnChange={handleOnChange} handleOnLoad={handleOnLoad} handleOnClick={handleOnClick} change={change} err={err} />}
-            </div>
+            {status.company_fields && <div className="company__fields">
+              <Fields handleOnChange={handleOnChange} handleOnLoad={handleOnLoad} handleOnClick={handleOnClick} change={change} err={err} />
+            </div>}
           </div>}
     </div>
   );
