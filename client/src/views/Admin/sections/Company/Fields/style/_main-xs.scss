@@ -1,0 +1,72 @@
+@media (min-width: map.get($respons, "xs")) {
+    $fields: -name,
+        -image,
+        -web,
+        -start-date,
+        -end-date,
+        -description,
+        -button;
+
+    .company__fields {
+        display: grid;
+        grid-template-areas:
+            "-name       -name "
+            "-web        -web "
+            "-image  -image"
+            "-start-date -end-date"
+            "-description -description"
+            "-button -button";
+        // grid-template-columns: 20rem 35% 45%;
+        grid-template-columns: 45% 50%;
+        gap                  : 0.5rem 2.5%;
+        justify-content      : center;
+
+
+        @each $fields_each in $fields {
+            .#{$fields_each} {
+                grid-area         : $fields_each;
+                display           : grid;
+                grid-template-rows: 1.5rem min-content 1rem;
+                align-items       : center;
+            }
+        }
+
+        .-web>button {
+            margin-top: 0.5rem;
+            padding   : 4px;
+            font-size : small;
+        }
+
+        .-end-date>div {
+            white-space: nowrap;
+        }
+
+        .-description>textarea {
+            height: 3rem;
+        }
+
+        .-button>div {
+            display        : flex;
+            gap            : 2rem;
+            justify-content: space-between;
+        }
+
+        .-image {
+            grid-template-rows: 1.5rem min-content 1rem 9rem;
+            align-items       : start;
+
+            div {
+                border: 4px dashed var(--main-color);
+                height         : 92%;
+                display        : flex;
+                justify-content: center;
+                align-items    : center;
+
+                img {
+                    height: 70%;
+                }
+            }
+        }
+
+    }
+}
