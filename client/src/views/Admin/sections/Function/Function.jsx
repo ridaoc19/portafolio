@@ -34,7 +34,8 @@ function Function() {
   }, [err, change, idTasksTech])
 
   const handleOnClick = (e) => {
-    const { name, value } = e.target;
+    const name = e.target.attributes.getNamedItem("name").value
+    const value = e.target.attributes?.getNamedItem("value")?.value
     const nameInput = name.split("_").length > 2 ? name.split("_").slice(1).toString().replace(',', '_') : name.split("_")[1]
 
     switch (nameInput) {
@@ -94,12 +95,13 @@ function Function() {
         <div className="function__render">
           <Render handleOnClick={handleOnClick} functions={state.functions} status={status} />
         </div>
-        <div className="admin__function">
-          {status.function_fields && <Fields handleOnChange={handleOnChange} handleTasksTech={handleTasksTech} err={err} change={change} idTasksTech={idTasksTech} handleOnLoad={handleOnLoad} />}
-        </div>
-        <div className="function__button">
+       {status.function_fields && <div className="function__fields">
+           <Fields handleOnChange={handleOnChange} handleTasksTech={handleTasksTech} handleOnClick={handleOnClick} status={status} err={err} change={change} idTasksTech={idTasksTech} handleOnLoad={handleOnLoad} />
+        </div>}
+
+        {/* <div className="function__button">
           {status.function_fields && !status.function_add_technologies && <Button handleOnClick={handleOnClick} status={status} />}
-        </div>
+        </div> */}
       </div>}
     </div>
   );
