@@ -49,34 +49,37 @@ function Technologies({ handleTech, change, idTasksTech }) {
   return (
     <>
       <div className="admin__technologies-title">
-        <h2>Tecnologias utilizadas</h2>
-        <input type="checkbox" name="technologies" onClick={() => setStatus({ function_add_technologies: status.function_add_technologies ? false : true })} />
-        <label htmlFor="technologies"> Agregar Tecnología</label>
-        {status.function_add_technologies && <TechPost />}
+        <h3>Tecnologias utilizadas</h3>
+        <label> <input type="checkbox" name="technologies" onClick={() => setStatus({ function_add_technologies: status.function_add_technologies ? false : true })} />Agregar Tecnología</label>
       </div>
 
-      {!status.function_add_technologies && <div className="admin__technologies-container">
-        <div id="technologies" className="technologies__content">
-          <h3>tecnologias </h3>
-          {tech?.map((e) =>
-              e.status === "technologies" && (
-                <div key={e._id}>
-                  <button key={e._id} onClick={handleOnClick} name="add" id={e._id}> {e.name} </button>
-                </div>
-              )
-          )}
-        </div>
-        <div id="selection" className="technologies__selection">
-          <h3>Seleccionadas</h3>
-          {tech.map((e) =>
-              e.status === "selection" && (
-                <div key={e._id}>
-                  <button id={e._id} name="delete" onClick={handleOnClick}> {e.name} </button>
-                </div>
-              )
-          )}
-        </div>
-      </div>}
+      {status.function_add_technologies ? <TechPost />
+        : <div className="admin__technologies-container">
+          <div id="technologies" className="technologies__content">
+            <div>
+              <h3>tecnologias </h3>
+              {tech?.map((e) =>
+                e.status === "technologies" && (
+                  <div key={e._id}>
+                    <button key={e._id} onClick={handleOnClick} name="add" id={e._id}> {e.name} </button>
+                  </div>
+                )
+              )}
+            </div>
+          </div>
+          <div id="selection" className="technologies__selection">
+            <div>
+              <h3>Seleccionadas</h3>
+              {tech.map((e) =>
+                e.status === "selection" && (
+                  <div key={e._id}>
+                    <button id={e._id} name="delete" onClick={handleOnClick}> {e.name} </button>
+                  </div>
+                )
+              )}
+            </div>
+          </div>
+        </div>}
     </>
   );
 }
