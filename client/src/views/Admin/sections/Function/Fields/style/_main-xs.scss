@@ -1,0 +1,226 @@
+@media (min-width: map.get($respons, "xs")) {
+    $fields: -name, -image, -web, -repository, -start-date, -end-date, -tasks,
+        -technologies, -button;
+
+    .function__fields {
+        display: grid;
+        grid-template-areas:
+            "-name       -name "
+            "-web        -web "
+            "-repository -repository"
+            "-image  -image"
+            "-start-date -end-date"
+            "-tasks -tasks"
+            "-technologies -technologies"
+            "-button -button";
+        // grid-template-columns: 20rem 35% 45%;
+        grid-template-columns: 45% 50%;
+        gap                  : 0.5rem 2.5%;
+        justify-content      : center;
+
+        @each $fields_each in $fields {
+            .#{$fields_each} {
+                grid-area         : $fields_each;
+                display           : grid;
+                grid-template-rows: 1.5rem min-content 1rem;
+                align-items       : center;
+            }
+        }
+
+        >.-image {
+            grid-template-rows: 1.5rem min-content 1rem 9rem;
+            align-items       : start;
+
+            div {
+                border         : 4px dashed var(--main-color);
+                height         : 92%;
+                display        : flex;
+                justify-content: center;
+                align-items    : center;
+
+                img {
+                    height: 70%;
+                }
+            }
+        }
+
+        >.-web>button {
+            margin-top: 0>.5rem;
+            padding   : 4px;
+            font-size : small;
+        }
+
+        >.-end-date>div {
+            white-space: nowrap;
+        }
+
+        >.-description>textarea {
+            height: 3rem;
+        }
+
+        >.-button>div {
+            display        : flex;
+            gap            : 2rem;
+            justify-content: space-between;
+        }
+
+        >.-tasks {
+            grid-template-rows: 1.5rem 20rem;
+
+            h3 {
+                margin: 0.5rem 0;
+            }
+
+            .function__tasks {
+                display: grid;
+                height : 100%;
+                grid-template-areas:
+                    "-write"
+                    "-button"
+                    "-slate";
+                gap               : 0.5rem;
+                grid-template-rows: 30% 10% 50%;
+
+                .-write {
+                    grid-area: -write;
+
+                    textarea {
+                        width        : 98%;
+                        height       : 80%;
+                        border-radius: 0.5rem;
+                    }
+                }
+
+                .-button {
+                    grid-area   : -button;
+                    display     : block;
+                    justify-self: center;
+                    align-self  : end;
+                }
+
+                .-slate {
+                    grid-area: -slate;
+                    border   : 4px dashed var(--main-color);
+                    overflow : hidden scroll;
+                    padding  : 0.5rem;
+                }
+            }
+        }
+
+        >.-technologies {
+            grid-template-rows: min-content 25rem;
+            align-items       : none;
+
+            .admin__technologies-title {
+                display: flex;
+                gap    : 1rem;
+
+                h3 {
+                    margin: 0;
+                }
+            }
+
+            .admin__technologies-container {
+                height               : 95%;
+                display              : grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap                  : 1rem;
+
+                h3 {
+                    text-align: center;
+                    margin    : 0 0 0.5rem 0;
+                }
+
+                .technologies__selection,
+                .technologies__content {
+                    border    : 4px solid var(--container-color);
+                    overflow-y: auto;
+
+                    >div {
+                        margin : 1rem;
+                        display: grid;
+                        gap    : 0.5rem;
+                    }
+                }
+
+                .technologies__selection {
+                    border: 4px solid var(--main-color);
+                }
+            }
+
+            .technologies-post-container {
+                height    : 100%;
+                display   : grid;
+                // max-height: 30rem;
+
+                >div {
+                    padding: 1rem 0;
+                }
+
+                .-render {
+                    ul {
+                        display  : flex;
+                        flex-wrap: wrap;
+                        padding  : 1rem 0;
+
+                        li {
+                            flex           : auto;
+                            justify-content: center;
+                            border         : 1px dotted var(--main-color);
+                        }
+                    }
+                }
+
+                .-fields {
+                    $fields: -name, -technologies -image, -render-image, -button;
+
+                    display: grid;
+                    grid-template-areas:
+                        "-name"
+                        "-technologies"
+                        "-image"
+                        "-render-image"
+                        "-button";
+                    // grid-template-columns: 35% 25% 35%;
+                    gap                  : 0.5rem 2.5%;
+
+                    @each $fields_each in $fields {
+                        .#{$fields_each} {
+                            grid-area         : $fields_each;
+                            display           : grid;
+                            grid-template-rows: 1.5rem min-content 1rem;
+                            align-items       : center;
+                        }
+                    }
+
+                    .-technologies {
+                        grid-area : -technologies;
+                        place-self: center;
+
+                        select {
+                            width        : 100%;
+                            font-size    : inherit;
+                            overflow     : hidden;
+                            padding      : 5px 10px;
+                            text-overflow: ellipsis;
+                            white-space  : nowrap;
+                            border-radius: 0.3rem;
+                        }
+                    }
+
+                    .-render-image {
+                        border         : 4px dashed var(--main-color);
+                        height         : 92%;
+                        display        : flex;
+                        justify-content: center;
+                        align-items    : center;
+
+                        img {
+                            height: 5rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

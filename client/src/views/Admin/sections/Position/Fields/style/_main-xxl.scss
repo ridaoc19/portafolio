@@ -1,0 +1,34 @@
+@media (min-width: map.get($respons, "sm")) {
+    $fields: -name,
+        -start-date,
+        -end-date,
+        -button;
+
+    .position__fields {
+        display: grid;
+        grid-template-areas:
+            "-name       -name    "
+            "-start-date -end-date"
+            "-button -button";
+        grid-template-columns: 20% 32%;
+        gap                  : 0.5rem 2.5%;
+
+        @each $fields_each in $fields {
+            .#{$fields_each} {
+                grid-area         : $fields_each;
+                display           : grid;
+                grid-template-rows: 1.5rem min-content 1rem;
+                align-items       : center;
+            }
+        }
+
+        .-end-date>div {
+            white-space: nowrap;
+        }
+
+        .-button>div {
+            display: flex;
+            gap    : 2rem;
+        }
+    }
+}

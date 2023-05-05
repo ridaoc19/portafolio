@@ -31,7 +31,10 @@ function Position() {
   }, [])
 
   const handleOnClick = (e) => {
-    const { name, value } = e.target;
+    e.preventDefault();
+    const name = e.target.attributes.getNamedItem("name").value
+    const value = e.target.attributes?.getNamedItem("value")?.value
+
     const nameInput = name.split("_").length > 2 ? name.split("_").slice(1).toString().replace(',', '_') : name.split("_")[1]
     switch (nameInput) {
       case "add":
@@ -76,12 +79,9 @@ function Position() {
         <div className="position__render">
           {status.position_render && <Render handleOnClick={handleOnClick} state={state.company?.find(d => d._id === status.company_position_id)} status={status} />}
         </div>
-        <div className="admin__position">
-          {status.position_fields && <Fields handleOnChange={handleOnChange} change={change} err={err} />}
-        </div>
-        <div className="position__button">
-          {status.position_fields && <Button handleOnClick={handleOnClick} status={status} />}
-        </div>
+        {status.position_fields && <div className="position__fields">
+          <Fields handleOnChange={handleOnChange} handleOnClick={handleOnClick} change={change} err={err} />
+        </div>}
       </div>}
     </div>
   );
