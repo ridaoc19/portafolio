@@ -10,9 +10,9 @@ function Render({ handleOnClick, company, status }) {
     : company;
 
   const information = [
-    { type: "edit", data: "Puede Editar los campos de la Empresa" },
-    { type: "delete", data: "Eleminaría la empresa y toda la información relacionada con ella" },
-    { type: "add", data: "si le da clic al nombre de la empresa, abre la opción para agregar nuevos cargos o grados a la Empresa" }]
+    { type: "edit", color: "blue", data: "Puede Editar los campos de la Empresa" },
+    { type: "delete", color: "red", data: "Eleminaría la empresa y toda la información relacionada con ella" },
+    { type: "add", color: "green", data: "si le da clic al nombre de la empresa, abre la opción para agregar nuevos cargos o grados a la Empresa" }]
 
   useEffect(() => {
     window.matchMedia("(min-width: 1200px)").matches ? setTooltip(false) : setTooltip(true)
@@ -23,8 +23,8 @@ function Render({ handleOnClick, company, status }) {
       <ul>
         {tooltip && <li>{information?.map(i =>
           <i key={i.type} value={i.data} >
-            <Tooltip text={i.data} color={"blue"} position="right">
-              {svg({ type: "information" })}
+            <Tooltip text={i.data} color={i.color} position="right">
+              {svg({ type: "information", color: i.color, width: 18 })}
             </Tooltip>
           </i>)}</li>}
         {render?.map((e) => (
