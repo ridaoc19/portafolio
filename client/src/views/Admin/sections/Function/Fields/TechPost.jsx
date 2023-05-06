@@ -30,7 +30,7 @@ function TechPost() {
     Object.values(err).filter((e) => e).length === 0 && Object.values(change).filter((e) => e).length > 2
       ? document.getElementById("technologies_save")?.removeAttribute("disabled") :
       document.getElementById("technologies_save")?.setAttribute("disabled", "")
-  }, [err, change])
+  }, [err, change, state])
 
   const handleOnChange = (e) => {
     const { name, value } = e.target;
@@ -136,13 +136,13 @@ function TechPost() {
               <div className='-fields'>
 
                 <div className="-name">
-                  <label >Empresa</label>
-                  <input type="text" onChange={handleOnChange} placeholder="Tecnología" name="name" value={change.name} />
+                  <label >Nombre</label>
+                  <input type="text" onChange={handleOnChange} placeholder="React" name="name" value={change.name} />
                   {err.name && <span className="err">{err.name}</span>}
                 </div>
 
                 <div className='-technologies'>
-                  <label >Tecnologia</label>
+                  <label >Clasificación</label>
                   <select name="technologies" value={change.technologies} onChange={handleOnChange}>
                     <option value="">Seleccionar</option>
                     <optgroup label="Desarrollo">
@@ -157,8 +157,8 @@ function TechPost() {
                 </div>
 
                 <div className="-image">
-                  <label >Logo de la Empresa</label>
-                  <input type="url" onChange={handleOnChange} placeholder="logo" name="image" value={change.image} />
+                  <label >Logo</label>
+                  <input type="url" onChange={handleOnChange} placeholder="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/React.svg/250px-React.svg.png" name="image" value={change.image} />
                   <span className="err">{err.image}</span>
 
                 </div>

@@ -80,7 +80,7 @@ function Company() {
   return (
     <div className="company__container">
       {!user?._id
-        ? <Fields handleOnChange={handleOnChange} handleOnLoad={handleOnLoad} handleOnClick={handleOnClick} change={change} err={err} />
+        ? <div className="company__fields"><Fields handleOnChange={handleOnChange} handleOnLoad={handleOnLoad} handleOnClick={handleOnClick} change={change} err={err} /></div>
         : state.loading_api_company
           ? <h1>Cargando...</h1>
           : <div>

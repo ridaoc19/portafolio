@@ -6,10 +6,16 @@ function Login() {
   const navigate = useNavigate()
 
   return (
-    <div>
-      <button onClick={() => navigate('/')}>Inicio </button>
-      <button onClick={() => navigate(-1)}> Volver donde estaba</button>
-      <Google />
+    <div className='login__container'>
+      <div>
+        <div className='-google'>
+          <Google />
+        </div>
+        <div className='-button'>
+          <button onClick={() => navigate('/')}>Inicio </button>
+          <button onClick={() => navigate(-1)}>Volver donde estaba</button>
+        </div>
+      </div>
     </div>
   );
 }
