@@ -1,9 +1,9 @@
 import axios from "axios";
-import { RESPONSE_LOCATION } from "./types";
+import { LOADING_LOCAL, LOADING_POST, RESPONSE_LOCATION } from "./types";
 
 export const postLocation = () => {
   return (dispatch) => {
-        
+
     fetch(`${process.env.REACT_APP_ABSTRACT}`)
       .then((res) => res.json())
       .then((data) => {
@@ -45,6 +45,11 @@ export const postLocation = () => {
             organization_name: data.connection.organization_name,
           };
 
+          if (ip) {
+            dispatch({ type: RESPONSE_LOCATION, payload: [ip] });
+            dispatch({ type: LOADING_LOCAL });
+          }
+
           fetch(`${process.env.REACT_APP_URL}/location`, {
             method: "POST",
             body: JSON.stringify(ip),
@@ -55,24 +60,22 @@ export const postLocation = () => {
             .then((res) => res.json())
             .then((res) => {
               dispatch({ type: RESPONSE_LOCATION, payload: res || [] });
+              dispatch({ type: LOADING_POST });
               sessionStorage.location = res[0].id;
             })
-            .catch((error) => console.log({errPost: error.message}));
+            .catch((error) => console.log({ errPost: error.message }));
         }
       })
-      .catch((error) => console.log({err: error.message}));
+      .catch((error) => console.log({ err: error.message }));
   };
 };
 
 export function getLocation(id) {
   return async function (dispatch) {
     try {
-
-      let { data } = await axios.get(
-        `${process.env.REACT_APP_URL}/location/${id}`
-      );
-
+      let { data } = await axios.get(`${process.env.REACT_APP_URL}/location/${id}`);
       dispatch({ type: RESPONSE_LOCATION, payload: data });
+      dispatch({ type: LOADING_POST });
     } catch (error) {
       console.log({ errorGetApi: error });
     }

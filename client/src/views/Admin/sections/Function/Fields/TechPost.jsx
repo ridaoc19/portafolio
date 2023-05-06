@@ -42,6 +42,7 @@ function TechPost() {
   const handleOnClick = (e) => {
     const name = e.target.attributes.getNamedItem("name").value
     const value = e.target.attributes?.getNamedItem("value")?.value
+    const id = e.target.attributes?.getNamedItem("id")?.value
     e.preventDefault();
     switch (name) {
       case "add":
@@ -52,6 +53,7 @@ function TechPost() {
         setStatusLocal({ ...statusLocal, add: true, fields: false, render: true })
         break;
       case "edit":
+        if (id !== user.user_id) return alert("Solo puede editarlo la persona que lo creo")
         setChange(state.technologies.find(t => t._id === value))
         setStatusLocal({ ...statusLocal, add: false, fields: true, render: false })
         return;
@@ -60,6 +62,7 @@ function TechPost() {
         break;
 
       case "delete":
+        if (id !== user.user_id) return alert("Solo lo puede eliminar la persona que lo creo")
         callApi({ method: DELETE, route: `${TECHNOLOGIES}/${status.position_function_id}/${user._id}`, loading: LOADING_API_TECHNOLOGIES, post: { _id: value } })
         return;
       default: break;
@@ -106,16 +109,16 @@ function TechPost() {
                       <li key={e._id}>
                         {!tooltip && <>
                           <Tooltip text={`Eliminar ${e.name}`} color={"red"} position="top">
-                            <i id="delete" name="delete" onClick={handleOnClick} value={e._id}>{svg({ type: "delete", color: "red" })}</i>
+                            <i id={e.user_id.user_id} name="delete" onClick={handleOnClick} value={e._id}>{svg({ type: "delete", color: "red" })}</i>
                           </Tooltip>
                           <Tooltip text={`Editar ${e.name}`} color={"green"} position="bottom">
-                            <i id="edit" name="edit" onClick={handleOnClick} value={e._id}>{e.name}</i>
+                            <i id={e.user_id.user_id} name="edit" onClick={handleOnClick} value={e._id}>{e.name}</i>
                           </Tooltip>
                         </>}
 
                         {tooltip && <>
-                          <i id="delete" name="delete" onClick={handleOnClick} value={e._id}>{svg({ type: "delete", color: "red" })}</i>
-                          <i id="edit" name="edit" onClick={handleOnClick} value={e._id}>{e.name}</i>
+                          <i id={e.user_id.user_id} name="delete" onClick={handleOnClick} value={e._id}>{svg({ type: "delete", color: "red" })}</i>
+                          <i id={e.user_id.user_id} name="edit" onClick={handleOnClick} value={e._id}>{e.name}</i>
                         </>}
                       </li>
                     );
@@ -150,39 +153,26 @@ function TechPost() {
                       <option value="Otros">Otros</option>
                     </optgroup>
                   </select>
-                  {err.technologies&&<span>{err.technologies}</span>}
+                  {err.technologies && <span>{err.technologies}</span>}
                 </div>
 
                 <div className="-image">
                   <label >Logo de la Empresa</label>
                   <input type="url" onChange={handleOnChange} placeholder="logo" name="image" value={change.image} />
                   <span className="err">{err.image}</span>
-                  
+
                 </div>
 
                 {<div className='-render-image'>
-                    <img id="function_img" name="function_img" onLoad={(e) => { handleOnLoad(e, "Load") }} src={change.image} alt="" />
-                  </div>}
+                  <img id="function_img" name="function_img" onLoad={(e) => { handleOnLoad(e, "Load") }} src={change.image} alt="" />
+                </div>}
 
-                {/* <div className="-name">
-                  <input type="text" onChange={handleOnChange} placeholder="Tecnología" name="name" value={change.name} />
-                  <span>{err.name}</span>
+                <div className='-button'>
+                  <div>
+                    <button type="submit" name='clean' onClick={handleOnClick} >limpiar</button>
+                    <button id='technologies_save' type="submit" name='save' onClick={handleOnClick}>Guardar</button>
+                  </div>
                 </div>
-
-                <div className="-image">
-                  <input type="url" onChange={handleOnChange} placeholder="logo" name="image" value={change.image} />
-                  <span>{err.image}</span>
-                  <img id="img_temp" name="img" onLoad={(e) => { handleOnLoad(e) }} src={change.image} alt="" width="50" />
-                </div> */}
-
-                
-
-               <div className='-button'>
-               <div>
-                  <button type="submit" name='clean' onClick={handleOnClick} >limpiar</button>
-                  <button id='technologies_save' type="submit" name='save' onClick={handleOnClick}>Guardar</button>
-                </div>
-               </div>
               </div>}
           </div>
         </div>}
