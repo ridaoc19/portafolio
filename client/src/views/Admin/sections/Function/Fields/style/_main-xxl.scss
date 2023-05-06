@@ -51,7 +51,7 @@
         }
 
         >.-tasks {
-            grid-template-rows: 1.5rem 8rem;
+            grid-template-rows: 1.5rem 14rem;
 
             h3 {
                 margin: 0.5rem 0;
@@ -71,8 +71,9 @@
                     grid-area: -write;
 
                     textarea {
+                        margin-top  : 1.5rem;
                         width        : 98%;
-                        height       : 80%;
+                        height       : 70%;
                         border-radius: 0.5rem;
                     }
                 }
@@ -86,9 +87,14 @@
 
                 .-slate {
                     grid-area: -slate;
-                    border   : 4px dashed var(--main-color);
-                    overflow : hidden scroll;
-                    padding  : 0.5rem;
+                    
+                    >ul{
+                        max-height: 7.5rem;
+                        padding  : 0.5rem;
+                        overflow-y : scroll;
+                        border   : 4px dashed var(--main-color);
+                        
+                    }
                 }
             }
         }
@@ -122,10 +128,16 @@
                     border    : 4px solid var(--container-color);
                     overflow-y: auto;
 
-                    >div {
-                        margin : 1rem;
-                        display: grid;
-                        gap    : 0.5rem;
+                    >div>ul {
+                        margin   : 0;
+                        padding  : 0;
+                        display  : flex;
+                        flex-wrap: wrap;
+                        gap      : 0.3rem;
+
+                        >button {
+                            flex: auto;
+                        }
                     }
                 }
 
@@ -150,9 +162,11 @@
                         padding  : 1rem 0;
 
                         li {
+                            padding        : 0.3rem;
                             flex           : auto;
                             justify-content: center;
                             border         : 1px dotted var(--main-color);
+                            border-radius  : 0.3rem;
                         }
                     }
                 }
