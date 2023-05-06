@@ -16,13 +16,13 @@ function Fields({ change, handleOnChange, handleTasksTech, handleOnClick, status
     <>
 
       <div className="-name">
-        <label >Empresa</label>
+        <label >Nombre del Proyecto o Función</label>
         <input type="text" onChange={handleOnChange} placeholder="e-commece" name="function_name" value={change.name} />
         {err.name && <span className="err">{err.name}</span>}
       </div>
 
       <div className="-image">
-        <label >Logo de la Empresa</label>
+        <label >Logo del proyecto</label>
         <input type="url" onChange={handleOnChange} placeholder="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/320px-Amazon_logo.svg.png" name="company_image" value={change.image} />
         <span className="err">{err.image}</span>
         {<div>
@@ -69,7 +69,7 @@ function Fields({ change, handleOnChange, handleTasksTech, handleOnClick, status
 
       <div className="-repository">
         <label >Repositorio</label>
-        <input type="text" onChange={handleOnChange} placeholder="respositorio" name="function_repository" value={change.repository} />
+        <input type="text" onChange={handleOnChange} placeholder="https://github.com/ridaoc19" name="function_repository" value={change.repository} />
         {err.repository && <span className="err">{err.repository}</span>}
         {!err.repository && change.repository &&
           (

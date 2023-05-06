@@ -10,7 +10,7 @@ import LocationTemp from "./Location/LocationTemp";
 
 function Start() {
   const dispatch = useDispatch();
-  const loading = useLoading(32000);
+  const loading = useLoading(12000);
   const loadingPost = useSelector((state) => state.loading);
   const loadingLocal = useSelector((state) => state.loadingLocal);
   const location = useSelector((state) => state.location)

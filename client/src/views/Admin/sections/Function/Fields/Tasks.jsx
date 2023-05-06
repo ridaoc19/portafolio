@@ -78,7 +78,7 @@ function Tasks({ handleTasks, changeGlobal, idTasksTech }) {
       <div className="function__tasks">
 
         <div className="-write">
-          <textarea onChange={handleOnChange} placeholder="Ingrese tareas" value={change} name="tasks" id="tasks" className="function__tasks-textarea"          ></textarea>
+          <textarea onChange={handleOnChange} placeholder="Diseño y mantenimiento de las funciones principales de la aplicación web orientada al cliente" value={change} name="tasks" id="tasks" className="function__tasks-textarea"          ></textarea>
           <span>{err}</span>
         </div>
 
