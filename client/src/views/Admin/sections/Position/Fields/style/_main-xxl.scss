@@ -10,8 +10,7 @@
             "-name       -name    "
             "-start-date -end-date"
             "-button -button";
-        grid-template-columns: 20% 32%;
-        gap                  : 0.5rem 2.5%;
+        gap: 0.5rem 2.5%;
 
         @each $fields_each in $fields {
             .#{$fields_each} {

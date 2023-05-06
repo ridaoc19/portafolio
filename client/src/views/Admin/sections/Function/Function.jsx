@@ -50,7 +50,7 @@ function Function() {
         return
       case "clean":
         setIdTasksTech("")
-        setStatus({ function_render: false })
+        setStatus({ function_render: false, function_fields: false, function_add: true })
         break
       case "save":
         if (Object.values(err).filter(e => e).length > 2 || change.tasks.length === 0 || change.technologies.length === 0) return
