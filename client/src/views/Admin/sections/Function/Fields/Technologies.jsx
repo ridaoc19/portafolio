@@ -58,25 +58,25 @@ function Technologies({ handleTech, change, idTasksTech }) {
           <div id="technologies" className="technologies__content">
             <div>
               <h3>tecnologias </h3>
-              {tech?.map((e) =>
-                e.status === "technologies" && (
-                  <div key={e._id}>
+              <ul>
+                {tech?.map((e) =>
+                  e.status === "technologies" && (
                     <button key={e._id} onClick={handleOnClick} name="add" id={e._id}> {e.name} </button>
-                  </div>
-                )
-              )}
+                  )
+                )}
+              </ul>
             </div>
           </div>
           <div id="selection" className="technologies__selection">
             <div>
               <h3>Seleccionadas</h3>
-              {tech.map((e) =>
-                e.status === "selection" && (
-                  <div key={e._id}>
+              <ul>
+                {tech.map((e) =>
+                  e.status === "selection" && (
                     <button id={e._id} name="delete" onClick={handleOnClick}> {e.name} </button>
-                  </div>
-                )
-              )}
+                  )
+                )}
+              </ul>
             </div>
           </div>
         </div>}

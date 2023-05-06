@@ -61,7 +61,7 @@ function Tasks({ handleTasks, changeGlobal, idTasksTech }) {
 
   // toolpit
   const information = [
-    { type: "delete", color: "red", data: "Eleminaría la empresa y toda la información relacionada con ella" },
+    { type: "delete", color: "red", data: "Eliminaría la empresa y toda la información relacionada con ella" },
     { type: "edit", color: "blue", data: "Puede Editar los campos de la Empresa" },
   ]
 
@@ -86,20 +86,24 @@ function Tasks({ handleTasks, changeGlobal, idTasksTech }) {
           <button onClick={handleOnClickLocal} id="tasks_add" name="add" >Agregar Tarea</button>
         </div>
         <div className="-slate">
-          <ul>
-            {tooltip && <li className="-slate-information">{information?.map(i =>
+            {tooltip && 
+
+              information?.map(i =>
               <i key={i.type} value={i.data} >
                 <Tooltip text={i.data} color={i.color} position="right">
                   {svg({ type: "information", color: i.color, width: 18 })}
                 </Tooltip>
-              </i>)}</li>}
+              </i>)
+     
+              }
+          <ul>
             {tasks.map((e) => (
               <li key={e.id}>
                 {!tooltip && <>
-                  <Tooltip text={`Eliminar ${e.name}`} color={"red"} position="top">
+                  <Tooltip text={`Lo elimina`} color={"red"} position="right">
                     <i onClick={handleOnClickLocal} name="delete" value={e.id}>{svg({ type: "delete", color: "red" })}</i>
                   </Tooltip>
-                  <Tooltip text={`Editar ${e.name}`} color={"green"} position="bottom">
+                  <Tooltip text={`Edita esta Información`} color={"green"} position="bottom">
                     <i onClick={handleOnClickLocal} name="edit" value={e.id}>{e.tasks}</i>
                   </Tooltip>
                 </>}
