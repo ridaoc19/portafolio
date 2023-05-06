@@ -1,0 +1,32 @@
+.login__container {
+    max-width      : 100vw;
+    max-height     : 100vh;
+    min-width      : 100vw;
+    min-height     : 100vh;
+    display        : flex;
+    justify-content: center;
+    align-items    : center;
+
+    >div {
+        height          : 10rem;
+        width           : 26%;
+        padding         : 3rem;
+        background-color: var(--container-color);
+        border-radius   : 0.5rem;
+        display         : grid;
+        align-content   : space-between;
+
+        .-google {
+            box-shadow: var(--container-shadow);
+        }
+
+        .-button {
+            display        : flex;
+            justify-content: space-between;
+
+            button {
+                box-shadow: var(--container-shadow);
+            }
+        }
+    }
+}
