@@ -1,8 +1,6 @@
 import { useSelector } from "react-redux";
 
-function Location() {
-
-  const location = useSelector((state) => state.location)
+function Location({location}) {
 
   const { city, continent, country, region } = location[0];
 
@@ -26,7 +24,7 @@ function Location() {
           </div>
           <div className="location__especification">
             <h3>{location[1] } visitas desde</h3>
-            {location[2].map((e, i) => (
+            {location[2]?.map((e, i) => (
               <p key={i}><span>{e.count}</span> <img src={e.svg} alt="" width={20} /><span>{e.country}</span><span>{e.region}</span><span>{e.city}</span></p>
             ))}
           </div>

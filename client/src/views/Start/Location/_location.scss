@@ -44,6 +44,10 @@
   }
 
   .location__especification {
+
+    >h5{
+      text-align: center;
+    }
     p {
       display              : grid;
       grid-template-columns: repeat(2, 1.3rem) repeat(3, 1fr);

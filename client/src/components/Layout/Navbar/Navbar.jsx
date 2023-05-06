@@ -37,25 +37,34 @@ function Navbar() {
 
   return (
     <div className="navbar__container">
-      <Theme />
-      <Link to={"/"}>main</Link>
-      <Link to={"/home"}>home</Link>
-      <Link to={"/admin"}>admin</Link>
-      {state.user?.picture
-        ? <div>
-          <button className="button_login_modal" name="login_modal" onClick={handleOnClick}><img src={state.user?.picture} alt="" /></button>
-          <div className="navbar__login--google">
-            <div className="login__google--content">
-              <div>
-                <button name="change_account" onClick={handleOnClick}>Cambiar Cuenta</button>
-              </div>
-              <div>
-                <button name="logout" onClick={handleOnClick}>Cerrar Sessión</button>
+
+      <div className="-theme">
+        <Theme />
+      </div>
+
+      <div className="-link">
+        <Link to={"/"}>main</Link>
+        <Link to={"/home"}>home</Link>
+        <Link to={"/admin"}>admin</Link>
+      </div>
+      
+      <div className="-login">
+        {state.user?.picture
+          ? <div>
+            <button className="button_login_modal" name="login_modal" onClick={handleOnClick}><img src={state.user?.picture} alt="" /></button>
+            <div className="navbar__login--google">
+              <div className="login__google--content">
+                <div>
+                  <button name="change_account" onClick={handleOnClick}>Cambiar Cuenta</button>
+                </div>
+                <div>
+                  <button name="logout" onClick={handleOnClick}>Cerrar Sessión</button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        : <Link to={"/login"}>Login</Link>}
+          : <Link to={"/login"}>Login</Link>}
+      </div>
     </div>
   );
 }
