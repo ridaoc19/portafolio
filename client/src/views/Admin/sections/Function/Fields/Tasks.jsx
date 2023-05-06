@@ -61,8 +61,8 @@ function Tasks({ handleTasks, changeGlobal, idTasksTech }) {
 
   // toolpit
   const information = [
-    { type: "delete", color: "red", data: "Eliminaría la empresa y toda la información relacionada con ella" },
-    { type: "edit", color: "blue", data: "Puede Editar los campos de la Empresa" },
+    { type: "delete", color: "red", data: "Elimina Tarea" },
+    { type: "edit", color: "blue", data: "Puede Editar los campos de Tarea" },
   ]
 
   useEffect(() => {

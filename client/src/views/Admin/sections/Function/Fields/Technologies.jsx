@@ -73,7 +73,7 @@ function Technologies({ handleTech, change, idTasksTech }) {
               <ul>
                 {tech.map((e) =>
                   e.status === "selection" && (
-                    <button id={e._id} name="delete" onClick={handleOnClick}> {e.name} </button>
+                    <button key={e._id} id={e._id} name="delete" onClick={handleOnClick}> {e.name} </button>
                   )
                 )}
               </ul>

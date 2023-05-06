@@ -71,7 +71,7 @@
                     grid-area: -write;
 
                     textarea {
-                        margin-top  : 1.5rem;
+                        margin-top   : 1.5rem;
                         width        : 98%;
                         height       : 70%;
                         border-radius: 0.5rem;
@@ -87,13 +87,14 @@
 
                 .-slate {
                     grid-area: -slate;
-                    
-                    >ul{
+
+                    >ul {
                         max-height: 7.5rem;
-                        padding  : 0.5rem;
-                        overflow-y : scroll;
-                        border   : 4px dashed var(--main-color);
-                        
+                        height    : 100%;
+                        padding   : 0.5rem;
+                        overflow-y: scroll;
+                        border    : 4px dashed var(--main-color);
+
                     }
                 }
             }

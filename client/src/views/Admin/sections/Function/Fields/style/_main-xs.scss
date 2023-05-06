@@ -100,13 +100,15 @@
 
                 .-slate {
                     grid-area: -slate;
-                    >ul{
+
+                    >ul {
                         max-height: 7.5rem;
-                        padding  : 0.5rem;
-                        overflow-y : scroll;
-                        border   : 4px dashed var(--main-color);
-                        
-                    } 
+                        height    : 100%;
+                        padding   : 0.5rem;
+                        overflow-y: scroll;
+                        border    : 4px dashed var(--main-color);
+
+                    }
                 }
             }
         }
@@ -159,8 +161,8 @@
             }
 
             .technologies-post-container {
-                height    : 100%;
-                display   : grid;
+                height : 100%;
+                display: grid;
 
                 >div {
                     padding: 1rem 0;
@@ -192,7 +194,7 @@
                         "-image"
                         "-render-image"
                         "-button";
-                    gap                  : 0.5rem 2.5%;
+                    gap: 0.5rem 2.5%;
 
                     @each $fields_each in $fields {
                         .#{$fields_each} {

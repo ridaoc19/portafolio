@@ -1,2 +1,4 @@
 export const RESPONSE_LOCATION = "RESPONSE_LOCATION";
 export const LOADING = "LOADING";
+export const LOADING_LOCAL = 'LOADING_LOCAL';
+export const LOADING_POST = 'LOADING_POST';
