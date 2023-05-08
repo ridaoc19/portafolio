@@ -1,6 +1,12 @@
-@media (min-width: map.get($respons, "xs")) {
-    $fields: -name, -image, -web, -repository, -start-date, -end-date, -tasks,
-        -technologies, -button;
+    $fields: -name,
+    -image,
+    -web,
+    -repository,
+    -start-date,
+    -end-date,
+    -tasks,
+    -technologies,
+    -button;
 
     .function__fields {
         display: grid;
@@ -13,7 +19,6 @@
             "-tasks -tasks"
             "-technologies -technologies"
             "-button -button";
-        // grid-template-columns: 20rem 35% 45%;
         grid-template-columns: 45% 50%;
         gap                  : 0.5rem 2.5%;
         justify-content      : center;
@@ -235,4 +240,3 @@
             }
         }
     }
-}

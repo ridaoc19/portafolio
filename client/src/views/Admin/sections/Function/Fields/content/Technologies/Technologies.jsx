@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from "react";
-import CreateContext from "../../../../../components/hooks/context/CreateContext";
-import TechPost from "./TechPost";
+import CreateContext from "../../../../../../../components/hooks/context/CreateContext";
+import TechPost from "./TechPost/TechPost";
 
-function Technologies({ handleTech, change, idTasksTech }) {
+function Technologies({ handleTech, change }) {
   const { admin: { state, status, setStatus } } = useContext(CreateContext);
 
   const [tech, setTech] = useState([]);
@@ -23,7 +23,7 @@ function Technologies({ handleTech, change, idTasksTech }) {
 
     }));
     // eslint-disable-next-line
-  }, [idTasksTech, state?.technologies]);
+  }, [state?.technologies]);
 
   const handleOnClick = (e) => {
     const { id, name } = e.target;
