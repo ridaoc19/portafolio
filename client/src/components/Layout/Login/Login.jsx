@@ -9,9 +9,9 @@ function Login() {
     <div className='login__container'>
       <div>
         <div className='-google'>
-         <div>
-         <Google />
-         </div>
+          <div>
+            <Google />
+          </div>
         </div>
         <div className='-button'>
           <button onClick={() => navigate('/')}>Inicio </button>
