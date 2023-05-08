@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
-import Validation from '../../../../../components/utils/function/Validation';
-import CreateContext from '../../../../../components/hooks/context/CreateContext';
-import { DELETE, LOADING_API_TECHNOLOGIES, POST, TECHNOLOGIES } from '../../../../../components/hooks/context/Admin/adminTypes';
-import Tooltip from '../../../../../components/Layout/Tooltip/Tooltip';
-import { svg } from '../../../../../components/assets/svg';
+import Validation from '../../../../../../../../components/utils/function/Validation';
+import CreateContext from '../../../../../../../../components/hooks/context/CreateContext';
+import { DELETE, LOADING_API_TECHNOLOGIES, POST, TECHNOLOGIES } from '../../../../../../../../components/hooks/context/Admin/adminTypes';
+import Tooltip from '../../../../../../../../components/Layout/Tooltip/Tooltip';
+import { svg } from '../../../../../../../../components/assets/svg';
 
 const initialState = {
   name: "",
@@ -30,7 +30,7 @@ function TechPost() {
     Object.values(err).filter((e) => e).length === 0 && Object.values(change).filter((e) => e).length > 2
       ? document.getElementById("technologies_save")?.removeAttribute("disabled") :
       document.getElementById("technologies_save")?.setAttribute("disabled", "")
-  }, [err, change, state])
+  }, [err, change, statusLocal])
 
   const handleOnChange = (e) => {
     const { name, value } = e.target;
@@ -169,8 +169,8 @@ function TechPost() {
 
                 <div className='-button'>
                   <div>
-                    <button type="submit" name='clean' onClick={handleOnClick} >limpiar</button>
-                    <button id='technologies_save' type="submit" name='save' onClick={handleOnClick}>Guardar</button>
+                    <button name='clean' onClick={handleOnClick} >limpiar</button>
+                    <button id='technologies_save' name='save' onClick={handleOnClick}>Guardar</button>
                   </div>
                 </div>
               </div>}

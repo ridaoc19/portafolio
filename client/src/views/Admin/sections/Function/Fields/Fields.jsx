@@ -1,20 +1,14 @@
 import moment from "moment";
-import React, { useEffect } from "react";
+import React from "react";
 import { totalYear } from "../../../../../components/utils/function/date";
 import { PARAMS } from "../../../../../components/utils/function/variables";
-import Tasks from "./Tasks";
-import Technologies from "./Technologies";
+import Tasks from "./content/Tasks/Tasks";
+import Technologies from "./content/Technologies/Technologies";
 
-function Fields({ change, handleOnChange, handleTasksTech, handleOnClick, status, err, idTasksTech, handleOnLoad }) {
-
-  useEffect(() => {
-    document.getElementById("function_save")?.removeAttribute("disabled")
-  }, [])
-
+function Fields({ change, handleOnChange, handleTasksTech, handleOnClick, status, err, handleOnLoad }) {
 
   return (
     <>
-
       <div className="-name">
         <label >Nombre del Proyecto o Función</label>
         <input type="text" onChange={handleOnChange} placeholder="e-commece" name="function_name" value={change.name} />
@@ -82,11 +76,11 @@ function Fields({ change, handleOnChange, handleTasksTech, handleOnClick, status
       </div>
 
       <div className="-tasks">
-        <Tasks handleTasks={handleTasksTech} changeGlobal={change} idTasksTech={idTasksTech} />
+        <Tasks handleTasks={handleTasksTech} changeGlobal={change} />
       </div>
 
       <div className="-technologies">
-        <Technologies handleTech={handleTasksTech} change={change} idTasksTech={idTasksTech} />
+        <Technologies handleTech={handleTasksTech} change={change} />
       </div>
 
       <div className="-button"><div>
