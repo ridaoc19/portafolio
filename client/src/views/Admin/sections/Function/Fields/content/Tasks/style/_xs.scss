@@ -1,0 +1,48 @@
+.-tasks {
+            grid-template-rows: 1.5rem 20rem;
+
+            h3 {
+                margin: 0.5rem 0;
+            }
+
+            .function__tasks {
+                display: grid;
+                height : 100%;
+                grid-template-areas:
+                    "-write"
+                    "-button"
+                    "-slate";
+                gap               : 0.5rem;
+                grid-template-rows: 30% 10% 50%;
+
+                .-write {
+                    grid-area: -write;
+
+                    textarea {
+                        width        : 98%;
+                        height       : 80%;
+                        border-radius: 0.5rem;
+                    }
+                }
+
+                .-button {
+                    grid-area   : -button;
+                    display     : block;
+                    justify-self: center;
+                    align-self  : end;
+                }
+
+                .-slate {
+                    grid-area: -slate;
+
+                    >ul {
+                        max-height: 7.5rem;
+                        height    : 100%;
+                        padding   : 0.5rem;
+                        overflow-y: scroll;
+                        border    : 4px dashed var(--main-color);
+
+                    }
+                }
+            }
+        }

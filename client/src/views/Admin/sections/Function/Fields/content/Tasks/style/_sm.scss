@@ -1,0 +1,50 @@
+.-tasks {
+            grid-template-rows: 1.5rem 14rem;
+
+            h3 {
+                margin: 0.5rem 0;
+            }
+
+            .function__tasks {
+                display: grid;
+                height : 80%;
+                grid-template-areas:
+                    "-write -slate"
+                    "-button -slate";
+                gap                  : 0.5rem;
+                grid-template-rows   : 75% 25%;
+                grid-template-columns: 44% 55%;
+
+                .-write {
+                    grid-area: -write;
+
+                    textarea {
+                        margin-top   : 1.5rem;
+                        width        : 98%;
+                        height       : 70%;
+                        border-radius: 0.5rem;
+                    }
+                }
+
+                .-button {
+                    grid-area   : -button;
+                    display     : block;
+                    justify-self: center;
+                    align-self  : end;
+                }
+
+                .-slate {
+                    grid-area: -slate;
+
+                    >ul {
+                        max-height: 7.5rem;
+                        height    : 100%;
+                        padding   : 0.5rem;
+                        overflow-y: scroll;
+                        border    : 4px dashed var(--main-color);
+
+                    }
+                }
+            }
+        }
+

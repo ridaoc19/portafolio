@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { id } from "../../../../../components/utils/function/id";
-import Validation from "../../../../../components/utils/function/Validation";
-import Tooltip from "../../../../../components/Layout/Tooltip/Tooltip";
-import { svg } from "../../../../../components/assets/svg";
+import { id } from "../../../../../../../components/utils/function/id";
+import Validation from "../../../../../../../components/utils/function/Validation";
+import Tooltip from "../../../../../../../components/Layout/Tooltip/Tooltip";
+import { svg } from "../../../../../../../components/assets/svg";
 
-function Tasks({ handleTasks, changeGlobal, idTasksTech }) {
+function Tasks({ handleTasks, changeGlobal }) {
   const [change, setChange] = useState("");
   const [err, setErr] = useState("");
   const [tasks, setTasks] = useState([]);
@@ -27,7 +27,7 @@ function Tasks({ handleTasks, changeGlobal, idTasksTech }) {
     setChange("");
     setErr("")
     // eslint-disable-next-line
-  }, [idTasksTech]);
+  }, []);
 
   const handleOnClickLocal = (e) => {
     e.preventDefault();
