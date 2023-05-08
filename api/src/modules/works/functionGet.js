@@ -15,7 +15,6 @@ const companyGet = async (req, res, id) => {
 
 const functionGet = async (req, res, id) => {
     const login = await Login.findById({ _id: id})
-    // const company = await Company.find({ _id: login.company_id}).populate({ path: "position" }).sort({ start_date: 1 })
     let company = Promise.resolve(Company.find({ _id: login.company_id}).populate({ path: "position" }).sort({ start_date: 1 }))
     let functions = Promise.resolve(Position.findById(req.params.id).sort({ "start_date": 1 }).populate({ path: "functions" }))
     let technologies = Promise.resolve(Technologies.find().sort({ "start_date": 1 }).populate({ path: "user_id" }))

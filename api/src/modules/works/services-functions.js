@@ -28,8 +28,8 @@ module.exports = {
 
   async deleteFunctions(req, res) {
     try {
-      let functions = await Functions.findByIdAndDelete(req.params.id);
-      await Position.findByIdAndUpdate(functions.position, { $pull: { functions: req.params.id } })
+      let functions = await Functions.findByIdAndDelete(req.body.id_delete);
+      await Position.findByIdAndUpdate(functions.position, { $pull: { functions: req.body.id_delete } })
       functionGet(req, res, req.params.user_id)
     } catch (error) {
       res.status(400).json({ message: error.message });
