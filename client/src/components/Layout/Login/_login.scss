@@ -10,16 +10,15 @@
         border-radius   : 0.5rem;
         display         : grid;
         place-content   : space-evenly;
+        padding         : 0 1rem;
 
         >.-google {
-            display     : grid;
-            padding-left: 1.5rem;
+            display: grid;
         }
 
         >.-button {
             display      : flex;
             place-content: space-between;
-            padding      : 0 1rem;
 
             >button {
                 box-shadow: var(--container-shadow);
