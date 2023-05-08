@@ -54,7 +54,7 @@ function Function() {
         break
       case "delete":
         setStatus({ function_fields: false, function_add: true, function_render: true })
-        callApi({ method: DELETE, route: `${FUNCTIONS}/${value}/${user._id}`, loading: LOADING_API_FUNCTIONS })
+        callApi({ method: DELETE, route: `${FUNCTIONS}/${status.position_function_id}/${user._id}`, loading: LOADING_API_FUNCTIONS, post: {id_delete: value} })
         break
       case "add_position":
         break
