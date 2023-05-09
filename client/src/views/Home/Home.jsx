@@ -7,19 +7,23 @@ import Introduction from "./sections/Introduction/Introduction";
 import Skills from "./sections/Skills/Skills";
 import Work from "./sections/Work/Work";
 import Modal from "../../components/Layout/Modal/Modal";
+import User from "./sections/User/User";
 
 
 const Home = () => {
-  const { login: { state: { user } }, works: { getWork } } = useContext(CreateContext)
+  // const { login: { state: { user } }, works: { getWork } } = useContext(CreateContext)
 
-  useEffect(() => {
-    getWork({ route: user?.user_id ? user?.user_id : `${process.env.REACT_APP_DEFAULT_USER_LOGIN}` })
-    // eslint-disable-next-line
-  }, [user])
+  // useEffect(() => {
+  //   getWork({ route: user?.user_id ? user?.user_id : `${process.env.REACT_APP_DEFAULT_USER_LOGIN}` })
+  //   // eslint-disable-next-line
+  // }, [user])
 
   return (
 
     <div className="home__container">
+      <section className="home__container--user">
+        <User />
+      </section>
       <section className="home__container--introduction">
         <Introduction />
       </section>
