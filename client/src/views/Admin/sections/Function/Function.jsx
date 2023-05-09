@@ -26,6 +26,7 @@ function Function() {
 
   useEffect(() => {
     setValidation({ change, validate: ["name", "image", "link", "start_date", "end_date", "tasks"], element: "function_save", image: "function_img" })
+  // eslint-disable-next-line
   }, [err, change, status.function_add_technologies])
 
   const handleOnClick = (e) => {
@@ -45,15 +46,12 @@ function Function() {
         setStatus({ function_render: true, function_fields: false, function_add: true, function_edit_id: "" })
         break
       case "save":
-        if (Object.values(err).filter(e => e).length > 2 || change.tasks.length === 0 || change.technologies.length === 0) return
-        setStatus({ function_fields: false, function_add: true })
+        setStatus({ function_fields: false, function_render: true, function_add: true, function_edit_id: "" })
         callApi({ method: POST, route: `${FUNCTIONS}/${status.position_function_id}/${user._id}`, loading: LOADING_API_FUNCTIONS, post: Object.assign({ company: status.company_position_id, position: status.position_function_id }, change) })
         break
       case "delete":
-        setStatus({ function_fields: false, function_add: true, function_render: true })
+        setStatus({ function_fields: false, function_add: true, function_render: true, function_edit_id: "" })
         callApi({ method: DELETE, route: `${FUNCTIONS}/${status.position_function_id}/${user._id}`, loading: LOADING_API_FUNCTIONS, post: { id_delete: value } })
-        break
-      case "add_position":
         break
       default: return
     }

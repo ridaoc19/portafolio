@@ -4,13 +4,13 @@ function Fields({ handleOnChange, handleOnClick, change, err, handleOnLoad }) {
   return (
     <>
       <div className="-name">
-        <label >Nombre</label>
+        <label >Nombre <span className="mandatory">*</span></label>
         <input type="text" onChange={handleOnChange} placeholder="React" name="name" value={change.name} />
         {err.name && <span className="err">{err.name}</span>}
       </div>
 
       <div className='-technologies'>
-        <label >Clasificación</label>
+        <label >Clasificación <span className="mandatory">*</span></label>
         <select name="technologies" value={change.technologies} onChange={handleOnChange}>
           <option value="">Seleccionar</option>
           <optgroup label="Desarrollo">
@@ -25,7 +25,7 @@ function Fields({ handleOnChange, handleOnClick, change, err, handleOnLoad }) {
       </div>
 
       <div className="-image">
-        <label >Logo</label>
+        <label >Logo <span className="mandatory">*</span></label>
         <input type="url" onChange={handleOnChange} placeholder="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/React.svg/250px-React.svg.png" name="image" value={change.image} />
         <span className="err">{err.image}</span>
 

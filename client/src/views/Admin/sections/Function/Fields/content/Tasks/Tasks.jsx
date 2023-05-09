@@ -67,7 +67,7 @@ function Tasks({ handleTasks, changeGlobal }) {
   return (
     <>
       <div className="function__tasks-title">
-        <h3>Tareas realizadas en el Proyecto</h3>
+        <h3>Tareas realizadas en el Proyecto <span className="mandatory">*</span></h3>
       </div>
 
       <div className="function__tasks">

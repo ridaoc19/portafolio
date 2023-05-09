@@ -36,7 +36,7 @@ function Admin() {
             <button id="admin_button"
               onClick={(e) => {
                 e.preventDefault();
-                setStatus({ position_add_function: false, position_fields: false, position_render: true, position_function_id: "", function_fields: false, function_edit_id: "" })
+                setStatus({ position_add_function: false, position_add: true, position_fields: false, position_render: true, position_function_id: "", function_fields: false, function_edit_id: "" })
               }}>{svg({ type: "grade" })}</button>
           </div>
           {status.company_add_position && <Position />}

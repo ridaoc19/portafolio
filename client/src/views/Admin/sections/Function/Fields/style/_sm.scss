@@ -40,10 +40,12 @@ $fields: -name,
         }
     }
 
+    >.-repository>button,
     >.-web>button {
         margin-top: 0.5rem;
-        padding   : 4px;
+        padding   : 2px;
         font-size : small;
+        height    : 1.3rem;
     }
 
     >.-end-date>div {
