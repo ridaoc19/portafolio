@@ -5,6 +5,9 @@ import { svg } from "../../../../../components/assets/svg";
 function Render({ handleOnClick, functions, status }) {
   const [tooltip, setTooltip] = useState(false)
 
+  let render = status.function_edit_id
+  ? [functions?.find((s) => s._id === status.function_edit_id)]
+  : functions;
 
   const information = [
     { type: "delete", color: "red", data: "Eleminaría Función o Proyecto" },
@@ -24,7 +27,7 @@ function Render({ handleOnClick, functions, status }) {
               {svg({ type: "information", color: i.color, width: 18 })}
             </Tooltip>
           </i>)}</li>}
-        {functions?.map((e) =>
+        {render?.map((e) =>
           <li key={e._id}>
             {!tooltip && <>
               <Tooltip text={`Elimina ${e.name}`} color={"red"} position="top">

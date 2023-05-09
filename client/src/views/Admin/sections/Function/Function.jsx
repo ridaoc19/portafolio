@@ -39,10 +39,10 @@ function Function() {
         break
       case "edit":
         setChange(state.functions.find(d => d._id === value))
-        setStatus({ function_fields: true })
+        setStatus({ function_fields: true, function_add: false, function_edit_id: value })
         return
       case "clean":
-        setStatus({ function_render: false, function_fields: false, function_add: true })
+        setStatus({ function_render: true, function_fields: false, function_add: true, function_edit_id: "" })
         break
       case "save":
         if (Object.values(err).filter(e => e).length > 2 || change.tasks.length === 0 || change.technologies.length === 0) return
@@ -83,7 +83,7 @@ function Function() {
     <div className="function__container">
       {state.loading_api_function ? <h1>Cargando...</h1> : <div>
         <div className="function__render">
-          <Render handleOnClick={handleOnClick} functions={state.functions} status={status} />
+          {status.function_render && <Render handleOnClick={handleOnClick} functions={state.functions} status={status} />}
         </div>
         {status.function_fields && <div className="function__fields">
           <Fields handleOnChange={handleOnChange} handleTasksTech={handleTasksTech} handleOnClick={handleOnClick} status={status} err={err} change={change} handleOnLoad={handleOnLoad} />
