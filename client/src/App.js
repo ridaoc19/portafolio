@@ -1,13 +1,12 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import "./App.scss";
-import Start from "./views/Start/Start";
-import Home from "./views/Home/Home";
-import StoreContext from "./components/hooks/context/StoreContext";
-import Navbar from "./components/Layout/Navbar/Navbar";
-import Admin from "./views/Admin/Admin";
-import Login from "./components/Layout/Login/Login";
 import Layout from "./components/Layout/Layout";
+import Login from "./components/Layout/Login/Login";
+import StoreContext from "./components/hooks/context/StoreContext";
+import Admin from "./views/Admin/Admin";
+import Home from "./views/Home/Home";
+import Start from "./views/Start/Start";
 
 function App() {
   return (
