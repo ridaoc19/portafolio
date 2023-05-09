@@ -25,11 +25,6 @@ function Position() {
     // eslint-disable-next-line
   }, [err, change, status.position_fields])
 
-  useEffect(() => {
-    return () => setStatus({ position_fields: false, position_function_id: "" })
-    // eslint-disable-next-line
-  }, [])
-
   const handleOnClick = (e) => {
     e.preventDefault();
     const name = e.target.attributes.getNamedItem("name").value

@@ -1,6 +1,7 @@
 @media (min-width: map.get($respons, "xs")) {
     button {
         width           : fit-content;
+        height: 2.3rem;
         padding         : 8px;
         color           : var(--text-color);
         border-radius   : 5px;

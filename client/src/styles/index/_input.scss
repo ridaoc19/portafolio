@@ -1,10 +1,36 @@
 input {
-    // max-width: 190px;
-    height: 2rem;
-    border-radius: .5rem;
-    padding: 0 0.5rem;
+  height       : 2rem;
+  border-radius: 0.5rem;
+  padding      : 0 0.5rem;
+  outline      : none;
+  transition   : all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+  box-shadow   : 0px 0px 20px -18px;
+
+  &:hover {
+    box-shadow: 0px 0px 20px -17px;
   }
 
-  input[type="checkbox" i]{
-    height: 1rem;
+  &:active {
+    transform: scale(0.95);
   }
+
+  &:focus {
+    border: 2px solid grey;
+  }
+}
+
+input[type="checkbox"i] {
+  height: 1rem;
+}
+
+
+select {
+  width        : min-content;
+  height       : 2rem;
+  font-size    : inherit;
+  overflow     : hidden;
+  padding      : 5px 10px;
+  text-overflow: ellipsis;
+  white-space  : nowrap;
+  border-radius: 0.3rem;
+}
