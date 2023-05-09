@@ -1,15 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { id } from "../../../../../../../components/utils/function/id";
 import Validation from "../../../../../../../components/utils/function/Validation";
-import Tooltip from "../../../../../../../components/Layout/Tooltip/Tooltip";
-import { svg } from "../../../../../../../components/assets/svg";
+import { id } from "../../../../../../../components/utils/function/id";
+import Slate from "./content/Slate/Slate";
+import Write from "./content/Write/Write";
 
 function Tasks({ handleTasks, changeGlobal }) {
   const [change, setChange] = useState("");
   const [err, setErr] = useState("");
   const [tasks, setTasks] = useState([]);
   const [tooltip, setTooltip] = useState(false)
-
 
   useEffect(() => {
     handleTasks(tasks.map(e => e.tasks), "tasks")
@@ -18,11 +17,12 @@ function Tasks({ handleTasks, changeGlobal }) {
 
   useEffect(() => {
     err || !change ?
-      document.getElementById("tasks_add")?.setAttribute("disabled", "") :
-      document.getElementById("tasks_add")?.removeAttribute("disabled")
+      document.getElementById("tasks_add")?.setAttribute("disabled", "") : document.getElementById("tasks_add")?.removeAttribute("disabled")
+    // eslint-disable-next-line
   }, [err, change])
 
   useEffect(() => {
+    window.matchMedia("(min-width: 1200px)").matches ? setTooltip(false) : setTooltip(true)
     setTasks(changeGlobal.tasks.map((t, i) => { return { tasks: t, id: i } }))
     setChange("");
     setErr("")
@@ -58,16 +58,11 @@ function Tasks({ handleTasks, changeGlobal }) {
     setErr(type);
   };
 
-
   // toolpit
   const information = [
     { type: "delete", color: "red", data: "Elimina Tarea" },
     { type: "edit", color: "blue", data: "Puede Editar los campos de Tarea" },
   ]
-
-  useEffect(() => {
-    window.matchMedia("(min-width: 1200px)").matches ? setTooltip(false) : setTooltip(true)
-  }, [])
 
   return (
     <>
@@ -76,45 +71,10 @@ function Tasks({ handleTasks, changeGlobal }) {
       </div>
 
       <div className="function__tasks">
+        <Write handleOnChange={handleOnChange} change={change} err={err} handleOnClickLocal={handleOnClickLocal} />
 
-        <div className="-write">
-          <textarea onChange={handleOnChange} placeholder="Diseño y mantenimiento de las funciones principales de la aplicación web orientada al cliente" value={change} name="tasks" id="tasks" className="function__tasks-textarea"          ></textarea>
-          <span>{err}</span>
-        </div>
-
-        <div className="-button">
-          <button onClick={handleOnClickLocal} id="tasks_add" name="add" >Agregar Tarea</button>
-        </div>
         <div className="-slate">
-            {tooltip && 
-
-              information?.map(i =>
-              <i key={i.type} value={i.data} >
-                <Tooltip text={i.data} color={i.color} position="right">
-                  {svg({ type: "information", color: i.color, width: 18 })}
-                </Tooltip>
-              </i>)
-     
-              }
-          <ul>
-            {tasks.map((e) => (
-              <li key={e.id}>
-                {!tooltip && <>
-                  <Tooltip text={`Lo elimina`} color={"red"} position="right">
-                    <i onClick={handleOnClickLocal} name="delete" value={e.id}>{svg({ type: "delete", color: "red" })}</i>
-                  </Tooltip>
-                  <Tooltip text={`Edita esta Información`} color={"green"} position="bottom">
-                    <i onClick={handleOnClickLocal} name="edit" value={e.id}>{e.tasks}</i>
-                  </Tooltip>
-                </>}
-
-                {tooltip && <>
-                  <i onClick={handleOnClickLocal} name="delete" value={e.id}>{svg({ type: "delete", color: "red" })}</i>
-                  <i onClick={handleOnClickLocal} name="edit" value={e.id}>{e.tasks}</i>
-                </>}
-              </li>
-            ))}
-          </ul>
+          <Slate tooltip={tooltip} tasks={tasks} handleOnClickLocal={handleOnClickLocal} information={information} />
         </div>
       </div>
     </>

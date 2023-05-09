@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { DELETE, FUNCTIONS, LOADING_API_FUNCTIONS, POST } from '../../../../components/hooks/context/Admin/adminTypes';
 import CreateContext from '../../../../components/hooks/context/CreateContext';
 import Validation from '../../../../components/utils/function/Validation';
+import useValidation from '../../utils/useValidation';
 import Fields from './Fields/Fields';
 import Render from './Render/Render';
 
@@ -17,19 +18,15 @@ const initialState = {
 }
 
 function Function() {
+  const { setValidation } = useValidation()
   const { login: { state: { user } }, admin: { state, status, setStatus, callApi } } = useContext(CreateContext);
 
   const [change, setChange] = useState(initialState)
   const [err, setErr] = useState(initialState)
 
   useEffect(() => {
-    Object.values({ name: err.name, image: err.image, link: err.link, start_date: err.start_date, end_date: err.end_date, repository: err.repository }).filter(e => e).length === 0 &&
-      Object.values({ name: change.name, image: err.image, link: change.link, start_date: change.start_date, end_date: change.end_date, repository: change.repository }).filter(e => e).length >= 5
-      && change.tasks.length > 0
-      && change.technologies.length > 0
-      ? document.getElementById("function_save")?.removeAttribute("disabled") :
-      document.getElementById("function_save")?.setAttribute("disabled", "")
-  }, [err, change])
+    setValidation({ change, validate: ["name", "image", "link", "start_date", "end_date", "tasks"], element: "function_save", image: "function_img" })
+  }, [err, change, status.function_add_technologies])
 
   const handleOnClick = (e) => {
     const name = e.target.attributes.getNamedItem("name").value
@@ -54,7 +51,7 @@ function Function() {
         break
       case "delete":
         setStatus({ function_fields: false, function_add: true, function_render: true })
-        callApi({ method: DELETE, route: `${FUNCTIONS}/${status.position_function_id}/${user._id}`, loading: LOADING_API_FUNCTIONS, post: {id_delete: value} })
+        callApi({ method: DELETE, route: `${FUNCTIONS}/${status.position_function_id}/${user._id}`, loading: LOADING_API_FUNCTIONS, post: { id_delete: value } })
         break
       case "add_position":
         break

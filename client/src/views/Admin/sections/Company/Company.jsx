@@ -4,6 +4,7 @@ import CreateContext from '../../../../components/hooks/context/CreateContext';
 import Validation from '../../../../components/utils/function/Validation';
 import Fields from './Fields/Fields';
 import Render from './Render/Render';
+import useValidation from '../../utils/useValidation';
 
 const initialState = {
   name: "",
@@ -15,17 +16,13 @@ const initialState = {
 }
 
 function Company() {
+  const { setValidation } = useValidation()
   const { login: { state: { user } }, admin: { state, status, setStatus, callApi } } = useContext(CreateContext);
   const [change, setChange] = useState(initialState)
   const [err, setErr] = useState(initialState)
 
   useEffect(() => {
-
-    if (err.image) document.getElementById("company_img").parentNode.classList.remove("borde_image")
-
-    Object.values(err).filter((e) => e).length === 0 && Object.values(change).filter((e) => e).length > 5
-      ? document.getElementById("company_save")?.removeAttribute("disabled") :
-      document.getElementById("company_save")?.setAttribute("disabled", "")
+    setValidation({ change, validate: ["name", "image", "description", "link", "start_date", "end_date",], element: "company_save", image: "company_img" })
     // eslint-disable-next-line
   }, [err])
 
@@ -79,10 +76,10 @@ function Company() {
 
   return (
     <div className="company__container">
-      {!user?._id
-        ? <div className="company__fields"><Fields handleOnChange={handleOnChange} handleOnLoad={handleOnLoad} handleOnClick={handleOnClick} change={change} err={err} /></div>
-        : state.loading_api_company
-          ? <h1>Cargando...</h1>
+      {state.loading_api_company
+        ? <h1>Cargando...</h1>
+        : !user?._id
+          ? <div className="company__fields"><Fields handleOnChange={handleOnChange} handleOnLoad={handleOnLoad} handleOnClick={handleOnClick} change={change} err={err} /></div>
           : <div>
             <div className="company__render">
               {status.company_render && <Render handleOnClick={handleOnClick} company={state.company} status={status} />}

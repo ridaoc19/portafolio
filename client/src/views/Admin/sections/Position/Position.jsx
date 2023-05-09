@@ -5,6 +5,7 @@ import Validation from '../../../../components/utils/function/Validation';
 import Button from './Buutton/Button';
 import Fields from './Fields/Fields';
 import Render from './Render/Render';
+import useValidation from '../../utils/useValidation';
 
 const initialState = {
   name: "",
@@ -14,16 +15,15 @@ const initialState = {
 
 function Position() {
   const { login: { state: { user } }, admin: { state, status, setStatus, callApi } } = useContext(CreateContext);
+  const { setValidation } = useValidation()
 
   const [change, setChange] = useState(initialState)
   const [err, setErr] = useState(initialState)
 
   useEffect(() => {
-    Object.values(err).filter((e) => e).length === 0 && Object.values(change).filter((e) => e).length > 2
-      ? document.getElementById("position_save")?.removeAttribute("disabled") :
-      document.getElementById("position_save")?.setAttribute("disabled", "")
+    setValidation({ change, validate: ["name", "start_date", "end_date",], element: "position_save" })
     // eslint-disable-next-line
-  }, [err])
+  }, [err, change, status.position_fields])
 
   useEffect(() => {
     return () => setStatus({ position_fields: false, position_function_id: "" })

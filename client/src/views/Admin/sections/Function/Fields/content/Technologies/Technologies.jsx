@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import CreateContext from "../../../../../../../components/hooks/context/CreateContext";
-import TechPost from "./TechPost/TechPost";
+import Render from "./content/Render";
 
 function Technologies({ handleTech, change }) {
   const { admin: { state, status, setStatus } } = useContext(CreateContext);
@@ -52,34 +52,7 @@ function Technologies({ handleTech, change }) {
         <h3>Tecnologias utilizadas</h3>
         <label> <input type="checkbox" name="technologies" onClick={() => setStatus({ function_add_technologies: status.function_add_technologies ? false : true })} />Agregar Tecnología</label>
       </div>
-
-      {status.function_add_technologies ? <TechPost />
-        : <div className="admin__technologies-container">
-          <div id="technologies" className="technologies__content">
-            <div>
-              <h3>tecnologias </h3>
-              <ul>
-                {tech?.map((e) =>
-                  e.status === "technologies" && (
-                    <button key={e._id} onClick={handleOnClick} name="add" id={e._id}> {e.name} </button>
-                  )
-                )}
-              </ul>
-            </div>
-          </div>
-          <div id="selection" className="technologies__selection">
-            <div>
-              <h3>Seleccionadas</h3>
-              <ul>
-                {tech.map((e) =>
-                  e.status === "selection" && (
-                    <button key={e._id} id={e._id} name="delete" onClick={handleOnClick}> {e.name} </button>
-                  )
-                )}
-              </ul>
-            </div>
-          </div>
-        </div>}
+      <Render handleOnClick={handleOnClick} status={status} tech={tech} />
     </>
   );
 }
