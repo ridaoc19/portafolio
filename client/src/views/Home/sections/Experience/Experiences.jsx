@@ -28,6 +28,7 @@ function Experiences() {
     if (state.search) filter = filter.filter(e => e.technologies.some(d => d.name.toString().toLowerCase().includes(state.search.toLowerCase())))
     if (state.select) filter = filter.filter(e => e.technologies.some(d => d.technologies.toString().toLowerCase().includes(state.select.toLowerCase())))
     setExperience(filter)
+    // eslint-disable-next-line
   }, [state])
 
   const handleOnChange = (e) => {

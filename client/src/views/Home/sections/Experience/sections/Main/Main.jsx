@@ -1,7 +1,6 @@
 import React from "react";
-import { totalYear } from "../../../../../../components/utils/function/date";
-import { PARAMS } from "../../../../../../components/utils/function/variables";
 import { svg } from "../../../../../../components/assets/svg";
+import { totalYear } from "../../../../../../components/utils/function/date";
 
 function Main({ experience }) {
 
@@ -12,15 +11,6 @@ function Main({ experience }) {
           <div key={i} className="experiences__card--container">
             <div className="experiences__card--father">
               <div className="experiences__card--son">
-
-                {/* <div className="experiences__card--repository"> */}
-                {/* <button onClick={(e) => {
-                  e.preventDefault()
-                  window.open(e.repository, "test", PARAMS)
-                }}> { }
-                </button> */}
-                {/* <a href={e.repository} target="_blank" rel="noreferrer">{svg({ type: "github", width: 40, height: 40 })}</a> */}
-                {/* </div> */}
 
                 <div className="experiences__card--date">
                   <h6>{e.start_date} - {e.end_date}</h6>
@@ -33,11 +23,6 @@ function Main({ experience }) {
 
                 <div className="experiences__card--name">
 
-                  {/* <button onClick={(e) => {
-                  e.preventDefault()
-                  window.open(e.link, "test", PARAMS)
-                }}>{e.name}
-                </button> */}
                   <a href={e.link} target="_blank" rel="noreferrer">@{e.name}</a>
 
                 </div>
