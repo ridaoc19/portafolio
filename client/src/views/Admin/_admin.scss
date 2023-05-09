@@ -7,6 +7,17 @@
     display: grid;
     margin: 5%;
     @include admin__container-padding();
+
+    .function__title,
+    .position__title,
+    .company__title{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+    }
+
+
 }
 
 .err{

@@ -20,6 +20,7 @@ export const initialStateStatus = {
   function_add: true,
   function_render: true,
   function_add_technologies: false,
+  function_edit_id: ""
 };
 
 const StatusReducer = (state, action) => {
