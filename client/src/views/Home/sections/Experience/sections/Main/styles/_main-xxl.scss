@@ -71,6 +71,10 @@
                     justify-self: center;
                     white-space : nowrap;
 
+                    h4 {
+                        margin: 0;
+                    }
+
                 }
 
                 .experiences__card--tasks {
@@ -78,7 +82,8 @@
                     overflow-y: auto;
 
                     ul {
-                        margin: 0;
+                        margin              : 0;
+                        padding-inline-start: 18px;
                     }
                 }
 
@@ -87,14 +92,20 @@
                     overflow-y: auto;
 
                     .experiences__technologies--container {
-                        display              : grid;
-                        grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
-                        gap                  : 0.5rem;
+                        display    : flex;
+                        flex-wrap  : nowrap;
+                        gap        : 0.5rem;
+                        overflow-x : auto;
+                        white-space: nowrap;
+
 
                         .experiences__technologies--indi {
-                            //                         // white-space: nowrap;
-                            list-style   : none;
-                            border-radius: 0.1rem;
+                            flex            : auto;
+                            text-align      : center;
+                            background-color: var(--body-color);
+                            border-radius   : 0.3rem;
+                            padding         : 0.2rem 0.4rem;
+                            list-style      : none;
                         }
                     }
                 }
