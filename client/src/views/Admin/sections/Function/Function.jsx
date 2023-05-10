@@ -25,7 +25,7 @@ function Function() {
   const [err, setErr] = useState(initialState)
 
   useEffect(() => {
-    setValidation({ change, validate: ["name", "image", "link", "start_date", "end_date", "tasks"], element: "function_save", image: "function_img" })
+    setValidation({ change, validate: ["name", "start_date", "end_date", "tasks"], element: "function_save", image: "function_img" })
   // eslint-disable-next-line
   }, [err, change, status.function_add_technologies])
 
