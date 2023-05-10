@@ -7,7 +7,7 @@ function Main({ experience }) {
   return (
     <>
       {experience?.map((e, i) => {
-        console.log(e.image === "");
+        console.log(e.link === "");
         return (
           <div key={i} className="experiences__card--container">
             <div className="experiences__card--father">
@@ -19,17 +19,15 @@ function Main({ experience }) {
                 </div>
 
                 <div className="experiences__card--image">
-                  {e.image?<img src={e.image} alt="img" />: <img src={"https://cdn-icons-png.flaticon.com/128/5540/5540531.png"} alt="img" />}
+                  {e.image ? <img src={e.image} alt="img" /> : <img src={"https://cdn-icons-png.flaticon.com/128/5540/5540531.png"} alt="img" />}
                 </div>
 
                 <div className="experiences__card--name">
-
-                  <a href={e.link} target="_blank" rel="noreferrer">@{e.name}</a>
-
+                  {e.link ? <a href={e.link} target="_blank" rel="noreferrer">@{e.name}</a> : <h4>{e.name}</h4>}
                 </div>
 
                 <div className="experiences__card--tasks">
-                  <ul className={`card__tasks--${i}`}>
+                  <ul className={`card__tasks`}>
                     {e.tasks?.map((e, i) => (
                       <li key={i}>{e}</li>
                     ))}
@@ -46,7 +44,7 @@ function Main({ experience }) {
                     ))}
                   </div>
                   <div>
-                    <a href={e.repository} target="_blank" rel="noreferrer">{svg({ type: "github", width: 35, height: 35 })}</a>
+                    {e.repository && <a href={e.repository} target="_blank" rel="noreferrer">{svg({ type: "github", width: 25, height: 25 })}</a>}
                   </div>
                 </div>
               </div>

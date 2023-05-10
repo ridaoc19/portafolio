@@ -22,8 +22,8 @@
                         "experiences__card--name"
                         "experiences__card--tasks"
                         "experiences__card--technologies";
-                    grid-template-rows: 2.5rem 5rem 1.5rem 7.5rem 2rem;
-                    
+                    grid-template-rows: 2rem 5rem 1.5rem 7.5rem 3rem;
+
                     .experiences__card--date {
                         grid-area: experiences__card--date;
 
@@ -48,6 +48,10 @@
                         justify-self: center;
                         white-space : nowrap;
 
+                        h4 {
+                            margin: 0;
+                        }
+
                     }
 
                     .experiences__card--tasks {
@@ -55,7 +59,8 @@
                         overflow-y: auto;
 
                         ul {
-                            margin: 0;
+                            margin              : 0;
+                            padding-inline-start: 18px;
                         }
                     }
 
@@ -64,19 +69,24 @@
                         display              : grid;
                         grid-template-columns: auto min-content;
                         gap                  : 0.3rem;
-                        overflow-x           : auto;
                         align-items          : center;
 
                         .experiences__technologies--container {
-                            display                 : grid;
-                            grid-auto-flow          : column;
-                            // grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
-                            gap                     : 0.5rem;
+                            display    : flex;
+                            flex-wrap  : nowrap;
+                            gap        : 0.5rem;
+                            overflow-x : auto;
+                            white-space: nowrap;
+
 
                             .experiences__technologies--indi {
-                                //                         // white-space: nowrap;
-                                list-style   : none;
-                                border-radius: 0.1rem;
+                                flex            : auto;
+                                text-align      : center;
+                                background-color: var(--body-color);
+                                border-radius   : 0.3rem;
+                                padding         : 0.2rem 0.4rem;
+                                list-style      : none;
+
                             }
                         }
                     }
@@ -127,9 +137,9 @@
                     }
 
                     .experiences__card--name {
-                        grid-area      : experiences__card--name;
+                        grid-area   : experiences__card--name;
                         justify-self: center;
-                        white-space    : nowrap;
+                        white-space : nowrap;
                     }
 
                     .experiences__card--tasks {
@@ -138,7 +148,8 @@
                         overflow  : hidden;
 
                         ul {
-                            margin: 0;
+                            margin              : 0;
+                            padding-inline-start: 18px;
                         }
                     }
 
@@ -153,14 +164,20 @@
                         overflow: hidden;
 
                         .experiences__technologies--container {
-                            display       : grid;
-                            grid-auto-flow: column;
-                            gap           : 0.5rem;
+                            display    : flex;
+                            flex-wrap  : nowrap;
+                            gap        : 0.5rem;
+                            overflow-x : auto;
+                            white-space: nowrap;
+
 
                             .experiences__technologies--indi {
-                                //                         // white-space: nowrap;
-                                list-style   : none;
-                                border-radius: 0.1rem;
+                                flex            : auto;
+                                text-align      : center;
+                                background-color: var(--body-color);
+                                border-radius   : 0.3rem;
+                                padding         : 0.2rem 0.4rem;
+                                list-style      : none;
                             }
                         }
                     }
