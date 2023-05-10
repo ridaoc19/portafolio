@@ -1,6 +1,11 @@
-.home__container--user{
-    display: flex;
+.home__container--user {
+    display        : flex;
     justify-content: flex-end;
-    align-items: center;
-    gap: 1rem;
+    align-items    : center;
+    gap            : 1rem;
+
+    >div>select {
+        margin: 5px 0;
+        height: 1.8rem;
+    }
 }

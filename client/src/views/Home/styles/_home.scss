@@ -5,5 +5,12 @@
 .home__container {
     display: grid;
     @include home__container-padding();
-    gap: 1rem
+    gap: 1rem;
+
+    .home__container--about,
+    .home__container--introduction {
+        >p {
+            text-align: justify;
+        }
+    }
 }
