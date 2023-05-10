@@ -16,7 +16,7 @@ function Fields({ change, handleOnChange, handleTasksTech, handleOnClick, status
       </div>
 
       <div className="-image">
-        <label >Logo del proyecto<span className="mandatory">*</span></label>
+        <label >Logo del proyecto</label>
         <input type="url" onChange={handleOnChange} placeholder="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/320px-Amazon_logo.svg.png" name="company_image" value={change.image} />
         <span className="err">{err.image}</span>
         {<div>
@@ -25,7 +25,7 @@ function Fields({ change, handleOnChange, handleTasksTech, handleOnClick, status
       </div>
 
       <div className="-web">
-        <label >Sitio web<span className="mandatory">*</span></label>
+        <label >Sitio web</label>
         <input type="url" onChange={handleOnChange} placeholder="https://www.amazon.es" name="company_link" value={change.link} />
         {err.link && <span className="err">{err.link}</span>}
         {!err.link && change.link &&
