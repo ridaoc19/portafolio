@@ -17,7 +17,7 @@ const initialState = {
 
 function Company() {
   const { setValidation } = useValidation()
-  const { login: { state: { user } }, admin: { state, status, setStatus, callApi } } = useContext(CreateContext);
+  const { login: { state: { user, loading_login } }, admin: { state, status, setStatus, callApi } } = useContext(CreateContext);
   const [change, setChange] = useState(initialState)
   const [err, setErr] = useState(initialState)
 
@@ -76,11 +76,11 @@ function Company() {
 
   return (
     <div className="company__container">
-      {state.loading_api_company
+      {!user?._id && !loading_login
+      ? <div className="company__fields"><Fields handleOnChange={handleOnChange} handleOnLoad={handleOnLoad} handleOnClick={handleOnClick} change={change} err={err} /></div>
+    : state.loading_api_company
         ? <h1>Cargando...</h1>
-        : !user?._id
-          ? <div className="company__fields"><Fields handleOnChange={handleOnChange} handleOnLoad={handleOnLoad} handleOnClick={handleOnClick} change={change} err={err} /></div>
-          : <div>
+        :  <div>
             <div className="company__render">
               {status.company_render && <Render handleOnClick={handleOnClick} company={state.company} status={status} />}
             </div>
