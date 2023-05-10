@@ -7,6 +7,7 @@ function Main({ experience }) {
   return (
     <>
       {experience?.map((e, i) => {
+        console.log(e.image === "");
         return (
           <div key={i} className="experiences__card--container">
             <div className="experiences__card--father">
@@ -18,7 +19,7 @@ function Main({ experience }) {
                 </div>
 
                 <div className="experiences__card--image">
-                  <img src={e.image} alt="img" />
+                  {e.image?<img src={e.image} alt="img" />: <img src={"https://cdn-icons-png.flaticon.com/128/5540/5540531.png"} alt="img" />}
                 </div>
 
                 <div className="experiences__card--name">
