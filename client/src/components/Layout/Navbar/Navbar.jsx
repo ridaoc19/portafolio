@@ -10,6 +10,7 @@ function Navbar() {
 
   useEffect(() => {
     sessionStorage?.login && !state.user?.user_id && callApiLogin({ method: GET, route: `login/${sessionStorage?.login}` })
+    // eslint-disable-next-line
   }, [state.user])
 
   const handleOnClick = (e) => {
@@ -30,7 +31,7 @@ function Navbar() {
   }
 
   document.addEventListener("click", e => {
-    if (e.target == document.querySelector(".navbar__login--google")) {
+    if (e.target === document.querySelector(".navbar__login--google")) {
       document.querySelector(".navbar__login--google").classList.remove("navbar__modal--open");
     }
   });
@@ -47,7 +48,7 @@ function Navbar() {
         <Link to={"/home"}>home</Link>
         <Link to={"/admin"}>admin</Link>
       </div>
-      
+
       <div className="-login">
         {state.user?.picture
           ? <div>

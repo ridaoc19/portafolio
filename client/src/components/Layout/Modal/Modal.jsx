@@ -1,58 +1,42 @@
 import React from 'react';
 import './style/modal.scss';
+import useOpenModal from './useOpenModal';
 
 function Modal({ children, header }) {
+  const { setModal, modal } = useOpenModal();
 
-  const openEls = document.querySelectorAll("[data-open]");
-  const closeEls = document.querySelectorAll("[data-close]");
-  const isVisible = "is-visible";
-
-  for (const el of openEls) {
-    el.addEventListener("click", function () {
-      const modalId = this.dataset.open;
-      document.getElementById(modalId).classList.add(isVisible);
-    });
-  }
-
-  for (const el of closeEls) {
-    el.addEventListener("click", function () {
-      this.parentElement.parentElement.parentElement.classList.remove(isVisible);
-    });
+  const handleOnClick = (e) => {
+    e.preventDefault();
+    setModal({ ...modal, avalible: false })
   }
 
   document.addEventListener("click", e => {
-    if (e.target == document.querySelector(".modal.is-visible")) {
-      document.querySelector(".modal.is-visible").classList.remove(isVisible);
+    if (e.target === document.querySelector(".modal.is-visible")) {
+      setModal({ ...modal, avalible: false })
     }
   });
 
   document.addEventListener("keyup", e => {
-    if (e.key == "Escape" && document.querySelector(".modal.is-visible")) {
-      document.querySelector(".modal.is-visible").classList.remove(isVisible);
+    if (e.key === "Escape" && document.querySelector(".modal.is-visible")) {
+      setModal({ ...modal, avalible: false })
     }
   });
 
 
   return (
-    <div>
-      <div className="btn-group">
-        <button type="button" className="open-modal" data-open="modal">
-          Launch first modal with a slide animation
-        </button>
-      </div>
-
-      <div className="modal" id="modal" data-animation="slideInOutLeft">
+    <>
+      <div className="modal" id="modal" data-animation="">
         <div className="modal-dialog">
           <header className="modal-header">
-            {header}
-            <button className="close-modal" aria-label="close modal" data-close>✕</button>
+            <h3>{header}</h3>
+            <button className="close-modal" onClick={handleOnClick} >✕</button>
           </header>
           <section className="modal-content">
-            {children}
+            <p>{children}</p>
           </section>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

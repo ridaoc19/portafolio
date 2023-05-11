@@ -1,22 +1,127 @@
 // {
-//     "company": "Policía Nacional de Colombia",
-//     "image": "https://www.policia.gov.co/sites/default/files/escudo-policia.png",
-//     "description": "La Policía Nacional de Colombia ​ es un cuerpo armado de naturaleza civil, a cargo de la seguridad pública de la República de Colombia.",
-//     "link": "https://www.policia.gov.co",
-//     "start_date": "2009-01-15",
-//     "end_date": "2021-08-04",
+//     "company": [
+//         {
+//             "_id": "645bc5ede90e65aa49198daa",
+//             "user_id": "645bc332e90e65aa49198da5",
+//             "name": "Los Verdes",
+//             "image": "https://tofuu.getjusto.com/orioneat-local/resized2/ye3JbTE4qZqr6WYKY-200-x.webp",
+//             "description": "Cadena de restaurantes especializada en comida rápida.",
+//             "link": "https://www.losverdes.com.co/",
+//             "start_date": "2008-01-10",
+//             "end_date": "2008-11-15",
+//             "position": []
+//         },
+//         {
+//             "_id": "645bc811e90e65aa49198dd9",
+//             "user_id": "645bc332e90e65aa49198da5",
+//             "name": "Policía Nacional de Colombia",
+//             "image": "https://www.policia.gov.co/sites/default/files/escudo-policia.png",
+//             "description": "La Policía Nacional de Colombia ​ es un cuerpo armado de naturaleza civil, a cargo de la seguridad pública de la República de Colombia.",
+//             "link": "https://www.policia.gov.co",
+//             "start_date": "2009-01-15",
+//             "end_date": "2021-08-05",
+//             "position": [
+//                 {
+//                     "_id": "645bc9f4e90e65aa49198ddf",
+//                     "company": "645bc811e90e65aa49198dd9",
+//                     "name": "Estudiante",
+//                     "start_date": "2009-01-15",
+//                     "end_date": "2009-10-14",
+//                     "functions": [
+//                         "645bcce6e90e65aa49198e02"
+//                     ]
+//                 },
+//                 {
+//                     "_id": "645bca24e90e65aa49198de6",
+//                     "company": "645bc811e90e65aa49198dd9",
+//                     "name": "Patrullero",
+//                     "start_date": "2009-10-15",
+//                     "end_date": "2021-08-05",
+//                     "functions": [
+//                         "645bd5fa8413dc071c78e68c",
+//                         "645bd76a8413dc071c78e695",
+//                         "645bd7b28413dc071c78e69e",
+//                         "645bd9ce8413dc071c78e6a7"
+//                     ]
+//                 }
+//             ]
+//         },
+//         {
+//             "_id": "645c06baa1923e1f278c3b38",
+//             "user_id": "645bc332e90e65aa49198da5",
+//             "name": "Henry",
+//             "image": "https://assets.soyhenry.com/icons/apple-touch-icon.png",
+//             "description": "Academia de carreras tecnológicas en Tecnologías de la Información",
+//             "link": "https://www.soyhenry.com/",
+//             "start_date": "2022-07-01",
+//             "end_date": "2022-09-30",
+//             "position": [
+//                 {
+//                     "_id": "645c06e2a1923e1f278c3b40",
+//                     "company": "645c06baa1923e1f278c3b38",
+//                     "name": "Instructor",
+//                     "start_date": "2022-07-01",
+//                     "end_date": "2022-09-30",
+//                     "functions": [
+//                         "645c0a72a1923e1f278c3b76"
+//                     ]
+//                 }
+//             ]
+//         },
+//         {
+//             "_id": "645bf970a1923e1f278c3aa2",
+//             "user_id": "645bc332e90e65aa49198da5",
+//             "name": "ITGlobers",
+//             "image": "https://itglobers.com/assets/img/icons/apple-icon-114x114.png",
+//             "description": "Empresa de desarrollo de software especializada en comercio electrónico que impulsa los canales digitales.",
+//             "link": "https://itglobers.com",
+//             "start_date": "2022-11-08",
+//             "end_date": "Presente",
+//             "position": [
+//                 {
+//                     "_id": "645bf999a1923e1f278c3aa9",
+//                     "company": "645bf970a1923e1f278c3aa2",
+//                     "name": "Front end developer Trainee",
+//                     "start_date": "2022-11-08",
+//                     "end_date": "2023-01-12",
+//                     "functions": [
+//                         "645bfc14a1923e1f278c3ae5"
+//                     ]
+//                 },
+//                 {
+//                     "_id": "645bfc9ea1923e1f278c3afb",
+//                     "company": "645bf970a1923e1f278c3aa2",
+//                     "name": "Front end developer Junior",
+//                     "start_date": "2023-01-13",
+//                     "end_date": "Presente",
+//                     "functions": [
+//                         "645c0113a1923e1f278c3b18",
+//                         "645c02e1a1923e1f278c3b22"
+//                     ]
+//                 }
+//             ]
+//         }
+//     ],
 //     "position": [
 //         {
+//             "_id": "645bc9f4e90e65aa49198ddf",
+//             "company": "645bc811e90e65aa49198dd9",
 //             "name": "Estudiante",
 //             "start_date": "2009-01-15",
 //             "end_date": "2009-10-14",
-//             "function": [
+//             "functions": [
 //                 {
+//                     "_id": "645bcce6e90e65aa49198e02",
+//                     "company": "645bc811e90e65aa49198dd9",
+//                     "position": "645bc9f4e90e65aa49198ddf",
 //                     "name": "Secretario",
+//                     "image": "",
 //                     "link": "",
 //                     "start_date": "2009-01-15",
 //                     "end_date": "2009-10-14",
-//                     "tecnologies": [],
+//                     "technologies": [
+//                         "645c0ac0a1923e1f278c3b80"
+//                     ],
 //                     "repository": "",
 //                     "tasks": [
 //                         "Labores administrativas"
@@ -25,87 +130,146 @@
 //             ]
 //         },
 //         {
+//             "_id": "645bca24e90e65aa49198de6",
+//             "company": "645bc811e90e65aa49198dd9",
 //             "name": "Patrullero",
 //             "start_date": "2009-10-15",
 //             "end_date": "2021-08-05",
-//             "function": [
+//             "functions": [
 //                 {
-//                     "name": "Investigador judicial",
+//                     "_id": "645bd5fa8413dc071c78e68c",
+//                     "company": "645bc811e90e65aa49198dd9",
+//                     "position": "645bca24e90e65aa49198de6",
+//                     "name": "Investigador",
+//                     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/DIJIN.png/200px-DIJIN.png",
 //                     "link": "",
 //                     "start_date": "2009-10-15",
-//                     "end_date": "27-08-2010",
-//                     "tecnologies": [],
+//                     "end_date": "2010-08-10",
+//                     "technologies": [
+//                         "645c0ad8a1923e1f278c3b89"
+//                     ],
 //                     "repository": "",
 //                     "tasks": [
-//                         "Desarrollar, en coordinación con la rama jurisdiccional, las labores investigativas y técnicas, con sujeción a las facultades que le otorguen las leyes y los reglamentos"
+//                         "Atender actividades investigativas"
 //                     ]
 //                 },
 //                 {
+//                     "_id": "645bd76a8413dc071c78e695",
+//                     "company": "645bc811e90e65aa49198dd9",
+//                     "position": "645bca24e90e65aa49198de6",
 //                     "name": "Integrante patrulla de vigilancia",
+//                     "image": "https://www.policia.gov.co/sites/default/files/escudo-policia.png",
 //                     "link": "",
-//                     "start_date": "28-08-2010",
-//                     "end_date": "30-05-2011",
-//                     "tecnologies": [],
+//                     "start_date": "2010-08-11",
+//                     "end_date": "2011-05-30",
+//                     "technologies": [
+//                         "645c0ad8a1923e1f278c3b89"
+//                     ],
 //                     "repository": "",
 //                     "tasks": [
-//                         "Encargado de garantizar el ejercicio de los derechos y libertades públicas, y que los habitantes de Colombia convivan en paz."
+//                         "Encargado de garantizar el ejercicio de los derechos y libertades públicas."
 //                     ]
 //                 },
 //                 {
+//                     "_id": "645bd7b28413dc071c78e69e",
+//                     "company": "645bc811e90e65aa49198dd9",
+//                     "position": "645bca24e90e65aa49198de6",
 //                     "name": "Secretario",
+//                     "image": "https://www.policia.gov.co/sites/default/files/escudo-policia.png",
 //                     "link": "",
-//                     "start_date": "31-05-2011",
-//                     "end_date": "10-11-2014",
-//                     "tecnologies": [],
+//                     "start_date": "2011-05-31",
+//                     "end_date": "2014-11-11",
+//                     "technologies": [
+//                         "645c0ad8a1923e1f278c3b89"
+//                     ],
 //                     "repository": "",
 //                     "tasks": [
 //                         "Encargado de todas las actividades administrativas de una unidad Plicial"
 //                     ]
 //                 },
 //                 {
+//                     "_id": "645bd9ce8413dc071c78e6a7",
+//                     "company": "645bc811e90e65aa49198dd9",
+//                     "position": "645bca24e90e65aa49198de6",
 //                     "name": "Técnico en telemática",
+//                     "image": "https://1.bp.blogspot.com/-e67IUm2J3vM/XkMSkysfSiI/AAAAAAABEBg/ayfbeWn8KxkDpDuKdU1e1ZHqRfLGMt9dQCLcBGAsYHQ/s1600/Imagen22.jpg",
 //                     "link": "",
-//                     "start_date": "11-11-2014",
-//                     "end_date": "04-08-2021",
-//                     "tecnologies": [],
+//                     "start_date": "2014-11-11",
+//                     "end_date": "2021-08-05",
+//                     "technologies": [
+//                         "645c0ad8a1923e1f278c3b89"
+//                     ],
 //                     "repository": "",
 //                     "tasks": [
-//                         "Creación de aplicación de escritorio para el control de 5.000 elementos tecnológicos el cual se logró tener el control total de estos elementos con documentación de soporte",
-//                         "Creación aplicación de escritorio para el control de ingreso, proceso y salida de computadores de laboratorio",
-//                         "Mantenimiento preventivo y correctivo de computadores",
-//                         "Jefe laboratorio de computadores"
+//                         "Creación de aplicación de escritorio para el control de 5.000 elementos tecnológicos.",
+//                         "Creación aplicación de escritorio para controlar ingreso, proceso y salida elementos tecnológicos",
+//                         "Mantenimiento preventivo y correctivo de computadores.",
+//                         "Jefe laboratorio de computadores."
 //                     ]
 //                 }
 //             ]
-//         }
-//     ]
-// }
-// {
-//     "company": "ITGlobers",
-//     "image": "https://itglobers.com/assets/img/icons/apple-icon-114x114.png",
-//     "description": "Empresa de desarrollo de software especializada en comercio electrónico que impulsa los canales digitales ",
-//     "link": "https://itglobers.com",
-//     "start_date": "2022-11-08",
-//     "end_date": "Presente",
-//     "position": [
+//         },
 //         {
+//             "_id": "645c06e2a1923e1f278c3b40",
+//             "company": "645c06baa1923e1f278c3b38",
+//             "name": "Instructor",
+//             "start_date": "2022-07-01",
+//             "end_date": "2022-09-30",
+//             "functions": [
+//                 {
+//                     "_id": "645c0a72a1923e1f278c3b76",
+//                     "company": "645c06baa1923e1f278c3b38",
+//                     "position": "645c06e2a1923e1f278c3b40",
+//                     "name": "Auxiliar de enseñanza de estudiantes",
+//                     "image": "https://assets.soyhenry.com/icons/apple-touch-icon.png",
+//                     "link": "",
+//                     "start_date": "2022-07-01",
+//                     "end_date": "2022-09-30",
+//                     "technologies": [
+//                         "645bfb27a1923e1f278c3ab5",
+//                         "645bfb6fa1923e1f278c3ac5",
+//                         "645bfbffa1923e1f278c3add",
+//                         "645c0842a1923e1f278c3b4e",
+//                         "645c086ba1923e1f278c3b56",
+//                         "645c08b9a1923e1f278c3b5e",
+//                         "645c09f3a1923e1f278c3b66",
+//                         "645c0a67a1923e1f278c3b6e"
+//                     ],
+//                     "repository": "",
+//                     "tasks": [
+//                         "Coordinar a un grupo de estudiantes para lograr la integración al grupo de estudio.",
+//                         "Brindar clases de apoyo para reforzar conocimientos.",
+//                         "Promover la colaboración grupal (Programación por parejas).",
+//                         "Proponer buenas prácticas en la tarea de programación."
+//                     ]
+//                 }
+//             ]
+//         },
+//         {
+//             "_id": "645bf999a1923e1f278c3aa9",
+//             "company": "645bf970a1923e1f278c3aa2",
 //             "name": "Front end developer Trainee",
 //             "start_date": "2022-11-08",
 //             "end_date": "2023-01-12",
-//             "function": [
+//             "functions": [
 //                 {
+//                     "_id": "645bfc14a1923e1f278c3ae5",
+//                     "company": "645bf970a1923e1f278c3aa2",
+//                     "position": "645bf999a1923e1f278c3aa9",
 //                     "name": "clon e-comerce",
+//                     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Tiendas_D1_logo.svg/100px-Tiendas_D1_logo.svg.png",
 //                     "link": "",
 //                     "start_date": "2022-11-08",
 //                     "end_date": "2023-01-12",
-//                     "tecnologies": [
-//                         "VTEX",
-//                         "React js",
-//                         "TypeScript",
-//                         "CSS",
-//                         "HTML"
+//                     "technologies": [
+//                         "645bfb27a1923e1f278c3ab5",
+//                         "645bfb46a1923e1f278c3abd",
+//                         "645bfb6fa1923e1f278c3ac5",
+//                         "645bfb9ca1923e1f278c3acd",
+//                         "645bfbd4a1923e1f278c3ad5",
+//                         "645bfbffa1923e1f278c3add"
 //                     ],
-//                     "repository": "",
+//                     "repository": "https://github.com/ridaoc19/vtex-store-teams-d1",
 //                     "tasks": [
 //                         "realizo la maquetación del proyecto",
 //                         "desarrolle e implemente las tecnologías exigidas",
@@ -115,97 +279,348 @@
 //             ]
 //         },
 //         {
+//             "_id": "645bfc9ea1923e1f278c3afb",
+//             "company": "645bf970a1923e1f278c3aa2",
 //             "name": "Front end developer Junior",
-//             "start_date": "13-01-2023",
+//             "start_date": "2023-01-13",
 //             "end_date": "Presente",
-//             "function": [
+//             "functions": [
 //                 {
-//                     "name": "supermecado Chedraui",
-//                     "link": "https://www.chedraui.com.mx/",
+//                     "_id": "645c0113a1923e1f278c3b18",
+//                     "company": "645bf970a1923e1f278c3aa2",
+//                     "position": "645bfc9ea1923e1f278c3afb",
+//                     "name": "Chedraui",
+//                     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Logo_de_Cherdraui.svg/512px-Logo_de_Cherdraui.svg.png",
+//                     "link": "https://www.chedraui.com.mx",
 //                     "start_date": "2023-01-13",
-//                     "end_date": "Presente",
-//                     "tecnologies": [
-//                         "VTEX",
-//                         "React js",
-//                         "TypeScript",
-//                         "JavaScript",
-//                         "CSS",
-//                         "HTML"
+//                     "end_date": "2023-04-28",
+//                     "technologies": [
+//                         "645bfb27a1923e1f278c3ab5",
+//                         "645bfb46a1923e1f278c3abd",
+//                         "645bfb6fa1923e1f278c3ac5",
+//                         "645bfb9ca1923e1f278c3acd",
+//                         "645bfbd4a1923e1f278c3ad5",
+//                         "645bfbffa1923e1f278c3add",
+//                         "645c0102a1923e1f278c3b10"
 //                     ],
 //                     "repository": "",
 //                     "tasks": [
-//                         "Trabajó en con el equipo siguiendo la metodología scrum para desarrollar, documentar y administrar el sitio web de comercio electrónico",
-//                         "Diseño y mantenimiento de las funciones principales de la aplicación web orientada al cliente",
+//                         "Trabajó en con el equipo siguiendo la metodología scrum.",
+//                         "Propuesta e implementación de soluciones escalables a problemas identificados con servicios.",
+//                         "Diseño y mantenimiento de las funciones principales de la aplicación web orientada al cliente."
+//                     ]
+//                 },
+//                 {
+//                     "_id": "645c02e1a1923e1f278c3b22",
+//                     "company": "645bf970a1923e1f278c3aa2",
+//                     "position": "645bfc9ea1923e1f278c3afb",
+//                     "name": "Elektra",
+//                     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Grupo_electra_logo.png/120px-Grupo_electra_logo.png",
+//                     "link": "https://www.elektra.mx",
+//                     "start_date": "2023-04-28",
+//                     "end_date": "Presente",
+//                     "technologies": [
+//                         "645bfb27a1923e1f278c3ab5",
+//                         "645bfb46a1923e1f278c3abd",
+//                         "645bfb6fa1923e1f278c3ac5",
+//                         "645bfb9ca1923e1f278c3acd"
+//                     ],
+//                     "repository": "",
+//                     "tasks": [
+//                         "Trabajó en con el equipo siguiendo la metodología scrum",
+//                         "Diseño y mantenimiento de las funciones principales de la aplicación web",
 //                         "Propuesta e implementación de soluciones escalables a problemas identificados con servicios"
 //                     ]
 //                 }
 //             ]
 //         }
+//     ],
+//     "functions": [
+//         {
+//             "_id": "645bcce6e90e65aa49198e02",
+//             "company": "645bc811e90e65aa49198dd9",
+//             "position": "645bc9f4e90e65aa49198ddf",
+//             "name": "Secretario",
+//             "image": "",
+//             "link": "",
+//             "start_date": "2009-01-15",
+//             "end_date": "2009-10-14",
+//             "technologies": [
+//                 "645c0ac0a1923e1f278c3b80"
+//             ],
+//             "repository": "",
+//             "tasks": [
+//                 "Labores administrativas"
+//             ]
+//         },
+//         {
+//             "_id": "645bd5fa8413dc071c78e68c",
+//             "company": "645bc811e90e65aa49198dd9",
+//             "position": "645bca24e90e65aa49198de6",
+//             "name": "Investigador",
+//             "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/DIJIN.png/200px-DIJIN.png",
+//             "link": "",
+//             "start_date": "2009-10-15",
+//             "end_date": "2010-08-10",
+//             "technologies": [
+//                 "645c0ad8a1923e1f278c3b89"
+//             ],
+//             "repository": "",
+//             "tasks": [
+//                 "Atender actividades investigativas"
+//             ]
+//         },
+//         {
+//             "_id": "645bd76a8413dc071c78e695",
+//             "company": "645bc811e90e65aa49198dd9",
+//             "position": "645bca24e90e65aa49198de6",
+//             "name": "Integrante patrulla de vigilancia",
+//             "image": "https://www.policia.gov.co/sites/default/files/escudo-policia.png",
+//             "link": "",
+//             "start_date": "2010-08-11",
+//             "end_date": "2011-05-30",
+//             "technologies": [
+//                 "645c0ad8a1923e1f278c3b89"
+//             ],
+//             "repository": "",
+//             "tasks": [
+//                 "Encargado de garantizar el ejercicio de los derechos y libertades públicas."
+//             ]
+//         },
+//         {
+//             "_id": "645bd7b28413dc071c78e69e",
+//             "company": "645bc811e90e65aa49198dd9",
+//             "position": "645bca24e90e65aa49198de6",
+//             "name": "Secretario",
+//             "image": "https://www.policia.gov.co/sites/default/files/escudo-policia.png",
+//             "link": "",
+//             "start_date": "2011-05-31",
+//             "end_date": "2014-11-11",
+//             "technologies": [
+//                 "645c0ad8a1923e1f278c3b89"
+//             ],
+//             "repository": "",
+//             "tasks": [
+//                 "Encargado de todas las actividades administrativas de una unidad Plicial"
+//             ]
+//         },
+//         {
+//             "_id": "645bd9ce8413dc071c78e6a7",
+//             "company": "645bc811e90e65aa49198dd9",
+//             "position": "645bca24e90e65aa49198de6",
+//             "name": "Técnico en telemática",
+//             "image": "https://1.bp.blogspot.com/-e67IUm2J3vM/XkMSkysfSiI/AAAAAAABEBg/ayfbeWn8KxkDpDuKdU1e1ZHqRfLGMt9dQCLcBGAsYHQ/s1600/Imagen22.jpg",
+//             "link": "",
+//             "start_date": "2014-11-11",
+//             "end_date": "2021-08-05",
+//             "technologies": [
+//                 "645c0ad8a1923e1f278c3b89"
+//             ],
+//             "repository": "",
+//             "tasks": [
+//                 "Creación de aplicación de escritorio para el control de 5.000 elementos tecnológicos.",
+//                 "Creación aplicación de escritorio para controlar ingreso, proceso y salida elementos tecnológicos",
+//                 "Mantenimiento preventivo y correctivo de computadores.",
+//                 "Jefe laboratorio de computadores."
+//             ]
+//         },
+//         {
+//             "_id": "645c0a72a1923e1f278c3b76",
+//             "company": "645c06baa1923e1f278c3b38",
+//             "position": "645c06e2a1923e1f278c3b40",
+//             "name": "Auxiliar de enseñanza de estudiantes",
+//             "image": "https://assets.soyhenry.com/icons/apple-touch-icon.png",
+//             "link": "",
+//             "start_date": "2022-07-01",
+//             "end_date": "2022-09-30",
+//             "technologies": [
+//                 "645bfb27a1923e1f278c3ab5",
+//                 "645bfb6fa1923e1f278c3ac5",
+//                 "645bfbffa1923e1f278c3add",
+//                 "645c0842a1923e1f278c3b4e",
+//                 "645c086ba1923e1f278c3b56",
+//                 "645c08b9a1923e1f278c3b5e",
+//                 "645c09f3a1923e1f278c3b66",
+//                 "645c0a67a1923e1f278c3b6e"
+//             ],
+//             "repository": "",
+//             "tasks": [
+//                 "Coordinar a un grupo de estudiantes para lograr la integración al grupo de estudio.",
+//                 "Brindar clases de apoyo para reforzar conocimientos.",
+//                 "Promover la colaboración grupal (Programación por parejas).",
+//                 "Proponer buenas prácticas en la tarea de programación."
+//             ]
+//         },
+//         {
+//             "_id": "645bfc14a1923e1f278c3ae5",
+//             "company": "645bf970a1923e1f278c3aa2",
+//             "position": "645bf999a1923e1f278c3aa9",
+//             "name": "clon e-comerce",
+//             "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Tiendas_D1_logo.svg/100px-Tiendas_D1_logo.svg.png",
+//             "link": "",
+//             "start_date": "2022-11-08",
+//             "end_date": "2023-01-12",
+//             "technologies": [
+//                 "645bfb27a1923e1f278c3ab5",
+//                 "645bfb46a1923e1f278c3abd",
+//                 "645bfb6fa1923e1f278c3ac5",
+//                 "645bfb9ca1923e1f278c3acd",
+//                 "645bfbd4a1923e1f278c3ad5",
+//                 "645bfbffa1923e1f278c3add"
+//             ],
+//             "repository": "https://github.com/ridaoc19/vtex-store-teams-d1",
+//             "tasks": [
+//                 "realizo la maquetación del proyecto",
+//                 "desarrolle e implemente las tecnologías exigidas",
+//                 "por parte del corrector aprobó el trabajo, cumpliendo con todo lo exigido"
+//             ]
+//         },
+//         {
+//             "_id": "645c0113a1923e1f278c3b18",
+//             "company": "645bf970a1923e1f278c3aa2",
+//             "position": "645bfc9ea1923e1f278c3afb",
+//             "name": "Chedraui",
+//             "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Logo_de_Cherdraui.svg/512px-Logo_de_Cherdraui.svg.png",
+//             "link": "https://www.chedraui.com.mx",
+//             "start_date": "2023-01-13",
+//             "end_date": "2023-04-28",
+//             "technologies": [
+//                 "645bfb27a1923e1f278c3ab5",
+//                 "645bfb46a1923e1f278c3abd",
+//                 "645bfb6fa1923e1f278c3ac5",
+//                 "645bfb9ca1923e1f278c3acd",
+//                 "645bfbd4a1923e1f278c3ad5",
+//                 "645bfbffa1923e1f278c3add",
+//                 "645c0102a1923e1f278c3b10"
+//             ],
+//             "repository": "",
+//             "tasks": [
+//                 "Trabajó en con el equipo siguiendo la metodología scrum.",
+//                 "Propuesta e implementación de soluciones escalables a problemas identificados con servicios.",
+//                 "Diseño y mantenimiento de las funciones principales de la aplicación web orientada al cliente."
+//             ]
+//         },
+//         {
+//             "_id": "645c02e1a1923e1f278c3b22",
+//             "company": "645bf970a1923e1f278c3aa2",
+//             "position": "645bfc9ea1923e1f278c3afb",
+//             "name": "Elektra",
+//             "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Grupo_electra_logo.png/120px-Grupo_electra_logo.png",
+//             "link": "https://www.elektra.mx",
+//             "start_date": "2023-04-28",
+//             "end_date": "Presente",
+//             "technologies": [
+//                 "645bfb27a1923e1f278c3ab5",
+//                 "645bfb46a1923e1f278c3abd",
+//                 "645bfb6fa1923e1f278c3ac5",
+//                 "645bfb9ca1923e1f278c3acd"
+//             ],
+//             "repository": "",
+//             "tasks": [
+//                 "Trabajó en con el equipo siguiendo la metodología scrum",
+//                 "Diseño y mantenimiento de las funciones principales de la aplicación web",
+//                 "Propuesta e implementación de soluciones escalables a problemas identificados con servicios"
+//             ]
+//         }
+//     ],
+//     "technologies": [
+//         {
+//             "_id": "645bfb27a1923e1f278c3ab5",
+//             "user_id": "645bc332e90e65aa49198da5",
+//             "name": "HTML",
+//             "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/200px-HTML5_logo_and_wordmark.svg.png",
+//             "technologies": "Front end"
+//         },
+//         {
+//             "_id": "645bfb46a1923e1f278c3abd",
+//             "user_id": "645bc332e90e65aa49198da5",
+//             "name": "CSS",
+//             "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/250px-CSS3_logo_and_wordmark.svg.png",
+//             "technologies": "Front end"
+//         },
+//         {
+//             "_id": "645bfb6fa1923e1f278c3ac5",
+//             "user_id": "645bc332e90e65aa49198da5",
+//             "name": "JavaScript",
+//             "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/320px-Unofficial_JavaScript_logo_2.svg.png",
+//             "technologies": "Front end"
+//         },
+//         {
+//             "_id": "645bfb9ca1923e1f278c3acd",
+//             "user_id": "645bc332e90e65aa49198da5",
+//             "name": "VTEX",
+//             "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/VTEX_Logo.svg/200px-VTEX_Logo.svg.png",
+//             "technologies": "Front end"
+//         },
+//         {
+//             "_id": "645bfbd4a1923e1f278c3ad5",
+//             "user_id": "645bc332e90e65aa49198da5",
+//             "name": "TypeScript",
+//             "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/300px-Typescript_logo_2020.svg.png",
+//             "technologies": "Front end"
+//         },
+//         {
+//             "_id": "645bfbffa1923e1f278c3add",
+//             "user_id": "645bc332e90e65aa49198da5",
+//             "name": "React",
+//             "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/React.svg/250px-React.svg.png",
+//             "technologies": "Front end"
+//         },
+//         {
+//             "_id": "645c0102a1923e1f278c3b10",
+//             "user_id": "645bc332e90e65aa49198da5",
+//             "name": "jQuery",
+//             "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/JQuery-Logo.svg/250px-JQuery-Logo.svg.png",
+//             "technologies": "Front end"
+//         },
+//         {
+//             "_id": "645c0842a1923e1f278c3b4e",
+//             "user_id": "645bc332e90e65aa49198da5",
+//             "name": "PostgreSQL",
+//             "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/200px-Postgresql_elephant.svg.png",
+//             "technologies": "Back end"
+//         },
+//         {
+//             "_id": "645c086ba1923e1f278c3b56",
+//             "user_id": "645bc332e90e65aa49198da5",
+//             "name": "Node.js",
+//             "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/200px-Node.js_logo.svg.png",
+//             "technologies": "Back end"
+//         },
+//         {
+//             "_id": "645c08b9a1923e1f278c3b5e",
+//             "user_id": "645bc332e90e65aa49198da5",
+//             "name": "Redux",
+//             "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Redux_Logo.png/250px-Redux_Logo.png",
+//             "technologies": "Front end"
+//         },
+//         {
+//             "_id": "645c09f3a1923e1f278c3b66",
+//             "user_id": "645bc332e90e65aa49198da5",
+//             "name": "React Router",
+//             "image": "https://reactrouter.com/favicon-dark.png",
+//             "technologies": "Front end"
+//         },
+//         {
+//             "_id": "645c0a67a1923e1f278c3b6e",
+//             "user_id": "645bc332e90e65aa49198da5",
+//             "name": "Sequelize",
+//             "image": "https://sequelize.org/img/logo.svg",
+//             "technologies": "Back end"
+//         },
+//         {
+//             "_id": "645c0ac0a1923e1f278c3b80",
+//             "user_id": "645bc332e90e65aa49198da5",
+//             "name": "Estudiante",
+//             "image": "https://upload.wikimedia.org/wikipedia/commons/e/e0/EST_NIVEL_EJECUTIVO_PONAL_COL.png",
+//             "technologies": "Otros"
+//         },
+//         {
+//             "_id": "645c0ad8a1923e1f278c3b89",
+//             "user_id": "645bc332e90e65aa49198da5",
+//             "name": "Patrullero",
+//             "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/PT_PONAL_COL.svg/60px-PT_PONAL_COL.svg.png",
+//             "technologies": "Otros"
+//         }
 //     ]
-// }
-// {
-//   "company": {
-//     "company": "ITGlobers",
-//     "image": "https://itglobers.com/assets/img/icons/apple-icon-114x114.png",
-//     "description": "Empresa de desarrollo de software especializada en comercio electrónico que impulsa los canales digitales ",
-//     "link": "https://itglobers.com",
-//     "start_date": "2022-11-08",
-//     "end_date": "Presente",
-//     "position": []
-//   },
-//   "position": {
-//       "name": "Front end developer Trainee",
-//       "start_date": "2022-11-08",
-//       "end_date": "2023-01-12",
-//       "function": []
-//   },
-//   "function": [
-//     {
-//       "name": "clon e-comerce",
-//       "link": "",
-//       "start_date": "2022-11-08",
-//       "end_date": "2023-01-12",
-//       "tecnologies": [
-//         "642efb150a00a77555ef105b",
-//         "642efb340a00a77555ef105d"
-//       ],
-//       "repository": "",
-//       "tasks": [
-//         "realizo la maquetación del proyecto",
-//         "desarrolle e implemente las tecnologías exigidas",
-//         "por parte del corrector aprobó el trabajo, cumpliendo con todo lo exigido"
-//       ]
-//     },
-//     {
-//       "name": "clon exito",
-//       "link": "",
-//       "start_date": "2022-11-08",
-//       "end_date": "2023-01-12",
-//       "tecnologies": [
-//         "642efb150a00a77555ef105b",
-//         "642efb340a00a77555ef105d"
-//       ],
-//       "repository": "",
-//       "tasks": [
-//         "realizo la maquetación del proyecto",
-//         "desarrolle e implemente las tecnologías exigidas",
-//         "por parte del corrector aprobó el trabajo, cumpliendo con todo lo exigido"
-//       ]
-//     }
-//   ]
-// }
-// {
-//   "name": "Redux",
-//   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Redux_Logo.png/250px-Redux_Logo.png",
-//   "tecnologies": "Front end"
-// }
-// {
-//   "name": "React",
-//   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/React.svg/250px-React.svg.png",
-//   "tecnologies": "Front end"
-// }
-// {
-//   "name": "Node.js",
-//   "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Redux_Logo.png/250px-Redux_Logo.png",
-//   "tecnologies": "Back end"
 // }
