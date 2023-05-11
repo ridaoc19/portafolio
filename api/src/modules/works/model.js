@@ -64,23 +64,9 @@ const technologiesSchema = new Schema(
   }
 );
 
-const workSchema = new Schema(
-  {
-    company: { type: Schema.Types.ObjectId, ref: "Company" },
-    position: {type: Schema.Types.ObjectId, ref: "Position"},
-    functions: {type: Schema.Types.ObjectId, ref: "Functions"},
-    technologies: [{type: Schema.Types.ObjectId, ref: "Technologies"}],
-  },
-  {
-    timestamps: false,
-    versionKey: false,
-  }
-);
-
 const Company = model("Company", companySchema);
 const Position = model("Position", positionSchema);
 const Functions = model("Functions", functionsSchema);
 const Technologies = model("Technologies", technologiesSchema);
-const Works = model("Works", workSchema);
 
-module.exports = { Company, Position, Functions, Technologies, Works };
+module.exports = { Company, Position, Functions, Technologies };

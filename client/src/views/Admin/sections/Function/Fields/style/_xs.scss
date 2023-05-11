@@ -112,7 +112,7 @@
                         height    : 100%;
                         padding   : 0.5rem;
                         overflow-y: scroll;
-                        border    : 4px dashed var(--main-color);
+                        border    : 4px solid var(--main-color);
 
                     }
                 }
@@ -234,8 +234,13 @@
                         align-items    : center;
 
                         img {
-                            height: 5rem;
+                            height: 8rem;
                         }
+                    }
+
+                    .-button {
+                        display        : flex;
+                        justify-content: space-between;
                     }
                 }
             }

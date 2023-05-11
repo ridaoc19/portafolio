@@ -2,6 +2,7 @@ import moment from "moment";
 import React, { useEffect } from "react";
 import { totalYear } from "../../../../../components/utils/function/date";
 import { PARAMS } from "../../../../../components/utils/function/variables";
+import Modal from "../../../../../components/Layout/Modal/Modal";
 
 function Fields({ change, handleOnChange, handleOnLoad, err, handleOnClick }) {
 
@@ -11,6 +12,11 @@ function Fields({ change, handleOnChange, handleOnLoad, err, handleOnClick }) {
 
   return (
     <>
+
+      <div className="company__modal-save">
+        <Modal header="Validación Login" children="Para registrar información debe iniciar sesión" />
+      </div>
+
       <div className="-name">
         <label >Empresa <span className="mandatory">*</span></label>
         <input type="text" onChange={handleOnChange} placeholder="Amazon" name="company_name" value={change.name} />

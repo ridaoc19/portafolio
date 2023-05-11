@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Tooltip from '../../../../../../../../../../../components/Layout/Tooltip/Tooltip';
 import { svg } from '../../../../../../../../../../../components/assets/svg';
+import Modal from '../../../../../../../../../../../components/Layout/Modal/Modal';
 
-function Render({ statusLocal, tooltip, information, state, handleOnClick }) {
+function Render({ statusLocal, tooltip, information, state, handleOnClick, dataModal }) {
   return (
     <>
+      <div className="company__modal-save">
+        <Modal header={dataModal.header} children={dataModal.children} />
+      </div>
+
       {tooltip &&
         <div className='-information'>
           {information?.map(i =>
@@ -22,16 +27,16 @@ function Render({ statusLocal, tooltip, information, state, handleOnClick }) {
             <li key={e._id}>
               {!tooltip && <>
                 <Tooltip text={`Eliminar ${e.name}`} color={"red"} position="top">
-                  <i id={e.user_id.user_id} name="delete" onClick={handleOnClick} value={e._id}>{svg({ type: "delete", color: "red" })}</i>
+                  <i id={e.user_id.user_id} name="delete" onClick={handleOnClick} value={e._id} data-text={e.name}>{svg({ type: "delete", color: "red" })}</i>
                 </Tooltip>
                 <Tooltip text={`Editar ${e.name}`} color={"green"} position="bottom">
-                  <i id={e.user_id.user_id} name="edit" onClick={handleOnClick} value={e._id}>{e.name}</i>
+                  <i id={e.user_id.user_id} name="edit" onClick={handleOnClick} value={e._id} data-text={e.name}>{e.name}</i>
                 </Tooltip>
               </>}
 
               {tooltip && <>
-                <i id={e.user_id.user_id} name="delete" onClick={handleOnClick} value={e._id}>{svg({ type: "delete", color: "red" })}</i>
-                <i id={e.user_id.user_id} name="edit" onClick={handleOnClick} value={e._id}>{e.name}</i>
+                <i id={e.user_id.user_id} name="delete" onClick={handleOnClick} value={e._id} data-text={e.name} >{svg({ type: "delete", color: "red" })}</i>
+                <i id={e.user_id.user_id} name="edit" onClick={handleOnClick} value={e._id} data-text={e.name} >{e.name}</i>
               </>}
             </li>
           );

@@ -1,10 +1,12 @@
 import React, { useContext, useEffect, useState } from 'react';
+import Modal from '../../../../components/Layout/Modal/Modal';
+import useOpenModal from '../../../../components/Layout/Modal/useOpenModal';
 import { COMPANY, DELETE, LOADING_API_COMPANY, POST } from '../../../../components/hooks/context/Admin/adminTypes';
 import CreateContext from '../../../../components/hooks/context/CreateContext';
 import Validation from '../../../../components/utils/function/Validation';
+import useValidation from '../../utils/useValidation';
 import Fields from './Fields/Fields';
 import Render from './Render/Render';
-import useValidation from '../../utils/useValidation';
 
 const initialState = {
   name: "",
@@ -17,6 +19,7 @@ const initialState = {
 
 function Company() {
   const { setValidation } = useValidation()
+  const { setModal, modal } = useOpenModal();
   const { login: { state: { user, loading_login } }, admin: { state, status, setStatus, callApi } } = useContext(CreateContext);
   const [change, setChange] = useState(initialState)
   const [err, setErr] = useState(initialState)
@@ -44,7 +47,7 @@ function Company() {
         setStatus({ company_fields: false, company_add: true, company_position_id: "", company_render: true })
         break
       case "save":
-        if (!user?._id) return alert("Debe Iniciar Sesión para registrar Información")
+        if (!user?._id) return setModal({ ...modal, avalible: true, animation: "mixInAnimations" })
         setStatus({ type: 'CLEAN' })
         callApi({ method: POST, route: COMPANY, loading: LOADING_API_COMPANY, post: Object.assign({ user_id: user._id }, change) })
         break
@@ -76,11 +79,12 @@ function Company() {
 
   return (
     <div className="company__container">
+
       {!user?._id && !loading_login
-      ? <div className="company__fields"><Fields handleOnChange={handleOnChange} handleOnLoad={handleOnLoad} handleOnClick={handleOnClick} change={change} err={err} /></div>
-    : state.loading_api_company
-        ? <h1>Cargando...</h1>
-        :  <div>
+        ? <div className="company__fields"><Fields handleOnChange={handleOnChange} handleOnLoad={handleOnLoad} handleOnClick={handleOnClick} change={change} err={err} /></div>
+        : state.loading_api_company
+          ? <h1>Cargando...</h1>
+          : <div>
             <div className="company__render">
               {status.company_render && <Render handleOnClick={handleOnClick} company={state.company} status={status} />}
             </div>
