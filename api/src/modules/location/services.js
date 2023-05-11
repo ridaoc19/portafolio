@@ -1,4 +1,4 @@
-const Location = require("./model");
+const { Location } = require("./model");
 const { handleHttp } = require("../../core/utils/error.handle");
 
 module.exports = {

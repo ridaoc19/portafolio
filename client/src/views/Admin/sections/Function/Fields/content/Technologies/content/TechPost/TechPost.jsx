@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import useOpenModal from '../../../../../../../../../components/Layout/Modal/useOpenModal';
 import { DELETE, LOADING_API_TECHNOLOGIES, POST, TECHNOLOGIES } from '../../../../../../../../../components/hooks/context/Admin/adminTypes';
 import CreateContext from '../../../../../../../../../components/hooks/context/CreateContext';
 import Validation from '../../../../../../../../../components/utils/function/Validation';
@@ -20,6 +21,7 @@ const initialStatus = {
 }
 
 function TechPost() {
+  const { setModal, modal } = useOpenModal();
   const { setValidation } = useValidation()
   const { login: { state: { user } }, admin: { state, status, callApi } } = useContext(CreateContext);
 
@@ -27,6 +29,7 @@ function TechPost() {
   const [err, setErr] = useState(initialState)
   const [statusLocal, setStatusLocal] = useState(initialStatus)
   const [tooltip, setTooltip] = useState(false)
+  const [dataModal, setDataModal] = useState({ header: "", children: "" })
 
 
   useEffect(() => {
@@ -44,6 +47,8 @@ function TechPost() {
     const name = e.target.attributes.getNamedItem("name").value
     const value = e.target.attributes?.getNamedItem("value")?.value
     const id = e.target.attributes?.getNamedItem("id")?.value
+    const text = e.target?.dataset?.text;
+
     e.preventDefault();
     switch (name) {
       case "add":
@@ -53,7 +58,11 @@ function TechPost() {
         setStatusLocal({ ...statusLocal, add: true, fields: false, render: true })
         break;
       case "edit":
-        if (id !== user.user_id) return alert("Solo puede editarlo la persona que lo creo")
+        if (id !== user.user_id) {
+          setDataModal({ header: "Validación", children: `A "${text}" solo lo puede editar la persona que lo creo` })
+          setModal({ ...modal, avalible: true, animation: "mixInAnimations" })
+          return
+        }
         setChange(state.technologies.find(t => t._id === value))
         setStatusLocal({ ...statusLocal, add: false, fields: true, render: false })
         return;
@@ -62,7 +71,11 @@ function TechPost() {
         break;
 
       case "delete":
-        if (id !== user.user_id) return alert("Solo lo puede eliminar la persona que lo creo")
+        if (id !== user.user_id) {
+          setDataModal({ header: "Validación", children: `A "${text}" solo puede eliminarlo la persona que lo creo` })
+          setModal({ ...modal, avalible: true, animation: "mixInAnimations" })
+          return;
+        }
         callApi({ method: DELETE, route: `${TECHNOLOGIES}/${status.position_function_id}/${user._id}`, loading: LOADING_API_TECHNOLOGIES, post: { _id: value } })
         return;
       default: break;
@@ -90,7 +103,7 @@ function TechPost() {
           <div>
             {statusLocal.render &&
               <div className='-render'>
-                <Render information={information} state={state} statusLocal={statusLocal} tooltip={tooltip} handleOnClick={handleOnClick} />
+                <Render information={information} state={state} statusLocal={statusLocal} tooltip={tooltip} handleOnClick={handleOnClick} dataModal={dataModal} />
               </div>}
 
             {statusLocal.fields &&
