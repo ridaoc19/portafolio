@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Tooltip from '../../../../../../../../../../../components/Layout/Tooltip/Tooltip';
 import { svg } from '../../../../../../../../../../../components/assets/svg';
 import Modal from '../../../../../../../../../../../components/Layout/Modal/Modal';

@@ -1,6 +1,10 @@
 import { STATUS } from "./adminTypes";
 
 export const initialStateStatus = {
+  // SIDEBAR
+  sidebar_company: true,
+  sidebar_education: false,
+
   // COMPANY
   company_add_position: false,
   company_fields: false,

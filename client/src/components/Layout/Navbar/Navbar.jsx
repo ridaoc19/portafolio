@@ -1,11 +1,15 @@
 import React, { useContext, useEffect } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Theme from "../../../views/Start/Theme/Theme";
 import { GET } from "../../hooks/context/Admin/adminTypes";
 import CreateContext from "../../hooks/context/CreateContext";
+import Sidebar from "../Sidebar/Sidebar";
 
 function Navbar() {
   const navigate = useNavigate();
+  let location = useLocation()
+
+  // console.log(location.pathname);
   const { login: { callApiLogin, state, logout } } = useContext(CreateContext)
 
   useEffect(() => {
@@ -37,17 +41,16 @@ function Navbar() {
   });
 
   return (
-    <div className="navbar__container">
-
-      <div className="-theme">
+    <div className="navbar__container" style={location.pathname !== "/admin"?{justifyContent: "space-between"}:{justifyContent: "flex-end"}}>
+     {location.pathname !== "/admin"?  <div className="-theme">
         <Theme />
-      </div>
+      </div>: <Sidebar />}
 
-      <div className="-link">
+      {location.pathname !== "/admin" && <div className="-link">
         <Link to={"/"}>main</Link>
-        <Link to={"/home"}>home</Link>
+        {location.pathname !== "/home" && <Link to={"/home"}>home</Link>}
         <Link to={"/admin"}>admin</Link>
-      </div>
+      </div>}
 
       <div className="-login">
         {state.user?.picture
@@ -66,6 +69,7 @@ function Navbar() {
           </div>
           : <Link to={"/login"}>Login</Link>}
       </div>
+
     </div>
   );
 }
