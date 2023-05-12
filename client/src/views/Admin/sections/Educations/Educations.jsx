@@ -16,7 +16,7 @@ const initialState = {
   end_date: "",
 }
 
-function Company() {
+function Educations() {
   const { setValidation } = useValidation()
   const { setModal, modal } = useOpenModal();
   const { login: { state: { user, loading_login } }, admin: { state, status, setStatus, callApi } } = useContext(CreateContext);
@@ -95,4 +95,4 @@ function Company() {
   );
 }
 
-export default Company;
+export default Educations;

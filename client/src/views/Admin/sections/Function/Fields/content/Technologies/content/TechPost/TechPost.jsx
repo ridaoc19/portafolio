@@ -34,6 +34,7 @@ function TechPost() {
 
   useEffect(() => {
     setValidation({ change, validate: ["name", "image", "technologies"], element: "technologies_save", image: "technologies_img" })
+    // eslint-disable-next-line
   }, [err, change, statusLocal])
 
   const handleOnChange = (e) => {

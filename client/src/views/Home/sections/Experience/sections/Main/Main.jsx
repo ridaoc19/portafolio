@@ -7,7 +7,6 @@ function Main({ experience }) {
   return (
     <>
       {experience?.map((e, i) => {
-        console.log(e.link === "");
         return (
           <div key={i} className="experiences__card--container">
             <div className="experiences__card--father">
