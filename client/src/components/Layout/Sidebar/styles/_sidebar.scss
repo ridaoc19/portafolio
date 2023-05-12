@@ -1,0 +1,130 @@
+.sidebar {
+    .hamburger {
+        position              : fixed;
+        background-color      : transparent;
+        left                  : 0;
+        top                   : 0;
+        height                : 1rem;
+        // width              : 30px;
+        margin                : 1.4rem;
+        -webkit-transform     : translate3d(0, 0, 0);
+        transform             : translate3d(0, 0, 0);
+        -webkit-transition    : -webkit-transform 0.25s cubic-bezier(0.05, 1.04, 0.72, 0.98);
+        transition            : transform 0.25s cubic-bezier(0.05, 1.04, 0.72, 0.98);
+        z-index               : 1002;
+        cursor                : pointer;
+        -webkit-user-select   : none;
+        -moz-user-select      : none;
+        -ms-user-select       : none;
+        user-select           : none;
+
+        &.is-active {
+            background-color: none;
+
+            .-top {
+                -webkit-transform: translateY(200%) rotate(45deg) !important;
+                -ms-transform    : translateY(200%) rotate(45deg) !important;
+                transform        : translateY(200%) rotate(45deg) !important;
+            }
+
+            .-mid {
+                opacity: 0;
+            }
+
+            .-bottom {
+                -webkit-transform: translateY(-200%) rotate(135deg) !important;
+                -ms-transform    : translateY(-200%) rotate(135deg) !important;
+                transform        : translateY(-200%) rotate(135deg) !important;
+            }
+        }
+
+        ._layer {
+            background        : var(--title-color);
+            margin-bottom     : 4px;
+            border-radius     : 2px;
+            width             : 28px;
+            height            : 4px;
+            opacity           : 1;
+            -webkit-transform : translate3d(0, 0, 0);
+            transform         : translate3d(0, 0, 0);
+            -webkit-transition: all 0.25s cubic-bezier(0.05, 1.04, 0.72, 0.98);
+            transition        : all 0.25s cubic-bezier(0.05, 1.04, 0.72, 0.98);
+            pointer-events    : none;
+        }
+
+        &:hover .-top {
+            -webkit-transform: translateY(-100%);
+            -ms-transform    : translateY(-100%);
+            transform        : translateY(-100%);
+        }
+
+        &:hover .-bottom {
+            -webkit-transform: translateY(100%);
+            -ms-transform    : translateY(100%);
+            transform        : translateY(100%);
+        }
+
+    }
+
+    .menuppal {
+        background-color: var(--body-color);
+        bottom          : 0;
+        height          : 100%;
+        left            : 0;
+        overflow-y      : auto;
+        position        : fixed;
+        top             : 0;
+        transform       : translate3d(0px, -100%, 0px);
+        transition      : transform 0.35s cubic-bezier(0.05, 1.04, 0.72, 0.98) 0s;
+        width           : 100%;
+        z-index         : 2;
+
+        &.is_active {
+            transform: translate3d(0px, 0px, 0px);
+        }
+
+        ul {
+            margin : 0;
+            padding: 0;
+            display: grid;
+            gap    : 2rem;
+
+            >li {
+                font-size      : 1.2rem;
+                height         : 3em;
+                display        : flex;
+                align-items    : center;
+                justify-content: center;
+
+                >button {
+                    width: 10rem;
+                }
+            }
+
+            .sidebar_header-container {
+                justify-content : space-between;
+                background-color: var(--container-color);
+
+                >.-button {
+                    width: 4rem;
+                }
+
+                >.-link {
+                    display              : grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    align-content        : center;
+                    gap                  : 20%;
+
+                    a {
+                        width: min-content;
+                    }
+                }
+
+                >.-theme {
+                    width: 4rem;
+                }
+            }
+        }
+    }
+
+}

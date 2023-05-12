@@ -5,6 +5,7 @@ import Company from "./sections/Company/Company";
 import Function from "./sections/Function/Function";
 import Position from "./sections/Position/Position";
 import { svg } from "../../components/assets/svg";
+import Educations from "./sections/Educations/Educations";
 
 function Admin() {
   const { login: { state: { user, loading_login } }, admin: { status, callApi, setStatus }, } = useContext(CreateContext);
@@ -18,42 +19,58 @@ function Admin() {
   return (
     <>
       <div className="admin_container">
-        <div className="admin_company">
-          <div className="company__title">
-            <h2>Empresa</h2>
-            <button id="admin_button"
-              onClick={(e) => {
-                e.preventDefault();
-                setStatus({ type: "CLEAN" });
-              }}>{svg({ type: "company" })}</button>
+        {status.sidebar_education && <section className="education">
+          <div className="admin_container-educations">
+            <div className="educations__title">
+              <h2>Educación</h2>
+              <button id="admin_button"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setStatus({ type: "CLEAN" });
+                }}>{svg({ type: "educations" })}</button>
+            </div>
+            <Educations />
+            <hr />
           </div>
-          <Company />
-          <hr />
-        </div>
-        <div className="admin_container-position">
-          <div className="position__title">
-            <h2>Cargo o grado en la empresa</h2>
-            <button id="admin_button"
-              onClick={(e) => {
-                e.preventDefault();
-                setStatus({ position_add_function: false, position_add: true, position_fields: false, position_render: true, position_function_id: "", function_fields: false, function_edit_id: "" })
-              }}>{svg({ type: "grade" })}</button>
+        </section>}
+        {status.sidebar_company && <section className="company">
+          <div className="admin_company">
+            <div className="company__title">
+              <h2>Empresa</h2>
+              <button id="admin_button"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setStatus({ type: "CLEAN" });
+                }}>{svg({ type: "company" })}</button>
+            </div>
+            <Company />
+            <hr />
           </div>
-          {status.company_add_position && <Position />}
-          <hr />
-        </div>
-        <div className="admin_container-function">
-          <div className="function__title">
-            <h2>Funciones o proyectos</h2>
-            <button id="admin_button"
-              onClick={(e) => {
-                e.preventDefault();
-                setStatus({ function_render: true, function_fields: false, function_add: true, function_edit_id: "" })
-              }}>{svg({ type: "computer" })}</button>
+          <div className="admin_container-position">
+            <div className="position__title">
+              <h2>Cargo o grado en la empresa</h2>
+              <button id="admin_button"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setStatus({ position_add_function: false, position_add: true, position_fields: false, position_render: true, position_function_id: "", function_fields: false, function_edit_id: "" })
+                }}>{svg({ type: "grade" })}</button>
+            </div>
+            {status.company_add_position && <Position />}
+            <hr />
           </div>
-          {status.position_add_function && <Function />}
-          <hr />
-        </div>
+          <div className="admin_container-function">
+            <div className="function__title">
+              <h2>Funciones o proyectos</h2>
+              <button id="admin_button"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setStatus({ function_render: true, function_fields: false, function_add: true, function_edit_id: "" })
+                }}>{svg({ type: "computer" })}</button>
+            </div>
+            {status.position_add_function && <Function />}
+            <hr />
+          </div>
+        </section>}
       </div>
     </>
   );
