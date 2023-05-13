@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import useOpenModal from '../../../../components/Layout/Modal/useOpenModal';
-import { COMPANY, DELETE, LOADING_API_COMPANY, POST } from '../../../../components/hooks/context/Admin/adminTypes';
+import { DELETE, LOADING_API_UNIVERSITY, POST, UNIVERSITY } from '../../../../components/hooks/context/Admin/adminTypes';
 import CreateContext from '../../../../components/hooks/context/CreateContext';
 import Validation from '../../../../components/utils/function/Validation';
 import useValidation from '../../utils/useValidation';
@@ -10,21 +10,18 @@ import Render from './Render/Render';
 const initialState = {
   name: "",
   image: "",
-  description: "",
   link: "",
-  start_date: "",
-  end_date: "",
 }
 
-function Educations() {
+function University() {
   const { setValidation } = useValidation()
   const { setModal, modal } = useOpenModal();
-  const { login: { state: { user, loading_login } }, admin: { state, status, setStatus, callApi } } = useContext(CreateContext);
+  const { login: { state: { user } }, admin: { state, status, setStatus, callApi } } = useContext(CreateContext);
   const [change, setChange] = useState(initialState)
   const [err, setErr] = useState(initialState)
 
   useEffect(() => {
-    setValidation({ change, validate: ["name", "image", "description", "link", "start_date", "end_date",], element: "company_save", image: "company_img" })
+    setValidation({ change, validate: ["name", "image", "link"], element: "university_save", image: "university_img" })
     // eslint-disable-next-line
   }, [err])
 
@@ -34,28 +31,29 @@ function Educations() {
     const value = e.target.attributes?.getNamedItem("value")?.value
 
     const nameInput = name.split("_").length > 2 ? name.split("_").slice(1).toString().replace(',', '_') : name.split("_")[1]
+    console.log(nameInput);
     switch (nameInput) {
       case "add":
-        setStatus({ company_fields: true, company_add: false, company_position_id: "", company_render: false })
+        setStatus({ university_fields: true, university_add: false, university_title_id: "", university_render: false })
         break
       case "edit":
-        setChange(state.company.find(d => d._id === value))
-        setStatus({ company_fields: true, position_add_function: false, company_add_position: false, company_add: false, company_position_id: value })
+        setChange(state.university.find(d => d._id === value))
+        setStatus({ university_fields: true, title_add_function: false, university_add_title: false, university_add: false, university_title_id: value })
         return
       case "clean":
-        setStatus({ company_fields: false, company_add: true, company_position_id: "", company_render: true })
+        setStatus({ university_fields: false, university_add: true, university_title_id: "", university_render: true })
         break
       case "save":
         if (!user?._id) return setModal({ ...modal, avalible: true, animation: "mixInAnimations" })
         setStatus({ type: 'CLEAN' })
-        callApi({ method: POST, route: COMPANY, loading: LOADING_API_COMPANY, post: Object.assign({ user_id: user._id }, change) })
+        callApi({ method: POST, route: UNIVERSITY, loading: LOADING_API_UNIVERSITY, post: Object.assign({ user_id: user._id }, change) })
         break
       case "delete":
         setStatus({ type: 'CLEAN' })
-        callApi({ method: DELETE, route: `${COMPANY}/${value}`, loading: LOADING_API_COMPANY })
+        callApi({ method: DELETE, route: `${UNIVERSITY}/${value}`, loading: LOADING_API_UNIVERSITY })
         break
-      case "add_position":
-        setStatus({ company_add_position: true, company_add: false, company_fields: false, company_position_id: value })
+      case "add_title":
+        setStatus({ university_add_title: true, university_add: false, university_fields: false, university_title_id: value })
         break
       default: return
     }
@@ -73,21 +71,19 @@ function Educations() {
 
   const handleOnLoad = (_e, s) => {
     setErr({ ...err, image: "" })
-    document.getElementById("company_img").parentNode.classList.add("borde_image")
+    document.getElementById("university_img").parentNode.classList.add("borde_image")
   }
 
   return (
-    <div className="company__container">
+    <div className="university__container">
 
-      {!user?._id && !loading_login
-        ? <div className="company__fields"><Fields handleOnChange={handleOnChange} handleOnLoad={handleOnLoad} handleOnClick={handleOnClick} change={change} err={err} /></div>
-        : state.loading_api_company
+      {state.loading_api_university
           ? <h1>Cargando...</h1>
           : <div>
-            <div className="company__render">
-              {status.company_render && <Render handleOnClick={handleOnClick} company={state.company} status={status} />}
+            <div className="university__render">
+              {status.university_render && <Render handleOnClick={handleOnClick} university={state.university} status={status} />}
             </div>
-            {status.company_fields && <div className="company__fields">
+            {status.university_fields && <div className="university__fields">
               <Fields handleOnChange={handleOnChange} handleOnLoad={handleOnLoad} handleOnClick={handleOnClick} change={change} err={err} />
             </div>}
           </div>}
@@ -95,4 +91,4 @@ function Educations() {
   );
 }
 
-export default Educations;
+export default University;

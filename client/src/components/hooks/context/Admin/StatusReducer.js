@@ -5,6 +5,21 @@ export const initialStateStatus = {
   sidebar_company: true,
   sidebar_education: false,
 
+
+// UNIVERSITY
+  university_add_title: false,
+  university_fields: false,
+  university_add: true,
+  university_render: true,
+  university_title_id: "",
+
+  // TITLE
+  title_add_position: false,
+  title_fields: false,
+  title_add: true,
+  title_render: true,
+  title_edit_id: "",
+
   // COMPANY
   company_add_position: false,
   company_fields: false,

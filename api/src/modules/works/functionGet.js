@@ -1,3 +1,4 @@
+const { University } = require("../education/model");
 const { Login } = require("../login/model");
 const { Company, Technologies, Position, Functions } = require("./model");
 
@@ -6,8 +7,11 @@ const companyGet = async (req, res, id) => {
     try {
         const login = await Login.findById({ _id: id})
         const company = await Company.find({ _id: login.company_id}).populate({ path: "position" }).sort({ start_date: 1 })
-        let technologies = Promise.resolve(Technologies.find().sort({ "start_date": 1 }).populate({ path: "user_id" }))
-        res.status(200).json({ company, technologies });
+        const technologies = await Technologies.find().sort({ "start_date": 1 }).populate({ path: "user_id" })
+        const education = await University.find({ _id: login.university_id }).populate('title_id').sort({ start_date: 1 })
+  
+        
+        res.status(200).json({ company, technologies, university: education , title: education.map(d => d.title_id).flat(Infinity)});
     } catch (error) {
         res.json({ message: error.message })
     }
