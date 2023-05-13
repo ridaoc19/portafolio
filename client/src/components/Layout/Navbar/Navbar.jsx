@@ -6,11 +6,9 @@ import CreateContext from "../../hooks/context/CreateContext";
 import Sidebar from "../Sidebar/Sidebar";
 
 function Navbar() {
-  const navigate = useNavigate();
-  let location = useLocation()
-
-  // console.log(location.pathname);
   const { login: { callApiLogin, state, logout } } = useContext(CreateContext)
+  const navigate = useNavigate();
+  const location = useLocation()
 
   useEffect(() => {
     sessionStorage?.login && !state.user?.user_id && callApiLogin({ method: GET, route: `login/${sessionStorage?.login}` })

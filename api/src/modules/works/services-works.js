@@ -1,3 +1,4 @@
+const { University } = require("../education/model");
 const { Location } = require("../location/model");
 const { Login } = require("../login/model");
 const { Company, Position, Technologies, Functions } = require("./model");
@@ -12,7 +13,9 @@ module.exports = {
       const position = await Position.find({ _id: company?.map(c => c.position).flat(Infinity) }).sort({ start_date: 1 })
       const functions = await Functions.find({ _id: position?.map(p => p.functions).flat(Infinity) }).populate('technologies').sort({ start_date: 1 })
       const technologies = await Technologies.find({ _id: functions?.map(f => f.technologies).flat(Infinity) }).sort({ start_date: 1 })
-      res.status(200).json({ company, position, functions, technologies });
+      const education = await University.find({ _id: login.university_id }).populate('title_id').sort({ start_date: 1 })
+      
+      res.status(200).json({ company, position, functions, technologies, education });
     } catch (error) {
       res.json({ message: error.message })
     }

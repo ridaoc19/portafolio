@@ -1,11 +1,10 @@
 import React, { useContext } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Theme from '../../../views/Start/Theme/Theme';
 import CreateContext from '../../hooks/context/CreateContext';
 
 const Sidebar = () => {
   const {  admin: { setStatus }, } = useContext(CreateContext);
-  let location = useLocation()
 
   const handleOnClick = (e) => {
     e.preventDefault();

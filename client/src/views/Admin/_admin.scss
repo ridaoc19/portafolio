@@ -1,6 +1,8 @@
 @import './sections/Company/company.scss';
 @import './sections/Position/position';
 @import './sections/Function/function';
+@import './sections/University/university';
+@import './sections/Title/title';
 @import './mixinAdmin';
 
 .admin_container{
@@ -8,8 +10,10 @@
     margin: 5%;
     @include admin__container-padding();
 
+    
+    .university__title,
+    .title__title,
     .function__title,
-    .educations__title,
     .position__title,
     .company__title{
         display: flex;
