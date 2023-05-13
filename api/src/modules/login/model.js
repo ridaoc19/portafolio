@@ -10,6 +10,7 @@ const loginSchema = new Schema(
     picture: { type: String },
     company: { type: String },
     company_id: [{ type: Schema.Types.ObjectId, ref: "Company" }],
+    university_id: [{ type: Schema.Types.ObjectId, ref: "University" }],
 
   },
   {
@@ -19,4 +20,5 @@ const loginSchema = new Schema(
 );
 
 const Login = model("Login", loginSchema);
+
 module.exports = { Login }

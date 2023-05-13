@@ -4,3 +4,6 @@ export const LOADING_API = 'LOADING_API', LOADING_API_COMPANY = 'loading_api_com
 
 export const COMPANY = 'company', POSITIONS = 'positions', FUNCTIONS = 'functions', TECHNOLOGIES = 'technologies'
 export const GET = 'GET', POST = 'POST', PUT = 'PUT', DELETE = 'DELETE'
+
+export const UNIVERSITY = 'education/university', TITLE = 'education/title'
+export const LOADING_API_UNIVERSITY = "LOADING_API_UNIVERSITY", LOADING_API_TITLE = "LOADING_API_TITLE"

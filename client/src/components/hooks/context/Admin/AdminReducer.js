@@ -5,13 +5,18 @@ export const initialState = {
   loading_api_position: false,
   loading_api_function: true,
   loading_api_technologies: false,
+  loading_api_university: false,
+  loading_api_title: false,
   company: [],
   functions: [],
-  technologies: []
+  technologies: [],
+  university: [],
+  title: [],
 };
 
 const AdminReducer = (state, action) => {
   const { payload, type } = action;
+
 
   switch (type) {
     case DATA_UPDATE:

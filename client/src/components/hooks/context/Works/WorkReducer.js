@@ -5,6 +5,7 @@ export const initialState = {
   position: [],
   functions: [],
   technologies: [],
+  education: [],
   loadingWork: true,
 };
 
@@ -16,7 +17,7 @@ export default (state, action) => {
     case GET_WORK:
       return {
         ...state, company: payload.company, position: payload.position, functions: payload.functions,
-        technologies: payload.technologies, loadingWork: false
+        technologies: payload.technologies, education: payload.education, loadingWork: false
       };
     case LOADING_API_WORK:
       return { ...state, loadingWork: true }
