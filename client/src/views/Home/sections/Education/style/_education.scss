@@ -1,0 +1,76 @@
+.home__education--container {
+    display: grid;
+    gap    : 2rem;
+
+    .home__education--content {
+        display: grid;
+        gap    : 0.5rem;
+
+        h3,
+        h6,
+        h4,
+        p,
+        ul {
+            margin : 0;
+            padding: 0;
+        }
+
+        .education__content--one {
+            display: flex;
+            gap    : 2%;
+
+            .education__content--image {
+                img {
+                    width: 3rem;
+                }
+            }
+
+            .education__content--title {
+                display           : grid;
+                grid-template-rows: 1.5rem;
+
+                a {
+                    text-decoration: none;
+                    color          : var(--main-color);
+                }
+
+            }
+        }
+
+        .education__content--two {
+            display: grid;
+            gap    : 0.5rem;
+
+            >ul {
+                padding      : 0.5rem;
+                display      : flex;
+                flex-wrap    : wrap;
+                gap          : 0.5rem;
+                box-shadow   : var(--container-shadow);
+                border-radius: 0.5rem;
+                max-height   : 5rem;
+                overflow-y   : auto;
+
+                >button {
+                    flex              : auto;
+                    display           : grid;
+                    grid-template-rows: repeat(2, min-content);
+                    gap               : 0.1rem;
+                    height            : min-content;
+
+                    >p {
+                        white-space  : nowrap;
+                        overflow     : hidden;
+                        text-overflow: ellipsis;
+
+                    }
+
+                    >i {
+                        font-size: xx-small;
+
+                    }
+                }
+            }
+        }
+    }
+}

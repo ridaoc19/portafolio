@@ -5,12 +5,28 @@
 .home__container {
     display: grid;
     @include home__container-padding();
-    gap: 1rem;
+    gap: 2rem;
+
+    .home__container--introduction,
+    .home__container--about,
+    .home__container--skill,
+    .home__container--experience,
+    .home__container--work,
+    .home__container--education,
+    .home__container--contact {
+        >h2 {
+            text-align: center;
+        }
+    }
 
     .home__container--about,
     .home__container--introduction {
         >p {
             text-align: justify;
         }
+    }
+
+    hr {
+        border-bottom: 1px solid var(--container-color);
     }
 }

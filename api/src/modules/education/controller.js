@@ -1,6 +1,6 @@
 const { Router } = require("express");
 const { postUniversity, getuniversity, deletUniversity } = require("./services-university");
-const { postTitle, getTitle, deletTitle } = require("./services-title");
+const { postTitle, deletTitle } = require("./services-title");
 
 const router = Router();
 
@@ -9,7 +9,6 @@ router.get("/university/:id", getuniversity);
 router.delete("/university/:id", deletUniversity)
 
 router.post("/title/:user_id", postTitle);
-// router.get("/title/:id", getTitle);
 router.delete("/title/:id/:user_id", deletTitle)
 
 

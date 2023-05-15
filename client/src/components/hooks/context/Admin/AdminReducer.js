@@ -11,7 +11,6 @@ export const initialState = {
   functions: [],
   technologies: [],
   university: [],
-  title: [],
 };
 
 const AdminReducer = (state, action) => {

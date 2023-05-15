@@ -11,8 +11,8 @@ export default function Validation(name, value, change, mandatory) {
       if (value.trim() === "") return error = { type: "Debe ingresar texto", stop: true }
       if (value.length < 3) {
         return error = { type: "Debe tener mas de 3 caracteres", stop: false }
-      } else if (value.length >= 45) {
-        return error = { type: "Solo debe tener hasta 45 caracteres", stop: true }
+      } else if (value.length >= 100) {
+        return error = { type: "Solo debe tener hasta 100 caracteres", stop: true }
       }
     } else return error = { type: "Este campo es obligatorio", stop: false }
   }

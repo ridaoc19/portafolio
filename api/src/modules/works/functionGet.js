@@ -1,6 +1,6 @@
 const { University } = require("../education/model");
 const { Login } = require("../login/model");
-const { Company, Technologies, Position, Functions } = require("./model");
+const { Company, Technologies, Position } = require("./model");
 
 
 const companyGet = async (req, res, id) => {
@@ -11,7 +11,7 @@ const companyGet = async (req, res, id) => {
         const education = await University.find({ _id: login.university_id }).populate('title_id').sort({ start_date: 1 })
   
         
-        res.status(200).json({ company, technologies, university: education , title: education.map(d => d.title_id).flat(Infinity)});
+        res.status(200).json({ company, technologies, university: education });
     } catch (error) {
         res.json({ message: error.message })
     }
