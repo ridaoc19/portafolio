@@ -21,7 +21,7 @@ const titleSchema = new Schema(
     start_date: { type: String },
     end_date: { type: String },
     description: { type: String },
-    certificate: { type: String },
+    image: { type: String },
   },
   {
     timestamps: false,

@@ -1,5 +1,5 @@
 const { Login } = require("../login/model");
-const { titleGet } = require("./functionGet");
+const { universityGet } = require("./functionGet");
 const { Title, University } = require("./model");
 
 module.exports = {
@@ -10,14 +10,14 @@ module.exports = {
       await University.findByIdAndUpdate(req.body.university_id, { $push: { title_id: title._id }, });
 
     } else if (req.body?._id) {
-      const { _id, name, start_date, end_date, description, certificate } = req.body;
-      await Title.findOneAndUpdate({ _id }, { name, start_date, end_date, description, certificate });
+      const { _id, name, start_date, end_date, description, image } = req.body;
+      await Title.findOneAndUpdate({ _id }, { name, start_date, end_date, description, image });
     }
-    titleGet(req, res, req.body.university_id)
+    universityGet(req, res, req.params.user_id)
   },
 
   getTitle(req, res) {
-    titleGet(req, res, req.params.id)
+    universityGet(req, res, req.params.user_id)
   },
 
   async deletTitle(req, res) {
@@ -26,7 +26,7 @@ module.exports = {
 
       await University.findByIdAndUpdate(title.university_id, { $pull: { title_id: req.params.id } })
 
-      titleGet(req, res, title.university_id)
+      universityGet(req, res, req.params.user_id)
 
     } catch (error) {
       res.json({ message: error.message })
