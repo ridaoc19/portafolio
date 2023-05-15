@@ -8,6 +8,7 @@ function Fields({ change, handleOnChange, handleOnLoad, err, handleOnClick }) {
 
   useEffect(() => {
     document.getElementById("company_save")?.setAttribute("disabled", "");
+    // eslint-disable-next-line
   }, []);
 
   return (

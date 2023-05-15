@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { DELETE, FUNCTIONS, GET, LOADING_API_FUNCTIONS, LOADING_API_POSITION, LOADING_API_TITLE, POSITIONS, POST, TITLE } from '../../../../components/hooks/context/Admin/adminTypes';
+import { DELETE, FUNCTIONS, GET, LOADING_API_FUNCTIONS, LOADING_API_TITLE, POST, TITLE } from '../../../../components/hooks/context/Admin/adminTypes';
 import CreateContext from '../../../../components/hooks/context/CreateContext';
 import Validation from '../../../../components/utils/function/Validation';
 import Fields from './Fields/Fields';
@@ -10,6 +10,8 @@ const initialState = {
   name: "",
   start_date: "",
   end_date: "",
+  description: "",
+  image: ""
 }
 
 function Title() {
@@ -20,7 +22,7 @@ function Title() {
   const [err, setErr] = useState(initialState)
 
   useEffect(() => {
-    setValidation({ change, validate: ["name", "start_date", "end_date",], element: "title_save" })
+    setValidation({ change, validate: ["name", "start_date", "end_date","description", "image"], element: "title_save" })
     // eslint-disable-next-line
   }, [err, change, status.title_fields])
 
@@ -42,12 +44,12 @@ function Title() {
         setStatus({ title_fields: false, title_add: true, title_render: true, title_function_id: "" })
         break
       case "save":
-        callApi({ method: POST, route: TITLE, loading: LOADING_API_TITLE, post: Object.assign({ company: status.company_title_id, user_id: user._id }, change) })
+        callApi({ method: POST, route: `${TITLE}/${user._id}`, loading: LOADING_API_TITLE, post: Object.assign({ university_id: status.university_title_id}, change) })
         setStatus({ title_fields: false, title_add: true, title_render: true })
         break
       case "delete":
         setStatus({ title_fields: false, title_add: true, title_render: true, title_add_function: false, title_function_id: "" })
-        callApi({ method: DELETE, route: `${TITLE}/${value}`, loading: LOADING_API_TITLE })
+        callApi({ method: DELETE, route: `${TITLE}/${value}/${user._id}`, loading: LOADING_API_TITLE })
         break
       case "add_title":
         callApi({ method: GET, route: `${FUNCTIONS}/${value}/${user._id}`, loading: LOADING_API_FUNCTIONS })
@@ -67,6 +69,11 @@ function Title() {
     setErr({ ...err, [nameInput]: type });
   }
 
+  const handleOnLoad = (_e, s) => {
+    setErr({ ...err, image: "" })
+    document.getElementById("company_img").parentNode.classList.add("borde_image")
+  }
+
   return (
     <div className="title__container">
       {state.loading_api_title ? <h1>Cargando...</h1> : <div>
@@ -74,7 +81,7 @@ function Title() {
           {status.title_render && <Render handleOnClick={handleOnClick} state={state.university?.find(d => d._id === status.university_title_id)} status={status} />}
         </div>
         {status.title_fields && <div className="title__fields">
-          <Fields handleOnChange={handleOnChange} handleOnClick={handleOnClick} change={change} err={err} />
+          <Fields handleOnChange={handleOnChange} handleOnClick={handleOnClick} change={change} err={err} handleOnLoad={handleOnLoad} />
         </div>}
       </div>}
     </div>
