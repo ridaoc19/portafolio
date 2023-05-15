@@ -23,6 +23,7 @@ function WorkState() {
     technologies: state.technologies,
     functions: state.functions,
     company: state.company,
+    education: state.education,
     position: state.position,//
   }
 }
