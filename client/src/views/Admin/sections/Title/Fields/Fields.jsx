@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
-import { totalYear } from "../../../../../components/utils/function/date";
 import moment from "moment";
+import React from "react";
+import { totalYear } from "../../../../../components/utils/function/date";
 
-function Fields({ change, handleOnChange, handleOnClick, err }) {
+function Fields({ change, handleOnChange, handleOnClick, err, handleOnLoad }) {
 
   return (
     <>
@@ -35,6 +35,21 @@ function Fields({ change, handleOnChange, handleOnClick, err }) {
             )}
           </div>
           )}
+      </div>
+
+      <div className="-description">
+        <label >Descriptión de la Empresa <span className="mandatory">*</span></label>
+        <textarea type="text" onChange={handleOnChange} placeholder="Es una corporación estadounidense de comercio electrónico y servicios de computación en la nube a todos los niveles con sede en la ciudad de Seattle, Washington." name="company_description" value={change.description} />
+        {err.description && <span className="err">{err.description}</span>}
+      </div>
+
+      <div className="-image">
+        <label >Logo de la Empresa <span className="mandatory">*</span></label>
+        <input type="url" onChange={handleOnChange} placeholder="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/320px-Amazon_logo.svg.png" name="company_image" value={change.image} />
+        <span className="err">{err.image}</span>
+        {<div>
+          <img id="company_img" name="company_img" onLoad={(e) => { handleOnLoad(e, "Load") }} src={change.image} alt="" />
+        </div>}
       </div>
 
       <div className="-button">

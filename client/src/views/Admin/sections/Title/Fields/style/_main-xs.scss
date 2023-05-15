@@ -1,11 +1,13 @@
 @media (min-width: map.get($respons, "xs")) {
-    $fields: -name, -start-date, -end-date, -button;
+    $fields: -name, -start-date, -end-date, -description, -image, -button;
 
     .title__fields {
         display: grid;
         grid-template-areas:
-            "-name       -name "
+            "-name       -name  "
             "-start-date -end-date"
+            "-description -description"
+            "-image       -image"
             "-button -button";
         grid-template-columns: 45% 50%;
         gap                  : 0.5rem 2.5%;
@@ -28,10 +30,31 @@
             height: 3rem;
         }
 
-        .-button>div {
-            display        : flex;
-            gap            : 2rem;
-            justify-content: space-between;
+        .-image {
+            grid-template-rows: 1.5rem min-content 1.2rem 10rem;
+            align-items       : start;
+
+            div {
+                border         : 4px dashed var(--main-color);
+                height         : 92%;
+                display        : flex;
+                justify-content: center;
+                align-items    : center;
+
+                img {
+                    height: 80%;
+                }
+            }
+        }
+
+        .-button {
+            grid-template-rows: 3rem;
+
+
+            >div {
+                display        : flex;
+                justify-content: space-between;
+            }
         }
     }
 }

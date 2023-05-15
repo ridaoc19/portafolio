@@ -8,9 +8,9 @@ router.post("/university", postUniversity);
 router.get("/university/:id", getuniversity);
 router.delete("/university/:id", deletUniversity)
 
-router.post("/title", postTitle);
-router.get("/title/:id", getTitle);
-router.delete("/title/:id", deletTitle)
+router.post("/title/:user_id", postTitle);
+// router.get("/title/:id", getTitle);
+router.delete("/title/:id/:user_id", deletTitle)
 
 
 module.exports = router;

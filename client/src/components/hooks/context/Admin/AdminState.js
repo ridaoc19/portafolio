@@ -10,7 +10,7 @@ function AdminState() {
   const callApi = async ({ method, route, loading, post }) => {
     dispatch({ type: LOADING_API, payload: { [loading]: true } })
 
-    fetch(`${process.env.REACT_APP_URL}/works/${route}`, {
+    fetch(`${process.env.REACT_APP_URL}/${route}`, {
       method: method,
       body: JSON.stringify(post),
       headers: { "Content-Type": "application/json" },

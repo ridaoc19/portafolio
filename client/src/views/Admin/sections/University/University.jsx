@@ -45,11 +45,11 @@ function University() {
         break
       case "save":
         if (!user?._id) return setModal({ ...modal, avalible: true, animation: "mixInAnimations" })
-        setStatus({ type: 'CLEAN' })
+        setStatus({ university_add: true, university_render: true, university_fields: false, university_title_id: "" });
         callApi({ method: POST, route: UNIVERSITY, loading: LOADING_API_UNIVERSITY, post: Object.assign({ user_id: user._id }, change) })
         break
       case "delete":
-        setStatus({ type: 'CLEAN' })
+        setStatus({ university_add: true, university_render: true, university_fields: false, university_title_id: "" });
         callApi({ method: DELETE, route: `${UNIVERSITY}/${value}`, loading: LOADING_API_UNIVERSITY })
         break
       case "add_title":
@@ -78,15 +78,15 @@ function University() {
     <div className="university__container">
 
       {state.loading_api_university
-          ? <h1>Cargando...</h1>
-          : <div>
-            <div className="university__render">
-              {status.university_render && <Render handleOnClick={handleOnClick} university={state.university} status={status} />}
-            </div>
-            {status.university_fields && <div className="university__fields">
-              <Fields handleOnChange={handleOnChange} handleOnLoad={handleOnLoad} handleOnClick={handleOnClick} change={change} err={err} />
-            </div>}
+        ? <h1>Cargando...</h1>
+        : <div>
+          <div className="university__render">
+            {status.university_render && <Render handleOnClick={handleOnClick} university={state.university} status={status} />}
+          </div>
+          {status.university_fields && <div className="university__fields">
+            <Fields handleOnChange={handleOnChange} handleOnLoad={handleOnLoad} handleOnClick={handleOnClick} change={change} err={err} />
           </div>}
+        </div>}
     </div>
   );
 }
