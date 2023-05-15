@@ -8,6 +8,7 @@ import Skills from "./sections/Skills/Skills";
 import User from "./sections/User/User";
 import Work from "./sections/Work/Work";
 import { LOADING_API_WORK } from "../../components/hooks/context/Works/types";
+import Education from "./sections/Education/Education";
 
 
 const Home = () => {
@@ -40,24 +41,36 @@ const Home = () => {
           <section className="home__container--user">
             <User flagAdmin={flagAdmin} visitors={visitors} user={user} handleOnChange={handleOnChange} getUser={getUser} />
           </section>
-          {flagAdmin && <section className="home__container--introduction">
-            <Introduction />
-          </section>}
-          {flagAdmin && <section className="home__container--about">
-            <About />
-          </section>}
+          {flagAdmin &&
+            <section className="home__container--introduction">
+              <Introduction />
+              <hr />
+            </section>}
+          {flagAdmin &&
+            <section className="home__container--about">
+              <About />
+              <hr />
+            </section>}
           <section className="home__container--skill">
             <Skills />
+            <hr />
           </section>
           <section className="home__container--experience">
             <Experiences />
+            <hr />
           </section>
           <section className="home__container--work">
             <Work />
+            <hr />
           </section>
-          {flagAdmin && <section className="home__container--contact">
-            <Contact />
-          </section>}
+          <section className="home__container--education">
+            <Education />
+            <hr />
+          </section>
+          {flagAdmin &&
+            <footer className="home__container--contact">
+              <Contact />
+            </footer>}
         </div>}
     </>
   );

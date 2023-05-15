@@ -5,7 +5,9 @@
     gap            : 1rem;
 
     >div>select {
-        margin: 5px 0;
-        height: 2rem;
+        width: 11rem;
+        margin: 1rem;
+        background-color: var(--container-color);
+        color: var(--title-color);
     }
 }

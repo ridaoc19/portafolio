@@ -16,10 +16,6 @@ module.exports = {
     universityGet(req, res, req.params.user_id)
   },
 
-  getTitle(req, res) {
-    universityGet(req, res, req.params.user_id)
-  },
-
   async deletTitle(req, res) {
     try {
       const title = await Title.findByIdAndDelete(req.params.id)

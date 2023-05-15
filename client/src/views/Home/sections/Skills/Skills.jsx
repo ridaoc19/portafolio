@@ -6,7 +6,7 @@ function Skills() {
 
   return (
     <>
-      <h3>Habilidades</h3>
+      <h2>Habilidades</h2>
       <h4>Frondtend</h4>
 
       <ul className="home__skill--container">
