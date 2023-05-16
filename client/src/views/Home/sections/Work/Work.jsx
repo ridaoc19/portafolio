@@ -27,10 +27,10 @@ const Work = () => {
                       ? formatDate(e.end_date).state
                       : formatDate(e.end_date).date})`}
                   </h6>
+                  <p>{e.description}</p>
                 </div>
               </div>
-              <div className="work__content--two">
-                <p>{e.description}</p>
+              {e.position.length !== 0 && <div className="work__content--two">
                 <h4>Cargos desempeñados</h4>
                 <ul >
                   {e.position?.map((e, i) =>
@@ -47,7 +47,7 @@ const Work = () => {
                     </div>
                   )}
                 </ul>
-              </div>
+              </div>}
             </div>
           );
         })}
