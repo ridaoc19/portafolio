@@ -1,31 +1,33 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
+import CreateContext from '../../hooks/context/CreateContext';
 import './style/modal.scss';
-import useOpenModal from './useOpenModal';
 
 function Modal({ children, header }) {
-  const { setModal, modal } = useOpenModal();
+  const { modal: { setModal, modal } } = useContext(CreateContext);
+
+  useEffect(() => {
+    const element = document?.getElementById(modal.element)?.children?.modal
+    if (modal.avalible) {
+      element?.setAttribute("data-animation", modal.animation);
+      element?.classList.add("is-visible")
+    } else if (!modal.avalible) {
+      element?.classList.remove("is-visible");
+      setModal({ ...modal, element: "" })
+    }
+  }, [modal.avalible])
+
+  const close = () => {
+    setModal({ ...modal, avalible: false, animation: "" })
+  }
 
   const handleOnClick = (e) => {
     e.preventDefault();
-    setModal({ ...modal, avalible: false })
+    if (e.target.className === "modal is-visible" || e.target.className === "close-modal") return close()
   }
-
-  document.addEventListener("click", e => {
-    if (e.target === document.querySelector(".modal.is-visible")) {
-      setModal({ ...modal, avalible: false })
-    }
-  });
-
-  document.addEventListener("keyup", e => {
-    if (e.key === "Escape" && document.querySelector(".modal.is-visible")) {
-      setModal({ ...modal, avalible: false })
-    }
-  });
-
 
   return (
     <>
-      <div className="modal" id="modal" data-animation="">
+      <div className="modal" id="modal" data-animation="" onClick={handleOnClick} >
         <div className="modal-dialog">
           <header className="modal-header">
             <h3>{header}</h3>

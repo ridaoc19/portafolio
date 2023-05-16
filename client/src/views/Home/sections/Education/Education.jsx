@@ -1,14 +1,32 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
+import Modal from "../../../../components/Layout/Modal/Modal";
 import CreateContext from '../../../../components/hooks/context/CreateContext';
 import { formatDate, totalYear } from '../../../../components/utils/function/date';
+import ModalEducation from "./Modal/ModalEducation";
 
 const Education = () => {
-  const { works: { education } } = useContext(CreateContext);
+  const { works: { education }, modal: { setModal, modal } } = useContext(CreateContext);
+  const [modalContent, setModalContent] = useState({})
+
+  const handleOnClick = (e) => {
+    const { id } = e.target
+    e.preventDefault()
+
+    setModalContent(education.map(e => e?.title_id?.filter(d => d?._id.includes(id))).flat(Infinity)[0])
+    setModal({ ...modal, avalible: true, animation: "slideInOutLeft", element: "education__modal-title" })
+  }
 
   return (
     <>
       <h2>Lo que he estudiando</h2>
+      <div id="education__modal-title">
+        <Modal header={modalContent.name} >
+          <ModalEducation modalContent={modalContent} />
+        </Modal>
+      </div>
       <div className="home__education--container">
+
+
         {education?.map((e, i) => {
 
           return (
@@ -34,7 +52,7 @@ const Education = () => {
                 {education.map(d => d.title_id).flat(Infinity).length !== 0 && <h4>Títulos académicos</h4>}
                 <ul >
                   {e.title_id?.map((e, i) =>
-                    <button key={i}>
+                    <button key={i} id={e._id} onClick={handleOnClick}>
                       <p>{e.name}</p>
                       <i>
                         {totalYear(e.start_date, e.end_date === "Presente" ? Date.now() : e.end_date)}

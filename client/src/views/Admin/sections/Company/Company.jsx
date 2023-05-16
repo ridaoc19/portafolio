@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import useOpenModal from '../../../../components/Layout/Modal/useOpenModal';
+import Modal from '../../../../components/Layout/Modal/Modal';
 import { COMPANY, DELETE, LOADING_API_COMPANY, POST } from '../../../../components/hooks/context/Admin/adminTypes';
 import CreateContext from '../../../../components/hooks/context/CreateContext';
 import Validation from '../../../../components/utils/function/Validation';
@@ -18,8 +18,7 @@ const initialState = {
 
 function Company() {
   const { setValidation } = useValidation()
-  const { setModal, modal } = useOpenModal();
-  const { login: { state: { user, loading_login } }, admin: { state, status, setStatus, callApi } } = useContext(CreateContext);
+  const { login: { state: { user, loading_login } }, admin: { state, status, setStatus, callApi }, modal: { setModal, modal } } = useContext(CreateContext);
   const [change, setChange] = useState(initialState)
   const [err, setErr] = useState(initialState)
 
@@ -46,7 +45,7 @@ function Company() {
         setStatus({ company_fields: false, company_add: true, company_position_id: "", company_render: true })
         break
       case "save":
-        if (!user?._id) return setModal({ ...modal, avalible: true, animation: "mixInAnimations" })
+        if (!user?._id) return setModal({ ...modal, avalible: true, animation: "mixInAnimations", element: "company__modal-save" })
         setStatus({ type: 'CLEAN' })
         callApi({ method: POST, route: COMPANY, loading: LOADING_API_COMPANY, post: Object.assign({ user_id: user._id }, change) })
         break
@@ -78,6 +77,9 @@ function Company() {
 
   return (
     <div className="company__container">
+      <div id="company__modal-save">
+        <Modal header="Validación Login" children="Para registrar información de la empresa, debe iniciar sesión" />
+      </div>
 
       {!user?._id && !loading_login
         ? <div className="company__fields"><Fields handleOnChange={handleOnChange} handleOnLoad={handleOnLoad} handleOnClick={handleOnClick} change={change} err={err} /></div>

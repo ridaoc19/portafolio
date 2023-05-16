@@ -45,9 +45,9 @@ function Navbar() {
       </div>: <Sidebar />}
 
       {location.pathname !== "/admin" && <div className="-link">
-        <Link to={"/"}>main</Link>
+        <Link to={"/"}>Main</Link>
         {location.pathname !== "/home" && <Link to={"/home"}>home</Link>}
-        <Link to={"/admin"}>admin</Link>
+        <Link to={"/admin"}>Admin</Link>
       </div>}
 
       <div className="-login">

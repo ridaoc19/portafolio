@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from 'react';
-import useOpenModal from '../../../../components/Layout/Modal/useOpenModal';
 import { DELETE, LOADING_API_UNIVERSITY, POST, UNIVERSITY } from '../../../../components/hooks/context/Admin/adminTypes';
 import CreateContext from '../../../../components/hooks/context/CreateContext';
 import Validation from '../../../../components/utils/function/Validation';
 import useValidation from '../../utils/useValidation';
 import Fields from './Fields/Fields';
 import Render from './Render/Render';
+import Modal from '../../../../components/Layout/Modal/Modal';
 
 const initialState = {
   name: "",
@@ -15,8 +15,7 @@ const initialState = {
 
 function University() {
   const { setValidation } = useValidation()
-  const { setModal, modal } = useOpenModal();
-  const { login: { state: { user } }, admin: { state, status, setStatus, callApi } } = useContext(CreateContext);
+  const { login: { state: { user } }, admin: { state, status, setStatus, callApi }, modal: { setModal, modal } } = useContext(CreateContext);
   const [change, setChange] = useState(initialState)
   const [err, setErr] = useState(initialState)
 
@@ -31,7 +30,6 @@ function University() {
     const value = e.target.attributes?.getNamedItem("value")?.value
 
     const nameInput = name.split("_").length > 2 ? name.split("_").slice(1).toString().replace(',', '_') : name.split("_")[1]
-    console.log(nameInput);
     switch (nameInput) {
       case "add":
         setStatus({ university_fields: true, university_add: false, university_title_id: "", university_render: false })
@@ -44,7 +42,7 @@ function University() {
         setStatus({ university_fields: false, university_add: true, university_title_id: "", university_render: true })
         break
       case "save":
-        if (!user?._id) return setModal({ ...modal, avalible: true, animation: "mixInAnimations" })
+        if (!user?._id) return setModal({ ...modal, avalible: true, animation: "mixInAnimations", element: "university__modal-save" })
         setStatus({ university_add: true, university_render: true, university_fields: false, university_title_id: "" });
         callApi({ method: POST, route: UNIVERSITY, loading: LOADING_API_UNIVERSITY, post: Object.assign({ user_id: user._id }, change) })
         break
@@ -76,6 +74,9 @@ function University() {
 
   return (
     <div className="university__container">
+      <div id="university__modal-save">
+        <Modal header="Validación Login" children="Para registrar información de educación, debe iniciar sesión" />
+      </div>
 
       {state.loading_api_university
         ? <h1>Cargando...</h1>
