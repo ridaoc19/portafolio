@@ -120,7 +120,7 @@
         }
 
         >.-technologies {
-            grid-template-rows: min-content 25rem;
+            grid-template-rows: min-content 0 25rem;
             align-items       : none;
 
             .admin__technologies-title {
@@ -147,6 +147,7 @@
                 .technologies__content {
                     border    : 4px solid var(--container-color);
                     overflow-y: auto;
+                    height    : 24rem;
 
                     >div>ul {
                         margin   : 0.2rem;

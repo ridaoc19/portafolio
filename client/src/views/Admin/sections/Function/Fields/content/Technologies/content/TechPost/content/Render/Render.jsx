@@ -1,15 +1,10 @@
 import React from 'react';
 import Tooltip from '../../../../../../../../../../../components/Layout/Tooltip/Tooltip';
 import { svg } from '../../../../../../../../../../../components/assets/svg';
-import Modal from '../../../../../../../../../../../components/Layout/Modal/Modal';
 
-function Render({ statusLocal, tooltip, information, state, handleOnClick, dataModal }) {
+function Render({ statusLocal, tooltip, information, state, handleOnClick }) {
   return (
     <>
-      <div className="company__modal-save">
-        <Modal header={dataModal.header} children={dataModal.children} />
-      </div>
-
       {tooltip &&
         <div className='-information'>
           {information?.map(i =>

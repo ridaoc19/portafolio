@@ -59,15 +59,15 @@
                     height            : min-content;
 
                     >p {
-                        white-space  : nowrap;
-                        overflow     : hidden;
-                        text-overflow: ellipsis;
-
+                        white-space   : nowrap;
+                        overflow      : hidden;
+                        text-overflow : ellipsis;
+                        pointer-events: none;
                     }
 
                     >i {
-                        font-size: xx-small;
-
+                        font-size     : xx-small;
+                        pointer-events: none;
                     }
                 }
             }

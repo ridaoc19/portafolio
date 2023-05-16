@@ -41,8 +41,8 @@ const Sidebar = () => {
             </div>
 
             <div className="-link">
-              <Link to={"/"}>main</Link>
-              <Link to={"/home"}>home</Link>
+              <Link to={"/"}>Main</Link>
+              <Link to={"/home"}>Home</Link>
             </div>
 
             <div className="-theme">
