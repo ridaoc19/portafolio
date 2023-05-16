@@ -34,7 +34,7 @@ function Modal({ children, header }) {
             <button className="close-modal" onClick={handleOnClick} >✕</button>
           </header>
           <section className="modal-content">
-            <p>{children}</p>
+            <div>{children}</div>
           </section>
         </div>
       </div>

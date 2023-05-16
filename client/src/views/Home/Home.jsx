@@ -1,20 +1,40 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
+import Modal from "../../components/Layout/Modal/Modal";
 import CreateContext from "../../components/hooks/context/CreateContext";
+import { LOADING_API_WORK } from "../../components/hooks/context/Works/types";
+import ModalScroll from "./ModalScroll/ModalScroll";
 import About from "./sections/About/About";
 import Contact from "./sections/Contact/Contact";
+import Education from "./sections/Education/Education";
 import Experiences from "./sections/Experience/Experiences";
 import Introduction from "./sections/Introduction/Introduction";
 import Skills from "./sections/Skills/Skills";
 import User from "./sections/User/User";
 import Work from "./sections/Work/Work";
-import { LOADING_API_WORK } from "../../components/hooks/context/Works/types";
-import Education from "./sections/Education/Education";
 
 
 const Home = () => {
-  const { login: { state: { user, visitors } }, works: { getWork, loadingWork, dispatch } } = useContext(CreateContext)
+  const { login: { state: { user, visitors } }, works: { getWork, loadingWork, dispatch }, modal: { setModal, modal } } = useContext(CreateContext)
+  const scrollRef = useRef();
   const [flagAdmin, setFlagAdmin] = useState(false)
   const [getUser, setGetUser] = useState("")
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const { y } = scrollRef?.current?.getBoundingClientRect()
+
+      if (sessionStorage?.scroll) window.removeEventListener('scroll', handleScroll)
+      if (y < 90 && y > 80 && !sessionStorage?.scroll) {
+        sessionStorage.scroll = true
+        setModal({ ...modal, avalible: true, animation: "slideInOutLeft", element: "home__modal-scroll" })
+        window.removeEventListener('scroll', handleScroll)
+      }
+    }
+    window.addEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  }, [])
 
   useEffect(() => {
     getWork({ route: user?.user_id ? user?.user_id : `${process.env.REACT_APP_DEFAULT_USER_LOGIN}` })
@@ -38,7 +58,12 @@ const Home = () => {
     <>
       {!loadingWork &&
         <div className="home__container">
-          <section className="home__container--user">
+          <div id="home__modal-scroll">
+            <Modal header="Instrucciones para interactuar con la pagina" >
+              {<ModalScroll />}
+            </Modal>
+          </div>
+          <section ref={scrollRef} className="home__container--user">
             <User flagAdmin={flagAdmin} visitors={visitors} user={user} handleOnChange={handleOnChange} getUser={getUser} />
           </section>
           {flagAdmin &&
