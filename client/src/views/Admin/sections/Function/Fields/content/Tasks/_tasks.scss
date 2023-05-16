@@ -1,9 +1,0 @@
-@media (min-width: map.get($respons, "xs")) {
-    @import './style/xs';
-   
-}
-
-@media (min-width: map.get($respons, "sm")) {
-    @import './style/sm';
-
-}

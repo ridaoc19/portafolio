@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import useOpenModal from '../../../../../../../../../components/Layout/Modal/useOpenModal';
+import Modal from '../../../../../../../../../components/Layout/Modal/Modal';
 import { DELETE, LOADING_API_TECHNOLOGIES, POST, TECHNOLOGIES } from '../../../../../../../../../components/hooks/context/Admin/adminTypes';
 import CreateContext from '../../../../../../../../../components/hooks/context/CreateContext';
 import Validation from '../../../../../../../../../components/utils/function/Validation';
@@ -21,9 +21,8 @@ const initialStatus = {
 }
 
 function TechPost() {
-  const { setModal, modal } = useOpenModal();
+  const { login: { state: { user } }, admin: { state, status, callApi }, modal: { setModal, modal } } = useContext(CreateContext);
   const { setValidation } = useValidation()
-  const { login: { state: { user } }, admin: { state, status, callApi } } = useContext(CreateContext);
 
   const [change, setChange] = useState(initialState)
   const [err, setErr] = useState(initialState)
@@ -61,7 +60,7 @@ function TechPost() {
       case "edit":
         if (id !== user.user_id) {
           setDataModal({ header: "Validación", children: `A "${text}" solo lo puede editar la persona que lo creo` })
-          setModal({ ...modal, avalible: true, animation: "mixInAnimations" })
+          setModal({ ...modal, avalible: true, animation: "mixInAnimations", element: "functions__modal-tech" })
           return
         }
         setChange(state.technologies.find(t => t._id === value))
@@ -74,7 +73,7 @@ function TechPost() {
       case "delete":
         if (id !== user.user_id) {
           setDataModal({ header: "Validación", children: `A "${text}" solo puede eliminarlo la persona que lo creo` })
-          setModal({ ...modal, avalible: true, animation: "mixInAnimations" })
+          setModal({ ...modal, avalible: true, animation: "mixInAnimations", element: "functions__modal-tech" })
           return;
         }
         callApi({ method: DELETE, route: `${TECHNOLOGIES}/${status.position_function_id}/${user._id}`, loading: LOADING_API_TECHNOLOGIES, post: { _id: value } })
@@ -99,12 +98,15 @@ function TechPost() {
 
   return (
     <>
+      <div id="functions__modal-tech">
+        <Modal header={dataModal.header} children={dataModal.children} />
+      </div>
       {state.loading_api_technologies ? <h3>Cargando...</h3>
         : <div className='technologies-post-container'>
           <div>
             {statusLocal.render &&
               <div className='-render'>
-                <Render information={information} state={state} statusLocal={statusLocal} tooltip={tooltip} handleOnClick={handleOnClick} dataModal={dataModal} />
+                <Render information={information} state={state} statusLocal={statusLocal} tooltip={tooltip} handleOnClick={handleOnClick} />
               </div>}
 
             {statusLocal.fields &&
