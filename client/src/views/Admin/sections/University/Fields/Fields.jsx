@@ -11,14 +11,14 @@ function Fields({ change, handleOnChange, handleOnLoad, err, handleOnClick }) {
     <>
 
       <div className="-name">
-        <label >Empresa <span className="mandatory">*</span></label>
-        <input type="text" onChange={handleOnChange} placeholder="Amazon" name="university_name" value={change.name} />
+        <label >Universidad o centro educativo<span className="mandatory">*</span></label>
+        <input type="text" onChange={handleOnChange} placeholder="Universidad de Antioquia" name="university_name" value={change.name} />
         {err.name && <span className="err">{err.name}</span>}
       </div>
 
       <div className="-image">
-        <label >Logo de la Empresa <span className="mandatory">*</span></label>
-        <input type="url" onChange={handleOnChange} placeholder="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/320px-Amazon_logo.svg.png" name="university_image" value={change.image} />
+        <label >Logo del centro educativo<span className="mandatory">*</span></label>
+        <input type="url" onChange={handleOnChange} placeholder="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Escudo-UdeA.svg/240px-Escudo-UdeA.svg.png" name="university_image" value={change.image} />
         <span className="err">{err.image}</span>
         {<div>
           <img id="university_img" name="university_img" onLoad={(e) => { handleOnLoad(e, "Load") }} src={change.image} alt="" />
@@ -27,7 +27,7 @@ function Fields({ change, handleOnChange, handleOnLoad, err, handleOnClick }) {
 
       <div className="-web">
         <label >Sitio web <span className="mandatory">*</span></label>
-        <input type="url" onChange={handleOnChange} placeholder="https://www.amazon.es" name="university_link" value={change.link} />
+        <input type="url" onChange={handleOnChange} placeholder="https://www.udea.edu.co" name="university_link" value={change.link} />
         {err.link && <span className="err">{err.link}</span>}
         {!err.link && change.link &&
           (<button onClick={(e) => {

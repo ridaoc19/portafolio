@@ -21,8 +21,8 @@ const Education = () => {
       <h2>Lo que he estudiando</h2>
       <div id="education__modal-title">
         <Modal header={modalContent.name} >
-          <ModalEducation modalContent={modalContent} />
-        </Modal>
+          {Object.keys(modalContent).length !== 0 && <ModalEducation  modalContent={modalContent} />}
+                  </Modal>
       </div>
       <div className="home__education--container">
 
@@ -48,8 +48,8 @@ const Education = () => {
               </div>
 
 
-              <div className="education__content--two">
-                {education.map(d => d.title_id).flat(Infinity).length !== 0 && <h4>Títulos académicos</h4>}
+              {education.map(d => d.title_id).flat(Infinity).length !== 0 && <div className="education__content--two">
+                <h4>Títulos académicos</h4>
                 <ul >
                   {e.title_id?.map((e, i) =>
                     <button key={i} id={e._id} onClick={handleOnClick}>
@@ -63,7 +63,8 @@ const Education = () => {
                     </button>
                   )}
                 </ul>
-              </div>
+              </div>}
+
             </div>
           );
         })}

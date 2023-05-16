@@ -22,6 +22,7 @@ function Admin() {
       <div className="admin_container">
         {status.sidebar_education &&
           <section className="education">
+
             <div className="admin_container-university">
               <div className="university__title">
                 <h2>Educación</h2>
@@ -29,7 +30,7 @@ function Admin() {
                   onClick={(e) => {
                     e.preventDefault();
                     setStatus({ university_add_title: false, university_add: true, title_render: true, title_add: true, university_title_id: "" });
-                  }}>{svg({ type: "educations" })}</button>
+                  }}>{svg({ type: "university" })}</button>
               </div>
               <University />
               <hr />
@@ -41,7 +42,7 @@ function Admin() {
                 <button id="admin_button"
                   onClick={(e) => {
                     e.preventDefault();
-                    // setStatus({ type: "CLEAN" });
+                    setStatus({ title_fields: false, title_add: true, title_render: true, title_function_id: "" })
                   }}>{svg({ type: "educations" })}</button>
               </div>
               {status.university_add_title && <Title />}
