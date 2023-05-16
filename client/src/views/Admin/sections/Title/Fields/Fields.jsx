@@ -7,8 +7,8 @@ function Fields({ change, handleOnChange, handleOnClick, err, handleOnLoad }) {
   return (
     <>
       <div className="-name">
-        <label >Cargo o Grado <span className="mandatory">*</span></label>
-        <input type="text" onChange={handleOnChange} placeholder="Front end developer Junior" name="title_name" value={change.name} />
+        <label >Titulo academico<span className="mandatory">*</span></label>
+        <input type="text" onChange={handleOnChange} placeholder="Técnico en redes de datos" name="title_name" value={change.name} />
         {err.name && <span className="err">{err.name}</span>}
       </div>
 
@@ -38,14 +38,14 @@ function Fields({ change, handleOnChange, handleOnClick, err, handleOnLoad }) {
       </div>
 
       <div className="-description">
-        <label >Descriptión de la Empresa <span className="mandatory">*</span></label>
-        <textarea type="text" onChange={handleOnChange} placeholder="Es una corporación estadounidense de comercio electrónico y servicios de computación en la nube a todos los niveles con sede en la ciudad de Seattle, Washington." name="company_description" value={change.description} />
+        <label >Descripción de titulo <span className="mandatory">*</span></label>
+        <textarea type="text" onChange={handleOnChange} placeholder="Planear, implementar, administrar y dar soporte a redes de datos y elementos de telecomunicaciones, de acuerdo con las políticas establecidas para su operación." name="company_description" value={change.description} />
         {err.description && <span className="err">{err.description}</span>}
       </div>
 
       <div className="-image">
-        <label >Logo de la Empresa <span className="mandatory">*</span></label>
-        <input type="url" onChange={handleOnChange} placeholder="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/320px-Amazon_logo.svg.png" name="company_image" value={change.image} />
+        <label >Certificado<span className="mandatory">*</span></label>
+        <input type="url" onChange={handleOnChange} placeholder="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/Escudo-UdeA.svg/240px-Escudo-UdeA.svg.png" name="company_image" value={change.image} />
         <span className="err">{err.image}</span>
         {<div>
           <img id="company_img" name="company_img" onLoad={(e) => { handleOnLoad(e, "Load") }} src={change.image} alt="" />
