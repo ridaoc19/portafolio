@@ -39,7 +39,7 @@ function Navbar() {
   });
 
   return (
-    <div className="navbar__container" style={location.pathname !== "/admin"?{justifyContent: "space-between"}:{justifyContent: "flex-end"}}>
+    <div className="navbar__container" style={location.pathname !== "/admin"?{justifyContent: "space-around"}:{justifyContent: "flex-end"}}>
      {location.pathname !== "/admin"?  <div className="-theme">
         <Theme />
       </div>: <Sidebar />}
