@@ -34,6 +34,7 @@ const Home = () => {
     return () => {
       window.removeEventListener('scroll', handleScroll)
     }
+     // eslint-disable-next-line
   }, [])
 
   useEffect(() => {

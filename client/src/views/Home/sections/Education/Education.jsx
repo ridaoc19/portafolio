@@ -24,11 +24,10 @@ const Education = () => {
           {Object.keys(modalContent).length !== 0 && <ModalEducation  modalContent={modalContent} />}
                   </Modal>
       </div>
+
       <div className="home__education--container">
 
-
         {education?.map((e, i) => {
-
           return (
             <div key={i} className="home__education--content">
 
@@ -48,7 +47,7 @@ const Education = () => {
               </div>
 
 
-              {education.map(d => d.title_id).flat(Infinity).length !== 0 && <div className="education__content--two">
+              {e.title_id.length !== 0 && <div className="education__content--two">
                 <h4>Títulos académicos</h4>
                 <ul >
                   {e.title_id?.map((e, i) =>

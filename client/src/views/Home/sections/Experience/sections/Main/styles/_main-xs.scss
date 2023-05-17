@@ -47,7 +47,10 @@
                         grid-area   : experiences__card--name;
                         justify-self: center;
                         white-space : nowrap;
-
+                        overflow      : hidden;
+                        text-overflow : ellipsis;
+                        
+                        
                         h4 {
                             margin: 0;
                         }
