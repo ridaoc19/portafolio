@@ -65,7 +65,7 @@ const Home = () => {
             </Modal>
           </div>
           <section ref={scrollRef} className="home__container--user">
-            <User flagAdmin={flagAdmin} visitors={visitors} user={user} handleOnChange={handleOnChange} getUser={getUser} />
+            <User visitors={visitors} user={user} handleOnChange={handleOnChange} getUser={getUser} />
           </section>
           {flagAdmin &&
             <section className="home__container--introduction">
