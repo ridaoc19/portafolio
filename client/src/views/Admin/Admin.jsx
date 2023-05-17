@@ -29,7 +29,7 @@ function Admin() {
                 <button id="admin_button"
                   onClick={(e) => {
                     e.preventDefault();
-                    setStatus({ university_add_title: false, university_add: true, title_render: true, title_add: true, university_title_id: "" });
+                    setStatus({ university_add_title: false, university_add: true, title_render: true, title_fields: false, title_add: true, university_title_id: "" });
                   }}>{svg({ type: "university" })}</button>
               </div>
               <University />
