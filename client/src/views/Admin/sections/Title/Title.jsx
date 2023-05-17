@@ -22,7 +22,7 @@ function Title() {
   const [err, setErr] = useState(initialState)
 
   useEffect(() => {
-    setValidation({ change, validate: ["name", "start_date", "end_date","description", "image"], element: "title_save" })
+    setValidation({ change, validate: ["name", "start_date", "end_date", "description", "image"], element: "title_save" })
     // eslint-disable-next-line
   }, [err, change, status.title_fields])
 
@@ -37,14 +37,14 @@ function Title() {
         setStatus({ title_fields: true, title_add: false, title_render: false })
         break
       case "edit":
-        setChange(state.title.find(d => d._id === value))
+        setChange(state.university?.find(d => d._id === status.university_title_id).title_id.find(e => e._id === value))
         setStatus({ title_fields: true, title_add: false, title_add_function: false, title_function_id: value })
         return
       case "clean":
         setStatus({ title_fields: false, title_add: true, title_render: true, title_function_id: "" })
         break
       case "save":
-        callApi({ method: POST, route: `${TITLE}/${user._id}`, loading: LOADING_API_TITLE, post: Object.assign({ university_id: status.university_title_id}, change) })
+        callApi({ method: POST, route: `${TITLE}/${user._id}`, loading: LOADING_API_TITLE, post: Object.assign({ university_id: status.university_title_id }, change) })
         setStatus({ title_fields: false, title_add: true, title_render: true })
         break
       case "delete":
