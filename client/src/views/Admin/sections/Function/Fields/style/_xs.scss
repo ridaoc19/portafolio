@@ -67,6 +67,7 @@
         >.-button>div {
             display        : flex;
             gap            : 2rem;
+            height: 3.5rem;
             justify-content: space-between;
         }
 
@@ -120,7 +121,7 @@
         }
 
         >.-technologies {
-            grid-template-rows: min-content 0 25rem;
+            grid-template-rows: min-content 0 27rem;
             align-items       : none;
 
             .admin__technologies-title {
@@ -249,5 +250,5 @@
     }
 
     .function__fields .-button{
-        grid-template-rows: 1rem;
+        grid-template-rows: 3rem;
     }
