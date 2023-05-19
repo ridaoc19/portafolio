@@ -1,0 +1,30 @@
+.home__container--introduction{
+  $introduction: h1, img, h2, h3, a, p;
+
+  display: grid;
+  grid-template-areas: 
+  "h1 img"
+  "h2 img"
+  "h3 a"
+  "p p";
+
+  @each $introduction_each in $introduction {
+    #{$introduction_each} {
+        grid-area         : $introduction_each;
+        // display           : grid;
+        // grid-template-rows: 1.5rem min-content 1rem;
+        // align-items       : center;
+    }
+
+    h1{
+      margin-top: 0
+    }
+
+    a,
+    img{
+      display: flex;
+      place-self: center;
+      border-radius: 0.5rem;
+    }
+}
+}
