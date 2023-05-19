@@ -6,46 +6,43 @@
     display  : flex;
     flex-wrap: wrap;
     gap      : 1rem;
-}
 
-.home__skill--card {
-    flex            : auto;
-    min-width       : 8em;
-    border-radius   : 0.5rem;
-    background-color: var(--container-color);
-}
+    .home__skill--card {
+        flex            : auto;
+        min-width       : 8em;
+        min-height      : 7rem;
+        border-radius   : 0.5rem;
+        background-color: var(--container-color);
+        display         : grid;
 
-.skill__card--father {
-    padding   : 1rem;
-    box-shadow: var(--container-shadow);
+        .skill__card--son {
+            display      : grid;
+            gap          : 0.5rem;
+            font-size    : inherit;
+            overflow     : hidden;
+            text-overflow: ellipsis;
+            white-space  : nowrap;
+            border-radius: 0.5rem;
+            box-shadow   : var(--container-shadow);
+            margin       : 1rem;
+            padding      : 0.5rem;
 
-}
+            grid-template: {
+                columns: 1fr;
+                rows   : 70% 18%;
+            }
 
-.skill__card--son {
-    display      : grid;
-    gap          : 0.5rem;
-    font-size    : inherit;
-    overflow     : hidden;
-    text-overflow: ellipsis;
-    white-space  : nowrap;
-    box-shadow   : var(--container-shadow);
-    padding      : 0.5rem;
+            place-items: center;
 
+            h5 {
+                margin: 0;
+            }
 
+            img {
+                max-width: 2.5rem;
+                min-width: 2.5rem;
+            }
+        }
 
-    grid-template: {
-        columns: 1fr;
-        rows   : 70% 18%;
-    }
-
-    place-items: center;
-
-    h5 {
-        margin: 0;
-    }
-
-    img {
-        max-width: 2.5rem;
-        min-width: 2.5rem;
     }
 }
