@@ -13,7 +13,7 @@ function Skills() {
         {technologies?.map((e) => (
           e.technologies === "Front end" &&
           <div key={e.name} className="home__skill--card">
-            <div className="skill__card--father container">
+            <div className="skill__card--father">
               <div className="skill__card--son">
                 <img src={e.image} alt="img" />
                 <h5>{e.name}</h5>
@@ -29,7 +29,7 @@ function Skills() {
         {technologies?.map((e) => (
           e.technologies === "Back end" &&
           <div key={e.name} className="home__skill--card">
-            <div className="skill__card--father container">
+            <div className="skill__card--father">
               <div className="skill__card--son">
                 <img src={e.image} alt="img" />
                 <h5>{e.name}</h5>
