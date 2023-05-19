@@ -7,7 +7,6 @@
     align-items     : center;
     justify-content : flex-end;
     background-color: var(--container-color);
-    // justify-content : space-between;
     padding         : 0.5rem;
 
     img {
@@ -19,9 +18,10 @@
     .-link {
         display: flex;
         gap    : 3rem;
+        font-size      : 1rem;
     }
 
     .-login{
-        margin-right: 10%;
+        margin-right: 5%;
     }
 }
