@@ -15,7 +15,7 @@ const initialState = {
 
 function University() {
   const { setValidation } = useValidation()
-  const { login: { state: { user } }, admin: { state, status, setStatus, callApi }, modal: { setModal, modal } } = useContext(CreateContext);
+  const { login: { state: { user, loading_login } }, admin: { state, status, setStatus, callApi }, modal: { setModal, modal } } = useContext(CreateContext);
   const [change, setChange] = useState(initialState)
   const [err, setErr] = useState(initialState)
 
@@ -82,7 +82,7 @@ function University() {
         ? <h1>Cargando...</h1>
         : <div>
           <div className="university__render">
-            {status.university_render && <Render handleOnClick={handleOnClick} university={state.university} status={status} />}
+            {status.university_render && <Render handleOnClick={handleOnClick} university={state.university} status={status} user={user} loading_login={loading_login}/>}
           </div>
           {status.university_fields && <div className="university__fields">
             <Fields handleOnChange={handleOnChange} handleOnLoad={handleOnLoad} handleOnClick={handleOnClick} change={change} err={err} />

@@ -2,8 +2,8 @@ import React, { useEffect, useState } from "react";
 import { svg } from "../../../../../components/assets/svg";
 import Tooltip from "../../../../../components/Layout/Tooltip/Tooltip";
 
-function Render({ handleOnClick, university, status }) {
-  const [tooltip, setTooltip] = useState(false)
+function Render({ handleOnClick, university, status, user, loading_login }) {
+    const [tooltip, setTooltip] = useState(false)
 
   let render = status.university_title_id
     ? [university?.find((s) => s._id === status.university_title_id)]
@@ -27,7 +27,7 @@ function Render({ handleOnClick, university, status }) {
               {svg({ type: "information", color: i.color, width: 18 })}
             </Tooltip>
           </i>)}</li>}
-        {render?.map((e) => (
+        {user?._id && !loading_login && render?.map((e) => (
           <li key={e._id}>
             {!tooltip && <>
               <Tooltip text={`Editar ${e.name}`} color={"blue"} position="right">
