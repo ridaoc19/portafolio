@@ -86,7 +86,7 @@ function Fields({ change, handleOnChange, handleTasksTech, handleOnClick, status
       <div className="-button"><div>
         {!status.function_add_technologies && <>
           <button id="function_clean" name="function_clean" onClick={handleOnClick}>Limpiar</button>
-          <button id="function_save" name="function_save" onClick={handleOnClick}>Guardar Empresa</button>
+          <button id="function_save" name="function_save" onClick={handleOnClick}>Guardar Función o Proyecto</button>
         </>}
       </div>
       </div>
