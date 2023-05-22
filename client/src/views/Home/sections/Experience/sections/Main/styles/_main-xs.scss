@@ -8,7 +8,8 @@
 
             .experiences__card--father {
                 padding         : 6%;
-                background-color: var(--container-color);
+                background-color: var(--body-color);
+                box-shadow      : var(--container-shadow);
                 border-radius   : 0.5rem;
 
                 .experiences__card--son {
@@ -44,13 +45,13 @@
                     }
 
                     .experiences__card--name {
-                        grid-area   : experiences__card--name;
-                        justify-self: center;
-                        white-space : nowrap;
-                        overflow      : hidden;
-                        text-overflow : ellipsis;
-                        
-                        
+                        grid-area    : experiences__card--name;
+                        justify-self : center;
+                        white-space  : nowrap;
+                        overflow     : hidden;
+                        text-overflow: ellipsis;
+
+
                         h4 {
                             margin: 0;
                         }
@@ -83,12 +84,12 @@
 
 
                             .experiences__technologies--indi {
-                                flex            : auto;
-                                text-align      : center;
-                                background-color: var(--body-color);
-                                border-radius   : 0.3rem;
-                                padding         : 0.2rem 0.4rem;
-                                list-style      : none;
+                                flex         : auto;
+                                text-align   : center;
+                                border       : 1px solid var(--body-color);
+                                border-radius: 0.3rem;
+                                padding      : 0.2rem 0.4rem;
+                                list-style   : none;
                             }
                         }
                     }
@@ -102,22 +103,26 @@
 
         .experiences__card--container {
             padding: 1%;
+            width: 85vw;
 
             .experiences__card--father {
                 padding         : 6%;
-                background-color: var(--container-color);
+                // width: 10}0%;
+                background-color: var(--body-color);
+                box-shadow      : var(--container-shadow);
                 border-radius   : 0.5rem;
 
                 .experiences__card--son {
                     display   : grid;
                     max-height: 14rem;
                     min-height: 14rem;
+                    
                     grid-template-areas:
                         "experiences__card--date experiences__card--name"
                         "experiences__card--image experiences__card--tasks"
                         "experiences__card--technologies experiences__card--technologies";
                     grid-template-rows   : 2rem 9.5rem 2.5rem;
-                    grid-template-columns: 6rem;
+                    grid-template-columns: 5rem;
 
                     .experiences__card--date {
                         grid-area: experiences__card--date;
@@ -139,12 +144,17 @@
                     }
 
                     .experiences__card--name {
-                        grid-area   : experiences__card--name;
-                        justify-self: center;
-                        white-space : nowrap;
+                        grid-area    : experiences__card--name;
+                        justify-self : center;
+                        width: 50vw;
 
+                        a,
                         h4 {
-                            margin: 0;
+                            white-space  : nowrap;
+                            width: 100%;
+                            overflow     : hidden;
+                            text-overflow: ellipsis;
+                            margin       : 0;
                         }
                     }
 
@@ -178,12 +188,12 @@
 
 
                             .experiences__technologies--indi {
-                                flex            : auto;
-                                text-align      : center;
-                                background-color: var(--body-color);
-                                border-radius   : 0.3rem;
-                                padding         : 0.2rem 0.4rem;
-                                list-style      : none;
+                                flex         : auto;
+                                text-align   : center;
+                                border       : 1px solid var(--body-color);
+                                border-radius: 0.3rem;
+                                padding      : 0.2rem 0.4rem;
+                                list-style   : none;
                             }
                         }
                     }
