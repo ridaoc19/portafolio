@@ -8,12 +8,11 @@
     gap      : 1rem;
 
     .home__skill--card {
-        flex            : auto;
-        min-width       : 8em;
-        min-height      : 7rem;
-        border-radius   : 0.5rem;
-        background-color: var(--container-color);
-        display         : grid;
+        flex         : auto;
+        min-width    : 7em;
+        min-height   : 4rem;
+        border-radius: 0.5rem;
+        display      : grid;
 
         .skill__card--son {
             display      : grid;
@@ -24,8 +23,7 @@
             white-space  : nowrap;
             border-radius: 0.5rem;
             box-shadow   : var(--container-shadow);
-            margin       : 1rem;
-            padding      : 0.5rem;
+            padding      : 1rem;
 
             grid-template: {
                 columns: 1fr;

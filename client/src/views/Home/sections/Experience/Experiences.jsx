@@ -45,7 +45,7 @@ function Experiences() {
       <h2>Experiencia</h2>
       <div className="experiences__container">
         <div className="experiences__header--container">
-          <Header state={state} handleOnChange={handleOnChange} handleOnClick={handleOnClick} experience={experience.reverse()} />
+          <Header state={state} handleOnChange={handleOnChange} handleOnClick={handleOnClick} experience={experience} />
         </div>
         <div id="experiences__main--container" className="experiences__main--container grid">
           <Main experience={experience} />

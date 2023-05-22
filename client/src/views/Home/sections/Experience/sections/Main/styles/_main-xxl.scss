@@ -20,8 +20,8 @@
         grid-template-columns: 1fr;
 
         .experiences__card--son {
-            max-height: 14rem;
-            min-height: 14rem;
+            max-height: 20rem;
+            min-height: 20rem;
             grid-template-areas:
                 // "experiences__card--name  experiences__card--date"
                 "experiences__card--date experiences__card--name"
@@ -38,7 +38,8 @@
 
         .experiences__card--father {
             padding         : 6%;
-            background-color: var(--container-color);
+            background-color: var(--body-color);
+            box-shadow      : var(--container-shadow);
             border-radius   : 0.5rem;
 
             .experiences__card--son {
@@ -102,7 +103,7 @@
                         .experiences__technologies--indi {
                             flex            : auto;
                             text-align      : center;
-                            background-color: var(--body-color);
+                            border       : 1px solid var(--body-color);
                             border-radius   : 0.3rem;
                             padding         : 0.2rem 0.4rem;
                             list-style      : none;
