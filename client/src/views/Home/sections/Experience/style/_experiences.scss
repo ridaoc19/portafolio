@@ -5,13 +5,11 @@
 
 .experiences__container {
   display      : grid;
-  padding      : 1%;
   border-radius: 0.3rem;
   border       : 1px solid var(--container-color);
 
   .experiences__header--container {
-    display                 : grid;
-    padding                 : 1%;
+    background-color:  var(--container-color);
   }
 
   .experiences__main--container {

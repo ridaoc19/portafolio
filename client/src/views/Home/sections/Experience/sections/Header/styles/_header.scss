@@ -1,50 +1,35 @@
 @import "./mixinHeader";
 
 .experiences__header--content {
-  // background-color: rgb(3, 43, 79);
   display: grid;
   gap    : 0.5rem;
-
+  padding: 1rem 0;
+  align-items: center;
+  justify-items: center;
+   
   @include experiences__header--content-respons();
 
   .experiences__header--select {
     grid-area : experiences__header--select;
-    place-self: center;
+    h3{
+      margin: 0;
+    }
   }
 
   .experiences__header--search {
     grid-area : experiences__header--search;
-    place-self: center;
 
   }
 
   .experiences__header--tech {
     grid-area : experiences__header--tech;
-    place-self: center;
 
   }
 
   .experiences__header--organize {
     grid-area   : experiences__header--organize;
-    justify-self: end;
     display     : flex;
     gap         : 0.3rem;
 
-    button {
-      position           : relative;
-      background-color   : transparent;
-      width              : 2rem;
-      border             : 2px solid var(--body-color);
-      border-radius      : 0.5rem;
-      padding            : 0.3rem;
-      transition         : all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
-
-
-
-      &:active {
-        border   : 2px solid var(--main-color);
-        transform: scale(0.95);
-      }
-    }
   }
 }
