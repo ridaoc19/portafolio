@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
-import { totalYear } from "../../../../../components/utils/function/date";
 import moment from "moment";
+import React from "react";
+import { totalYear } from "../../../../../components/utils/function/date";
 
 function Fields({ change, handleOnChange, handleOnClick, err }) {
 

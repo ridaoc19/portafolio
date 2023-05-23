@@ -11,9 +11,6 @@ function ModalState() {
 
   }
 
-  const Close = () => {
-  }
-
   return { setModal, modal }
 }
 
