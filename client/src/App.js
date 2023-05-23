@@ -7,6 +7,7 @@ import StoreContext from "./components/hooks/context/StoreContext";
 import Admin from "./views/Admin/Admin";
 import Home from "./views/Home/Home";
 import Start from "./views/Start/Start";
+import Curriculum from "./views/Curriculum/Curriculum";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Start />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/curriculum" element={<Curriculum />} />
           <Route path="/home" element={<Layout ><Home /></Layout>} />
           <Route path="/admin" element={<Layout ><Admin /></Layout>} />
         </Routes>
