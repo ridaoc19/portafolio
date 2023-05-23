@@ -1,0 +1,117 @@
+.curriculum__container {
+  background-color        : white;
+  // height               : 100vh;
+  width                   : 100vw;
+  display                 : grid;
+  grid-template-columns   : 5% 20% 70% 5%;
+  grid-template-rows      : 10% 80% 10%;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    color : black;
+    margin: 0;
+  }
+
+  >div:nth-child(1) {
+    grid-area: 2 /2;
+  }
+
+  >div:nth-child(2) {
+    grid-area: 2 /3;
+    display  : grid;
+    gap      : 1rem;
+
+    .experience__container {
+      display: grid;
+      gap    : 1rem;
+
+      
+      .experience__content {
+        display              : grid;
+        grid-template-columns: 1fr;
+        gap                  : 1rem;
+  
+        .company--content {
+          display: grid;
+          grid-template-areas:
+            "-image -name -date"
+            "-position -position -position";
+          grid-template-columns: 2rem 1fr;
+          background-color     : #c8cdd0;
+          // gap: 1rem;
+          align-items          : center;
+          padding              : 1rem;
+
+          $company: -image, -name, -date;
+
+          @each $company_each in $company {
+            >.#{$company_each} {
+              grid-area: $company_each;
+            }
+          }
+        }
+
+        .-position {
+          background-color: #eff3f5;
+          padding         : 1rem;
+
+          .position--content {
+            display: grid;
+            grid-template-areas:
+              "-name"
+              "-date"
+              "-functions";
+            grid-template-columns: 1fr;
+
+            $position: -image, -name, -date, -functions;
+
+            @each $position_each in $position {
+              >.#{$position_each} {
+                grid-area: $position_each;
+              }
+            }
+
+            >.-name,
+            .-date {
+              text-align: center;
+            }
+
+            >.-functions {
+              display  : flex;
+              flex-wrap: wrap;
+              gap      : 1rem;
+              padding  : 0.5rem 0;
+
+              .functions--content {
+                flex   : auto;
+                display: grid;
+                grid-template-areas:
+                  "-image -name"
+                  "-image -date";
+                grid-template-columns: 2rem 1fr;
+                border     : 1px solid #e4e6e7;
+                // background-color     : #e4e6e7;
+                place-items          : center;
+                padding              : 0.5rem;
+                border-radius: 0.5rem;
+
+                $functions: -image, -name, -date;
+
+                @each $functions_each in $functions {
+                  >.#{$functions_each} {
+                    grid-area: $functions_each;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
