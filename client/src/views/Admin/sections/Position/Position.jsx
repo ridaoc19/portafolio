@@ -2,10 +2,9 @@ import React, { useContext, useEffect, useState } from 'react';
 import { DELETE, FUNCTIONS, GET, LOADING_API_FUNCTIONS, LOADING_API_POSITION, POSITIONS, POST } from '../../../../components/hooks/context/Admin/adminTypes';
 import CreateContext from '../../../../components/hooks/context/CreateContext';
 import Validation from '../../../../components/utils/function/Validation';
-import Button from './Buutton/Button';
+import useValidation from '../../utils/useValidation';
 import Fields from './Fields/Fields';
 import Render from './Render/Render';
-import useValidation from '../../utils/useValidation';
 
 const initialState = {
   name: "",
