@@ -14,6 +14,7 @@ function Modal({ children, header }) {
       element?.classList.remove("is-visible");
       setModal({ ...modal, element: "" })
     }
+    // eslint-disable-next-line
   }, [modal.avalible])
 
   const close = () => {

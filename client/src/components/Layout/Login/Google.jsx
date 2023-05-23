@@ -11,6 +11,7 @@ function Google() {
     if (state.user?.user_id) {
       navigate(-1)
     }
+    // eslint-disable-next-line
   }, [state.user?.user_id])
 
   useEffect(() => {
@@ -26,6 +27,7 @@ function Google() {
       width: "230",
       click_listener: onClickHandler
     });
+    // eslint-disable-next-line
   }, [])
 
   function onClickHandler() {
