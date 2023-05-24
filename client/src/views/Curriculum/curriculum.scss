@@ -1,8 +1,12 @@
 .curriculum__container {
   display: grid;
 
+  hr {
+    border-bottom: 1px solid black;
+  }
+
   .curriculum__button {
-    position: sticky;
+    position: absolute;
     top     : 0;
     right   : 0;
     padding : 1rem;
@@ -25,14 +29,117 @@
 
     >main {
       // width: 100%;
-      display: grid;
+      display         : grid;
       background-color: white;
       padding         : 1rem 3rem;
-      gap: 1rem;
-      
-      .experience__skill{
-        display: grid;
+      gap             : 1rem;
+
+      img {
+        width        : 2rem;
+        border-radius: 0.3rem;
+      }
+
+      .experience__skill {
+        display              : grid;
         grid-template-columns: 70% 30%;
+
+        .experience__container {
+          padding-right: 1.5rem;
+
+          .experience__content {
+            display: grid;
+            gap    : 1rem;
+
+            >div {}
+
+            .company--content {
+              display                : grid;
+              grid-template-columns  : 2rem 1fr 9rem;
+              background-color       : #dadadd;
+              gap                    : 1rem;
+              align-items            : center;
+              padding                : 0 0.5rem;
+              border-top-left-radius : 0.5rem;
+              border-top-right-radius: 0.5rem;
+            }
+
+
+            .position__container {
+              background-color          : #eff3f5;
+              padding                   : 0.5rem 1rem;
+              border-bottom-left-radius : 0.5rem;
+              border-bottom-right-radius: 0.5rem;
+
+              h3,
+              h4,
+              h5,
+              h6 {
+                margin: 0;
+              }
+
+
+              .position--content {
+                display: grid;
+                grid-template-areas:
+                  "-name"
+                  "-date"
+                  "-functions";
+                grid-template-columns: 1fr;
+
+                $position: -image, -name, -date, -functions;
+
+                @each $position_each in $position {
+                  >.#{$position_each} {
+                    grid-area: $position_each;
+                  }
+                }
+
+                >.-name,
+                .-date {
+                  text-align: center;
+                }
+
+                >.-functions {
+                  display  : flex;
+                  flex-wrap: wrap;
+                  gap      : 1rem;
+                  padding  : 0.5rem 0;
+
+                  .functions--content {
+                    flex   : auto;
+                    display: grid;
+                    grid-template-areas:
+                      "-image -name"
+                      "-image -date";
+                    grid-template-columns   : 2rem 1fr;
+                    border                  : 1px solid #e4e6e7;
+                    // background-color     : #e4e6e7;
+                    place-items             : center;
+                    padding                 : 0.5rem;
+                    border-radius           : 0.5rem;
+
+                    $functions: -image, -name, -date;
+
+                    @each $functions_each in $functions {
+                      >.#{$functions_each} {
+                        grid-area: $functions_each;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+
+
+
+
+
+
+
+
+          }
+
+        }
       }
 
     }
@@ -106,7 +213,7 @@
 //           }
 //         }
 
-//         .-position {
+//         .position__container {
 //           background-color: #eff3f5;
 //           padding         : 1rem;
 
