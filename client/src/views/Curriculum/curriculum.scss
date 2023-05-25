@@ -19,6 +19,9 @@
     top     : 0;
     right   : 0;
     padding : 1rem;
+    display : flex;
+    gap     : 1rem;
+
   }
 
   .curriculum__content {
@@ -28,25 +31,25 @@
       grid-template-columns: 10rem 1fr;
 
       >div {
-        display: grid;
+        display           : grid;
         grid-template-rows: 3rem 1fr;
 
-        h2{
+        h2 {
           text-align: center;
-          margin: 0.5rem;
+          margin    : 0.5rem;
         }
 
         >div {
           display              : grid;
           grid-template-columns: repeat(3, 1fr);
-          align-items: center;
+          align-items          : center;
 
           >div {
-            >a{
-              display: grid;
+            >a {
+              display              : grid;
               grid-template-columns: 1rem 1fr;
-              align-items: center;
-              column-gap: 0.5rem;
+              align-items          : center;
+              column-gap           : 0.5rem;
             }
 
             p {
@@ -182,15 +185,26 @@
           display: flex;
           gap    : 1rem;
 
+          >div {
+            border       : 1px solid #e4e6e7;
+            padding      : 1rem;
+            border-radius: 0.5rem;
+          }
+
+          img {
+            width: 1.4rem;
+          }
+
           ul {
             display: grid;
             gap    : 1rem;
 
             >div {
               display              : grid;
-              grid-template-columns: 2rem 10rem 1fr;
+              grid-template-columns: 2rem 8rem 1fr;
               align-items          : center;
               gap                  : 1rem;
+
 
               h4 {
                 margin: 0;
@@ -198,10 +212,6 @@
             }
           }
 
-          .skill__card--son {
-            border    : 1px solid #e4e6e7;
-            box-shadow: none;
-          }
         }
       }
 
