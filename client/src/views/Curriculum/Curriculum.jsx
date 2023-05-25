@@ -1,17 +1,18 @@
-import React, { useContext, useEffect } from 'react';
-
-// import { jsPDF } from "jspdf";
-import CreateContext from '../../components/hooks/context/CreateContext';
-import { totalYear } from '../../components/utils/function/date';
-import About from '../Home/sections/About/About';
-import { LOADING_API_WORK } from '../../components/hooks/context/Works/types';
-// import html2canvas from 'html2canvas';
 // import html2pdf from 'html2pdf.js';
-import html2pdf from 'html2pdf.js';
-import { imageCors } from '../../components/utils/function/ImageCors';
+import React, { useContext, useEffect, useState } from 'react';
+import CreateContext from '../../components/hooks/context/CreateContext';
+import { LOADING_API_WORK } from '../../components/hooks/context/Works/types';
+import { formatDate, totalYear } from '../../components/utils/function/date';
+import About from '../Home/sections/About/About';
+import { techValue, contact } from '../../components/utils/function/techCurriculum';
+import { useNavigate } from 'react-router-dom';
 
 function Curriculum() {
-  const { login: { state: { user } }, works: { getWork, dispatch, functions, company } } = useContext(CreateContext)
+  const navigate = useNavigate()
+
+  const { login: { state: { user } }, works: { getWork, dispatch, functions, company, education, technologies } } = useContext(CreateContext)
+  const [tech, setTech] = useState()
+
 
   useEffect(() => {
     getWork({ route: user?.user_id ? user?.user_id : `${process.env.REACT_APP_DEFAULT_USER_LOGIN}` })
@@ -23,28 +24,43 @@ function Curriculum() {
     // eslint-disable-next-line
   }, [user])
 
+  useEffect(() => {
+    setTech(technologies?.map(e => {
+      return Object.assign(e, { value: techValue(e.name) })
+    }));
+  }, [technologies])
 
   const handleOnClick = async (e) => {
     e.preventDefault()
-    let imp = document.querySelector('.curriculum__container')
 
-    const opt = {
-      // margin: 1,
-      filename: `Portafolio ${user?.user_id ? user?.user_id : "Ricardo David Ocampo"}`,
-      image: { type: 'png' },
-      html2canvas: { scale: 4, useCORS: true },
-      jsPDF: { unit: 'pt', format: 'letter', orientation: 'portrait' }
-    };
-    // html2pdf().from(imp).set(opt).save()
- html2pdf().from(imp).set(opt).save()
+    switch (e.target.name) {
+      case "print":
+        document.querySelector('.curriculum__button').style.display = 'none'
+        window.print()
+        document.querySelector('.curriculum__button').style.display = 'block'
 
+        // const opt = {
+        //   // margin: 1,
+        //   filename: `Portafolio ${user?.user_id ? user?.user_id : "Ricardo David Ocampo"}`,
+        //   image: { type: 'png' },
+        //   html2canvas: { scale: 4, useCORS: true },
+        //   jsPDF: { unit: 'pt', format: 'ledger', orientation: 'portrait', floatPrecision: 'smart' }
+        // };
+        // html2pdf().from(imp).set(opt).save()
+        break;
+
+      default:
+        navigate(-1)
+        break;
+    }
   }
 
   return (
-    <div className='curriculum__container'>
+    <div id="element-to-print" className='curriculum__container'>
 
       <div className='curriculum__button'>
-        <button onClick={handleOnClick}>imprimir</button>
+        <button onClick={handleOnClick}>volver</button>
+        <button name='print' onClick={handleOnClick}>imprimir</button>
       </div>
 
       <div className='curriculum__content'>
@@ -52,8 +68,15 @@ function Curriculum() {
         <header className='header__container'>
           <img src="/profile.jpg" alt="" width="80" />
           <div>
-            <p>{"ridaoc19@gmail.com"}</p>
-            <p>Nacionalidad Colombiano</p>
+            <h2 >Ricardo David Ocampo</h2>
+            <div>
+              {contact?.map(e => <div>
+                {e.name === "email" ?
+                  (<a href={`mailto:${e.url}`}>{e.image} <p>{e.user}</p></a>) :
+                  (<a href={e.url} target="_blank" rel="noreferrer">{e.image} <p>{e.user}</p></a>)
+                }
+              </div>)}
+            </div>
           </div>
         </header>
 
@@ -75,7 +98,7 @@ function Curriculum() {
                   <div key={i}>
                     <div className="company--content">
                       <div className="-image">
-                        {e.image ? <img src={imageCors(e.image)} alt="img" /> : <img src={"https://cdn-icons-png.flaticon.com/128/5540/5540531.png"} width='20' alt="img" />}
+                        {e.image ? <img src={e.image} alt="img" /> : <img src={"https://cdn-icons-png.flaticon.com/128/5540/5540531.png"} width='20' alt="img" />}
                       </div>
                       <div className="-name">
                         {e.link ? <a href={e.link} target="_blank" rel="noreferrer">@{e.name}</a> : <h4>{e.name}</h4>}
@@ -124,15 +147,100 @@ function Curriculum() {
               </div>
             </div>
 
-            <div className='skill__container'>
+            <div class="html2pdf__page-break"></div>
 
-              <div className='skill__title'>
-                <h2>Habilidades</h2>
-              </div>
+            <div className='skill__container'>
+              <h2>Habilidades</h2>
 
               <div className='skill__content'>
+                <div>
+                  <h4>Frondtend</h4>
+
+                  <ul className="curriculum__skill--container">
+                    {tech?.map((e) => (
+                      e.technologies === "Front end" &&
+                      <div key={e.name} className="curriculum__skill--card">
+                        <img src={e.image} alt="img" />
+                        <h4>{e.name}</h4>
+                        <progress value={e.value} max="100">{e.value}</progress>
+                      </div>
+                    ))}
+                  </ul>
+                </div>
+
+                <div>
+                  <h4>Backend</h4>
+                  <ul className="curriculum__skill--container">
+                    {tech?.map((e) => (
+                      e.technologies === "Back end" &&
+                      <div key={e.name} className="curriculum__skill--card">
+                        <img src={e.image} alt="img" />
+                        <h4>{e.name}</h4>
+                        <progress value={e.value} max="100">{e.value}</progress>
+                      </div>
+                    ))}
+                  </ul>
+
+                  <h4>Otros</h4>
+                  <ul className="curriculum__skill--container">
+                    {tech?.map((e) => (
+                      e.technologies === "Otros" &&
+                      <div key={e.name} className="curriculum__skill--card">
+                        <img src={e.image} alt="img" />
+                        <h4>{e.name}</h4>
+                        <progress value={e.value} max="100">{e.value}</progress>
+                      </div>
+                    ))}
+                  </ul>
+                </div>
 
               </div>
+            </div>
+
+            <div className='education__container'>
+
+              <div className='education__title'>
+                <h2>Fromación</h2>
+              </div>
+
+              <div className='education__content'>
+
+                {education?.map((e, i) => {
+                  return (
+                    <div key={i} className="curriculum__education--content">
+
+                      <div className="education__content--one">
+                        <div className="education__content--image">
+                          <img src={e.image} alt="logo" />
+                        </div>
+                        <div className="education__content--title">
+                          <h3>
+                            <a href={e.link} target="_blank" rel="noreferrer">@{e.name}</a>
+                          </h3>
+                        </div>
+                      </div>
+
+                      {e.title_id.length !== 0 &&
+                        <div className="education__content--two">
+                          <ul >
+                            {e.title_id?.map((e, i) =>
+                              <div>
+                                <a href={e.image} target="_blank" rel="noreferrer">{e.name}</a>
+                                <i>
+                                  {` (${formatDate(e.start_date).date} - ${formatDate(e.end_date).state
+                                    ? formatDate(e.end_date).state
+                                    : formatDate(e.end_date).date})`}
+                                </i>
+                              </div>
+                            )}
+                          </ul>
+                        </div>}
+                    </div>
+                  );
+                })}
+              </div>
+
+
             </div>
 
           </div>
