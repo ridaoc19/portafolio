@@ -12,8 +12,8 @@ function Introduction(props) {
       {/* <a href="/CV.pdf" download="CV_Ricardo_David_Ocampo">Descargar CV</a> */}
       <p>
       Soy apasionado desarrollando cosas para la web, tengo conocimiento
-      en  Frontend y Backend mis habilidades las puede encontrar acá, además
-      puede conocer un poco mi vida laboral.
+      en Front end y back end, mis habilidades las puede encontrar acá, además
+      puede conocer un poco mi vida laboral y educativa.
       </p>
     </>
   );

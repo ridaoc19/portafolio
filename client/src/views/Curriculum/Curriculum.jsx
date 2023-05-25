@@ -70,7 +70,7 @@ function Curriculum() {
           <div>
             <h2 >Ricardo David Ocampo</h2>
             <div>
-              {contact?.map(e => <div>
+              {contact?.map((e, i) => <div key={i}>
                 {e.name === "email" ?
                   (<a href={`mailto:${e.url}`}>{e.image} <p>{e.user}</p></a>) :
                   (<a href={e.url} target="_blank" rel="noreferrer">{e.image} <p>{e.user}</p></a>)
@@ -84,7 +84,6 @@ function Curriculum() {
           <div className='about__container'>
             <About />
           </div>
-
           <div className='experience__skill'>
 
             <div className='experience__container'>
@@ -146,8 +145,7 @@ function Curriculum() {
                 )}
               </div>
             </div>
-
-            <div class="html2pdf__page-break"></div>
+            <div className="html2pdf__page-break"></div>
 
             <div className='skill__container'>
               <h2>Habilidades</h2>
@@ -157,9 +155,9 @@ function Curriculum() {
                   <h4>Frondtend</h4>
 
                   <ul className="curriculum__skill--container">
-                    {tech?.map((e) => (
+                    {tech?.map((e, i) => (
                       e.technologies === "Front end" &&
-                      <div key={e.name} className="curriculum__skill--card">
+                      <div key={i} className="curriculum__skill--card">
                         <img src={e.image} alt="img" />
                         <h4>{e.name}</h4>
                         <progress value={e.value} max="100">{e.value}</progress>
@@ -171,9 +169,9 @@ function Curriculum() {
                 <div>
                   <h4>Backend</h4>
                   <ul className="curriculum__skill--container">
-                    {tech?.map((e) => (
+                    {tech?.map((e, i) => (
                       e.technologies === "Back end" &&
-                      <div key={e.name} className="curriculum__skill--card">
+                      <div key={i} className="curriculum__skill--card">
                         <img src={e.image} alt="img" />
                         <h4>{e.name}</h4>
                         <progress value={e.value} max="100">{e.value}</progress>
@@ -183,9 +181,9 @@ function Curriculum() {
 
                   <h4>Otros</h4>
                   <ul className="curriculum__skill--container">
-                    {tech?.map((e) => (
+                    {tech?.map((e, i) => (
                       e.technologies === "Otros" &&
-                      <div key={e.name} className="curriculum__skill--card">
+                      <div key={i} className="curriculum__skill--card">
                         <img src={e.image} alt="img" />
                         <h4>{e.name}</h4>
                         <progress value={e.value} max="100">{e.value}</progress>
@@ -202,13 +200,10 @@ function Curriculum() {
               <div className='education__title'>
                 <h2>Fromación</h2>
               </div>
-
               <div className='education__content'>
-
                 {education?.map((e, i) => {
                   return (
                     <div key={i} className="curriculum__education--content">
-
                       <div className="education__content--one">
                         <div className="education__content--image">
                           <img src={e.image} alt="logo" />
@@ -219,12 +214,11 @@ function Curriculum() {
                           </h3>
                         </div>
                       </div>
-
                       {e.title_id.length !== 0 &&
                         <div className="education__content--two">
                           <ul >
                             {e.title_id?.map((e, i) =>
-                              <div>
+                              <div key={i}>
                                 <a href={e.image} target="_blank" rel="noreferrer">{e.name}</a>
                                 <i>
                                   {` (${formatDate(e.start_date).date} - ${formatDate(e.end_date).state
@@ -239,22 +233,10 @@ function Curriculum() {
                   );
                 })}
               </div>
-
-
             </div>
-
           </div>
-
         </main>
-
-        <footer>
-
-        </footer>
-
       </div>
-
-
-
     </div >
   );
 }
