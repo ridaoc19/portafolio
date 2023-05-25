@@ -1,10 +1,13 @@
 @use "sass:map";
 
 .location__container {
-  display            : grid;
-  max-width          : 20rem;
-  padding            : 1rem;
-  // background-color: bisque;
+  display  : grid;
+  max-width: 35rem;
+  padding  : 1rem;
+
+  h2 {
+    text-align: center;
+  }
 
   .location__ubication {
     display: flex;
@@ -44,16 +47,27 @@
   }
 
   .location__especification {
+    display: grid;
 
-    >h5{
+    >h5 {
       text-align: center;
     }
+
+    >div {
+      text-align  : center;
+      justify-self: center;
+      display     : flex;
+      place-items : center;
+      gap         : 1rem;
+    }
+
     p {
       display              : grid;
       grid-template-columns: repeat(2, 1.3rem) repeat(3, 1fr);
       gap                  : 0.5rem;
       align-items          : center;
       justify-items        : start;
+      margin               : 0.5rem;
     }
   }
 }

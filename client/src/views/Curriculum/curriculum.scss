@@ -25,6 +25,7 @@
   }
 
   .curriculum__content {
+    
     >header {
       background-color     : #e4e6e7;
       display              : grid;
@@ -77,8 +78,16 @@
         border-radius: 0.3rem;
       }
 
+      .about__container {
+        p {
+          text-align: justify;
+        }
+      }
+
+
       .experience__skill {
         display: grid;
+        gap: 1rem;
 
         .experience__container {
           .experience__content {
@@ -178,71 +187,72 @@
             }
           }
         }
-      }
 
-      .skill__container {
-        .skill__content {
-          display: flex;
-          gap    : 1rem;
-
-          >div {
-            border       : 1px solid #e4e6e7;
-            padding      : 1rem;
-            border-radius: 0.5rem;
-          }
-
-          img {
-            width: 1.4rem;
-          }
-
-          ul {
-            display: grid;
+        .skill__container {
+          .skill__content {
+            display: flex;
             gap    : 1rem;
-
+  
             >div {
-              display              : grid;
-              grid-template-columns: 2rem 8rem 1fr;
-              align-items          : center;
-              gap                  : 1rem;
-
-
-              h4 {
-                margin: 0;
+              border       : 1px solid #e4e6e7;
+              padding      : 1rem;
+              border-radius: 0.5rem;
+            }
+  
+            img {
+              width: 1.4rem;
+            }
+  
+            ul {
+              display: grid;
+              gap    : 1rem;
+  
+              >div {
+                display              : grid;
+                grid-template-columns: 2rem 8rem 1fr;
+                align-items          : center;
+                gap                  : 1rem;
+  
+  
+                h4 {
+                  margin: 0;
+                }
+              }
+            }
+  
+          }
+        }
+  
+        .education__container {
+          .education__title {}
+  
+          .education__content {
+            .curriculum__education--content {
+              .education__content--one {
+                display    : flex;
+                gap        : 1rem;
+                align-items: center;
+  
+                h3 {
+                  margin: 0;
+                }
+              }
+  
+              .education__content--two {
+                h4 {
+                  margin: 0;
+                }
+  
+                ul {
+                  display   : grid;
+                  margin-top: 0;
+                }
               }
             }
           }
-
         }
       }
 
-      .education__container {
-        .education__title {}
-
-        .education__content {
-          .curriculum__education--content {
-            .education__content--one {
-              display    : flex;
-              gap        : 1rem;
-              align-items: center;
-
-              h3 {
-                margin: 0;
-              }
-            }
-
-            .education__content--two {
-              h4 {
-                margin: 0;
-              }
-
-              ul {
-                display   : grid;
-                margin-top: 0;
-              }
-            }
-          }
-        }
-      }
     }
   }
 }
