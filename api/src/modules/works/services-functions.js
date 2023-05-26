@@ -13,8 +13,8 @@ module.exports = {
         await Position.findByIdAndUpdate(req.body.position, { $push: { functions: createFunction.id } })
         functionGet(req, res, req.params.user_id)
       } else {
-        const { _id, name, image, link, start_date, end_date, repository, tasks, technologies } = req.body;
-        await Functions.findOneAndUpdate({ _id }, { name, image, link, start_date, end_date, repository, tasks, technologies });
+        const { _id, name, image, link, start_date, end_date, repository, tasks, technologies, techPercentage } = req.body;
+        await Functions.findOneAndUpdate({ _id }, { name, image, link, start_date, end_date, repository, tasks, technologies, techPercentage });
         functionGet(req, res, req.params.user_id)
       }
     } catch (error) {

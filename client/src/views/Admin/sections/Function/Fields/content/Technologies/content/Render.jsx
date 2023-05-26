@@ -1,10 +1,10 @@
 import React from 'react';
 import TechPost from './TechPost/TechPost';
 
-function Render({status, tech, handleOnClick}) {
+function Render({ status, tech, handleOnClick }) {
   return (
     <>
-         {status.function_add_technologies ? <TechPost />
+      {status.function_add_technologies ? <TechPost />
         : <div className="admin__technologies-container">
           <div id="technologies" className="technologies__content">
             <div>
@@ -24,7 +24,7 @@ function Render({status, tech, handleOnClick}) {
               <ul>
                 {tech.map((e) =>
                   e.status === "selection" && (
-                    <button key={e._id} id={e._id} name="delete" onClick={handleOnClick}> {e.name} </button>
+                    <button key={e._id} id={e._id} name="delete" onClick={handleOnClick}> {e.name} <span>{`%${e.percentage}`}</span> </button>
                   )
                 )}
               </ul>
