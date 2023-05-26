@@ -18,7 +18,8 @@ function Technologies({ handleTech, change }) {
     setTech(state?.technologies?.map(e => {
 
       if (change.technologies.includes(e._id)) {
-        return Object.assign(e, { status: "selection", percentage: Number(state.functions?.map(e => e.techPercentage).flat(Infinity).find(p => p._id === e._id).percentage) })
+        let perse = state.functions?.map(e => e.techPercentage)?.flat(Infinity)?.find(p => p._id === e._id)?.percentage
+        return Object.assign(e, { status: "selection", percentage: perse ? Number(perse) : 0 })
       } else {
         return Object.assign(e, { status: "technologies" })
       }
