@@ -114,7 +114,7 @@ $fields: -name,
             display: flex;
             gap    : 1rem;
 
-            h3 {
+            >h3 {
                 margin: 0;
             }
         }
@@ -151,6 +151,21 @@ $fields: -name,
 
             .technologies__selection {
                 border: 4px solid var(--main-color);
+
+
+                button {
+                    position: relative;
+
+                    span {
+                        position      : absolute;
+                        right         : 0;
+                        top           : 0;
+                        margin        : 3.1px;
+                        font-size     : 0.6rem;
+                        color         : var(--main-color);
+                        pointer-events: none;
+                    }
+                }
             }
         }
 

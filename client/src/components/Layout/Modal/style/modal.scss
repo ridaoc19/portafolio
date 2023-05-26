@@ -1,173 +1,177 @@
+.btn-group {
+  text-align: center;
+}
 
-  .btn-group {
-    text-align: center;
-  }
-  
-  .open-modal {
-    font-weight: bold;
-    background: var(--blue);
-    color: var(--white);
-    padding: 0.75rem 1.75rem;
-    margin-bottom: 1rem;
-    border-radius: 5px;
-  }
+.open-modal {
+  font-weight  : bold;
+  background   : var(--blue);
+  color        : var(--white);
+  padding      : 0.75rem 1.75rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+}
 
-  .close-modal{
-    color: var(--main-color);
-  }
+.close-modal {
+  color: var(--main-color);
+}
 
-  /* MODAL
+/* MODAL
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
-  .modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem;
-    background: rgba(0, 0, 0, 0.8);
-    cursor: pointer;
-    visibility: hidden;
-    opacity: 0;
-    transition: all 0.35s ease-in;
-    z-index: 1;
-  }
-  
-  .modal.is-visible {
-    visibility: visible;
-    opacity: 1;
-  }
-  
-  .modal-dialog {
-    position: relative;
-    max-width: 800px;
-    max-height: 80vh;
-    border-radius: 5px;
-    background: var(--body-color);
-    overflow: auto;
-    cursor: default;
-  }
+.modal {
+  position       : fixed;
+  top            : 0;
+  left           : 0;
+  right          : 0;
+  bottom         : 0;
+  display        : flex;
+  align-items    : center;
+  justify-content: center;
+  padding        : 1rem;
+  background     : rgba(0, 0, 0, 0.8);
+  cursor         : pointer;
+  visibility     : hidden;
+  opacity        : 0;
+  transition     : all 0.35s ease-in;
+  z-index        : 1;
+}
+
+.modal.is-visible {
+  visibility: visible;
+  opacity   : 1;
+}
+
+.modal-dialog {
+  position     : relative;
+  max-width    : 800px;
+  max-height   : 80vh;
+  border-radius: 5px;
+  background   : var(--body-color);
+  cursor       : default;
+
 
   .modal-header {
-    background: var(--container-color);
-    display: flex;
-    align-items: center;
+    background     : var(--container-color);
+    display        : flex;
+    align-items    : center;
     justify-content: space-between;
-    gap: 1rem;
-    padding: 0 1rem;
+    gap            : 1rem;
+    padding        : 0 1rem;
   }
 
-  .modal-content{
-    padding: 1rem;
+  .modal-content {
+    padding   : 1rem;
     text-align: justify;
+    max-height    : 66vh;
+    overflow-y: auto;
 
-    h2{
+    h2 {
       text-align: center;
     }
 
   }
-  
-  
-  .modal p + p {
-    margin-top: 1rem;
-  }
-  
-  
-  /* ANIMATIONS
+
+
+}
+
+
+
+.modal p+p {
+  margin-top: 1rem;
+}
+
+
+/* ANIMATIONS
   –––––––––––––––––––––––––––––––––––––––––––––––––– */
-  [data-animation] .modal-dialog {
-    opacity: 0;
-    transition: all 0.5s cubic-bezier(0.51, 0.92, 0.24, 1.15);
-  }
-  
-  [data-animation].is-visible .modal-dialog {
-    opacity: 1;
-    transition-delay: 0.2s;
-  }
-  
-  [data-animation="slideInOutDown"] .modal-dialog {
-    transform: translateY(100%);
-  }
-  
-  [data-animation="slideInOutTop"] .modal-dialog {
-    transform: translateY(-100%);
-  }
-  
-  [data-animation="slideInOutLeft"] .modal-dialog {
+[data-animation] .modal-dialog {
+  opacity   : 0;
+  transition: all 0.5s cubic-bezier(0.51, 0.92, 0.24, 1.15);
+}
+
+[data-animation].is-visible .modal-dialog {
+  opacity         : 1;
+  transition-delay: 0.2s;
+}
+
+[data-animation="slideInOutDown"] .modal-dialog {
+  transform: translateY(100%);
+}
+
+[data-animation="slideInOutTop"] .modal-dialog {
+  transform: translateY(-100%);
+}
+
+[data-animation="slideInOutLeft"] .modal-dialog {
+  transform: translateX(-100%);
+}
+
+[data-animation="slideInOutRight"] .modal-dialog {
+  transform: translateX(100%);
+}
+
+[data-animation="zoomInOut"] .modal-dialog {
+  transform: scale(0.2);
+}
+
+[data-animation="rotateInOutDown"] .modal-dialog {
+  transform-origin: top left;
+  transform       : rotate(-1turn);
+}
+
+[data-animation="mixInAnimations"].is-visible .modal-dialog {
+  animation: mixInAnimations 2s 0.2s linear forwards;
+}
+
+[data-animation="slideInOutDown"].is-visible .modal-dialog,
+[data-animation="slideInOutTop"].is-visible .modal-dialog,
+[data-animation="slideInOutLeft"].is-visible .modal-dialog,
+[data-animation="slideInOutRight"].is-visible .modal-dialog,
+[data-animation="zoomInOut"].is-visible .modal-dialog,
+[data-animation="rotateInOutDown"].is-visible .modal-dialog {
+  transform: none;
+}
+
+@keyframes mixInAnimations {
+  0% {
     transform: translateX(-100%);
   }
-  
-  [data-animation="slideInOutRight"] .modal-dialog {
-    transform: translateX(100%);
+
+  10% {
+    transform: translateX(0);
   }
-  
-  [data-animation="zoomInOut"] .modal-dialog {
-    transform: scale(0.2);
+
+  20% {
+    transform: rotate(20deg);
   }
-  
-  [data-animation="rotateInOutDown"] .modal-dialog {
-    transform-origin: top left;
-    transform: rotate(-1turn);
+
+  30% {
+    transform: rotate(-20deg);
   }
-  
-  [data-animation="mixInAnimations"].is-visible .modal-dialog {
-    animation: mixInAnimations 2s 0.2s linear forwards;
+
+  40% {
+    transform: rotate(15deg);
   }
-  
-  [data-animation="slideInOutDown"].is-visible .modal-dialog,
-  [data-animation="slideInOutTop"].is-visible .modal-dialog,
-  [data-animation="slideInOutLeft"].is-visible .modal-dialog,
-  [data-animation="slideInOutRight"].is-visible .modal-dialog,
-  [data-animation="zoomInOut"].is-visible .modal-dialog,
-  [data-animation="rotateInOutDown"].is-visible .modal-dialog {
-    transform: none;
+
+  50% {
+    transform: rotate(-15deg);
   }
-  
-  @keyframes mixInAnimations {
-    0% {
-      transform: translateX(-100%);
-    }
-  
-    10% {
-      transform: translateX(0);
-    }
-  
-    20% {
-      transform: rotate(20deg);
-    }
-  
-    30% {
-      transform: rotate(-20deg);
-    }
-  
-    40% {
-      transform: rotate(15deg);
-    }
-  
-    50% {
-      transform: rotate(-15deg);
-    }
-  
-    60% {
-      transform: rotate(10deg);
-    }
-  
-    70% {
-      transform: rotate(-10deg);
-    }
-  
-    80% {
-      transform: rotate(5deg);
-    }
-  
-    90% {
-      transform: rotate(-5deg);
-    }
-  
-    100% {
-      transform: rotate(0deg);
-    }
+
+  60% {
+    transform: rotate(10deg);
   }
+
+  70% {
+    transform: rotate(-10deg);
+  }
+
+  80% {
+    transform: rotate(5deg);
+  }
+
+  90% {
+    transform: rotate(-5deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
