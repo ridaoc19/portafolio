@@ -1,17 +1,17 @@
 // import html2pdf from 'html2pdf.js';
 import React, { useContext, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import CreateContext from '../../components/hooks/context/CreateContext';
 import { LOADING_API_WORK } from '../../components/hooks/context/Works/types';
 import { formatDate, totalYear } from '../../components/utils/function/date';
+import { contact } from '../../components/utils/function/techCurriculum';
 import About from '../Home/sections/About/About';
-import { techValue, contact } from '../../components/utils/function/techCurriculum';
-import { useNavigate } from 'react-router-dom';
 
 function Curriculum() {
   const navigate = useNavigate()
 
   const { login: { state: { user } }, works: { getWork, dispatch, functions, company, education, technologies } } = useContext(CreateContext)
-  const [tech, setTech] = useState()
+  const [tech, setTech] = useState([])
 
 
   useEffect(() => {
@@ -26,8 +26,9 @@ function Curriculum() {
 
   useEffect(() => {
     setTech(technologies?.map(e => {
-      return Object.assign(e, { value: techValue(e.name) })
+      return Object.assign(e, { value: functions?.map(e => e.techPercentage).flat(Infinity)?.find(p => p._id === e._id)?.percentage })
     }));
+    // eslint-disable-next-line
   }, [technologies])
 
   const handleOnClick = async (e) => {

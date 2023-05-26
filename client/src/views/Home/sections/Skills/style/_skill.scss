@@ -13,6 +13,18 @@
         min-height   : 4rem;
         border-radius: 0.5rem;
         display      : grid;
+        position     : relative;
+
+        span {
+            position      : absolute;
+            right         : 0;
+            top           : 0;
+            margin        : 8px;
+            font-size     : 0.6rem;
+            color         : var(--main-color);
+            pointer-events: none;
+        }
+
 
         .skill__card--son {
             display      : grid;
@@ -23,24 +35,31 @@
             white-space  : nowrap;
             border-radius: 0.5rem;
             box-shadow   : var(--container-shadow);
-            padding      : 1rem;
+            padding      : 0.8rem 0.8rem 0.2rem 0.8rem;
+            place-items  : center;
 
             grid-template: {
                 columns: 1fr;
-                rows   : 70% 18%;
-            }
-
-            place-items: center;
-
-            h5 {
-                margin: 0;
+                rows   : 48% 35%;
             }
 
             img {
                 max-width: 2.5rem;
                 min-width: 2.5rem;
             }
-        }
 
+            >div {
+                display: grid;
+
+                h5 {
+                    margin    : 0;
+                    text-align: center;
+                }
+
+                progress {
+                    max-width: 5rem;
+                }
+            }
+        }
     }
 }
