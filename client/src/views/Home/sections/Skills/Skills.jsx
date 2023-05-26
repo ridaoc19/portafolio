@@ -8,7 +8,7 @@ function Skills() {
   useEffect(() => {
     setTech(technologies?.map(e => {
       let porcen = functions?.map(e => e.techPercentage).flat(Infinity)?.find(p => p._id === e._id)?.percentage
-      return Object.assign(e, { value: porcen? porcen: 0 })
+      return Object.assign(e, { value: porcen? Number(porcen): 0 })
     }));
     // eslint-disable-next-line
   }, [functions]);
