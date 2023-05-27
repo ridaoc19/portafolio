@@ -40,10 +40,6 @@ const functionsSchema = Schema(
     link: { type: String },
     start_date: { type: String },
     end_date: { type: String },
-    techPercentage: [{
-      percentage: { type: Number },
-      technologie: { type: String }
-    }],
     technologies: [{ type: Schema.Types.ObjectId, ref: "Technologies" }],
     repository: { type: String },
     tasks: [{ type: String }],
@@ -61,6 +57,7 @@ const technologiesSchema = new Schema(
     name: { type: String },
     image: { type: String },
     technologies: { type: String },
+    percentage: { type: Number }
   },
   {
     timestamps: false,

@@ -9,8 +9,8 @@ module.exports = {
         await Technologies.create(req.body)
         functionGet(req, res, req.params.user_id)
       } else {
-        const { _id, name, image, technologies } = req.body;
-        await Technologies.findOneAndUpdate({ _id }, { name, image, technologies });
+        const { _id, name, image, technologies, percentage } = req.body;
+        await Technologies.findOneAndUpdate({ _id }, { name, image, technologies, percentage });
         functionGet(req, res, req.params.user_id)
       }
     } catch (error) {

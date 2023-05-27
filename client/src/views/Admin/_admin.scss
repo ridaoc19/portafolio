@@ -28,5 +28,7 @@
 .mandatory,
 .err{
     color: red;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 

@@ -1,5 +1,5 @@
 // import html2pdf from 'html2pdf.js';
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import CreateContext from '../../components/hooks/context/CreateContext';
 import { LOADING_API_WORK } from '../../components/hooks/context/Works/types';
@@ -11,7 +11,6 @@ function Curriculum() {
   const navigate = useNavigate()
 
   const { login: { state: { user } }, works: { getWork, dispatch, functions, company, education, technologies } } = useContext(CreateContext)
-  const [tech, setTech] = useState([])
 
 
   useEffect(() => {
@@ -23,13 +22,6 @@ function Curriculum() {
 
     // eslint-disable-next-line
   }, [user])
-
-  useEffect(() => {
-    setTech(technologies?.map(e => {
-      return Object.assign(e, { value: functions?.map(e => e.techPercentage).flat(Infinity)?.find(p => p._id === e._id)?.percentage })
-    }));
-    // eslint-disable-next-line
-  }, [technologies])
 
   const handleOnClick = async (e) => {
     e.preventDefault()
@@ -156,12 +148,13 @@ function Curriculum() {
                   <h4>Frondtend</h4>
 
                   <ul className="curriculum__skill--container">
-                    {tech?.map((e, i) => (
+                    {technologies?.map((e, i) => (
                       e.technologies === "Front end" &&
                       <div key={i} className="curriculum__skill--card">
                         <img src={e.image} alt="img" />
                         <h4>{e.name}</h4>
-                        <progress value={e.value} max="100">{e.value}</progress>
+                        <progress value={e.percentage} max="100">{e.percentage}</progress>
+                        <span>{`%${e.percentage ? e.percentage : 0}`}</span>
                       </div>
                     ))}
                   </ul>
@@ -170,24 +163,26 @@ function Curriculum() {
                 <div>
                   <h4>Backend</h4>
                   <ul className="curriculum__skill--container">
-                    {tech?.map((e, i) => (
+                    {technologies?.map((e, i) => (
                       e.technologies === "Back end" &&
                       <div key={i} className="curriculum__skill--card">
                         <img src={e.image} alt="img" />
                         <h4>{e.name}</h4>
-                        <progress value={e.value} max="100">{e.value}</progress>
+                        <progress value={e.percentage} max="100">{e.percentage}</progress>
+                        <span>{`%${e.percentage ? e.percentage : 0}`}</span>
                       </div>
                     ))}
                   </ul>
 
                   <h4>Otros</h4>
                   <ul className="curriculum__skill--container">
-                    {tech?.map((e, i) => (
+                    {technologies?.map((e, i) => (
                       e.technologies === "Otros" &&
                       <div key={i} className="curriculum__skill--card">
                         <img src={e.image} alt="img" />
                         <h4>{e.name}</h4>
-                        <progress value={e.value} max="100">{e.value}</progress>
+                        <progress value={e.percentage} max="100">{e.percentage}</progress>
+                        <span>{`%${e.percentage ? e.percentage : 0}`}</span>
                       </div>
                     ))}
                   </ul>

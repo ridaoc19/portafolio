@@ -14,8 +14,7 @@ const initialState = {
   end_date: "",
   repository: "",
   tasks: [],
-  technologies: [],
-  techPercentage: []
+  technologies: []
 }
 
 function Function() {
@@ -68,11 +67,11 @@ function Function() {
     setErr({ ...err, [nameInput]: type });
   }
 
-  const handleTasksTech = (data, component, percentage) => {
+  const handleTasksTech = (data, component) => {
     if (component === "tasks") {
       setChange({ ...change, tasks: data })
     } else if (component === "tech") {
-      setChange({ ...change, technologies: data, techPercentage: percentage })
+      setChange({ ...change, technologies: data})
     }
   }
 

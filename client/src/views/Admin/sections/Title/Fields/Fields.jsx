@@ -55,7 +55,7 @@ function Fields({ change, handleOnChange, handleOnClick, err, handleOnLoad }) {
       <div className="-button">
         <div>
           <button id="title_clean" name="title_clean" onClick={handleOnClick}> Limpiar </button>
-          <button id="title_save" name="title_save" onClick={handleOnClick}> Guardar Titulo </button>
+          <button id="title_save" name="title_save" onClick={handleOnClick}> Guardar </button>
         </div>
       </div>
     </>
