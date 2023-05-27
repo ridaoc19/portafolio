@@ -21,6 +21,11 @@ export default function Validation(name, value, change, mandatory) {
     if (value === "") return error = { type: "Este campo es obligatorio", stop: false }
   }
 
+  if (name === "percentage") {
+    if (value === "") return error = { type: "Este campo es obligatorio", stop: false }
+    if (value < 0 || value > 100) return error = { type: "debe ser > 0 & < 101", stop: true }
+  }
+
   if (name === "image") {
     if (value !== "") {
       if (value.trim() === "") return error = { type: "Debe ingresar texto", stop: true }

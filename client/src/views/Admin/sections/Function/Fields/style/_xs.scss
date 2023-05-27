@@ -1,254 +1,304 @@
-    $fields: -name,
-    -image,
-    -web,
-    -repository,
-    -start-date,
-    -end-date,
-    -tasks,
-    -technologies,
-    -button;
+$fields: -name,
+-image,
+-web,
+-repository,
+-start-date,
+-end-date,
+-tasks,
+-technologies,
+-button;
 
-    .function__fields {
-        display: grid;
-        grid-template-areas:
-            "-name       -name "
-            "-web        -web "
-            "-repository -repository"
-            "-image  -image"
-            "-start-date -end-date"
-            "-tasks -tasks"
-            "-technologies -technologies"
-            "-button -button";
-        grid-template-columns: 45% 50%;
-        gap                  : 0.5rem 2.5%;
-        justify-content      : center;
+.function__fields {
+    display: grid;
+    grid-template-areas:
+        "-name       -name "
+        "-web        -web "
+        "-repository -repository"
+        "-image  -image"
+        "-start-date -end-date"
+        "-tasks -tasks"
+        "-technologies -technologies"
+        "-button -button";
+    grid-template-columns: 50% 50%;
+    gap                  : 0.5rem 2.5%;
 
-        @each $fields_each in $fields {
-            .#{$fields_each} {
-                grid-area         : $fields_each;
-                display           : grid;
-                grid-template-rows: 1.5rem min-content 1rem;
-                align-items       : center;
+    @each $fields_each in $fields {
+        .#{$fields_each} {
+            grid-area         : $fields_each;
+            display           : grid;
+            grid-template-rows: 1.5rem min-content 1rem;
+            align-items       : center;
+        }
+    }
+
+    >.-image {
+        grid-template-rows: 1.5rem min-content 1rem 9rem;
+        align-items       : start;
+
+        div {
+            border         : 4px dashed var(--main-color);
+            height         : 92%;
+            display        : flex;
+            justify-content: center;
+            align-items    : center;
+
+            img {
+                height: 70%;
+            }
+        }
+    }
+
+    >.-repository,
+    >.-web {
+        grid-template-rows: 1.5rem min-content 2rem;
+
+        >button {
+            height   : 1.5rem;
+            padding  : 4px;
+            font-size: small;
+        }
+    }
+
+    >.-end-date>div {
+        white-space: nowrap;
+    }
+
+    >.-button>div {
+        display        : flex;
+        gap            : 2rem;
+        justify-content: space-between;
+    }
+
+    >.-tasks {
+        grid-template-rows: 3rem 20rem;
+        border-top        : 1px solid var(--text-color);
+
+        h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .function__tasks {
+            height : 100%;
+            display: grid;
+            grid-template-areas:
+                "-write"
+                "-button"
+                "-slate";
+            gap                  : 0.5rem;
+            grid-template-columns: 1fr;
+            grid-template-rows   : 20% 15% 50%;
+
+            .-write {
+                grid-area: -write;
+
+                textarea {
+                    margin-top   : 0;
+                    width        : 98%;
+                    height       : 100%;
+                    border-radius: 0.5rem;
+                }
+            }
+
+            .-button {
+                grid-area : -button;
+                display   : block;
+                place-self: center;
+            }
+
+            .-slate {
+                grid-area: -slate;
+
+                >ul {
+                    height        : 85%;
+                    padding       : 0;
+                    margin        : 0;
+                    overflow-y    : scroll;
+                    border        : 2px solid var(--main-color);
+                    display       : flex;
+                    flex-direction: column;
+                    border-radius : 0.4rem;
+
+                    i {
+                        text-align: justify;
+                    }
+                }
+            }
+        }
+    }
+
+    >.-technologies {
+        grid-template-rows: min-content 29rem;
+        border-top        : 1px solid var(--text-color);
+
+        .admin__technologies-title {
+            display        : flex;
+            gap            : 0.5rem;
+            justify-content: space-between;
+
+            >h3 {
+                margin: 0;
+            }
+
+            label {
+                display: flex;
+                gap    : 0.2rem;
             }
         }
 
-        >.-image {
-            grid-template-rows: 1.5rem min-content 1rem 9rem;
-            align-items       : start;
+        .admin__technologies-container {
+            height               : 95%;
+            display              : grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap                  : 0.5rem;
 
-            div {
-                border         : 4px dashed var(--main-color);
-                height         : 92%;
-                display        : flex;
-                justify-content: center;
-                align-items    : center;
+            .technologies__selection,
+            .technologies__content {
+                border       : 4px solid var(--container-color);
+                border-radius: 0.5rem;
 
-                img {
-                    height: 70%;
+                h3 {
+                    background-color: var(--container-color);
+                    text-align      : center;
+                    padding         : 0.3rem;
+                    margin          : 0;
+                }
+
+                >div>ul {
+                    height       : 22.5rem;
+                    overflow-y   : auto;
+                    margin       : 0;
+                    padding      : 0.5rem;
+                    display      : flex;
+                    flex-wrap    : wrap;
+                    gap          : 0.3rem;
+                    align-content: flex-start;
+
+                    >button {
+                        flex: auto;
+                    }
+                }
+            }
+
+            .technologies__selection {
+                border: 4px solid var(--main-color);
+
+                h3 {
+                    background-color: var(--main-color);
+                }
+
+                button {
+                    border    : none;
+                    box-shadow: var(--container-shadow);
+                    position  : relative;
+
+                    span {
+                        position      : absolute;
+                        right         : 0;
+                        top           : 0;
+                        margin        : 3.1px;
+                        font-size     : 0.6rem;
+                        color         : var(--main-color);
+                        pointer-events: none;
+                    }
                 }
             }
         }
 
-        >.-repository>button,
-        >.-web>button {
-            margin-top: 0.5rem;
-            padding   : 4px;
-            font-size : small;
-        }
+        .technologies-post-container {
+            height: 100%;
 
-        >.-end-date>div {
-            white-space: nowrap;
-        }
+            >.-render {
+                display           : grid;
+                grid-template-rows: 20rem 3rem;
 
-        >.-description>textarea {
-            height: 3rem;
-        }
+                ul {
+                    height       : 90%;
+                    overflow-y   : auto;
+                    margin       : 0;
+                    padding      : 1rem;
+                    display      : flex;
+                    flex-wrap    : wrap;
+                    gap          : 0.3rem;
+                    align-content: flex-start;
 
-        >.-button>div {
-            display        : flex;
-            gap            : 2rem;
-            height: 3.5rem;
-            justify-content: space-between;
-        }
+                    border       : 1px solid var(--main-color);
+                    border-radius: 0.5rem;
 
-        >.-tasks {
-            grid-template-rows: 1.5rem 20rem;
+                    li {
+                        padding: 0.3rem;
+                        flex   : auto;
 
-            h3 {
-                margin: 0.5rem 0;
+                        border       : 1px dotted var(--main-color);
+                        border-radius: 0.3rem;
+                    }
+                }
+
+                button {
+                    place-self: center;
+                }
             }
 
-            .function__tasks {
+            .-fields {
+                $fields: -name, -technologies -image, -render-image, -percentage,
+                    -button;
+
                 display: grid;
-                height : 100%;
                 grid-template-areas:
-                    "-write"
-                    "-button"
-                    "-slate";
-                gap               : 0.5rem;
-                grid-template-rows: 30% 10% 50%;
+                    "-name -name"
+                    "-technologies -percentage"
+                    "-image -image"
+                    "-render-image -render-image"
+                    "-button -button";
+                grid-template-columns: repeat(2, 1fr);
+                gap                  : 0.5rem 2.5%;
 
-                .-write {
-                    grid-area: -write;
+                @each $fields_each in $fields {
+                    .#{$fields_each} {
+                        grid-area         : $fields_each;
+                        display           : grid;
+                        grid-template-rows: 1.5rem min-content 1rem;
+                        place-items       : center;
+                    }
+                }
 
-                    textarea {
-                        width        : 98%;
-                        height       : 80%;
-                        border-radius: 0.5rem;
+                .-percentage {
+                    input {
+                        width: 3rem;
+                    }
+                }
+
+                .-technologies {
+                    grid-area : -technologies;
+                    place-self: center;
+
+                    select {
+                        width        : 9rem;
+                        font-size    : inherit;
+                        overflow     : hidden;
+                        padding      : 5px 10px;
+                        text-overflow: ellipsis;
+                        white-space  : nowrap;
+                        border-radius: 0.3rem;
+                    }
+                }
+
+                .-render-image {
+                    border         : 4px dashed var(--main-color);
+                    height         : 10rem;
+                    display        : flex;
+                    justify-content: center;
+                    align-items    : center;
+
+                    img {
+                        height: 5rem;
                     }
                 }
 
                 .-button {
-                    grid-area   : -button;
-                    display     : block;
-                    justify-self: center;
-                    align-self  : end;
-                }
-
-                .-slate {
-                    grid-area: -slate;
-
-                    >ul {
-                        max-height: 7.5rem;
-                        height    : 100%;
-                        padding   : 0.5rem;
-                        overflow-y: scroll;
-                        border    : 4px solid var(--main-color);
-
-                    }
-                }
-            }
-        }
-
-        >.-technologies {
-            grid-template-rows: min-content 0 27rem;
-            align-items       : none;
-
-            .admin__technologies-title {
-                display: flex;
-                gap    : 1rem;
-
-                >h3 {
-                    margin: 0;
-                }
-            }
-
-            .admin__technologies-container {
-                height               : 95%;
-                display              : grid;
-                grid-template-columns: repeat(2, 1fr);
-                gap                  : 0.5rem;
-
-                h3 {
-                    text-align: center;
-                    margin    : 0 0 0.5rem 0;
-                }
-
-                .technologies__selection,
-                .technologies__content {
-                    border    : 4px solid var(--container-color);
-                    overflow-y: auto;
-                    height    : 24rem;
-
-                    >div>ul {
-                        margin   : 0.2rem;
-                        padding  : 0;
-                        display  : flex;
-                        flex-wrap: wrap;
-                        gap      : 0.3rem;
-
-                        >button {
-                            flex: auto;
-                        }
-                    }
-                }
-
-                .technologies__selection {
-                    border: 4px solid var(--main-color);
-                }
-            }
-
-            .technologies-post-container {
-                height : 100%;
-                display: grid;
-
-                >div {
-                    padding: 1rem 0;
-                }
-
-                .-render {
-                    ul {
-                        display  : flex;
-                        flex-wrap: wrap;
-                        padding  : 1rem 0;
-
-                        li {
-                            padding        : 0.3rem;
-                            flex           : auto;
-                            justify-content: center;
-                            border         : 1px dotted var(--main-color);
-                            border-radius  : 0.3rem;
-                        }
-                    }
-                }
-
-                .-fields {
-                    $fields: -name, -technologies -image, -render-image, -button;
-
-                    display: grid;
-                    grid-template-areas:
-                        "-name"
-                        "-technologies"
-                        "-image"
-                        "-render-image"
-                        "-button";
-                    gap: 0.5rem 2.5%;
-
-                    @each $fields_each in $fields {
-                        .#{$fields_each} {
-                            grid-area         : $fields_each;
-                            display           : grid;
-                            grid-template-rows: 1.5rem min-content 1rem;
-                            align-items       : center;
-                        }
-                    }
-
-                    .-technologies {
-                        grid-area : -technologies;
-                        place-self: center;
-
-                        select {
-                            width        : 100%;
-                            font-size    : inherit;
-                            overflow     : hidden;
-                            padding      : 5px 10px;
-                            text-overflow: ellipsis;
-                            white-space  : nowrap;
-                            border-radius: 0.3rem;
-                        }
-                    }
-
-                    .-render-image {
-                        border         : 4px dashed var(--main-color);
-                        height         : 92%;
-                        display        : flex;
-                        justify-content: center;
-                        align-items    : center;
-
-                        img {
-                            height: 8rem;
-                        }
-                    }
-
-                    .-button {
-                        display        : flex;
-                        justify-content: space-between;
-                    }
+                    display        : flex;
+                    justify-content: space-between;
                 }
             }
         }
     }
-
-    .function__fields .-button{
-        grid-template-rows: 3rem;
-    }
+}

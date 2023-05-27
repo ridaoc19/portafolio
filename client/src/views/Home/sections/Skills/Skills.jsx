@@ -1,18 +1,8 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import CreateContext from "../../../../components/hooks/context/CreateContext";
 
 function Skills() {
-  const { works: { technologies, functions } } = useContext(CreateContext)
-  const [tech, setTech] = useState([]);
-
-  useEffect(() => {
-    setTech(technologies?.map(e => {
-      let porcen = functions?.map(e => e.techPercentage).flat(Infinity)?.find(p => p._id === e._id)?.percentage
-      return Object.assign(e, { value: porcen? Number(porcen): 0 })
-    }));
-    // eslint-disable-next-line
-  }, [functions]);
-
+  const { works: { technologies } } = useContext(CreateContext)
 
   return (
     <>
@@ -20,15 +10,15 @@ function Skills() {
       <h4>Frondtend</h4>
 
       <ul className="home__skill--container">
-        {tech?.map((e) => (
+        {technologies?.map((e) => (
           e.technologies === "Front end" &&
           <div key={e.name} className="home__skill--card">
-            <span>{`%${e.value}`}</span>
+            <span>{`%${e.percentage ? e.percentage : 0}`}</span>
             <div className="skill__card--son">
               <img src={e.image} alt="img" />
               <div>
                 <h5>{e.name}</h5>
-                <progress value={e.value} max="100">{e.value}</progress>
+                <progress value={e.percentage} max="100">{e.percentage}</progress>
               </div>
             </div>
           </div>
@@ -38,15 +28,15 @@ function Skills() {
       <h4>Backend</h4>
 
       <ul className="home__skill--container">
-        {tech?.map((e) => (
+        {technologies?.map((e) => (
           e.technologies === "Back end" &&
           <div key={e.name} className="home__skill--card">
-            <span>{`%${e.value}`}</span>
+            <span>{`%${e.percentage ? e.percentage : 0}`}</span>
             <div className="skill__card--son">
               <img src={e.image} alt="img" />
               <div>
                 <h5>{e.name}</h5>
-                <progress value={e.value} max="100">{e.value}</progress>
+                <progress value={e.percentage} max="100">{e.percentage}</progress>
               </div>
             </div>
           </div>
@@ -56,15 +46,15 @@ function Skills() {
       <h4>Otros</h4>
 
       <ul className="home__skill--container">
-        {tech?.map((e) => (
+        {technologies?.map((e) => (
           e.technologies === "Otros" &&
           <div key={e.name} className="home__skill--card">
-            <span>{`%${e.value}`}</span>
+            <span>{`%${e.percentage ? e.percentage : 0}`}</span>
             <div className="skill__card--son">
               <img src={e.image} alt="img" />
               <div>
                 <h5>{e.name}</h5>
-                <progress value={e.value} max="100">{e.value}</progress>
+                <progress value={e.percentage} max="100">{e.percentage}</progress>
               </div>
             </div>
           </div>

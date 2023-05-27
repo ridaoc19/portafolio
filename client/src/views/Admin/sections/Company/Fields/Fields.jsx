@@ -77,7 +77,7 @@ function Fields({ change, handleOnChange, handleOnLoad, err, handleOnClick }) {
             Limpiar
           </button>
           <button id="company_save" name="company_save" onClick={handleOnClick}>
-            Guardar Empresa
+            Guardar
           </button>
         </div>
 
