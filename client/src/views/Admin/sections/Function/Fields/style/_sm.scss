@@ -5,7 +5,8 @@ $fields: -name,
 -start-date,
 -end-date,
 -tasks,
--technologies -button;
+-technologies,
+-button;
 
 .function__fields {
     display: grid;
@@ -38,14 +39,21 @@ $fields: -name,
             display      : flex;
             place-content: center;
         }
+
+        img {
+            height: 8rem;
+        }
     }
 
-    >.-repository>button,
-    >.-web>button {
-        margin-top: 0.5rem;
-        padding   : 2px;
-        font-size : small;
-        height    : 1.3rem;
+    >.-repository,
+    >.-web {
+        grid-template-rows: 1.5rem min-content 2rem;
+
+        >button {
+            padding  : 2px;
+            font-size: small;
+            height   : 1.5rem;
+        }
     }
 
     >.-end-date>div {
@@ -53,28 +61,30 @@ $fields: -name,
     }
 
     >.-button>div {
-        display: flex;
-        gap    : 2rem;
+        display        : flex;
+        gap            : 2rem;
+        justify-content: space-between;
     }
 
     >.-tasks {
-        grid-template-rows: 1.5rem 14rem;
+        grid-template-rows: 3rem 14rem;
+        border-top        : 1px solid var(--text-color);
 
         h3 {
-            margin: 0.5rem 0;
+            margin-bottom: 0.5rem;
         }
 
         .function__tasks {
+            height : 100%;
             display: grid;
-            height : 80%;
             grid-template-areas:
                 "-write -slate"
                 "-button -slate";
             gap                  : 0.5rem;
-            grid-template-rows   : 75% 25%;
+            grid-template-rows   : auto;
             grid-template-columns: 44% 55%;
 
-            .-write {
+            >.-write {
                 grid-area: -write;
 
                 textarea {
@@ -85,37 +95,49 @@ $fields: -name,
                 }
             }
 
-            .-button {
-                grid-area   : -button;
-                display     : block;
-                justify-self: center;
-                align-self  : end;
+            >.-button {
+                grid-area : -button;
+                display   : block;
+                place-self: center;
             }
 
-            .-slate {
+            >.-slate {
                 grid-area: -slate;
 
                 >ul {
-                    max-height: 7.5rem;
-                    height    : 100%;
-                    padding   : 0.5rem;
-                    overflow-y: scroll;
-                    border    : 2px solid var(--main-color);
+                    height        : 11.5rem;
+                    padding       : 0.5rem;
+                    margin        : 0rem;
+                    overflow-y    : scroll;
+                    border        : 2px solid var(--main-color);
+                    display       : flex;
+                    flex-direction: column;
+                    border-radius : 0.4rem;
+
+                    i {
+                        text-align: justify;
+                    }
                 }
             }
         }
     }
 
     >.-technologies {
-        grid-template-rows: 1.5rem 0 15rem;
-        align-items       : none;
+        grid-template-rows: 3rem 20rem;
+        border-top        : 1px solid var(--text-color);
 
         .admin__technologies-title {
-            display: flex;
-            gap    : 1rem;
+            display        : flex;
+            gap    : 0.5rem;
+            justify-content: space-between;
 
             >h3 {
                 margin: 0;
+            }
+
+            label {
+                display: flex;
+                gap    : 0.5rem;
             }
         }
 
@@ -125,23 +147,27 @@ $fields: -name,
             grid-template-columns: repeat(2, 1fr);
             gap                  : 1rem;
 
-            h3 {
-                text-align: center;
-                margin    : 0 0 0.5rem 0;
-            }
-
             .technologies__selection,
             .technologies__content {
-                border    : 4px solid var(--container-color);
-                overflow-y: auto;
-                height    : 14rem;
+                border       : 4px solid var(--container-color);
+                border-radius: 0.5rem;
+
+                h3 {
+                    background-color: var(--container-color);
+                    text-align      : center;
+                    padding         : 0.3rem;
+                    margin          : 0;
+                }
 
                 >div>ul {
-                    margin   : 0;
-                    padding  : 0;
-                    display  : flex;
-                    flex-wrap: wrap;
-                    gap      : 0.3rem;
+                    height       : 15.3rem;
+                    overflow-y   : auto;
+                    margin       : 0;
+                    padding      : 0.5rem;
+                    display      : flex;
+                    flex-wrap    : wrap;
+                    gap          : 0.3rem;
+                    align-content: flex-start;
 
                     >button {
                         flex: auto;
@@ -152,9 +178,14 @@ $fields: -name,
             .technologies__selection {
                 border: 4px solid var(--main-color);
 
+                h3 {
+                    background-color: var(--main-color);
+                }
 
                 button {
-                    position: relative;
+                    border    : none;
+                    box-shadow: var(--container-shadow);
+                    position  : relative;
 
                     span {
                         position      : absolute;
@@ -170,37 +201,48 @@ $fields: -name,
         }
 
         .technologies-post-container {
-            height    : 100%;
-            display   : grid;
-            max-height: 15rem;
+            height: 100%;
 
-            >div {
-                padding: 1rem 0;
-            }
+            >.-render {
+                display           : grid;
+                grid-template-rows: 15.6rem 3rem;
 
-            .-render {
                 ul {
-                    display  : flex;
-                    flex-wrap: wrap;
-                    padding  : 1rem 0;
+                    height       : 13.5rem;
+                    overflow-y   : auto;
+                    margin       : 0;
+                    padding      : 1rem;
+                    display      : flex;
+                    flex-wrap    : wrap;
+                    gap          : 0.3rem;
+                    align-content: flex-start;
+
+                    border       : 1px solid var(--main-color);
+                    border-radius: 0.5rem;
 
                     li {
-                        padding        : 0.3rem;
-                        flex           : auto;
-                        justify-content: center;
-                        border         : 1px dotted var(--main-color);
-                        border-radius  : 0.3rem;
+                        padding: 0.3rem;
+                        flex   : auto;
+
+                        border       : 1px dotted var(--main-color);
+                        border-radius: 0.3rem;
                     }
+                }
+
+                button {
+                    place-self: center;
                 }
             }
 
             .-fields {
-                $fields: -name, -technologies -image, -render-image, -button;
+                $fields: -name, -technologies -image, -render-image, -percentage,
+                    -button;
 
                 display: grid;
                 grid-template-areas:
-                    "-name   -technologies -render-image"
-                    "-image        -image      -render-image"
+                    "-name          -name        -render-image"
+                    "-technologies  -percentage  -render-image"
+                    "-image         -image       -render-image"
                     "-button -button -button";
                 grid-template-columns: 35% 25% 35%;
                 gap                  : 0.5rem 2.5%;
@@ -210,7 +252,13 @@ $fields: -name,
                         grid-area         : $fields_each;
                         display           : grid;
                         grid-template-rows: 1.5rem min-content 1rem;
-                        align-items       : center;
+                        place-items       : center;
+                    }
+                }
+
+                .-percentage {
+                    input {
+                        width: 3rem;
                     }
                 }
 

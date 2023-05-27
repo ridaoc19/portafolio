@@ -24,7 +24,7 @@ function Render({ status, tech, handleOnClick }) {
               <ul>
                 {tech.map((e) =>
                   e.status === "selection" && (
-                    <button key={e._id} id={e._id} name="delete" onClick={handleOnClick}> {e.name} <span>{`%${e.percentage}`}</span> </button>
+                    <button key={e._id} id={e._id} name="delete" onClick={handleOnClick}> {e.name} <span>{`%${e.percentage ? e.percentage : 0}`}</span> </button>
                   )
                 )}
               </ul>

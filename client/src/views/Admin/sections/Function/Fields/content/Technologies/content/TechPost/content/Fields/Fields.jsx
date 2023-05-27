@@ -9,6 +9,12 @@ function Fields({ handleOnChange, handleOnClick, change, err, handleOnLoad }) {
         {err.name && <span className="err">{err.name}</span>}
       </div>
 
+      <div className="-percentage">
+        <label >Nivel <span className="mandatory">*</span></label>
+        <input type="number" onChange={handleOnChange} min="0" max="100" placeholder="%" name="percentage" value={change.percentage} />
+        {err.percentage && <span className="err">{err.percentage}</span>}
+      </div>
+
       <div className='-technologies'>
         <label >Clasificación <span className="mandatory">*</span></label>
         <select name="technologies" value={change.technologies} onChange={handleOnChange}>
@@ -28,7 +34,6 @@ function Fields({ handleOnChange, handleOnClick, change, err, handleOnLoad }) {
         <label >Logo <span className="mandatory">*</span></label>
         <input type="url" onChange={handleOnChange} placeholder="https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/React.svg/250px-React.svg.png" name="image" value={change.image} />
         <span className="err">{err.image}</span>
-
       </div>
 
       {<div className='-render-image'>
@@ -36,9 +41,9 @@ function Fields({ handleOnChange, handleOnClick, change, err, handleOnLoad }) {
       </div>}
 
       <div className='-button'>
-          <button name='clean' onClick={handleOnClick} >limpiar</button>
-          <button id='technologies_save' name='save' onClick={handleOnClick}>Guardar</button>
-        
+        <button name='clean' onClick={handleOnClick} >limpiar</button>
+        <button id='technologies_save' name='save' onClick={handleOnClick}>Guardar</button>
+
       </div>
     </>
   );

@@ -11,7 +11,8 @@ import Render from './content/Render/Render';
 const initialState = {
   name: "",
   image: "",
-  technologies: ""
+  technologies: "",
+  percentage: ""
 }
 
 const initialStatus = {
@@ -32,7 +33,7 @@ function TechPost() {
 
 
   useEffect(() => {
-    setValidation({ change, validate: ["name", "image", "technologies"], element: "technologies_save", image: "technologies_img" })
+    setValidation({ change, validate: ["name", "image", "technologies", "percentage"], element: "technologies_save", image: "technologies_img" })
     // eslint-disable-next-line
   }, [err, change, statusLocal])
 
@@ -98,22 +99,22 @@ function TechPost() {
 
   return (
     <>
-      <div id="functions__modal-tech">
-        <Modal header={dataModal.header} children={dataModal.children} />
-      </div>
       {state.loading_api_technologies ? <h3>Cargando...</h3>
         : <div className='technologies-post-container'>
-          <div>
-            {statusLocal.render &&
-              <div className='-render'>
-                <Render information={information} state={state} statusLocal={statusLocal} tooltip={tooltip} handleOnClick={handleOnClick} />
-              </div>}
-
-            {statusLocal.fields &&
-              <div className='-fields'>
-                <Fields change={change} err={err} handleOnChange={handleOnChange} handleOnClick={handleOnClick} handleOnLoad={handleOnLoad} />
-              </div>}
+          <div id="functions__modal-tech">
+            <Modal header={dataModal.header} children={dataModal.children} />
           </div>
+
+          {statusLocal.render &&
+            <div className='-render'>
+              <Render information={information} state={state} statusLocal={statusLocal} tooltip={tooltip} handleOnClick={handleOnClick} />
+            </div>}
+
+          {statusLocal.fields &&
+            <div className='-fields'>
+              <Fields change={change} err={err} handleOnChange={handleOnChange} handleOnClick={handleOnClick} handleOnLoad={handleOnLoad} />
+            </div>}
+
         </div>}
     </>
   );
