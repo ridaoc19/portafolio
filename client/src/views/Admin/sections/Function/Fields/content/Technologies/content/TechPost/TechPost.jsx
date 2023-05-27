@@ -69,6 +69,7 @@ function TechPost() {
         return;
       case "save":
         callApi({ method: POST, route: `${TECHNOLOGIES}/${status.position_function_id}/${user._id}`, loading: LOADING_API_TECHNOLOGIES, post: Object.assign({ user_id: user._id }, change) })
+        setStatusLocal({ ...statusLocal, add: true, fields: false, render: true })
         break;
 
       case "delete":

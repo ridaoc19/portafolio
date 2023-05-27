@@ -128,7 +128,7 @@ $fields: -name,
 
         .admin__technologies-title {
             display        : flex;
-            gap    : 0.5rem;
+            gap            : 0.5rem;
             justify-content: space-between;
 
             >h3 {
@@ -206,6 +206,10 @@ $fields: -name,
             >.-render {
                 display           : grid;
                 grid-template-rows: 1.5rem 17rem 3rem;
+
+                @media (min-width: map.get($respons, "xl")) {
+                    grid-template-rows: 17rem 3rem;
+                }
 
                 ul {
                     height       : 13.5rem;
