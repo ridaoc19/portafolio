@@ -1,8 +1,12 @@
 const { Location } = require("./model");
 const { handleHttp } = require("../../core/utils/error.handle");
+const Email = require("../../core/utils/email");
 
 module.exports = {
-  postLocation(req, res) {
+  async postLocation(req, res) {
+
+    await Email(req.body);
+
     Location.create(req.body)
       .then((data) => {
         const responsePost = {
