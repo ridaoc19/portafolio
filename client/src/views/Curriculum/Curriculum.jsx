@@ -75,7 +75,7 @@ function Curriculum() {
 
         <main>
           <div className='about__container'>
-            <h4>Ingreso a Portafolio <a href="https://portafolio-rose-eight.vercel.app" target="_blank" rel="noreferrer">https://portafolio-rose-eight.vercel.app/</a></h4>
+            <h4>Ingreso a Portafolio <a href="https://portafolio-rose-eight.vercel.app" target="_blank" rel="noreferrer">https://portafolio-rose-eight.vercel.app</a></h4>
             <About />
           </div>
           <div className='experience__skill'>
