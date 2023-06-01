@@ -1,111 +1,107 @@
 @use "sass:map";
 
-.start__container-location {
+.location__container {
+  display     : grid;
+  padding     : 1rem;
 
-  .location__container {
-    display     : grid;
-    padding     : 1rem;
+  h2 {
+    text-align: center;
+  }
 
-    h2 {
+  .location__ubication {
+    display: flex;
+    gap    : 1rem;
+
+    div:first-child {
+      align-self: center;
+
+      img {
+        width        : 2rem;
+        border-radius: 3px;
+      }
+    }
+
+    &--title {
+      overflow: hidden;
+      height  : 40px;
+
+      ul {
+        margin-top: 0;
+        list-style: none;
+        padding   : 0;
+
+        -webkit-animation-name           : change;
+        -webkit-animation-duration       : 20s;
+        -webkit-animation-iteration-count: infinite;
+        animation-name                   : change;
+        animation-duration               : 20s;
+        animation-iteration-count        : infinite;
+
+        li {
+          line-height: 40px;
+          margin     : 0;
+        }
+      }
+    }
+  }
+
+  .location__especification {
+    display: grid;
+
+    >h5 {
       text-align: center;
     }
 
-    .location__ubication {
-      display: flex;
-      gap    : 1rem;
+    >div:nth-child(1) {
+      text-align  : center;
+      justify-self: center;
+      display     : flex;
+      place-items : center;
+      gap         : 1rem;
+    }
 
-      div:first-child {
-        align-self: center;
+    >div:nth-child(2) {
+      border          : 1px solid var(--main-color);
+      border-radius   : 0.5rem;
+      margin-top      : 1rem;
 
-        img {
-          width        : 2rem;
-          border-radius: 3px;
+
+      >div {
+        display           : grid;
+        grid-template-rows: 2.5rem;
+        justify-content   : center;
+        align-items       : center;
+        background-color  : var(--container-color);
+        border-radius     : 0.5rem;
+
+        h3 {
+          text-align: center;
+          margin    : 0;
         }
       }
 
-      &--title {
-        overflow: hidden;
-        height  : 40px;
+      >ul {
+        margin              : 0;
+        padding             : 0.5rem;
+        padding-inline-start: 0;
+        height              : 50vh;
+        overflow-y          : auto;
+        border-radius       : 0.5rem;
 
-        ul {
-          margin-top: 0;
-          list-style: none;
-          padding   : 0;
 
-          -webkit-animation-name           : change;
-          -webkit-animation-duration       : 20s;
-          -webkit-animation-iteration-count: infinite;
-          animation-name                   : change;
-          animation-duration               : 20s;
-          animation-iteration-count        : infinite;
-
-          li {
-            line-height: 40px;
-            margin     : 0;
-          }
+        >p {
+          display              : grid;
+          grid-template-columns: repeat(2, 1.3rem) repeat(3, 1fr);
+          gap                  : 0.5rem;
+          align-items          : center;
+          justify-items        : start;
+          margin               : 0.5rem;
         }
       }
     }
 
-    .location__especification {
-      display: grid;
-
-      >h5 {
-        text-align: center;
-      }
-
-      >div:nth-child(1) {
-        text-align  : center;
-        justify-self: center;
-        display     : flex;
-        place-items : center;
-        gap         : 1rem;
-      }
-
-      >div:nth-child(2) {
-        border          : 1px solid var(--main-color);
-        border-radius   : 0.5rem;
-        margin-top      : 1rem;
-
-
-        >div {
-          display           : grid;
-          grid-template-rows: 2.5rem;
-          justify-content   : center;
-          align-items       : center;
-          background-color  : var(--container-color);
-          border-radius     : 0.5rem;
-
-          h3 {
-            text-align: center;
-            margin    : 0;
-          }
-        }
-
-        >ul {
-          margin              : 0;
-          padding             : 0.5rem;
-          padding-inline-start: 0;
-          height              : 50vh;
-          overflow-y          : auto;
-          border-radius       : 0.5rem;
-
-
-          >p {
-            display              : grid;
-            grid-template-columns: repeat(2, 1.3rem) repeat(3, 1fr);
-            gap                  : 0.5rem;
-            align-items          : center;
-            justify-items        : start;
-            margin               : 0.5rem;
-          }
-        }
-      }
-
-    }
   }
 }
-
 
 @-webkit-keyframes opacity {
 

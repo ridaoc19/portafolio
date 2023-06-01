@@ -38,7 +38,6 @@ function Start() {
             <div className="start__container-location">
               <Location location={location} />
             </div>
-            <div className="start__container-theme"></div>
           </>
         }
       </div>
