@@ -40,12 +40,17 @@ function Location({ location }) {
                 </ul>
               </div>
             </div>
+
             <div className="location__especification">
               <div><span>{`${value}%`}</span><progress value={value} max="100">{value}</progress></div>
-              <h3>{location[1]} visitas desde</h3>
-              {location[2]?.map((e, i) => (
-                <p key={i}><span>{e.count}</span> <img src={e.svg} alt="" width={20} /><span>{e.country}</span><span>{e.region}</span><span>{e.city}</span></p>
-              ))}
+              <div>
+                <div><h3>{location[1]} visitas desde</h3></div>
+                <ul>
+                  {location[2]?.map((e, i) => (
+                    <p key={i}><span>{e.count}</span> <img src={e.svg} alt="" width={20} /><span>{e.country}</span><span>{e.region}</span><span>{e.city}</span></p>
+                  ))}
+                </ul>
+              </div>
             </div>
           </div>
         </div>
