@@ -26,7 +26,7 @@ function LocationTemp(props) {
           </div>
           <div className="location__especification">
             <div><span>{`0%`}</span><progress></progress></div>
-            <h5>Esta página está alojada en servicios gratuitos, por ende, se demora en cargar la información, por favor esperar</h5>
+            <h5>El Back end de esta página está alojado en servicios gratuitos, por ende, demora en cargar, por favor esperar</h5>
           </div>
         </div>
       </div>

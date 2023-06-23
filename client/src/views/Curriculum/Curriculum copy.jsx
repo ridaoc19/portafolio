@@ -31,6 +31,15 @@ function Curriculum() {
         document.querySelector('.curriculum__button').style.display = 'none'
         window.print()
         document.querySelector('.curriculum__button').style.display = 'block'
+
+        // const opt = {
+        //   // margin: 1,
+        //   filename: `Portafolio ${user?.user_id ? user?.user_id : "Ricardo David Ocampo"}`,
+        //   image: { type: 'png' },
+        //   html2canvas: { scale: 4, useCORS: true },
+        //   jsPDF: { unit: 'pt', format: 'ledger', orientation: 'portrait', floatPrecision: 'smart' }
+        // };
+        // html2pdf().from(imp).set(opt).save()
         break;
 
       default:
@@ -50,81 +59,26 @@ function Curriculum() {
       <div className='curriculum__content'>
 
         <header className='header__container'>
-          {/* <img src="/profile.jpg" alt="" width="80" /> */}
-          <div className='--contact'>
-            <h2 >Contacto</h2>
+          <img src="/profile.jpg" alt="" width="80" />
+          <div>
+            <h2 >Ricardo David Ocampo</h2>
             <div>
               {contact?.map((e, i) => <div key={i}>
                 {e.name === "email" ?
-                  (<><a href={`mailto:${e.url}`}>{e.image}</a><a href={`mailto:${e.url}`}>{e.user}</a></>) :
-                  (<><a href={e.url} target="_blank" rel="noreferrer">{e.image} </a><a href={e.url} target="_blank" rel="noreferrer">{e.user} </a></>)
+                  (<a href={`mailto:${e.url}`}>{e.image} <p>{e.user}</p></a>) :
+                  (<a href={e.url} target="_blank" rel="noreferrer">{e.image} <p>{e.user}</p></a>)
                 }
               </div>)}
             </div>
           </div>
-
-          <div className='--skill'>
-            <h2>Habilidades</h2>
-
-            <div className='skill__content'>
-              <div>
-                <h4>Frondtend</h4>
-
-                <ul className="curriculum__skill--container">
-                  {technologies?.map((e, i) => (
-                    e.technologies === "Front end" &&
-                    <div key={i} className="curriculum__skill--card">
-                      <h4>{e.name}</h4>
-                      <progress value={e.percentage} max="100">{e.percentage}</progress>
-                      <span>{`${e.percentage ? e.percentage : 0} %`}</span>
-                    </div>
-                  ))}
-                </ul>
-              </div>
-
-              <div>
-                <h4>Backend</h4>
-                <ul className="curriculum__skill--container">
-                  {technologies?.map((e, i) => (
-                    e.technologies === "Back end" &&
-                    <div key={i} className="curriculum__skill--card">
-                      <h4>{e.name}</h4>
-                      <progress value={e.percentage} max="100">{e.percentage}</progress>
-                      <span>{`${e.percentage ? e.percentage : 0} %`}</span>
-                    </div>
-                  ))}
-                </ul>
-
-                <h4>Otros</h4>
-                <ul className="curriculum__skill--container">
-                  {technologies?.map((e, i) => (
-                    e.technologies === "Otros" &&
-                    <div key={i} className="curriculum__skill--card">
-                      <h4>{e.name}</h4>
-                      <progress value={e.percentage} max="100">{e.percentage}</progress>
-                      <span>{`${e.percentage ? e.percentage : 0} %`}</span>
-                    </div>
-                  ))}
-                </ul>
-              </div>
-
-            </div>
-          </div>
-
-          <div className='--language'>
-            <h2>Idioma</h2>
-            <p>Español - Nativo</p>
-          </div>
         </header>
 
         <main>
-          <div className='about__experience__education'>
-
-            <div className='about__container'>
-              <h2 >Ricardo David Ocampo</h2>
-              <h4>Ingreso a Portafolio <a href="https://portafolio-rose-eight.vercel.app" target="_blank" rel="noreferrer">https://portafolio-rose-eight.vercel.app</a></h4>
-              <About />
-            </div>
+          <div className='about__container'>
+            <h4>Ingreso a Portafolio <a href="https://portafolio-rose-eight.vercel.app" target="_blank" rel="noreferrer">https://portafolio-rose-eight.vercel.app</a></h4>
+            <About />
+          </div>
+          <div className='experience__skill'>
 
             <div className='experience__container'>
 
@@ -134,12 +88,13 @@ function Curriculum() {
 
               <div className='experience__content'>
                 {company?.map((e, i) =>
-                  <div key={i} className={`s${e._id}`}>
+                  <div key={i}>
                     <div className="company--content">
+                      <div className="-image">
+                        {e.image ? <img src={e.image} alt="img" /> : <img src={"https://cdn-icons-png.flaticon.com/128/5540/5540531.png"} width='20' alt="img" />}
+                      </div>
                       <div className="-name">
-                        <h3>
-                          {e.link ? <a href={e.link} target="_blank" rel="noreferrer">@{e.name}</a> : <h4>{e.name}</h4>}
-                        </h3>
+                        {e.link ? <a href={e.link} target="_blank" rel="noreferrer">@{e.name}</a> : <h4>{e.name}</h4>}
                       </div>
                       <div className="-date">
                         {/* <h6>{e.start_date} - {e.end_date}</h6> */}
@@ -153,20 +108,25 @@ function Curriculum() {
                           <div className="-name">
                             {p.link ? <a href={p.link} target="_blank" rel="noreferrer">@{p.name}</a> : <h4>{p.name}</h4>}
                           </div>
+                          <div className="-date">
+                            {/* <h6>{p.start_date} - {p.end_date}</h6> */}
+                            <h6>{totalYear(p.start_date, p.end_date === "Presente" ? Date.now() : p.end_date)}</h6>
+                          </div>
 
                           <div className="-functions">
                             {p.functions?.map((f, i) => {
                               const data = functions.find(d => d._id === f)
-                              console.log(data)
                               return (
                                 <div key={i} className='functions--content'>
+                                  <div className="-date">
+                                    <h6>{data.start_date} - {data.end_date}</h6>
+                                    {/* <h6>{totalYear(data.start_date, data.end_date === "Presente" ? Date.now() : data.end_date)}</h6> */}
+                                  </div>
+                                  <div className="-image">
+                                    {data.image ? <img src={data.image} alt="img" width='20' /> : <img src={"https://cdn-icons-png.flaticon.com/128/5540/5540531.png"} width='20' alt="img" />}
+                                  </div>
                                   <div className="-name">
                                     {data.link ? <a href={data.link} target="_blank" rel="noreferrer">@{data.name}</a> : <h5>{data.name}</h5>}
-                                  </div>
-                                  <div className='-tasks'>
-                                    <ul>
-                                      {data.tasks?.map((e, i) => <li key={i}>{e}</li>)}
-                                    </ul>
                                   </div>
                                 </div>
                               )
@@ -179,8 +139,58 @@ function Curriculum() {
                 )}
               </div>
             </div>
+            <div className="html2pdf__page-break"></div>
 
+            <div className='skill__container'>
+              <h2>Habilidades</h2>
 
+              <div className='skill__content'>
+                <div>
+                  <h4>Frondtend</h4>
+
+                  <ul className="curriculum__skill--container">
+                    {technologies?.map((e, i) => (
+                      e.technologies === "Front end" &&
+                      <div key={i} className="curriculum__skill--card">
+                        <img src={e.image} alt="img" />
+                        <h4>{e.name}</h4>
+                        <progress value={e.percentage} max="100">{e.percentage}</progress>
+                        <span>{`%${e.percentage ? e.percentage : 0}`}</span>
+                      </div>
+                    ))}
+                  </ul>
+                </div>
+
+                <div>
+                  <h4>Backend</h4>
+                  <ul className="curriculum__skill--container">
+                    {technologies?.map((e, i) => (
+                      e.technologies === "Back end" &&
+                      <div key={i} className="curriculum__skill--card">
+                        <img src={e.image} alt="img" />
+                        <h4>{e.name}</h4>
+                        <progress value={e.percentage} max="100">{e.percentage}</progress>
+                        <span>{`%${e.percentage ? e.percentage : 0}`}</span>
+                      </div>
+                    ))}
+                  </ul>
+
+                  <h4>Otros</h4>
+                  <ul className="curriculum__skill--container">
+                    {technologies?.map((e, i) => (
+                      e.technologies === "Otros" &&
+                      <div key={i} className="curriculum__skill--card">
+                        <img src={e.image} alt="img" />
+                        <h4>{e.name}</h4>
+                        <progress value={e.percentage} max="100">{e.percentage}</progress>
+                        <span>{`%${e.percentage ? e.percentage : 0}`}</span>
+                      </div>
+                    ))}
+                  </ul>
+                </div>
+
+              </div>
+            </div>
 
             <div className='education__container'>
 
@@ -192,6 +202,9 @@ function Curriculum() {
                   return (
                     <div key={i} className="curriculum__education--content">
                       <div className="education__content--one">
+                        <div className="education__content--image">
+                          <img src={e.image} alt="logo" />
+                        </div>
                         <div className="education__content--title">
                           <h3>
                             <a href={e.link} target="_blank" rel="noreferrer">@{e.name}</a>

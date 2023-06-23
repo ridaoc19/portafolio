@@ -1,6 +1,7 @@
 .curriculum__container {
-  display: grid;
-  color  : black;
+  display         : grid;
+  color           : black;
+  background-color: white;
 
   h2,
   h3,
@@ -21,244 +22,174 @@
     padding : 1rem;
     display : flex;
     gap     : 1rem;
-
   }
 
   .curriculum__content {
+    display              : grid;
+    grid-template-columns: 25% 1fr;
+    gap                  : 1rem;
 
     >header {
-      background-color     : #e4e6e7;
       display              : grid;
-      grid-template-columns: 10rem 1fr;
+      grid-template-rows   : repeat(3, min-content);
+      gap                  : 1rem;
+      // box-shadow        : var(--container-shadow);
+      padding              : 0.5rem;
 
-      >div {
-        display           : grid;
-        grid-template-rows: 3rem 1fr;
-
-        h2 {
-          text-align: center;
-          margin    : 0.5rem;
-        }
-
+      >.--contact {
         >div {
-          display              : grid;
-          grid-template-columns: repeat(3, 1fr);
-          align-items          : center;
+          display: grid;
+          gap    : 0.5rem;
 
           >div {
-            >a {
-              display              : grid;
-              grid-template-columns: 1rem 1fr;
-              align-items          : center;
-              column-gap           : 0.5rem;
-            }
+            display: flex;
+            gap    : 1rem;
+          }
+        }
+      }
 
-            p {
+      >.--skill {
+        .curriculum__skill--container {
+          display                : grid;
+          // gap                 : 1rem;
+          padding-inline-start   : 1rem;
+
+          .curriculum__skill--card {
+
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
               margin: 0;
             }
 
-            img {
-              width        : 1.5rem;
-              border-radius: 0.3rem;
+            display            : grid;
+            grid-template-areas: "h4 span""progress progress";
+            justify-content    : center;
+
+            h4 {
+              grid-area : h4;
+              text-align: center;
+            }
+
+            progress {
+              grid-area: progress;
+              // width: 6rem;
+            }
+
+            span {
+              grid-area   : span;
+              font-size   : small;
+              justify-self: end;
             }
           }
-
         }
       }
     }
 
     >main {
-      display         : grid;
-      background-color: white;
-      padding         : 1rem 3rem;
-      gap             : 1rem;
+      // box-shadow        : var(--container-shadow);
+      border : 1px solid rgba(128, 128, 128, 0.122);
+      padding: 0.5rem;
 
-      img {
-        width        : 2rem;
-        border-radius: 0.3rem;
-      }
-
-      .about__container {
-        p {
-          text-align: justify;
-        }
-      }
-
-
-      .experience__skill {
+      .about__experience__education {
         display: grid;
-        gap    : 1rem;
 
-        .experience__container {
-          .experience__content {
-            display: grid;
-            gap    : 1rem;
+        .about__container {
+          h2 {
+            margin-bottom: 0;
+            text-align   : center;
+          }
 
-            >div {
-              border       : 1px solid #e4e6e7;
-              border-radius: 0.5rem;
-            }
+          h4 {
+            margin-top: 0;
+            text-align: center;
+          }
 
-            .company--content {
-              display                : grid;
-              grid-template-columns  : 2rem 1fr 9rem;
-              background-color       : #eff3f5;
-              gap                    : 1rem;
-              align-items            : center;
-              padding                : 0 0.5rem;
-              border-top-left-radius : 0.5rem;
-              border-top-right-radius: 0.5rem;
-            }
+          p {
+            text-align: justify;
+          }
 
-            .position__container {
-              display                   : grid;
-              gap                       : 0.5rem;
-              padding                   : 0.5rem 1rem;
-              border-bottom-left-radius : 0.5rem;
-              border-bottom-right-radius: 0.5rem;
-
-              h2,
-              h3,
-              h4,
-              h5,
-              h6 {
-                margin: 0;
-              }
-
-              .position--content {
-                display: grid;
-                grid-template-areas:
-                  "-name -functions"
-                  "-date -functions";
-                grid-template-columns: 10rem;
-                align-content        : center;
-                column-gap           : 0.4rem;
-                border               : 1px solid #e4e6e7;
-                padding-right        : 0.5rem;
-                border-radius        : 0.5rem;
-
-                $position: -image, -name, -date, -functions;
-
-                @each $position_each in $position {
-                  >.#{$position_each} {
-                    grid-area: $position_each;
-                  }
-                }
-
-                >.-name,
-                .-date {
-                  text-align      : center;
-                  background-color: #eff3f5;
-                }
-
-                >.-functions {
-                  display  : flex;
-                  flex-wrap: wrap;
-                  gap      : 0.5rem;
-                  padding  : 0.5rem 0;
-
-                  .functions--content {
-                    flex   : auto;
-                    display: grid;
-                    grid-template-areas:
-                      "-image -name"
-                      "-image -date";
-                    grid-template-columns: 2rem 1fr;
-                    background-color     : #eff3f5;
-                    place-items          : center;
-                    padding              : 0.2rem;
-                    border-radius        : 0.5rem;
-
-                    $functions: -image, -name, -date;
-
-                    @each $functions_each in $functions {
-                      >.#{$functions_each} {
-                        grid-area : $functions_each;
-                        align-self: center;
-                      }
-                    }
-
-                    >.-image {
-                      display: flex;
-                    }
-                  }
-                }
-              }
-            }
+          p:nth-child(4) {
+            margin-top: 0;
           }
         }
 
-        .skill__container {
-          .skill__content {
-            display: flex;
-            gap    : 1rem;
+        .experience__container {
+          .experience__title {
+            h2 {
+              margin-bottom: 0;
+            }
+          }
+
+          .experience__content {
+            display: grid;
+
+            .s645bc811e90e65aa49198dd9 {
+              display: none;
+            }
 
             >div {
-              border       : 1px solid #e4e6e7;
-              padding      : 1rem;
               border-radius: 0.5rem;
-            }
 
-            img {
-              width: 1.4rem;
-            }
+              .company--content {
+                display        : grid;
+                justify-content: center;
 
-            ul {
-              display             : grid;
-              gap                 : 1rem;
-              margin              : 0;
-              padding-inline-start: 0;
-
-              >.curriculum__skill--card {
-                display              : grid;
-                grid-template-columns: 2rem 1fr 1fr 2rem;
-                align-items          : center;
-                gap                  : 0.5rem;
-
-                >h4 {
-                  margin: 0;
+                .-date {
+                  justify-self: center;
                 }
 
-                >span {
-                  color: #1083D6;
-                  font-size: x-small;
+                h3,
+                h6 {
+                  margin: 0;
+                }
+              }
+
+              .position__container {
+                h4 {
+                  margin: 0.5rem 0;
+                }
+
+                .-functions {
+                  display: grid;
+
+                  .functions--content {
+                    ul {
+                      margin-top: 0;
+                    }
+
+                    h5 {
+                      margin: 0;
+                    }
+
+                    h4 {
+                      text-align: center;
+                      margin    : 0;
+                    }
+
+                    li {
+                      text-align: justify;
+                    }
+                  }
                 }
               }
             }
-
           }
         }
 
         .education__container {
-          .education__title {}
+          h3 {
+            margin-bottom: 0;
+          }
 
-          .education__content {
-            .curriculum__education--content {
-              .education__content--one {
-                display    : flex;
-                gap        : 1rem;
-                align-items: center;
-
-                h3 {
-                  margin: 0;
-                }
-              }
-
-              .education__content--two {
-                h4 {
-                  margin: 0;
-                }
-
-                ul {
-                  display   : grid;
-                  margin-top: 0;
-                }
-              }
-            }
+          ul {
+            margin-top          : 0;
+            padding-inline-start: 10px;
           }
         }
       }
-
     }
   }
 }
