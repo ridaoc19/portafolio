@@ -15,13 +15,14 @@ function Google() {
   }, [state.user?.user_id])
 
   useEffect(() => {
+    // eslint-disable-next-line
     /* global google */
-    google.accounts.id.initialize({
+    window.google.accounts.id.initialize({
       client_id: `${process.env.REACT_APP_CLIENT_ID_GOOGLE}`,
       callback: handleCallbackResponse,
     });
 
-    google.accounts.id.renderButton(document.getElementById("signInDiv"), {
+    window.google.accounts.id.renderButton(document.getElementById("signInDiv"), {
       theme: "filled_blue",
       size: "large",
       width: "230",
